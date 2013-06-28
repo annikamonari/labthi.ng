@@ -32,9 +32,18 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :test do
+  gem 'cucumber-rails', require: false
+end
+
 group :test, :development do
   gem 'rspec-rails'
+  gem 'guard'
+  gem 'guard-rspec'
+  require 'rbconfig'
+  gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
 end
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
