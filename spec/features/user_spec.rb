@@ -21,7 +21,6 @@ feature 'Visitor signs up' do
 
   scenario 'after logging in' do
     sign_up_with 'valid@example.com', 'password'
-
     expect(page).to have_content('Welcome, valid@example.com')
     expect(page).to have_content('Sign out')
   end

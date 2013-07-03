@@ -21,3 +21,8 @@ ul.hmenu {
 ul.hmenu li {
     display: inline;
 }
+
+p.notice {
+    background: green;
+    color: white;
+}

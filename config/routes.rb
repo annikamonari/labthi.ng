@@ -1,6 +1,14 @@
 StartIt::Application.routes.draw do
   get "home/index"
+
   devise_for :users
+
+  devise_scope :user do
+    get "register", :to => "devise/registrations#new"
+    get "login", :to => "devise/sessions#new"
+  end
+
+
   resources :ideas
 
   root to: 'home#index'
