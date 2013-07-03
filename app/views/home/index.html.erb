@@ -1,2 +1,14 @@
 <h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+<% #it would be nice to split this out into a method %>
+
+<% if current_user  then %>
+    <p><%= "Welcome, #{current_user.email}" %></p>
+<% else %>
+    <p><%= "Please sign in :)" %></p>
+<% end %>
+
+
+
+<% @idea = Idea.new %>
+<%= render partial: "ideas/form", locals: {idea: @idea} %>
