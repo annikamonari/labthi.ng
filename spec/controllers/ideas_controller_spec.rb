@@ -23,7 +23,7 @@ describe IdeasController do
   # This should return the minimal set of attributes required to create a valid
   # Idea. As you add validations to Idea, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "phase" => "1" } }
+  let(:valid_attributes) { { "phase" => "1", "brief" => "lorem ipsum dolor sit amet", "industry" => "Technology"} }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
