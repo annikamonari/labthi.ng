@@ -25,10 +25,11 @@ class IdeasController < ApplicationController
   # POST /ideas.json
   def create
     @idea = Idea.new(idea_params)
-
+    @idea.phase = 1
+    @idea.active = 'true'
     respond_to do |format|
       if @idea.save
-        format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
+        format.html { redirect_to edit_idea_path(@idea) }
         format.json { render action: 'show', status: :created, location: @idea }
       else
         format.html { render action: 'new' }

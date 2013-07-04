@@ -74,11 +74,6 @@ describe IdeasController do
         assigns(:idea).should be_a(Idea)
         assigns(:idea).should be_persisted
       end
-
-      it "redirects to the created idea" do
-        post :create, {:idea => valid_attributes}, valid_session
-        response.should redirect_to(Idea.last)
-      end
     end
 
     describe "with invalid params" do
