@@ -25,11 +25,11 @@ end
 feature 'User submits a startup idea' do
   scenario 'with valid input' do
     valid_brief = 'Social network based on premise of only disliking posts'
-    industry = 'Social Media'
-    submit_idea valid_brief, industry
+    valid_industry = 'Social Media'
+    submit_idea valid_brief, valid_industry
     page.should have_content "Great! Now let's expand on that a little."
     page.should have_content valid_brief
-    page.should have_content industry
+    find_field('Industry').value.should eq valid_industry
   end
 
   scenario 'without industry' do
