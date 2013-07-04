@@ -10,13 +10,8 @@
  *
  *= require_self
  *= require_tree .
- *= require twitter/bootstrap
  */
 
-body{
-    width:80%;
-    margin: 0 auto !important;
-}
 
 ul.hmenu {
     list-style: none;

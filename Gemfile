@@ -7,7 +7,7 @@ gem 'rails', '4.0.0'
 gem 'sqlite3'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+  gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -30,10 +30,9 @@ gem 'jbuilder', '~> 1.2'
 # user authentication
 gem 'devise', '3.0.0.rc'
 
-# Twitter Bootstrap
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-    :github => 'anjlab/bootstrap-rails',
-    :branch => '3.0.0'
+#bootstrap
+#gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'master'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
