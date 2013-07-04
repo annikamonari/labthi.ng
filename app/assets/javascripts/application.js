@@ -15,3 +15,8 @@
 //= require_tree .
 // Loads all Bootstrap javascripts
 //= require bootstrap
+
+$('.close').click(function(){
+
+    this.fadeOut();
+});

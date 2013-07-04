@@ -29,7 +29,7 @@ class IdeasController < ApplicationController
     @idea.active = 'true'
     respond_to do |format|
       if @idea.save
-        format.html { redirect_to edit_idea_path(@idea) }
+        format.html { redirect_to edit_idea_path(@idea), notice: "Great! Now let's expand on that a little." }
         format.json { render action: 'show', status: :created, location: @idea }
       else
         format.html { render action: 'new' }
