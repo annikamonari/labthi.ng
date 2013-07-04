@@ -3,7 +3,5 @@
       <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
     </li>
 <% else %>
-    <li>
-      <%= link_to('Log in', '/login')  %>
-    </li>
+      <%= nav_link('Log in', '/login')  %>
 <% end %>
