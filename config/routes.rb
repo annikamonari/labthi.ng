@@ -1,4 +1,6 @@
 StartIt::Application.routes.draw do
+  resources :aspects
+
   get "home/index"
 
   devise_for :users

@@ -1,0 +1,27 @@
+<h1>Listing aspects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Brief</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aspects.each do |aspect| %>
+      <tr>
+        <td><%= aspect.brief %></td>
+        <td><%= link_to 'Show', aspect %></td>
+        <td><%= link_to 'Edit', edit_aspect_path(aspect) %></td>
+        <td><%= link_to 'Destroy', aspect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Aspect', new_aspect_path %>
