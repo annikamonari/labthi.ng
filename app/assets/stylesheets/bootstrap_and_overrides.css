@@ -15,9 +15,3 @@ body{
     width:80%;
     margin: 0 auto;
 }
-
-a:hover {
-    color:#333;
-    background:inherit;
-    background-color: #e5e5e5;
-}
