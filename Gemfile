@@ -27,6 +27,10 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Railsadmin for creating control panels, easy viewing
+gem 'fastercsv' # Only required on Ruby 1.8 and below
+gem 'rails_admin'
+
 # user authentication
 gem 'devise', '3.0.0.rc'
 
