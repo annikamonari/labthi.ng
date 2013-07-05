@@ -33,6 +33,7 @@ gem 'devise', '3.0.0.rc'
 #bootstrap
 #gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'master'
+gem 'jquery-turbolinks'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
