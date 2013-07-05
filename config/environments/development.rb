@@ -28,5 +28,5 @@ StartIt::Application.configure do
   config.assets.debug = true
 
   # Address bootstrap + jQuery issue (Michael G)
-  config.serve_static_assets = false
+  # config.serve_static_assets = false
 end
