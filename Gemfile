@@ -35,6 +35,9 @@ gem 'devise', '3.0.0.rc'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'master'
 gem 'jquery-turbolinks'
 
+#Generate migrations for associations :)
+gem 'immigrant'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

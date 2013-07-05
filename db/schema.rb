@@ -11,13 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130705203347) do
-
-  create_table "aspects", force: true do |t|
-    t.text     "brief"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20130701002954) do
 
   create_table "ideas", force: true do |t|
     t.integer  "phase"
