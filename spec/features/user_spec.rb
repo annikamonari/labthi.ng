@@ -24,4 +24,8 @@ feature 'Visitor signs up' do
     expect(page).to have_content('Welcome, valid@example.com')
     expect(page).to have_content('Sign out')
   end
+
+  scenario 'and views profile page' do
+
+  end
 end

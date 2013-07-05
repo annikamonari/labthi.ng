@@ -35,6 +35,9 @@ gem 'devise', '3.0.0.rc'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'master'
 gem 'jquery-turbolinks'
 
+#Keep track of activity
+gem 'public_activity'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -45,6 +48,7 @@ group :test do
 end
 
 group :test, :development do
+  # gem 'capybara' This gem comes with Cucumber
   gem 'rspec-rails'
   gem 'guard'
   gem 'guard-rspec'
