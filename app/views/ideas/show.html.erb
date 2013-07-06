@@ -28,7 +28,7 @@
 <h4>Aspects:</h4>
 <% @aspects.each do |aspect| %>
     <p>
-      <%= aspect.brief %>
+      <%= link_to aspect.title, aspect %>
       by
       <%= User.find(aspect.user_id).email %>
     </p>
