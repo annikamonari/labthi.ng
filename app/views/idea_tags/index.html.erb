@@ -1,0 +1,27 @@
+<h1>Listing idea_tags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @idea_tags.each do |idea_tag| %>
+      <tr>
+        <td><%= idea_tag.name %></td>
+        <td><%= link_to 'Show', idea_tag %></td>
+        <td><%= link_to 'Edit', edit_idea_tag_path(idea_tag) %></td>
+        <td><%= link_to 'Destroy', idea_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Idea tag', new_idea_tag_path %>
