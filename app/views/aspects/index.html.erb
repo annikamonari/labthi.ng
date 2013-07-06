@@ -13,6 +13,7 @@
   <tbody>
     <% @aspects.each do |aspect| %>
       <tr>
+        <td><%= aspect.title %></td>
         <td><%= aspect.brief %></td>
         <td><%= link_to 'Show', aspect %></td>
         <td><%= link_to 'Edit', edit_aspect_path(aspect) %></td>
