@@ -4,3 +4,6 @@
 require File.expand_path('../config/application', __FILE__)
 
 StartIt::Application.load_tasks
+
+# Hides a warning from rails admin
+ENV['SKIP_RAILS_ADMIN_INITIALIZER']='true'
