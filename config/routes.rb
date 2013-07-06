@@ -1,5 +1,7 @@
 StartIt::Application.routes.draw do
   
+  resources :comments
+
   resources :solutions
 
   resources :idea_tags
