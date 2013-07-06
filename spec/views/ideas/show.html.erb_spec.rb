@@ -1,5 +1,11 @@
 require 'spec_helper'
 
+def create_aspect
+  user = FactoryGirl.create(:user)
+  valid_attributes = { "phase" => "1", "brief" => "lorem ipsum dolor sit amet", "industry" => "Technology", "user_id" => user}
+  idea = Aspect.create! valid_attributes
+end
+
 describe "ideas/show" do
   before(:each) do
     @idea = assign(:idea, stub_model(Idea,
