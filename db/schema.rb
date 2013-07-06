@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130706025433) do
+ActiveRecord::Schema.define(version: 20130706032048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20130706025433) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "idea_id"
+    t.integer  "user_id"
   end
 
   create_table "ideas", force: true do |t|
@@ -65,5 +66,6 @@ ActiveRecord::Schema.define(version: 20130706025433) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "aspects", "ideas", :name => "aspects_idea_id_fk"
+  add_foreign_key "aspects", "users", :name => "aspects_user_id_fk"
 
 end
