@@ -25,7 +25,16 @@
   <%= @idea.industry %>
 </p>
 
-<%= printAspects %>
+<h4>Aspects:</h4>
+<% @aspects.each do |aspect| %>
+    <p>
+      <%= aspect.brief %>
+      by
+      <%= User.find(aspect.user_id).email %>
+    </p>
+<% end %>
+
+
 
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <%= link_to 'Back', ideas_path %>
