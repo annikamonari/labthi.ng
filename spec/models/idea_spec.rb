@@ -17,4 +17,6 @@ describe Idea do
     article = Idea.create(phase:1, brief: "A website for crowdsourcing startup ideas", industry: "Internet")
     article.should be_valid
   end
+
+  it { should have_foreign_key_for(:aspects) }
 end

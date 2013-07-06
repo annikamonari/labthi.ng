@@ -39,8 +39,10 @@ gem 'devise', '3.0.0.rc'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'master'
 gem 'jquery-turbolinks'
 
-#Generate migrations for associations :)
+# Generate migrations for associations, uses foreigner gem :)
 gem 'immigrant'
+# Used for testing associations
+gem "foreigner-matcher", "~> 0.2.0", :require => nil
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -62,7 +64,7 @@ end
 
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+  gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
