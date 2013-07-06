@@ -18,4 +18,5 @@ describe Aspect do
     article.should be_valid
   end
 
+  it { should have_foreign_key_for(:ideas) }
 end
