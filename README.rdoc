@@ -1,14 +1,15 @@
-== README
+== Start.it
+"Start.it" is a Working pseudonym :)
 
 This readme will be on the sparse side.
 
-= Versions
+=== Versions
 - Rails 4.0.0
 - Ruby 1.9.3p392
 
 We will soon be updating to Ruby 2.0.0
 
-= Gems we use and like
+=== Gems we use and like
 - turbolinks
 - rails_admin
 - devise
@@ -17,5 +18,5 @@ We will soon be updating to Ruby 2.0.0
 - rspec
 - guard
 
-= Food we like
+=== Food we like
 - Thin_mints[https://www.google.com/search?q=thin+mints&rlz=1C1CHFX_enUS529US529&um=1&ie=UTF-8&hl=en&tbm=isch&source=og&sa=N&tab=wi&ei=X5zXUce9J4aE0QGIj4HYDA&biw=1158&bih=747&sei=ZpzXUdPJKtP_4AOLioCADQ]
