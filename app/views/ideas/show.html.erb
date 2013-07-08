@@ -25,8 +25,8 @@
   <%= @idea.industry %>
 </p>
 
-<h4>Aspects:</h4>
-<% if @aspects %>
+<% if @aspects && @aspects.count > 0 %>
+    <h4>Aspects:</h4>
     <% @aspects.each do |aspect| %>
         <p>
           <%= link_to aspect.title, aspect %>

@@ -7,7 +7,7 @@ describe "ideas/show" do
       :phase => 1,
       :brief => "MyText",
       :image => "Image",
-      :active => false,
+      :active => true,
       :industry => "Industry"
     )
   end
@@ -18,17 +18,11 @@ describe "ideas/show" do
     rendered.should match(/1/)
     rendered.should match(/MyText/)
     rendered.should match(/Image/)
-    rendered.should match(/false/)
+    rendered.should match(/true/)
     rendered.should match(/Industry/)
   end
 
   it "displays any aspects" do
-    @aspect = FactoryGirl.create(
-        :aspect,
-        :title => 'Valid title',
-        :brief => 'Valid brief',
-        :idea_id => @idea
-    )
     render
     rendered.should match(/Valid title/)
     rendered.should match(/Valid brief/)

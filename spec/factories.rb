@@ -5,6 +5,17 @@ FactoryGirl.define do
       "person#{n}@example.com"
     end
     password '12345678'
+
+    factory :user_with_ideas do
+      after_create do |user|
+        create(:idea, user: user)
+      end
+    end
+    factory :user_with_aspects do
+      after_create do |user|
+        create(:aspect, user: user)
+      end
+    end
   end
 
   # This will use the User class (Admin would have been guessed)
@@ -17,8 +28,8 @@ FactoryGirl.define do
   factory :aspect do
     title 'Valid title'
     brief 'Valid brief'
-    user
     idea
+    user
   end
 
   factory :idea do
@@ -26,6 +37,11 @@ FactoryGirl.define do
     phase 1
     active true
     industry 'Technology'
+    factory :idea_with_aspects do
+      after_create do |idea|
+        create(:idea, aspect: aspect)
+      end
+    end
     user
   end
 end

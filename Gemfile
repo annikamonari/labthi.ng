@@ -59,6 +59,7 @@ group :test, :development do
   gem "factory_girl_rails", "~> 4.0"
   gem 'rspec-rails'
   gem 'guard'
+  gem 'spork'
   gem 'guard-rspec'
   require 'rbconfig'
   gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
