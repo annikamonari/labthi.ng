@@ -24,24 +24,4 @@ FactoryGirl.define do
     last_name  'User'
     admin      true
   end
-
-  factory :aspect do
-    title 'Valid title'
-    brief 'Valid brief'
-    idea
-    user
-  end
-
-  factory :idea do
-    brief 'Valid brief'
-    phase 1
-    active true
-    industry 'Technology'
-    factory :idea_with_aspects do
-      after_create do |idea|
-        create(:idea, aspect: aspect)
-      end
-    end
-    user
-  end
 end
