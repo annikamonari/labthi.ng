@@ -6,6 +6,8 @@
 development:
   adapter: postgresql
   database: app_development
+  encoding: LATIN1
+  host: localhost
   username: postgres
   password: banana
   pool: 5
@@ -17,6 +19,8 @@ development:
 test:
   adapter: postgresql
   database: app_test
+  encoding: LATIN1
+  host: localhost
   username: postgres
   password: banana
   pool: 5
@@ -25,6 +29,8 @@ test:
 production:
   adapter: postgresql
   database: app_production
+  encoding: LATIN1
+  host: localhost
   username: postgres
   password: banana
   pool: 5

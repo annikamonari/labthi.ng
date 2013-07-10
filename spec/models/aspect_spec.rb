@@ -10,7 +10,7 @@ describe Aspect do
     aspect.should_not be_valid
   end
   it "is not valid without a user" do
-    aspect = Aspect.create(brief: "Valid brief")
+    aspect = Aspect.create(user: nil)
     aspect.should_not be_valid
   end
   it "is valid with a brief" do
@@ -21,5 +21,6 @@ describe Aspect do
     aspect.should be_valid
   end
 
+  it { should have_foreign_key_for(:users) }
   it { should have_foreign_key_for(:ideas) }
 end

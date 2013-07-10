@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e39525e-1ee7-4ac2-afa1-943b854f0902" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/features/aspect_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/aspect.rb" afterPath="$PROJECT_DIR$/app/models/aspect.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/factories/aspect.rb" afterPath="$PROJECT_DIR$/spec/factories/aspect.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/aspect_spec.rb" afterPath="$PROJECT_DIR$/spec/models/aspect_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/comment_spec.rb" afterPath="$PROJECT_DIR$/spec/models/comment_spec.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.yml" afterPath="$PROJECT_DIR$/config/database.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/factories/idea.rb" afterPath="$PROJECT_DIR$/spec/factories/idea.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ideas_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/ideas_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/views/home/index.html.erb_spec.rb" afterPath="$PROJECT_DIR$/spec/views/home/index.html.erb_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/support/features/session_helpers.rb" afterPath="$PROJECT_DIR$/spec/support/features/session_helpers.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ideas/show.html.erb" afterPath="$PROJECT_DIR$/app/views/ideas/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/views/ideas/show.html.erb_spec.rb" afterPath="$PROJECT_DIR$/spec/views/ideas/show.html.erb_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/spec_helper.rb" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/start.it.iml" afterPath="$PROJECT_DIR$/.idea/start.it.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/factories/user.rb" afterPath="$PROJECT_DIR$/spec/factories/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="start.it.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,8 +42,8 @@
     <file path="/scaffolds.css.scss" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373025019495" ignored="false" />
     <file path="/user.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373419026185" ignored="false" />
     <file path="/aspect.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373418314534" ignored="false" />
-    <file path="/database.yml" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373417322433" ignored="false" />
-    <file path="/aspect_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373420087542" ignored="false" />
+    <file path="/database.yml" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373421151756" ignored="false" />
+    <file path="/aspect_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373420621641" ignored="false" />
     <file path="/README.rdoc" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373084839152" ignored="false" />
     <file path="/solution.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373086069972" ignored="false" />
     <file path="/Rakefile" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373089443799" ignored="false" />
@@ -71,6 +55,7 @@
     <file path="/ideas_helper_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373119518469" ignored="false" />
     <file path="/factories.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373324443097" ignored="false" />
     <file path="$PROJECT_DIR$/db/schema.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373417779528" ignored="false" />
+    <file path="/comment_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373420578262" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,10 +75,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="aspect_spec.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="aspect_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/models/aspect_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="3" selection-start="735" selection-end="735" vertical-scroll-proportion="0.565097">
+            <state line="14" column="5" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comment_spec.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/models/comment_spec.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="36" selection-start="113" selection-end="120" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -117,10 +111,28 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="idea.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/factories/idea.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="0" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="aspect.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/factories/aspect.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="7" column="3" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="database.yml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/database.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="17" selection-start="728" selection-end="728" vertical-scroll-proportion="0.7534626">
               <folding />
             </state>
           </provider>
@@ -144,7 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/rspec-rails-2.14.0/lib/rspec/rails/example/view_example_group.rb" />
         <option value="$PROJECT_DIR$/spec/factories/aspect.rb" />
         <option value="$PROJECT_DIR$/app/views/ideas/show.html.erb" />
         <option value="$PROJECT_DIR$/spec/features/user_spec.rb" />
@@ -155,11 +166,12 @@
         <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/spec/features/idea_spec.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/config/database.yml" />
         <option value="$PROJECT_DIR$/spec/features/aspect_spec.rb" />
         <option value="$PROJECT_DIR$/app/models/aspect.rb" />
         <option value="$PROJECT_DIR$/spec/factories/user.rb" />
+        <option value="$PROJECT_DIR$/spec/models/comment_spec.rb" />
         <option value="$PROJECT_DIR$/spec/models/aspect_spec.rb" />
+        <option value="$PROJECT_DIR$/config/database.yml" />
       </list>
     </option>
   </component>
@@ -225,25 +237,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="start.it" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="start.it" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="factories" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -679,7 +673,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="580" y="0" width="1020" height="860" extended-state="0" />
+    <frame x="580" y="0" width="1020" height="860" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32918397" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -763,13 +757,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spec/features/user_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="16" selection-start="103" selection-end="115" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="71" column="21" selection-start="2719" selection-end="2719" vertical-scroll-proportion="0.5055402">
@@ -780,13 +767,6 @@
     <entry file="file://$PROJECT_DIR$/config/application.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="7" selection-start="1450" selection-end="1450" vertical-scroll-proportion="0.7912553">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="684" selection-end="684" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -840,23 +820,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/factories/aspect.rb">
+    <entry file="file://$PROJECT_DIR$/spec/models/aspect_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="3" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0">
+        <state line="14" column="5" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/factories/idea.rb">
+    <entry file="file://$PROJECT_DIR$/spec/models/comment_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="160" selection-end="160" vertical-scroll-proportion="0.16481994">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/factories/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0">
+        <state line="4" column="36" selection-start="113" selection-end="120" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -868,9 +841,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/aspect_spec.rb">
+    <entry file="file://$PROJECT_DIR$/spec/factories/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="3" selection-start="735" selection-end="735" vertical-scroll-proportion="0.565097">
+        <state line="27" column="0" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/factories/idea.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/factories/aspect.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="3" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="17" selection-start="728" selection-end="728" vertical-scroll-proportion="0.7534626">
           <folding />
         </state>
       </provider>
