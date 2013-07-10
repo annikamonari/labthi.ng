@@ -25,8 +25,15 @@
   <%= @idea.industry %>
 </p>
 
-<% if @aspects && @aspects.count > 0 %>
+<p>
+  <strong>User:</strong>
+  <%= @idea.user_id %>
+</p>
+
+<% @aspects = Aspect.where(idea_id: @idea) %>
+<% if @aspects.count > 0 %>
     <h4>Aspects:</h4>
+    <p>Number of aspects: <%= @aspects.count %></p>
     <% @aspects.each do |aspect| %>
         <p>
           <%= link_to aspect.title, aspect %>
@@ -34,6 +41,8 @@
           <%= User.find(aspect.user_id).email %>
         </p>
     <% end %>
+<% else %>
+    <h3>No aspects</h3>
 <% end %>
 
 

@@ -45,6 +45,9 @@ gem 'immigrant'
 # Used for testing associations
 gem "foreigner-matcher", "~> 0.2.0", :require => nil
 
+# server for fast development
+gem 'thin'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -54,12 +57,16 @@ group :test do
   gem 'cucumber-rails', require: false
 end
 
+
+
 group :test, :development do
   # gem 'capybara' This gem comes with Cucumber
   gem "factory_girl_rails", "~> 4.0"
   gem 'rspec-rails'
   gem 'guard'
+  gem 'faker'
   gem 'spork'
+  gem 'launchy'
   gem 'guard-rspec'
   require 'rbconfig'
   gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i

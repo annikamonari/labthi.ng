@@ -16,5 +16,13 @@ module Features
       fill_in 'Password', with: user.password
       click_button 'Sign in'
     end
+
+    def submit_idea(brief, industry, path = '/ideas/new')
+      sign_in
+      visit path
+      fill_in 'Brief', with: brief
+      fill_in 'Industry', with: industry
+      click_button 'Create Idea'
+    end
   end
 end

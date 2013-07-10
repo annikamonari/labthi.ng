@@ -7,7 +7,7 @@ development:
   adapter: postgresql
   database: app_development
   username: postgres
-  password: admin532
+  password: banana
   pool: 5
   timeout: 5000
 
@@ -18,7 +18,7 @@ test:
   adapter: postgresql
   database: app_test
   username: postgres
-  password: admin532
+  password: banana
   pool: 5
   timeout: 5000
 
@@ -26,6 +26,6 @@ production:
   adapter: postgresql
   database: app_production
   username: postgres
-  password: admin532
+  password: banana
   pool: 5
   timeout: 5000

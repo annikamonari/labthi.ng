@@ -3,9 +3,9 @@
   <component name="DataSourceManagerImpl" format="xml" hash="2343404766">
     <data-source source="LOCAL" name="Rails start.it: production" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="378e621a-5d29-4de7-a3fd-3b354a3dc06f">
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:db/production.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:postgresql:app_production</jdbc-url>
       <user-name>postgres</user-name>
-      <user-password>dfcbdfcedfc7dfc3dfc4df9fdf99df98</user-password>
+      <user-password>dfc8dfcbdfc4dfcbdfc4dfcb</user-password>
       <libraries>
         <library>
           <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/postgresql-driver-license.txt</url>
@@ -19,7 +19,7 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:app_test</jdbc-url>
       <user-name>postgres</user-name>
-      <user-password>dfcbdfcedfc7dfc3dfc4df9fdf99df98</user-password>
+      <user-password>dfc8dfcbdfc4dfcbdfc4dfcb</user-password>
       <libraries>
         <library>
           <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/postgresql-driver-license.txt</url>
@@ -33,7 +33,7 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:app_development</jdbc-url>
       <user-name>postgres</user-name>
-      <user-password>dfcbdfcedfc7dfc3dfc4df9fdf99df98</user-password>
+      <user-password>dfc8dfcbdfc4dfcbdfc4dfcb</user-password>
       <libraries>
         <library>
           <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/postgresql-driver-license.txt</url>

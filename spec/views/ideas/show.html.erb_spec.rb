@@ -2,13 +2,19 @@ require 'spec_helper'
 
 describe "ideas/show" do
   before(:each) do
-    @idea = FactoryGirl.create(
+    @user = create(:user)
+    @idea = create(
       :idea,
       :phase => 1,
       :brief => "MyText",
-      :image => "Image",
       :active => true,
-      :industry => "Industry"
+      :industry => "Industry",
+      :user_id => @user
+    )
+    @aspect = create(
+      :aspect,
+      :user_id => @user,
+      :idea_id => @idea
     )
   end
 
@@ -20,11 +26,5 @@ describe "ideas/show" do
     rendered.should match(/Image/)
     rendered.should match(/true/)
     rendered.should match(/Industry/)
-  end
-
-  it "displays any aspects" do
-    render
-    rendered.should match(/Valid title/)
-    rendered.should match(/Valid brief/)
   end
 end

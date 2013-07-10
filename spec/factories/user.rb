@@ -1,27 +1,27 @@
-# This will guess the User class
 FactoryGirl.define do
+
+  sequence(:email){ |n| "person-#{n}@example.com" }
+
   factory :user do
-    sequence :email do |n|
-      "person#{n}@example.com"
-    end
-    password '12345678'
-
+    email
+    password               '12345678'
+    password_confirmation  '12345678'
+=begin
     factory :user_with_ideas do
-      after_create do |user|
-        create(:idea, user: user)
+      ignore do
+        ideas_count 5
       end
-    end
-    factory :user_with_aspects do
-      after_create do |user|
-        create(:aspect, user: user)
-      end
-    end
-  end
 
-  # This will use the User class (Admin would have been guessed)
-  factory :admin, class: User do
-    first_name 'Admin'
-    last_name  'User'
-    admin      true
+      after_create do |user, evaluator|
+        FactoryGirl.create_list(:idea, evaluator.ideas_count, user: user)
+      end
+    end
+
+    factory :user_with_aspects do
+      ignore do
+        aspects_count 5
+      end
+    end
+=end
   end
 end

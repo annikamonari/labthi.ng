@@ -10,7 +10,6 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
-    @aspects = Aspect.where(idea_id: @idea)
   end
 
   # GET /ideas/new
