@@ -1,0 +1,983 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6e39525e-1ee7-4ac2-afa1-943b854f0902" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\public\favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\idea_tags\show.json.jbuilder" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\controllers\aspects_controller_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\bin\rails" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\README.rdoc" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\devise\mailer\unlock_instructions.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\public\404.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\Rakefile" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\config\initializers\rails_admin.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\solutions\show.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\solutions\_form.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\config\initializers\mime_types.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\aspects\index.json.jbuilder" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\comments\show.json.jbuilder" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\config\environments\production.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\config\environment.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\controllers\comments_controller.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\vendor\assets\stylesheets\.keep" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\controllers\application_controller.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\shared\_flash_messages.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\features\user_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\config\boot.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\models\idea_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\ideas\index.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\controllers\home_controller_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\devise\passwords\new.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\stylesheets\aspects.css.scss" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\solutions\show.json.jbuilder" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\helpers\ideas_helper.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\helpers\ideas_helper_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\config\environments\development.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\helpers\application_helper.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\db\seeds.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\comments\_form.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\javascripts\ideas.js.coffee" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\support\features\idea.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\mailers\.keep" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\requests\solutions_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\stylesheets\bootstrap_and_overrides.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\stylesheets\solutions.css.scss" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\devise\unlocks\new.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\routing\ideas_routing_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\config\initializers\inflections.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\layouts\_navbar.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\helpers\home_helper_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\config\environments\test.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\ideas\edit.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\comments\new.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\public\robots.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\idea_tags\index.json.jbuilder" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\support\devise.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\aspects\new.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\config\initializers\backtrace_silencers.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\helpers\comments_helper.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\javascripts\idea_tags.js.coffee" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\controllers\ideas_controller_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\aspects\index.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\idea_tags\new.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\solutions\edit.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\models\idea_tag_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\devise\menu\_registration_items.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\database.db" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\helpers\solutions_helper.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\javascripts\comments.js.coffee" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\devise\registrations\new.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\devise\menu\_login_items.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\aspects\show.json.jbuilder" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\ideas\_short_form.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\models\aspect_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\javascripts\solutions.js.coffee" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\helpers\aspects_helper.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\stylesheets\comments.css.scss" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\devise\mailer\reset_password_instructions.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\helpers\comments_helper_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\controllers\idea_tags_controller_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\features\aspect_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\idea_tags\_form.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\models\idea_tag.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\images\.keep" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\controllers\concerns\.keep" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\features\idea_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\stylesheets\ideas.css.scss" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\config\initializers\filter_parameter_logging.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\config.ru" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\helpers\solutions_helper_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\aspects\_form.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\config\application.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\controllers\idea_tags_controller.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\devise\mailer\confirmation_instructions.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\requests\ideas_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\factories\user.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\stylesheets\application.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\comments\show.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\routing\aspects_routing_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\stylesheets\scaffolds.css.scss" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\bin\bundle" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\helpers\idea_tags_helper_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\factories\idea.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\controllers\solutions_controller_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\devise\registrations\edit.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\models\solution.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\controllers\solutions_controller.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\home\index.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\public\500.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\idea_tags\index.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\models\aspect.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\bin\rake" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\layouts\application.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\routing\comments_routing_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\comments\edit.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\models\solution_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\javascripts\home.js.coffee" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\spec_helper.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\requests\comments_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\ideas\_long_form.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\models\comment.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\support\features\session_helpers.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\ideas\new.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\stylesheets\home.css.scss" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\routing\idea_tags_routing_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\controllers\comments_controller_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\solutions\index.json.jbuilder" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\idea_tags\show.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\solutions\new.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\public\422.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\javascripts\rails_admin\rails_admin.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\requests\aspects_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\Gemfile.lock" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\controllers\ideas_controller.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\comments\index.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\devise\sessions\new.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\helpers\idea_tags_helper.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\stylesheets\idea_tags.css.scss" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\db\schema.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\models\idea.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\config\initializers\devise.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\devise\shared\_links.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\helpers\aspects_helper_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\ideas\show.json.jbuilder" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\solutions\index.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\ideas\show.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\aspects\show.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\aspects\edit.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\comments\index.json.jbuilder" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\models\user.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\Gemfile" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\config\routes.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\javascripts\aspects.js.coffee" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\idea_tags\edit.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\controllers\home_controller.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\controllers\aspects_controller.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\requests\idea_tags_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\helpers\home_helper.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\log\.keep" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\javascripts\bootstrap.js.coffee" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\support\features.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\config\database.yml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\devise\confirmations\new.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\ideas\index.json.jbuilder" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\views\devise\passwords\edit.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\models\comment_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\routing\solutions_routing_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\models\.keep" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\Guardfile" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\spec\factories\aspect.rb" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\assets\javascripts\application.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sites\start.it\start.it\app\models\concerns\.keep" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
+    <ignored path="start.it.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373499147545" ignored="false" />
+    <file path="/Gemfile" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373343023298" ignored="false" />
+    <file path="/spec_helper.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373341882684" ignored="false" />
+    <file path="/idea_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372437692146" ignored="false" />
+    <file path="/ideas_controller.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373092249589" ignored="false" />
+    <file path="/idea.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373326818025" ignored="false" />
+    <file path="/routes.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373026740702" ignored="false" />
+    <file path="/visitor_signs_up_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372641435424" ignored="false" />
+    <file path="/session_helpers.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373334153772" ignored="false" />
+    <file path="/features.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372641496287" ignored="false" />
+    <file path="/user_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373026848293" ignored="false" />
+    <file path="/home_controller.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372812587728" ignored="false" />
+    <file path="/home_controller_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372805892357" ignored="false" />
+    <file path="/index.html.erb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373117240100" ignored="false" />
+    <file path="/_registration_items.html.erb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372818012168" ignored="false" />
+    <file path="/application.html.erb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372973959453" ignored="false" />
+    <file path="/_login_items.html.erb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373026911160" ignored="false" />
+    <file path="/new.html.erb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372995878730" ignored="false" />
+    <file path="/application.css" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372972852052" ignored="false" />
+    <file path="/ideas_controller_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372905594869" ignored="false" />
+    <file path="/home_helper_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372899200998" ignored="false" />
+    <file path="/index.html.erb_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372909710839" ignored="false" />
+    <file path="/edit.html.erb_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372901787957" ignored="false" />
+    <file path="/edit.html.erb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373051366175" ignored="false" />
+    <file path="/_short_form.html.erb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372973115002" ignored="false" />
+    <file path="/_long_form.html.erb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372973206421" ignored="false" />
+    <file path="/_navbar.html.erb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372974964595" ignored="false" />
+    <file path="/application_helper.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372975697285" ignored="false" />
+    <file path="/bootstrap_and_overrides.css" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373065408901" ignored="false" />
+    <file path="/application.js" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372994174803" ignored="false" />
+    <file path="/development.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1372976981568" ignored="false" />
+    <file path="/scaffolds.css.scss" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373025019495" ignored="false" />
+    <file path="/user.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373419026185" ignored="false" />
+    <file path="/aspect.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373418314534" ignored="false" />
+    <file path="/database.yml" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373421151756" ignored="false" />
+    <file path="/aspect_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373420621641" ignored="false" />
+    <file path="/README.rdoc" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373084839152" ignored="false" />
+    <file path="/solution.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373086069972" ignored="false" />
+    <file path="/Rakefile" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373089443799" ignored="false" />
+    <file path="/seeds.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373090532651" ignored="false" />
+    <file path="/show.html.erb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373328656584" ignored="false" />
+    <file path="/ideas_helper.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373091979104" ignored="false" />
+    <file path="/_idea_aspects_form.html.erb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373116487056" ignored="false" />
+    <file path="/show.html.erb_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373331173661" ignored="false" />
+    <file path="/ideas_helper_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373119518469" ignored="false" />
+    <file path="/factories.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373324443097" ignored="false" />
+    <file path="/comment_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373420578262" ignored="false" />
+    <file path="/.rspec" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373502042933" ignored="false" />
+    <file path="/aspects_controller_spec.rb" changelist="6e39525e-1ee7-4ac2-afa1-943b854f0902" time="1373511336259" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="start.it" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="aspect_spec.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/models/aspect_spec.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="37" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="aspects_controller_spec.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spec/controllers/aspects_controller_spec.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="67" column="7" selection-start="2103" selection-end="2103" vertical-scroll-proportion="0.40338504">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".rspec" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.rspec">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="15" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comment_spec.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/models/comment_spec.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="3" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/spec/features/user_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/_views/ideas/show.html.erb_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/views/ideas/show.html.erb_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/support/features/session_helpers.rb" />
+        <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
+        <option value="$PROJECT_DIR$/config/application.rb" />
+        <option value="$PROJECT_DIR$/spec/features/idea_spec.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/spec/features/aspect_spec.rb" />
+        <option value="$PROJECT_DIR$/app/models/aspect.rb" />
+        <option value="$PROJECT_DIR$/spec/factories/user.rb" />
+        <option value="$PROJECT_DIR$/spec/models/comment_spec.rb" />
+        <option value="$PROJECT_DIR$/config/database.yml" />
+        <option value="$PROJECT_DIR$/spec/models/aspect_spec.rb" />
+        <option value="$PROJECT_DIR$/.rspec" />
+        <option value="$PROJECT_DIR$/spec/controllers/aspects_controller_spec.rb" />
+      </list>
+    </option>
+  </component>
+  <component name="NamedScopeManager">
+    <scope name="Spec" pattern="file:spec//*" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="405" />
+    <option name="width" value="1195" />
+    <option name="height" value="860" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="RailsProjectView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start.it" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start.it" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Default" />
+        <subPane subId="Problems" />
+        <subPane subId="Tests" />
+        <subPane subId="Spec">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="start.it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="start.it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="start.it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="spec">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Changed Files" />
+        <subPane subId="All">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="start.it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start.it" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start.it" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start.it" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start.it" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start.it" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start.it" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start.it" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start.it" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start.it" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="113" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="141" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="131" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/ducks/kws ducks" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="142" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="805" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="801" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="131" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="130" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FullScreen" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="options.lastSelected" value="editor.preferences.tabs" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Sites\start.it\spec\factories" />
+      <recent name="C:\Sites\start.it\spec\support\features" />
+      <recent name="C:\Sites\start.it\app\views\layouts" />
+      <recent name="C:\Sites\start.it\app\views\home" />
+      <recent name="C:\Sites\start.it\spec\features" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Rails.Development: start.it">
+    <configuration default="true" type="RakeRunConfigurationType" factoryName="Rake">
+      <module name="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="RailsRunConfigurationType" factoryName="Rails">
+      <predefined_log_file id="RUBY_RAILS_SERVER" enabled="true" />
+      <module name="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="127.0.0.1" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="DUMMY_APP" VALUE="test/dummy" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="RSpecRunConfigurationType" factoryName="RSpec">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="RubyRunConfigurationType" factoryName="Ruby">
+      <module name="" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest">
+      <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
+      <module name="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberRunConfigurationType" factoryName="Cucumber">
+      <predefined_log_file id="RUBY_CUCUMBER" enabled="true" />
+      <module name="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="ANSICON" value="" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*.feature" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="TEST_TAGS_FILTER" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="TEST_NAME_FILTER" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="CUCUMBER_ARGS" VALUE="--color -r features" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="VERBOSE_OPTION" VALUE="false" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="CUCUMBER_RUNNER_PATH" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_RUNNER" VALUE="false" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="SETTINGS_VERSION" VALUE="2" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test" type="RakeRunConfigurationType" factoryName="Rake">
+      <module name="start.it" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="RAILS_ENV" value="test" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="test" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE=":test_unit " />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="spec" type="RakeRunConfigurationType" factoryName="Rake">
+      <module name="start.it" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="spec" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE=":rspec " />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Production: start.it" type="RailsRunConfigurationType" factoryName="Rails">
+      <predefined_log_file id="RUBY_RAILS_SERVER" enabled="true" />
+      <module name="start.it" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="127.0.0.1" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="DUMMY_APP" VALUE="test/dummy" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="production" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Development: start.it" type="RailsRunConfigurationType" factoryName="Rails">
+      <predefined_log_file id="RUBY_RAILS_SERVER" enabled="true" />
+      <module name="start.it" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="127.0.0.1" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="DUMMY_APP" VALUE="test/dummy" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <method />
+    </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Rake.test" />
+      <item index="1" class="java.lang.String" itemvalue="Rake.spec" />
+      <item index="2" class="java.lang.String" itemvalue="Rails.Production: start.it" />
+      <item index="3" class="java.lang.String" itemvalue="Rails.Development: start.it" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e39525e-1ee7-4ac2-afa1-943b854f0902" name="Default" comment="" />
+      <created>1372429305874</created>
+      <updated>1372429305874</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="405" y="0" width="1195" height="860" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32918397" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32918397" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24967825" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15180935" sideWeight="0.67081606" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3305671" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32827586" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32689655" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3305671" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/spec/models/aspect_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/controllers/aspects_controller_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="37" selection-start="2135" selection-end="2135" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.rspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="15" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/comment_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="3" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/comment_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="3" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.rspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="15" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/aspect_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="37" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/controllers/aspects_controller_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="7" selection-start="2103" selection-end="2103" vertical-scroll-proportion="0.40338504">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <last-edited>Spec</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+          <order>
+            <scope name="Spec" />
+          </order>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+
