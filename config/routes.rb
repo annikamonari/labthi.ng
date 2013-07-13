@@ -6,8 +6,11 @@ StartIt::Application.routes.draw do
 
   resources :idea_tags
 
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   resources :aspects
+
+  devise_for :admins
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  
 
   get "home/index"
 
