@@ -15,8 +15,8 @@ feature 'Visitor views an idea' do
 
 
     visit url_for(@idea)
-    expect(page).to have_content(@idea)
-    expect(page).to have_content(@aspect)
+    expect(page).to have_content(@idea.brief)
+    expect(page).to have_content(@aspect.brief)
     expect(page).to have_no_content("No aspects")
   end
 end
