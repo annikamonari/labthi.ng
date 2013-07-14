@@ -10,7 +10,7 @@ feature 'Visitor views an idea' do
     @aspect = FactoryGirl.create(
         :aspect,
         :user => @user,
-        :user => @idea
+        :idea => @idea
     )
 
 
