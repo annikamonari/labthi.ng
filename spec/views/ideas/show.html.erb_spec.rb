@@ -9,12 +9,12 @@ describe "ideas/show" do
       :brief => "MyText",
       :active => true,
       :industry => "Industry",
-      :user_id => @user
+      :user => @user
     )
     @aspect = create(
       :aspect,
-      :user_id => @user,
-      :idea_id => @idea
+      :user => @user,
+      :idea => @idea
     )
   end
 
