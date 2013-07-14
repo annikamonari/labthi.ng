@@ -13,10 +13,10 @@ describe Comment do
     comment = Comment.create(solution: nil)
     comment.should_not be_valid
   end
-  it "is valid with a message, user, and aspect" do
+  it "is valid with a message, user, and solution" do
     comment = Comment.create(brief: "Valid message",
                            user: FactoryGirl.create(:user),
-                           idea: FactoryGirl.create(:aspect)
+                           solution: FactoryGirl.create(:solution)
     )
     comment.should be_valid
   end

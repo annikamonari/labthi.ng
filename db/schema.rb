@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130714060159) do
+ActiveRecord::Schema.define(version: 20130714061930) do
 
   create_table "admins", force: true do |t|
     t.string   "email",              default: "", null: false
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20130714060159) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "aspect_id"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|
@@ -109,5 +110,6 @@ ActiveRecord::Schema.define(version: 20130714060159) do
   add_foreign_key "ideas", "users", :name => "ideas_user_id_fk"
 
   add_foreign_key "solutions", "aspects", :name => "solutions_aspect_id_fk"
+  add_foreign_key "solutions", "users", :name => "solutions_user_id_fk"
 
 end
