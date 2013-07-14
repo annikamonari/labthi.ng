@@ -1,6 +1,5 @@
 FactoryGirl.define do
 
-
   factory :user do
     sequence(:email) {
       |n| time = Time.new

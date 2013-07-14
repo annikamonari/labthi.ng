@@ -7,6 +7,9 @@ describe "aspects/show" do
     brief: "MyBrief"
   )
   end
+  after(:each)do
+    @aspect.destroy
+  end
 
   it "renders attributes in <p>" do
     render

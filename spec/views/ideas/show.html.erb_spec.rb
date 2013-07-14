@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "ideas/show" do
   before(:each) do
-    @user = create(:user)
-    @idea = create(
+    @user = FactoryGirl.create(:user)
+    @idea = FactoryGirl.create(
       :idea,
       :phase => 1,
       :brief => "MyText",
@@ -11,11 +11,16 @@ describe "ideas/show" do
       :industry => "Industry",
       :user => @user
     )
-    @aspect = create(
+    @aspect = FactoryGirl.create(
       :aspect,
       :user => @user,
       :idea => @idea
     )
+  end
+  after(:each) do
+    @aspect.destroy
+    @idea.destroy
+    @user.destroy
   end
 
   it "renders attributes in <p>" do

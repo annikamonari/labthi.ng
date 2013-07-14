@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Visitor views an idea' do
-  scenario 'From home page' do
+  scenario 'From home page' do 
     @user = FactoryGirl.create(:user)
     @idea = FactoryGirl.create(
         :idea,
