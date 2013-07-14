@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Comment do
-  it "is not valid without a message" do
+  it "is not valid without a brief" do
     comment = Comment.create(brief: nil)
     comment.should_not be_valid
   end
@@ -9,8 +9,8 @@ describe Comment do
     comment = Comment.create(user: nil)
     comment.should_not be_valid
   end
-  it "is not valid without an aspect" do
-    comment = Comment.create(aspect: nil)
+  it "is not valid without a solution" do
+    comment = Comment.create(solution: nil)
     comment.should_not be_valid
   end
   it "is valid with a message, user, and aspect" do
