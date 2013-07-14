@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130714055635) do
+ActiveRecord::Schema.define(version: 20130714060159) do
 
   create_table "admins", force: true do |t|
     t.string   "email",              default: "", null: false
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20130714055635) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "solution_id"
   end
 
   create_table "idea_tags", force: true do |t|
@@ -102,6 +103,7 @@ ActiveRecord::Schema.define(version: 20130714055635) do
   add_foreign_key "aspects", "ideas", :name => "aspects_idea_id_fk"
   add_foreign_key "aspects", "users", :name => "aspects_user_id_fk"
 
+  add_foreign_key "comments", "solutions", :name => "comments_solution_id_fk"
   add_foreign_key "comments", "users", :name => "comments_user_id_fk"
 
   add_foreign_key "ideas", "users", :name => "ideas_user_id_fk"
