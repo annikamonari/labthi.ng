@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Comment do
   it "is not valid without a message" do
-    comment = Comment.create(message: nil)
+    comment = Comment.create(brief: nil)
     comment.should_not be_valid
   end
   it "is not valid without a user" do
@@ -14,7 +14,7 @@ describe Comment do
     comment.should_not be_valid
   end
   it "is valid with a message, user, and aspect" do
-    comment = Comment.create(message: "Valid message",
+    comment = Comment.create(brief: "Valid message",
                            user: FactoryGirl.create(:user),
                            idea: FactoryGirl.create(:aspect)
     )
@@ -22,5 +22,4 @@ describe Comment do
   end
 
   it { should have_foreign_key_for(:users) }
-  it { should have_foreign_key_for(:aspects) }
 end
