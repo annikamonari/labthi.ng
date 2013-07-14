@@ -5,12 +5,12 @@ feature 'Visitor views an idea' do
     @user = FactoryGirl.create(:user)
     @idea = FactoryGirl.create(
         :idea,
-        :user_id => @user
+        :user => @user
     )
     @aspect = FactoryGirl.create(
         :aspect,
-        :user_id => @user,
-        :idea_id => @idea
+        :user => @user,
+        :user => @idea
     )
 
 
