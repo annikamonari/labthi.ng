@@ -5,7 +5,14 @@ describe AspectsController do
   # This should return the minimal set of attributes required to create a valid
   # Aspect. As you add validations to Aspect, be sure to
   # adjust the attributes here as well.
-  valid_attributes = FactoryGirl.build(:aspect).attributes
+
+      #aspect = FactoryGirl.build(:aspect)
+    let(:valid_attributes){ {
+      title: "my title",
+      brief: "this is a valid brief",
+      user_id: FactoryGirl.create(:user).id,
+      idea_id: FactoryGirl.create(:idea, :user_id=>:user_id).id
+    } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

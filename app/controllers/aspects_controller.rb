@@ -69,6 +69,6 @@ class AspectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def aspect_params
-      params.require(:aspect).permit(:brief)
+      params.require(:aspect).permit(:brief, :user_id, :idea_id)
     end
 end

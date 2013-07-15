@@ -12,7 +12,8 @@ end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
-
+ require 'factory_girl'
+ require 'factory_girl_rails'
 end
 
 # --- Instructions ---
@@ -94,7 +95,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of

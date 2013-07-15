@@ -28,7 +28,7 @@ describe IdeasController do
       phase: 1,
       active: true,
       industry: 'Technology',
-      user_id: FactoryGirl.build(:user).id
+      user: FactoryGirl.build(:user)
     }}
 
   # This should return the minimal set of values that should be in the session
