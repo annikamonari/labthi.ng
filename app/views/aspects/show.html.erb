@@ -1,10 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <h1><%= @aspect.title %></h1>
   <strong>Brief:</strong>
-  <%= @aspect.title %>
   <%= @aspect.brief %>
 </p>
+
+<% @solutions = Solution.where(aspect_id: @idea) %>
+<% if @solutions.count > 0 %>
+    <h4>Aspects:</h4>
+    <p>Number of solutions: <%= @solutions.count %></p>
+    <% @solutions.each do |aspect| %>
+        <p>
+          <%= link_to solution.title, solution %>
+          by
+          <%= User.find(solution.user_id).email %>
+        </p>
+    <% end %>
+<% else %>
+    <p id="notice">
+    This aspect does not yet have a solution. Why don't you describe one?
+    </p>
+<% end %>
 
 <%= link_to 'Edit', edit_aspect_path(@aspect) %> |
 <%= link_to 'Back', Idea.find(@aspect.idea_id) %>

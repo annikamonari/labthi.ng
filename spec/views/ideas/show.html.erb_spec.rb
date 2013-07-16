@@ -17,11 +17,6 @@ describe "ideas/show" do
       :idea => @idea
     )
   end
-  after(:each) do
-    @aspect.destroy
-    @idea.destroy
-    @user.destroy
-  end
 
   it "renders attributes in <p>" do
     render

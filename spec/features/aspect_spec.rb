@@ -12,11 +12,6 @@ feature 'Visitor views an aspect' do
             :user => @user,
             :idea => @idea
         )
-        @solution = FactoryGirl.create(
-            :solution,
-            :aspect => @aspect,
-            :user => @user
-            )
     end
   scenario 'on its idea page' do 
     visit url_for(@aspect.idea)
@@ -24,7 +19,7 @@ feature 'Visitor views an aspect' do
     expect(page).to have_content(@aspect.title)
     expect(page).to have_no_content("No aspects")
   end
-  scenario 'that has no comment' do 
+  scenario 'that has no solution' do 
     visit url_for(@aspect)
     expect(page).to have_no_content(@idea.brief)
     expect(page).to have_content(@idea.title)
@@ -32,13 +27,17 @@ feature 'Visitor views an aspect' do
     expect(page).to have_content("This aspect does not yet have a solution. Why don't you describe one?")
   end
 
-  scenario 'that has a comment' do 
+  scenario 'that has a solution' do 
+    @solution = FactoryGirl.create(
+        :solution,
+        :aspect => @aspect,
+        :user => @user
+        )
     visit url_for(@aspect)
     expect(page).to have_no_content(@idea.brief)
     expect(page).to have_content(@idea.title)
     expect(page).to have_content(@aspect.title)
     expect(page).to have_content(@solution.brief)
   end
-
 
 end
