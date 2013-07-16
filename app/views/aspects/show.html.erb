@@ -6,13 +6,13 @@
   <%= @aspect.brief %>
 </p>
 
-<% @solutions = Solution.where(aspect_id: @idea) %>
+<% @solutions = Solution.where(aspect_id: @aspect) %>
 <% if @solutions.count > 0 %>
-    <h4>Aspects:</h4>
+    <h4>Solutions:</h4>
     <p>Number of solutions: <%= @solutions.count %></p>
-    <% @solutions.each do |aspect| %>
+    <% @solutions.each do |solution| %>
         <p>
-          <%= link_to solution.title, solution %>
+          <%= link_to solution.brief, solution %>
           by
           <%= User.find(solution.user_id).email %>
         </p>
