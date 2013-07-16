@@ -26,16 +26,12 @@ describe SolutionsController do
   # valid_attributes = FactoryGirl.build(:solution).attributes
   let(:valid_attributes){
     @solution = FactoryGirl.build(:solution)
-=begin
-    @idea = FactoryGirl.create(:idea)
-    @aspect = FactoryGirl.create(:aspect, :user => @user)
-=end
     {
     brief: @solution.brief,
     user_id: @solution.user.id,
     aspect_id: @solution.aspect.id
+    }
   }
-}
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
