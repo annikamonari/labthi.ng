@@ -24,6 +24,9 @@ module Features
       fill_in 'Industry', with: industry
       click_button 'Create Idea'
       # Insert information to test updates here
+    end
+
+    def update_idea()
       click_button 'Update Idea'
     end
 
