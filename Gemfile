@@ -58,7 +58,9 @@ group :test do
   gem "database_cleaner", ">= 0.8.0"
 end
 
-
+group :development do
+  gem 'guard-livereload'
+end
 
 group :test, :development do
   # gem 'capybara' This gem comes with Cucumber

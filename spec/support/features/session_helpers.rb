@@ -23,6 +23,21 @@ module Features
       fill_in 'Brief', with: brief
       fill_in 'Industry', with: industry
       click_button 'Create Idea'
+      # Insert information to test updates here
+      click_button 'Update Idea'
+    end
+
+    # This must be called from an idea page
+    def submit_aspect(title, brief)
+      click_link 'Add aspect'
+      fill_in 'Title', with: title
+      fill_in 'Brief', with: brief
+      click_link 'Add aspect'
+    end
+    # This must be called from an aspect page
+    def submit_solution(brief)
+      fill_in 'Brief', with: brief
+      click_button 'Add solution'
     end
   end
 end
