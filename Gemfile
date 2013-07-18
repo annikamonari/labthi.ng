@@ -71,6 +71,8 @@ group :test, :development do
   gem 'spork'
   gem 'launchy'
   gem 'guard-rspec'
+  #gem 'warden', '>= 1.2.2'
+  #
   require 'rbconfig'
   gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
 end
