@@ -1,9 +1,10 @@
 # spec/support/features/session_helpers.rb
 module Features
   module SessionHelpers
-    def sign_up_with(email, password)
+    def sign_up_with(email, name, password)
       visit '/register'
       fill_in 'Email', with: email
+      fill_in 'Name', with: name
       fill_in 'Password', with: password
       fill_in 'Password confirmation', with: password
       click_button 'Register'
@@ -13,6 +14,7 @@ module Features
       user = create(:user)
       visit '/login'
       fill_in 'Email', with: user.email
+      fill_in 'Name', with: user.name
       fill_in 'Password', with: user.password
       click_button 'Sign in'
     end
