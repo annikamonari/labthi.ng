@@ -12,10 +12,17 @@
   <% end %>
 
   <div class="field">
+    <% if user_signed_in? %>
+    <%= hidden_field_tag :user_id, current_user.id %>
+    <%= hidden_field_tag :idea_id, params[:idea_id] %>
+    <% end %>
+    <%= f.label :title %><br>
+    <%= f.text_area :title %>
     <%= f.label :brief %><br>
     <%= f.text_area :brief %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

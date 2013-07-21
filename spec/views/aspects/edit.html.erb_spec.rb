@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "aspects/edit" do
+  include Devise::TestHelpers
   before(:each) do
     @aspect = assign(:aspect, stub_model(Aspect,
       :brief => "MyText"

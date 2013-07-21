@@ -4,6 +4,12 @@
   <h1><%= @aspect.title %></h1>
   <strong>Brief:</strong>
   <%= @aspect.brief %>
+  <br />
+  <strong>User:</strong>
+  <%= @aspect.user_id %>
+  <br />
+  <strong>Idea:</strong>
+  <%= link_to @aspect.idea.brief, @aspect.idea %>
 </p>
 
 <% @solutions = Solution.where(aspect_id: @aspect) %>

@@ -6,8 +6,8 @@ describe AspectsController do
   # Aspect. As you add validations to Aspect, be sure to
   # adjust the attributes here as well.
 
-      #aspect = FactoryGirl.build(:aspect)
-    let(:valid_attributes){ {
+    let(:valid_attributes){
+      {
       title: "my title",
       brief: "this is a valid brief",
       user_id: FactoryGirl.create(:user).id,
@@ -17,7 +17,12 @@ describe AspectsController do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # AspectsController. Be sure to keep this updated too.
-  let(:valid_session) { { } }
+  let(:valid_session) { {  } }
+
+  before(:each) {
+    @user = User.find(valid_attributes[:user_id])
+    sign_in @user
+  }
 
   describe "GET index" do
     it "assigns all aspects as @aspects" do
@@ -37,7 +42,7 @@ describe AspectsController do
 
   describe "GET new" do
     it "assigns a new aspect as @aspect" do
-      get :new, {}, valid_session
+      get :new, {:idea_id => valid_attributes[:idea_id]}, valid_session
       assigns(:aspect).should be_a_new(Aspect)
     end
   end
@@ -53,20 +58,20 @@ describe AspectsController do
   describe "POST create" do
     describe "with valid params" do
       it "creates a new Aspect" do
-
         expect {
-          post :create, :aspect => valid_attributes
+          post :create, :aspect => valid_attributes,
+          :idea_id => valid_attributes[:idea_id]
         }.to change{Aspect.count}.by(1)
       end
 
       it "assigns a newly created aspect as @aspect" do
-        post :create, :aspect => valid_attributes
+        post :create, :aspect => valid_attributes, :idea_id => valid_attributes[:idea_id]
         assigns(:aspect).should be_a(Aspect)
         assigns(:aspect).should be_persisted
       end
 
       it "redirects to the created aspect" do
-        post :create, :aspect => valid_attributes
+        post :create, :aspect => valid_attributes, :idea_id => valid_attributes[:idea_id]
         response.should redirect_to(Aspect.last)
       end
     end
@@ -75,14 +80,14 @@ describe AspectsController do
       it "assigns a newly created but unsaved aspect as @aspect" do
         # Trigger the behavior that occurs when invalid params are submitted
         Aspect.any_instance.stub(:save).and_return(false)
-        post :create, {:aspect => { "brief" => "invalid value" }}, valid_session
+        post :create, {:aspect => { "brief" => "invalid value" }, :idea_id => valid_attributes[:idea_id]}, valid_session
         assigns(:aspect).should be_a_new(Aspect)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Aspect.any_instance.stub(:save).and_return(false)
-        post :create, {:aspect => { "brief" => "invalid value" }}, valid_session
+        post :create, {:aspect => { "brief" => "invalid value" }, :idea_id => valid_attributes[:idea_id]}, valid_session
         response.should render_template("new")
       end
     end

@@ -44,8 +44,8 @@
 <% else %>
     <h3>No aspects</h3>
 <% end %>
-
-
-
+<p>
+<%= link_to "Add aspect", controller: "aspects", action: "new", idea_id: @idea.id %>
+</p>
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <%= link_to 'Back', ideas_path %>
