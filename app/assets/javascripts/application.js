@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require best_in_place
 //= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
@@ -29,3 +30,8 @@
 //= require twitter/bootstrap/bootstrap-tab.js
 //= require twitter/bootstrap/bootstrap-typeahead.js
 //= require_tree .
+
+$(document).ready(function() {
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
+});

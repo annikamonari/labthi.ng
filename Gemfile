@@ -37,6 +37,8 @@ gem 'rails_admin'
 # user authentication
 gem 'devise', '3.0.0.rc'
 
+gem 'best_in_place', github: 'bernat/best_in_place'
+
 #bootstrap
 #gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'master'
