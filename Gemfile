@@ -42,9 +42,6 @@ gem 'devise', '3.0.0.rc'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'master'
 gem 'jquery-turbolinks'
 
-# inline editing
-gem 'bootstrap-editable-rails'
-
 # Generate migrations for associations, uses foreigner gem :)
 gem 'immigrant'
 # Used for testing associations

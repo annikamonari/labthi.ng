@@ -28,6 +28,4 @@
 //= require twitter/bootstrap/bootstrap-scrollspy.js
 //= require twitter/bootstrap/bootstrap-tab.js
 //= require twitter/bootstrap/bootstrap-typeahead.js
-//= require bootstrap-editable
-//= require bootstrap-editable-rails
 //= require_tree .
