@@ -7,11 +7,6 @@ feature 'Visitor submits an aspect' do
             :idea,
             :user => @user
         )
-        @aspect = FactoryGirl.build(
-            :aspect,
-            :idea => @idea,
-            :user => @user
-            )
         @idea_brief = 'Social network based on premise of only disliking posts'
         @industry = 'Social Media'
         @aspect_title ='Target demographic'

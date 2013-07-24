@@ -4,10 +4,10 @@ describe "aspects/index" do
   before(:each) do
     assign(:aspects, [
       stub_model(Aspect,
-        :brief => "MyText"
+        :title => "MyText"
       ),
       stub_model(Aspect,
-        :brief => "MyText"
+        :title => "MyText"
       )
     ])
   end

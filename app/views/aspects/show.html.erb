@@ -6,7 +6,7 @@
   <%= @aspect.brief %>
   <br />
   <strong>User:</strong>
-  <%= @aspect.user_id %>
+  <%= User.find(@aspect.user_id).email %>
   <br />
   <strong>Idea:</strong>
   <%= link_to @aspect.idea.brief, @aspect.idea %>

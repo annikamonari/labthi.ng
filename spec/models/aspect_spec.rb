@@ -9,6 +9,10 @@ describe Aspect do
     aspect = Aspect.create(brief: nil)
     aspect.should_not be_valid
   end
+  it "is not valid without a idea" do
+    aspect = Aspect.create(idea: nil)
+    aspect.should_not be_valid
+  end
   it "is not valid without a user" do
     aspect = Aspect.create(user: nil)
     aspect.should_not be_valid
