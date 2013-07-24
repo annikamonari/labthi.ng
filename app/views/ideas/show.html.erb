@@ -37,6 +37,7 @@
     <% @aspects.each do |aspect| %>
         <p>
           <%= link_to aspect.title, aspect %>
+          <%= best_in_place aspect, :brief %>
           by
           <%= User.find(aspect.user_id).email %>
         </p>
