@@ -6,8 +6,6 @@ This readme will be on the sparse side.
 - Rails 4.0.0
 - Ruby 2.0
 
-We will soon be updating to Ruby 2.0.0
-
 === Gems we use and like
 - turbolinks
 - rails_admin
