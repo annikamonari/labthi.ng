@@ -1,0 +1,10 @@
+<% # This template is called from Idea#show %>
+<li>
+  <p>
+    <strong>Solution:</strong>
+    <%= best_in_place solution, :brief %>
+  </p>
+  <p>
+  <%= link_to 'Edit', edit_solution_path(solution) %>
+  </p>
+</li>

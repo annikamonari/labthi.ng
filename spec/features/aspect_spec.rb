@@ -2,11 +2,6 @@ require 'spec_helper'
 
 feature 'Visitor submits an aspect' do
     before(:each) do
-        @user = FactoryGirl.create(:user)
-        @idea = FactoryGirl.create(
-            :idea,
-            :user => @user
-        )
         @idea_brief = 'Social network based on premise of only disliking posts'
         @industry = 'Social Media'
         @aspect_title ='Target demographic'
@@ -17,6 +12,16 @@ feature 'Visitor submits an aspect' do
         submit_idea @idea_brief, @industry
         update_idea
         submit_aspect @aspect_title, @aspect_brief
+        expect(page).to have_content(@idea_brief)
+        expect(page).to have_content(@aspect_brief)
+  end
+
+  scenario 'with invalid params' do
+        submit_idea @idea_brief, @industry
+        update_idea
+        submit_aspect @aspect_title, ""
+        expect(page).to have_no_content(@idea_brief)
+        expect(page).to have_no_content(@aspect_brief)
   end
 
 end

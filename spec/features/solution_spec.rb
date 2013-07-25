@@ -1,21 +1,22 @@
 require 'spec_helper'
 
 feature 'Visitor submits a solution' do
-=begin #This is a rough of some tests we may want in this spec
-  scenario 'on an aspect with no solution' do 
-    visit url_for(@aspect)
-    expect(page).to have_content(@idea.title)
-    expect(page).to have_content(@aspect.title)
-    expect(page).to have_content("This aspect does not yet have a solution. Why don't you describe one?")
+    before(:each) do
+        @idea_brief = 'Social network based on premise of only disliking posts'
+        @industry = 'Social Media'
+        @aspect_title ='Target demographic'
+        @aspect_brief = 'This social network should target a speific audience'
+        @solution_brief = 'This product could target upper middle class males in NYC'
+    end
+
+  scenario 'with valid params' do
+        submit_idea @idea_brief, @industry
+        update_idea
+        submit_aspect @aspect_title, @aspect_brief
+        submit_solution @solution_brief
+        expect(page).to have_content(@idea_brief)
+        expect(page).to have_content(@aspect_brief)
+        expect(page).to have_content(@solution_brief)
   end
 
-  scenario 'that has a solution' do 
-    submit_solution 'Target young adults in the United States'
-    visit url_for(@aspect)
-    expect(page).to have_no_content(@idea.brief)
-    expect(page).to have_content(@idea.title)
-    expect(page).to have_content(@aspect.title)
-    expect(page).to have_content(@solution.brief)
-  end
-=end
 end

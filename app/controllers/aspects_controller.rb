@@ -38,7 +38,7 @@ class AspectsController < ApplicationController
     end
     respond_to do |format|
       if @aspect.save
-        format.html { redirect_to @aspect, notice: 'Aspect was successfully created.' }
+        format.html { redirect_to Idea.find(@aspect.idea_id), notice: 'Aspect was successfully created.' }
         format.json { render action: 'show', status: :created, location: @aspect }
       else
         format.html { render action: 'new' }

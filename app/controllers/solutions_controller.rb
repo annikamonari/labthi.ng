@@ -1,5 +1,7 @@
 class SolutionsController < ApplicationController
   before_action :set_solution, only: [:show, :edit, :update, :destroy]
+  before_action :set_aspect, only: [:new]
+  before_action :authenticate_user!
 
   # GET /solutions
   # GET /solutions.json
@@ -25,10 +27,12 @@ class SolutionsController < ApplicationController
   # POST /solutions.json
   def create
     @solution = Solution.new(solution_params)
+    @solution.aspect_id = params[:aspect_id]
+    @solution.user = current_user
 
     respond_to do |format|
       if @solution.save
-        format.html { redirect_to @solution, notice: 'Solution was successfully created.' }
+        format.html { redirect_to Idea.find(Aspect.find(@solution.aspect_id).idea_id), notice: 'Solution was successfully created.' }
         format.json { render action: 'show', status: :created, location: @solution }
       else
         format.html { render action: 'new' }
@@ -65,6 +69,10 @@ class SolutionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_solution
       @solution = Solution.find(params[:id])
+    end
+
+    def set_aspect
+      @aspect = Aspect.find(params[:aspect_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

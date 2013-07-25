@@ -14,6 +14,10 @@
   <div class="field">
     <%= f.label :brief %><br>
     <%= f.text_area :brief %>
+
+    <% if user_signed_in? %>
+    <%= hidden_field_tag :aspect_id, params[:aspect_id] %>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

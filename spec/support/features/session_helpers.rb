@@ -41,8 +41,9 @@ module Features
     end
     # This must be called from an aspect page
     def submit_solution(brief)
+      click_link 'Add solution'
       fill_in 'Brief', with: brief
-      click_button 'Add solution'
+      click_button 'Create Solution'
     end
   end
 end
