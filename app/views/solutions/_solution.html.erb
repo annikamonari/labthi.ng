@@ -3,7 +3,11 @@
   <p>
     <strong>Solution:</strong>
     <%= best_in_place solution, :brief %>
-    | 
-  <%= link_to 'Edit', edit_solution_path(solution) %>
   </p>
+    <ul>
+      <%= render Comment.where(solution_id: solution.id) || "No comments found" %>
+	 		<p>
+	      <%= link_to "Add comment", controller: "comments", action: "new", solution_id: solution.id %>
+	  	</p>
+    </ul>
 </li>

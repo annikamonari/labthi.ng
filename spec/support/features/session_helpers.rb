@@ -38,11 +38,17 @@ module Features
       fill_in 'aspect_brief', with: brief
       click_button 'Create Aspect'
     end
-    # This must be called from an aspect page
+    # This must be called from an idea page
     def submit_solution(brief)
       click_link 'Add solution'
       fill_in 'Brief', with: brief
       click_button 'Create Solution'
+    end
+    # This must be called from an idea page
+    def submit_comment(brief)
+      click_link 'Add comment'
+      fill_in 'Brief', with: brief
+      click_button 'Create Comment'
     end
   end
 end

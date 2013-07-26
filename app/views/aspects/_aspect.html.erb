@@ -11,10 +11,9 @@
       <%= best_in_place aspect, :brief %>
     </p>
     <ul>
-      <%= render Solution.where(aspect_id: aspect.id) || "No solutions found" %>
+      <%= render Solution.where(aspect_id: aspect.id) || "No solutions found" %>   
+      <p>
+        <%= link_to "Add solution", controller: "solutions", action: "new", aspect_id: aspect.id %>
+      </p>
     </ul>
-      <% #render template: "solutions/index", locals: Solution.where(aspect_id: aspect.id) %>
-    <p>
-      <%= link_to "Add solution", controller: "solutions", action: "new", aspect_id: aspect.id %>
-    </p>
 </li>
