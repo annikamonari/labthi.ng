@@ -8,8 +8,10 @@
 
 5.times do |i|
   u = User.new(
-      :email => "email#{i}@domain.com",
-      :password => '12341234'
+      :email => "email#{Time.new.usec}@domain.com",
+      :password => '12341234',
+      :name => "Robot R2D#{i}"
   )
   u.save!
+  FactoryGirl.create(:solution)
 end
