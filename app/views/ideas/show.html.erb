@@ -32,7 +32,7 @@
 
 
 <h4>Aspects:</h4>
-  <ul>
+  <ul class="aspects">
     <%= render Aspect.where(idea_id: @idea.id) || "No aspects found" %>
   </ul>
 <p>

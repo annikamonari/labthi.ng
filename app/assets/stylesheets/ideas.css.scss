@@ -1,3 +1,16 @@
 // Place all the styles related to the Ideas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.aspects{
+	background: #eee;
+	padding: 8px;
+	list-style:none;
+	ul{
+		background:#fff;
+		padding: 8px;
+		list-style:none;
+		margin-bottom:8px;
+	}
+}
