@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "solutions/edit" do
+  include Devise::TestHelpers
   before(:each) do
     @solution = assign(:solution, stub_model(Solution,
       :brief => "MyText"

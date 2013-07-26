@@ -70,9 +70,9 @@ describe AspectsController do
         assigns(:aspect).should be_persisted
       end
 
-      it "redirects to the created aspect" do
+      it "redirects to the associated idea" do
         post :create, :aspect => valid_attributes, :idea_id => valid_attributes[:idea_id]
-        response.should redirect_to(Aspect.last)
+        response.should redirect_to(Idea.find(Aspect.last.idea_id))
       end
     end
 

@@ -32,37 +32,9 @@
 
 
 <h4>Aspects:</h4>
-<ul>
-<%= render Aspect.where(idea_id: @idea.id) || "No aspects found" %>
-</ul>
-<!--
-<% if @aspects.count > 0 %>
-    <hr />
-    <h4>Aspects:</h4>
-    <p>Number of aspects: <%= @aspects.count %></p>
-    <ul>
-    <% @aspects.each do |aspect| %>
-      <li>
-        <p>
-          <%= link_to aspect.title, aspect %>
-          by
-          <%= User.find(aspect.user_id).email %>
-          </p>
-          <p>
-          <%= best_in_place aspect, :brief %>
-        </p> 
-          <%= render Solution.where(aspect_id: aspect.id) || "No solutions found" %>
-          <% #render template: "solutions/index", locals: Solution.where(aspect_id: aspect.id) %>
-          <p>
-          <%= link_to "Add solution", controller: "solutions", action: "new", aspect_id: aspect.id %>
-        </p>
-      </li>
-    <% end %>
-    </ul>
-<% else %>
-    <h3>No aspects</h3>
-<% end %>
--->
+  <ul>
+    <%= render Aspect.where(idea_id: @idea.id) || "No aspects found" %>
+  </ul>
 <p>
 <%= link_to "Add aspect", controller: "aspects", action: "new", idea_id: @idea.id %>
 </p>

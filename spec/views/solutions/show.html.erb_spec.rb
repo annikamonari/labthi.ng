@@ -1,10 +1,11 @@
 require 'spec_helper'
 
 describe "solutions/show" do
+  include Devise::TestHelpers
   before(:each) do
-    @solution = assign(:solution, stub_model(Solution,
+    @solution = FactoryGirl.create(:solution,
       :brief => "MyText"
-    ))
+    )
   end
 
   it "renders attributes in <p>" do
