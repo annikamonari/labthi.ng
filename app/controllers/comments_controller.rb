@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :set_solution, only: [:new]
-  before_action :set_idea, only: [:new, :create, :show]
+  before_action :set_idea, only: [:show, :new, :create]
   before_action :authenticate_user!
 
   # GET /comments
@@ -77,7 +77,7 @@ class CommentsController < ApplicationController
     end
 
     def set_idea
-      if @comment
+      if @comment.solution_id
         solution_id = @comment.solution_id
       else
         solution_id = params[:solution_id]

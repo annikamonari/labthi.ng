@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "comments/new" do
+  include Devise::TestHelpers
   before(:each) do
     assign(:comment, stub_model(Comment,
       :brief => "MyText"

@@ -1,10 +1,11 @@
 require 'spec_helper'
 
 describe "comments/show" do
+  include Devise::TestHelpers
   before(:each) do
-    @comment = assign(:comment, stub_model(Comment,
+    @comment = FactoryGirl.create(:comment,
       :brief => "MyText"
-    ))
+    )
   end
 
   it "renders attributes in <p>" do
