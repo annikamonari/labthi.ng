@@ -70,7 +70,7 @@ describe SolutionsController do
         assigns(:solution).should be_persisted
       end
 
-      it "redirects to the created solution" do
+      it "redirects to the created solution's idea" do
         post :create, :solution => valid_attributes, :aspect_id => valid_attributes[:aspect_id]
         response.should redirect_to(Idea.find(Aspect.find(Solution.last.aspect_id).idea_id))
       end

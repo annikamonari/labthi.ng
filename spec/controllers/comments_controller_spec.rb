@@ -37,6 +37,11 @@ describe CommentsController do
   # CommentsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before(:each) {
+    @user = User.find(valid_attributes[:user_id])
+    sign_in @user
+  }
+
   describe "GET index" do
     it "assigns all comments as @comments" do
       comment = Comment.create! valid_attributes
@@ -55,7 +60,7 @@ describe CommentsController do
 
   describe "GET new" do
     it "assigns a new comment as @comment" do
-      get :new, {}, valid_session
+      get :new, {:solution_id => valid_attributes[:solution_id]}, valid_session
       assigns(:comment).should be_a_new(Comment)
     end
   end
@@ -72,19 +77,19 @@ describe CommentsController do
     describe "with valid params" do
       it "creates a new Comment" do
         expect {
-          post :create, {:comment => valid_attributes}, valid_session
+          post :create, :comment => valid_attributes, :solution_id => valid_attributes[:solution_id]
         }.to change(Comment, :count).by(1)
       end
 
       it "assigns a newly created comment as @comment" do
-        post :create, {:comment => valid_attributes}, valid_session
+        post :create, :comment => valid_attributes, :solution_id => valid_attributes[:solution_id]
         assigns(:comment).should be_a(Comment)
         assigns(:comment).should be_persisted
       end
 
       it "redirects to the created comment" do
-        post :create, {:comment => valid_attributes}, valid_session
-        response.should redirect_to(Comment.last)
+        post :create, :comment => valid_attributes, :solution_id => valid_attributes[:solution_id]
+        response.should redirect_to((Idea.find(Aspect.find(Solution.find(Comment.last.solution_id).aspect_id).idea_id)))
       end
     end
 
@@ -92,14 +97,14 @@ describe CommentsController do
       it "assigns a newly created but unsaved comment as @comment" do
         # Trigger the behavior that occurs when invalid params are submitted
         Comment.any_instance.stub(:save).and_return(false)
-        post :create, {:comment => { "brief" => "invalid value" }}, valid_session
+        post :create, {:comment => { "brief" => "invalid value" }, :solution_id => valid_attributes[:solution_id]}, valid_session
         assigns(:comment).should be_a_new(Comment)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Comment.any_instance.stub(:save).and_return(false)
-        post :create, {:comment => { "brief" => "invalid value" }}, valid_session
+        post :create, {:comment => { "brief" => "invalid value" }, :solution_id => valid_attributes[:solution_id]}, valid_session
         response.should render_template("new")
       end
     end

@@ -77,7 +77,7 @@ class CommentsController < ApplicationController
     end
 
     def set_idea
-      if @comment.solution_id
+      if defined? @comment
         solution_id = @comment.solution_id
       else
         solution_id = params[:solution_id]
