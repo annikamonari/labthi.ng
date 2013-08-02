@@ -18,7 +18,7 @@ module Features
       click_button 'Sign in'
     end
 
-    def submit_idea(brief, industry, path = '/ideas/new')
+    def submit_idea(brief = 'valid brief', industry = 'valid industry', path = '/ideas/new')
       sign_in
       visit path
       fill_in 'Brief', with: brief
