@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
   before_action :set_aspects, only: [:show]
-  before_action :authenticate_user!, only: [:update]
+  before_action :auth_user!, only: [:update] #cutstom method below
 
   # GET /ideas
   # GET /ideas.json
@@ -76,5 +76,13 @@ class IdeasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
       params.require(:idea).permit(:phase, :brief, :image, :active, :industry, :user_id, :aspects_attributes => [:id, :brief, :title])
+    end
+
+    def auth_user!(opts = {})
+      if admin_signed_in?
+        authenticate_admin!
+      else
+        authenticate_user!
+      end
     end
 end
