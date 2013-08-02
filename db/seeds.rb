@@ -17,4 +17,6 @@
 
 Admin.create(email: "mpgarate@gmail.com", password: "banana123")
 Admin.create(email: "annikamonari@gmail.com", password: "banana123")
+User.create(email: "mpgarate@gmail.com", password: "banana123")
+User.create(email: "annikamonari@gmail.com", password: "banana123")
 end

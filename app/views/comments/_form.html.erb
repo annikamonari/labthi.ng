@@ -15,6 +15,7 @@
     <%= f.label :brief %><br>
     <%= f.text_area :brief %>
     <% if user_signed_in? %>
+    <%= hidden_field_tag :user_id, current_user.id %>
     <%= hidden_field_tag :solution_id, params[:solution_id] %>
     <% end %>
   </div>
