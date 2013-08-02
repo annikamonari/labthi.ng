@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :set_solution, only: [:new]
   before_action :set_idea, only: [:show, :new, :create]
-  before_action :authenticate_user!
+  before_action :auth_user!
 
   # GET /comments
   # GET /comments.json

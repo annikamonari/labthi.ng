@@ -1,7 +1,7 @@
 class AspectsController < ApplicationController
   before_action :set_aspect, only: [:show, :edit, :update, :destroy]
   before_action :set_idea, only: [:new]
-  before_action :authenticate_user!
+  before_action :auth_user!
 
   # GET /aspects
   # GET /aspects.json
