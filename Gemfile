@@ -52,6 +52,9 @@ gem "foreigner-matcher", "~> 0.2.0", :require => nil
 # server for fast development
 gem 'thin'
 
+# Activity Stream
+gem 'public_activity'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
