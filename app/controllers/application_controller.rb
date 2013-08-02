@@ -9,4 +9,12 @@ class ApplicationController < ActionController::Base
   	def configure_permitted_parameters
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
   	end
+  	
+    def auth_user!(opts = {})
+      if admin_signed_in?
+        authenticate_admin!
+      else
+        authenticate_user!
+      end
+    end
 end
