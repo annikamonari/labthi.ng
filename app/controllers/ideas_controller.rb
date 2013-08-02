@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
   before_action :set_aspects, only: [:show]
+  before_action :authenticate_user!, only: [:update]
 
   # GET /ideas
   # GET /ideas.json
@@ -42,6 +43,7 @@ class IdeasController < ApplicationController
   # PATCH/PUT /ideas/1
   # PATCH/PUT /ideas/1.json
   def update
+    @idea.create_activity :update, owner: (current_user || current_admin)
     respond_to do |format|
       if @idea.update(idea_params)
         format.html { redirect_to @idea, notice: 'Idea was successfully updated.' }

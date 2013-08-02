@@ -5,10 +5,10 @@
       <% #nav_link is a custom method defined in application_helper.rb %>
       <%= nav_link 'Home', root_url %>
       <%= nav_link 'Ideas', '/ideas' %>
-        <%= render 'devise/menu/registration_items' %>
-        <%= render 'devise/menu/login_items' %>
-        <%= nav_link 'Rails Admin', '/admin' if admin_signed_in?%>
-
+      <%= nav_link 'Recent Activity', '/activities/index' %>
+      <%= render 'devise/menu/registration_items' %>
+      <%= render 'devise/menu/login_items' %>
+      <%= nav_link 'Rails Admin', '/admin' if admin_signed_in?%>
     </ul>
   </div>
 </div>

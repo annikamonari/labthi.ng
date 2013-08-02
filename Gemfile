@@ -53,7 +53,7 @@ gem "foreigner-matcher", "~> 0.2.0", :require => nil
 gem 'thin'
 
 # Activity Stream
-gem 'public_activity'
+gem 'public_activity', github: 'pokonski/public_activity'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

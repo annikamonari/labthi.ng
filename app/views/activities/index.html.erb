@@ -1,0 +1,6 @@
+<% @activities.each do |activity| %>
+  <div class="activity">
+    <%= (activity.owner.name || activity.owner.email) if activity.owner %>
+    <%= render_activity activity %>
+  </div>
+<% end %>

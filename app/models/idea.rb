@@ -1,4 +1,6 @@
 class Idea < ActiveRecord::Base
+  include PublicActivity::Model
+  # tracked owner: ->(controller, model) { controller && controller.current_user }
   validates :phase, presence: true
   validates :brief, presence: true
   validates :industry, presence: true
