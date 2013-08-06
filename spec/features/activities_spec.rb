@@ -1,13 +1,12 @@
 require 'spec_helper'
 
 feature 'Visitor updates' do
-    before(:each) do
-    end
+
   scenario 'an idea and exptects it in the activity stream' do
         submit_idea "import corn-free pringles from europe"
         update_idea
         visit '/activities/index'
-        expect(page).to have_content('Created an idea import corn-free pringles from europe')
+        expect(page).to have_content('updated an idea import corn-free pringles from europe')
   end
   scenario 'an aspect and exptects it in the activity stream' do
         submit_idea "import corn-free pringles from europe"
