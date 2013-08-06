@@ -6,7 +6,7 @@ StartIt::Application.routes.draw do
   resources :solutions
 
   resources :idea_tags
-  resources :users, :except => [:create]
+  resources :users, :except => [:create, :destroy]
   resources :aspects
   resources :ideas
 
