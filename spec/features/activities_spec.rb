@@ -1,18 +1,19 @@
 require 'spec_helper'
 
-feature 'Visitor updates an idea' do
+feature 'Visitor updates' do
     before(:each) do
-        @idea_brief = 'Social network based on premise of only disliking posts'
-        @industry = 'Social Media'
-        @aspect_title ='Target demographic'
-        @aspect_brief = 'This social network should target a speific audience'
     end
-
-  scenario 'with valid params' do
-        submit_idea
+  scenario 'an idea and exptects it in the activity stream' do
+        submit_idea "import corn-free pringles from europe"
         update_idea
-        visit 'activities/index'
-        expect(page).to have_content('updated an idea valid brief')
+        visit '/activities/index'
+        expect(page).to have_content('Created an idea import corn-free pringles from europe')
   end
-
+  scenario 'an aspect and exptects it in the activity stream' do
+        submit_idea "import corn-free pringles from europe"
+        update_idea
+        submit_aspect "Shipping considerations", "An efficient packing and shipping method should be considered"
+        visit '/activities/index'
+        expect(page).to have_content('added an aspect Shipping considerations')
+  end
 end
