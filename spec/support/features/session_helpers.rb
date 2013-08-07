@@ -36,6 +36,13 @@ module Features
       click_link 'Add aspect'
       fill_in 'aspect_title', with: title
       fill_in 'aspect_brief', with: brief
+      click_button 'Save Aspect'
+    end
+    # This must be called from an idea page
+    def update_aspect(title, brief)
+      click_link 'Add aspect'
+      fill_in 'aspect_title', with: title
+      fill_in 'aspect_brief', with: brief
       click_button 'Create Aspect'
     end
     # This must be called from an idea page

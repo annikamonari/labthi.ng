@@ -51,6 +51,7 @@ class AspectsController < ApplicationController
   # PATCH/PUT /aspects/1
   # PATCH/PUT /aspects/1.json
   def update
+    @aspect.create_activity :update, owner: (current_user || current_admin)
     respond_to do |format|
       if @aspect.update(aspect_params)
         format.html { redirect_to @aspect, notice: 'Aspect was successfully updated.' }
