@@ -38,6 +38,7 @@ class AspectsController < ApplicationController
     end
     respond_to do |format|
       if @aspect.save
+        @aspect.create_activity :create, owner: (current_user || current_admin)
         format.html { redirect_to Idea.find(@aspect.idea_id), notice: 'Aspect was successfully created.' }
         format.json { render action: 'show', status: :created, location: @aspect }
       else
@@ -50,6 +51,7 @@ class AspectsController < ApplicationController
   # PATCH/PUT /aspects/1
   # PATCH/PUT /aspects/1.json
   def update
+    @aspect.create_activity :update, owner: (current_user || current_admin)
     respond_to do |format|
       if @aspect.update(aspect_params)
         format.html { redirect_to @aspect, notice: 'Aspect was successfully updated.' }

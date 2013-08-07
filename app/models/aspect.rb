@@ -1,4 +1,5 @@
 class Aspect < ActiveRecord::Base
+  include PublicActivity::Model
   validates :brief, presence: true
   validates :user_id, presence: true
   validates :idea_id, presence: true

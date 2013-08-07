@@ -2,30 +2,29 @@ StartIt::Application.routes.draw do
   
   get "activities/index"
   resources :comments
-
   resources :solutions
-
   resources :idea_tags
-  resources :users, :except => [:create]
   resources :aspects
   resources :ideas
 
-  devise_for :admins
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-  
-  get 'show/:id' => 'user#show'
-  get "home/index"
-
+  # Users and Admins
   devise_for :users
 
   devise_scope :user do
+    get "users/sign_in", :to => "devise/sessions#new"
     get "register", :to => "devise/registrations#new"
     get "login", :to => "devise/sessions#new"
-    #get "profile", :to => "devise/registrations#edit"
   end
+  
+  resources :users, :only => [:show]
+  devise_for :admins
 
 
 
+  #Rails Admin interface
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  
+  get "home/index"
   root to: 'home#index'
   
 end
