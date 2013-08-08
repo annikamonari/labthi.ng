@@ -14,9 +14,10 @@ StartIt::Application.routes.draw do
     get "users/sign_in", :to => "devise/sessions#new"
     get "register", :to => "devise/registrations#new"
     get "login", :to => "devise/sessions#new"
+    get "profile", :to => "devise/registrations#edit"
   end
   
-  resources :users, :only => [:show]
+  #resources :users, :only => [:show]
   devise_for :admins
 
 

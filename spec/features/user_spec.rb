@@ -25,11 +25,11 @@ feature 'Visitor signs up' do
     expect(page).to have_content('Sign out')
   end
 
-  scenario 'and views profile page' do
-    sign_up_with 'valid@example.com', 'Example User', 'password'
-    click_link 'Profile'
-    expect(page).to have_content('Example User')
-  end
+ # scenario 'and views profile page' do
+  #  sign_up_with 'valid@example.com', 'Example User', 'password'
+   # click_link 'Profile'
+    #expect(page).to have_content('Example User')
+  #end
 
   scenario 'and signs out' do
     sign_up_with 'valid@example.com', 'Example User', 'password'
