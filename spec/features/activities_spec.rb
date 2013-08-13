@@ -33,4 +33,11 @@ feature 'Visitor checks activity stream' do
     visit '/activities/index'
     expect(page).to have_content('added a solution send by owl')
   end
+  scenario 'for a recently added solution' do
+    submit_aspect "Shipping considerations", "An efficient packing and shipping method should be considered"
+    submit_solution "send by owl"
+    submit_comment "this is an excellent idea"
+    visit '/activities/index'
+    expect(page).to have_content('added a comment this is an excellent idea')
+  end
 end
