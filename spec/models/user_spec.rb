@@ -8,6 +8,7 @@ describe User do
 
   it { should respond_to(:name) }
   it { should respond_to(:email) }
+  it { should respond_to(:profile) }
 
   describe "when name is not present" do
     before { @user.name = " " }
@@ -50,9 +51,19 @@ describe User do
       user_with_same_email = @user.dup
       user_with_same_email.email = @user.email.upcase
       user_with_same_email.save
-    end
-    
+    end  
+
     specify { user_with_same_email.should_not be_valid }
+
+  end
+
+  describe "profile association" do
+    it "should destroy associated profile" do
+      profile = @user.profile
+      @user.destroy
+      expect(profile).to be_nil
+    end
+
   end
 
 
