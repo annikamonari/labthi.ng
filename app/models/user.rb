@@ -17,4 +17,10 @@ class User < ActiveRecord::Base
   has_many :comments, inverse_of: :user
   has_one :profile
 
+  after_create :create_user_profile
+
+  def create_user_profile
+    create_profile(:user_id => self.id)
+  end
+
 end
