@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130814153056) do
+ActiveRecord::Schema.define(version: 20130815220748) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 20130814153056) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.integer  "profile_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -137,6 +138,8 @@ ActiveRecord::Schema.define(version: 20130814153056) do
   add_foreign_key "comments", "users", :name => "comments_user_id_fk"
 
   add_foreign_key "ideas", "users", :name => "ideas_user_id_fk"
+
+  add_foreign_key "profiles", "users", :name => "profiles_user_id_fk"
 
   add_foreign_key "solutions", "aspects", :name => "solutions_aspect_id_fk"
   add_foreign_key "solutions", "users", :name => "solutions_user_id_fk"
