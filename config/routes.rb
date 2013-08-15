@@ -1,11 +1,15 @@
 StartIt::Application.routes.draw do
   
+  get "profile/show"
+  get "profile/edit"
   get "activities/index"
   resources :comments
   resources :solutions
   resources :idea_tags
   resources :aspects
   resources :ideas
+  resources :profiles
+  get "profile", :to => "profile#edit"
 
   # Users and Admins
   devise_for :users
@@ -14,9 +18,9 @@ StartIt::Application.routes.draw do
     get "users/sign_in", :to => "devise/sessions#new"
     get "register", :to => "devise/registrations#new"
     get "login", :to => "devise/sessions#new"
-    get "profile", :to => "devise/registrations#edit"
   end
   
+
   #resources :users, :only => [:show]
   devise_for :admins
 

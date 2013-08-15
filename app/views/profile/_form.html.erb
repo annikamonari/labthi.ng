@@ -1,0 +1,28 @@
+<%= form_for(@profile) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :profession %>
+    <%= f.text_field :profession %>
+    <%= f.label :about %>
+    <%= f.text_field :about %>
+    <%= f.label :age %>
+    <%= f.text_field :age %>
+    <%= f.label :country %>
+    <%= f.text_field :country %>
+    <%= f.label :website %>
+    <%= f.text_field :website %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Update Profile', :class => "btn btn-primary" %>
+  </div>
+<% end %>
