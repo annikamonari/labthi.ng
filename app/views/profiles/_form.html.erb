@@ -14,13 +14,13 @@
     <%= f.label :profession %>
     <%= f.text_field :profession %>
     <%= f.label :about %>
-    <%= f.text_field :about %>
+    <%= f.text_area :about %>
     <%= f.label :age %>
     <%= f.text_field :age %>
     <%= f.label :country %>
     <%= f.text_field :country %>
     <%= f.label :website %>
-    <%= f.text_field :website %>
+    <%= f.url_field :website %>
   </div>
   <div class="actions">
     <%= f.submit 'Update Profile', :class => "btn btn-primary" %>
