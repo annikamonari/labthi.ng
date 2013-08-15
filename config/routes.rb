@@ -9,7 +9,8 @@ StartIt::Application.routes.draw do
   resources :aspects
   resources :ideas
   resources :profiles
-  get "profile", :to => "profiles#edit"
+  
+  get "profile", :to => "profiles#edit" # We want this to be: get "profile", :to => "profiles#show"
 
   # Users and Admins
   devise_for :users

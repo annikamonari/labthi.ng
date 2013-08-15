@@ -19,6 +19,10 @@ module Features
       return user
     end
 
+    def sign_out
+      click_link 'Sign out'
+    end
+
     def submit_idea(brief = 'valid brief', industry = 'valid industry', path = '/ideas/new')
       sign_in
       visit path

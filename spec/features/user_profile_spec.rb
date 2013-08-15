@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Visitor views profile page' do
 	before(:each) do
-  	@user = sign_in
+    @user = sign_in
   	click_link "Profile"
   end
 
@@ -19,5 +19,27 @@ feature 'Visitor views profile page' do
   	click_button "Update Profile"
   	expect(page).to have_content "Successfully updated profile."
   	expect(page).to have_content "Marketing Director"
+  end
+  scenario 'after another user has created a profile' do
+    sign_out
+    @user2 = sign_in
+    click_link "Profile"
+    fill_in 'Profession', with: 'Technology Director'
+    click_button "Update Profile"
+    expect(page).to have_content "Successfully updated profile."
+    expect(page).to have_content "Technology Director"
+  end
+end
+feature 'Guest views a profile page' do 
+  before(:each) do
+    @user = sign_in
+    click_link "Profile"
+    fill_in 'Profession', with: 'Marketing Director'
+    click_button "Update Profile"
+    sign_out
+  end
+  scenario 'and fills in required fields' do
+    visit '/profiles/1'
+    expect(page).to have_content 'Marketing Director'
   end
 end
