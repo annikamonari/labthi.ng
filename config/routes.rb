@@ -1,7 +1,7 @@
 StartIt::Application.routes.draw do
   
-  get "profile/show"
-  get "profile/edit"
+  #get "profile/show"
+  #get "profile/edit"
   get "activities/index"
   resources :comments
   resources :solutions
@@ -9,7 +9,7 @@ StartIt::Application.routes.draw do
   resources :aspects
   resources :ideas
   resources :profiles
-  get "profile", :to => "profile#edit"
+  get "profile", :to => "profiles#edit"
 
   # Users and Admins
   devise_for :users

@@ -1,0 +1,24 @@
+<h1><%= @user.name %></h1>
+
+<p>
+  <strong>Profession:</strong>
+  <%= best_in_place @profile, :profession, :ok_button => "Submit", :ok_button_class => "btn best-in-place-submit" %>
+</p>
+<p>
+  <strong>About:</strong>
+  <%= best_in_place @profile, :about, :ok_button => "Submit", :ok_button_class => "btn best-in-place-submit" %>
+</p>
+<p>
+  <strong>Age:</strong>
+  <%= best_in_place @profile, :age, :ok_button => "Submit", :ok_button_class => "btn best-in-place-submit" %>
+</p>
+<p>
+  <strong>Country:</strong>
+  <%= best_in_place @profile, :country, :ok_button => "Submit", :ok_button_class => "btn best-in-place-submit" %>
+</p>
+<p>
+  <strong>Website:</strong>
+  <%= best_in_place @profile, :website, :ok_button => "Submit", :ok_button_class => "btn best-in-place-submit" %>
+</p>
+
+<%= link_to "Edit", edit_profile_path(@profile) if current_user == @user %>

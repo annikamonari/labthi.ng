@@ -44,9 +44,9 @@ class IdeasController < ApplicationController
   # PATCH/PUT /ideas/1
   # PATCH/PUT /ideas/1.json
   def update
-    @idea.create_activity :update, owner: (current_user || current_admin)
     respond_to do |format|
       if @idea.update(idea_params)
+        @idea.create_activity :update, owner: (current_user || current_admin)
         format.html { redirect_to @idea, notice: 'Idea was successfully updated.' }
         format.json { head :no_content }
       else

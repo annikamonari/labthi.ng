@@ -15,7 +15,7 @@ feature 'Visitor views profile page' do
   	expect(page).to have_content('Website')
   end
   scenario 'and fills in required fields' do
-  	fill_in 'Profession' with: => 'Marketing Director'
+  	fill_in 'Profession', with: 'Marketing Director'
   	click_button "Update Profile"
   	expect(page).to have_content "Successfully updated profile."
   	expect(page).to have_content "Marketing Director"

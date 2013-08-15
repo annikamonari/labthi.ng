@@ -40,7 +40,7 @@ describe Profile do
 
 	describe "when website is blank" do
 		before { @profile.website = " " }
-		it { should_not be_valid }
+		it { should be_valid }
 	end
 
 	describe "when website is too long" do
@@ -55,7 +55,7 @@ describe Profile do
 
 	describe "when country is blank" do
 		before { @profile.country = " " }
-		it { should_not be_valid }
+		it { should be_valid }
 	end
 
 	describe "when country is too long" do
@@ -70,7 +70,7 @@ describe Profile do
 
 	describe "when profession is blank" do
 		before { @profile.profession = " " }
-		it { should_not be_valid }
+		it { should be_valid }
 	end
 
 	describe "when profession is too long" do
@@ -100,7 +100,7 @@ describe Profile do
 
 	describe "when about is blank" do
 		before { @profile.about = " " }
-		it { should_not be_valid }
+		it { should be_valid }
 	end
 
 	describe "when about is nil" do
