@@ -34,14 +34,8 @@ class ProfilesController < ApplicationController
       end
 	  end
 	  def get_profile
-      if @user.profile_id
-	  	  @profile = Profile.find(@user.profile_id)
-      else
-        @profile = Profile.where(user_id: @user.id).first_or_create
-        @user.profile_id = @profile.id
-        @user.save!
-	    end
-    end
+	  	@profile = Profile.where(user_id: @user.id).first_or_create 
+	  end
 	  def get_user
 	  	@user = current_user || User.find(Profile.find(params[:id]).user_id)
 	  end
