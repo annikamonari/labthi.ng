@@ -28,6 +28,8 @@ feature 'Visitor views profile page' do
     click_button "Update Profile"
     expect(page).to have_content "Successfully updated profile."
     expect(page).to have_content "Technology Director"
+    visit url_for(@user.profile)
+    expect(page).to_not have_content "Technology Director"
   end
 end
 feature 'Guest views a profile page' do 
