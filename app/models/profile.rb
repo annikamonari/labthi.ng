@@ -13,4 +13,5 @@ class Profile < ActiveRecord::Base
     validates :profession, presence: true, length: { maximum: 20 }, :allow_blank => true, :allow_nil => true
     validates :about, presence: true, length: { maximum: 200 }, :allow_blank => true, :allow_nil => true
 
+    mount_uploader :photo, PhotoUploader
 end

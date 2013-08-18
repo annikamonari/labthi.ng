@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130814153056) do
+ActiveRecord::Schema.define(version: 20130818232753) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20130814153056) do
     t.text     "about"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree

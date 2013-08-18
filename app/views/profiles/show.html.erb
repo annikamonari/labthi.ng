@@ -20,5 +20,9 @@
   <strong>Website:</strong>
   <%= best_in_place @profile, :website, :ok_button => "Submit", :ok_button_class => "btn best-in-place-submit" %>
 </p>
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag @profile.photo %>
+</p>
 
 <%= link_to "Edit", edit_profile_path(@profile) if current_user == @user %>

@@ -54,6 +54,9 @@ gem "foreigner-matcher", "~> 0.2.0", :require => nil
 # server for fast development
 gem 'thin'
 
+# file upload management
+gem 'carrierwave'
+
 # Activity Stream
 gem 'public_activity', github: 'pokonski/public_activity'
 
