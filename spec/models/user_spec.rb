@@ -58,13 +58,21 @@ describe User do
   end
 
   describe "profile association" do
-    it "should destroy associated profile" do
-      profile = @user.profile
-      @user.destroy
-      expect(profile).to be_nil
+    it "should create a new profile with the account" do
+      expect(@user.profile).to_not be_nil
     end
 
+    it "should destroy associated profile" do
+=begin
+      profile = @user.profile
+      expect(Profile.find(profile.id)).to_not be_nil
+      @user.destroy
+      expect(User.find(@user.id)).to be_nil
+      expect(Profile.find(profile.id)).to be_nil
+=end
+      expect {
+        @user.destroy
+      }.to change(Profile, :count).by(-1)
+    end
   end
-
-
 end

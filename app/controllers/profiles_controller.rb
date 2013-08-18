@@ -34,7 +34,7 @@ class ProfilesController < ApplicationController
       end
 	  end
 	  def get_profile
-	  	@profile = Profile.where(user_id: @user.id).first_or_create 
+	  	@profile = @user.profile
 	  end
 	  def get_user
 	  	@user = current_user || User.find(Profile.find(params[:id]).user_id)

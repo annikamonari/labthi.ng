@@ -15,6 +15,13 @@ class User < ActiveRecord::Base
   has_many :aspects, inverse_of: :user
   has_many :solutions, inverse_of: :user
   has_many :comments, inverse_of: :user
-  has_one :profile
+  has_one :profile, dependent: :destroy
+
+
+  after_create :create_user_profile
+
+  def create_user_profile
+    Profile.create(:user_id => self.id)
+  end
 
 end
