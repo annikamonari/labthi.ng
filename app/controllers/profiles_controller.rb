@@ -1,8 +1,7 @@
 class ProfilesController < ApplicationController
 	before_action :auth_user!, except: [:show]
-  before_action :set_profile, only: [:show]
-  before_action :get_user
-  before_action :get_profile, only: [:edit, :update, :show]
+  before_action :set_profile, only: [:show, :edit, :update]
+  before_action :get_user, only: [:show, :edit, :update]
 
   def show
   end
@@ -30,14 +29,11 @@ class ProfilesController < ApplicationController
       if params[:id]
         @profile = Profile.find(params[:id])
       else
-        @profile = get_profile
+        @profile = current_user.profile
       end
 	  end
-	  def get_profile
-	  	@profile = @user.profile
-	  end
 	  def get_user
-	  	@user = current_user || User.find(Profile.find(params[:id]).user_id)
+	  	@user = User.find(@profile.user_id)
 	  end
 	  def profile_params
       params.require(:profile).permit(:profession, :about, :age, :country, :website, :photo)
