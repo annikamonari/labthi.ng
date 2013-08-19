@@ -32,16 +32,3 @@ feature 'Visitor views profile page' do
     expect(page).to_not have_content "Technology Director"
   end
 end
-feature 'Guest views a profile page' do 
-  before(:each) do
-    @user = sign_in
-    click_link "Profile"
-    fill_in 'Profession', with: 'Marketing Director'
-    click_button "Update Profile"
-    sign_out
-  end
-  scenario 'and fills in required fields' do
-    visit '/profiles/1'
-    expect(page).to have_content 'Marketing Director'
-  end
-end

@@ -7,19 +7,22 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    redirect_to @profile unless current_user == @profile.user
   end
 
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
-    respond_to do |format|
-      if @profile.update(profile_params)
-        @profile.create_activity :update, owner: (current_user || current_admin)
-        format.html { redirect_to @profile, notice: 'Successfully updated profile.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
+    if current_user == @profile.user
+      respond_to do |format|
+        if @profile.update(profile_params)
+          @profile.create_activity :update, owner: (current_user || current_admin)
+          format.html { redirect_to @profile, notice: 'Successfully updated profile.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @profile.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
