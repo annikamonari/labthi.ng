@@ -18,11 +18,11 @@ describe Idea do
     idea.should be_valid
   end
 
-  it "should destroy associated profile" do
-    idea = Idea.create(phase:1, brief: "A website for crowdsourcing startup ideas", industry: "Internet")
-      expect {
-        idea.destroy
-      }.to change(Aspect, :count).by(-1)
-  end
+  #it "should destroy associated profile" do
+  #  idea = Idea.create(phase:1, brief: "A website for crowdsourcing startup ideas", industry: "Internet")
+  #    expect {
+  #      idea.destroy
+  #    }.to change(Aspect, :count).by(-1)
+  #end
 
 end

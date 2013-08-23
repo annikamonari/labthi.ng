@@ -8,6 +8,7 @@ ruby '2.0.0'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 
+gem 'mini_magick'
 # Suggested for heroku, enables logging
 gem 'rails_12factor', group: :production
 
