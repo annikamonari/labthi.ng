@@ -12,6 +12,7 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
+    @user = @idea.user
   end
 
   # GET /ideas/new
@@ -44,6 +45,7 @@ class IdeasController < ApplicationController
   # PATCH/PUT /ideas/1
   # PATCH/PUT /ideas/1.json
   def update
+    @idea.user = current_user
     respond_to do |format|
       if @idea.update(idea_params)
         @idea.create_activity :update, owner: (current_user || current_admin)

@@ -36,4 +36,9 @@ feature 'User wants to submit a startup idea' do
     submit_idea '', 'Banking'
     page.should have_button 'Create Idea'
   end
+  scenario 'and view its page' do
+    submit_idea 'best idea ever'
+    update_idea
+    page.should have_content 'best idea ever'
+  end
 end
