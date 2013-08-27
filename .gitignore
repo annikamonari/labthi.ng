@@ -17,7 +17,8 @@
 
 .idea
 
-#ignore temp uploads
+#ignore image uploads
+public/uploads/profile/photo*
 public/uploads/tmp/*
 
 
