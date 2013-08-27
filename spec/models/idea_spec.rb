@@ -18,7 +18,7 @@ describe Idea do
     idea.should be_valid
   end
 
-  it "should destroy associated profile" do
+  it "should destroy associated aspect" do
     idea = Idea.create(phase:1, brief: "A website for crowdsourcing startup ideas", industry: "Internet")
       expect {
         idea.destroy
