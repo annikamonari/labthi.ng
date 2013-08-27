@@ -19,8 +19,9 @@ describe Idea do
   end
 
   it "should destroy associated aspect" do
-    idea = Idea.create(phase:1, brief: "A website for crowdsourcing startup ideas", industry: "Internet")
-      expect {
+    idea = FactoryGirl.create(:idea)
+    aspect = FactoryGirl.create(:aspect, :idea => idea)
+    expect {
         idea.destroy
       }.to change(Aspect, :count).by(-1)
   end
