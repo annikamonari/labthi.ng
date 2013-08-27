@@ -25,6 +25,14 @@ describe Aspect do
     aspect.should be_valid
   end
 
+  it "should destroy associated solution" do
+    aspect = FactoryGirl.create(:aspect)
+    solution = FactoryGirl.create(:solution, :aspect => aspect)
+    expect {
+        aspect.destroy
+      }.to change(Solution, :count).by(-1)
+  end
+
   it { should have_foreign_key_for(:users) }
   it { should have_foreign_key_for(:ideas) }
 end
