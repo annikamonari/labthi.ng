@@ -17,6 +17,10 @@
 
 .idea
 
+#ignore temp uploads
+public/uploads/tmp/*
+
+
 # Copied from here https://github.com/github/gitignore/blob/master/Rails.gitignore
 *.rbc
 *.sassc
