@@ -6,5 +6,7 @@ class Idea < ActiveRecord::Base
   belongs_to :user, inverse_of: :ideas
   has_many :aspects, inverse_of: :idea, :dependent => :destroy
 
+  acts_as_taggable_on :categories
+
   accepts_nested_attributes_for :aspects, :allow_destroy => true
 end

@@ -26,4 +26,10 @@ describe Idea do
       }.to change(Aspect, :count).by(-1)
   end
 
+  it "should accept a category" do
+    idea = FactoryGirl.create(:idea)
+    idea.category_list = "retail, other"
+    idea.category_list.should eq(["retail", "other"])
+  end
+
 end

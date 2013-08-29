@@ -55,6 +55,9 @@ gem "foreigner-matcher", "~> 0.2.0", :require => nil
 # server for fast development
 gem 'thin'
 
+# tagging functionality
+gem 'acts-as-taggable-on'
+
 # file upload management
 gem 'carrierwave'
 
