@@ -33,6 +33,7 @@ module Features
     end
 
     def update_idea()
+      select 'Science & Technology', :from => 'idea_category_list'
       click_button 'Update Idea'
     end
 

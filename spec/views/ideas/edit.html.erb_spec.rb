@@ -7,7 +7,7 @@ describe "ideas/edit" do
       :brief => "MyText",
       :image => "MyString",
       :active => true,
-      :industry => "MyIndustry"
+      :activity_list => ["Science & Technology"]
     ))
   end
 

@@ -28,10 +28,6 @@ feature 'User wants to submit a startup idea' do
     page.should have_content valid_brief
     find_field('Industry').value.should eq valid_industry
   end
-  scenario 'without industry' do
-    submit_idea 'awesome idea here', ''
-    page.should have_button 'Create Idea'
-  end
   scenario 'without idea' do
     submit_idea '', 'Banking'
     page.should have_button 'Create Idea'
