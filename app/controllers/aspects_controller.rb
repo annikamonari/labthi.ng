@@ -29,13 +29,6 @@ class AspectsController < ApplicationController
     @aspect = Aspect.new(aspect_params)
     @aspect.idea_id = params[:idea_id]
     @aspect.user = current_user
-    unless @aspect.valid?
-      if @aspect.user_id
-        puts @aspect.user_id
-      else
-        puts "user_id is nil"
-      end
-    end
     respond_to do |format|
       if @aspect.save
         @aspect.create_activity :create, owner: (current_user || current_admin)
