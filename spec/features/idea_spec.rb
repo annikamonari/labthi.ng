@@ -5,31 +5,28 @@ feature 'User wants to submit a startup idea' do
     visit '/'
     expect(page).to have_content('What business needs to exist?')
     expect(page).to have_content('Brief')
-    expect(page).to have_content('Industry')
     page.should have_no_content('Active')
     page.should have_no_content('Image')
     page.should have_no_content('Phase')
-    submit_idea 'valid', 'valid', '/'
+    submit_idea 'valid', '/'
   end
   scenario 'From submit page' do
     visit '/ideas/new'
     expect(page).to have_content('What business needs to exist?')
     expect(page).to have_content('Brief')
-    expect(page).to have_content('Industry')
     page.should have_no_content('Active')
     page.should have_no_content('Image')
     page.should have_no_content('Phase')
   end
   scenario 'with valid input' do
     valid_brief = 'Social network based on premise of only disliking posts'
-    valid_industry = 'Social Media'
-    submit_idea valid_brief, valid_industry
+    submit_idea valid_brief
     page.should have_content "Great! Now let's expand on that a little."
     page.should have_content valid_brief
-    find_field('Industry').value.should eq valid_industry
+    find_field('Brief').value.should eq valid_brief
   end
   scenario 'without idea' do
-    submit_idea '', 'Banking'
+    submit_idea ''
     page.should have_button 'Create Idea'
   end
   scenario 'and view its page' do

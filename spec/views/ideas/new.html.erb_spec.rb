@@ -6,8 +6,7 @@ describe "ideas/new" do
      :phase => 1,
      :brief => "MyText",
      :image => "MyString",
-     :active => true,
-     :industry => "MyIndustry"
+     :active => true
     ).as_new_record)
   end
 
@@ -17,7 +16,6 @@ describe "ideas/new" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", ideas_path, "post" do
       assert_select "textarea#idea_brief[name=?]", "idea[brief]"
-      assert_select "input#idea_industry[name=?]", "idea[industry]"
     end
   end
 end

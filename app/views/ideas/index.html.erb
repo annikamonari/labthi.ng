@@ -7,7 +7,7 @@
       <th>Brief</th>
       <th>Image</th>
       <th>Active</th>
-      <th>Industry</th>
+      <th>Categories</th>
       <th></th>
       <th></th>
       <th></th>
@@ -21,7 +21,7 @@
         <td><%= idea.brief %></td>
         <td><%= idea.image %></td>
         <td><%= idea.active %></td>
-        <td><%= idea.industry %></td>
+        <td><%= idea.category_list %></td>
         <td><%= link_to 'Show', idea %></td>
         <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
         <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>

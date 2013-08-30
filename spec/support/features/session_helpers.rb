@@ -23,11 +23,10 @@ module Features
       click_link 'Sign out'
     end
 
-    def submit_idea(brief = 'valid brief', industry = 'valid industry', path = '/ideas/new')
+    def submit_idea(brief = 'valid brief', path = '/ideas/new')
       sign_in
       visit path
       fill_in 'Brief', with: brief
-      fill_in 'Industry', with: industry
       click_button 'Create Idea'
       # Insert information to test updates here
     end

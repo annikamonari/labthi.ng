@@ -19,10 +19,6 @@
       <%= f.text_field :image %>
     </div>
     <div class="field">
-      <%= f.label :industry %>
-      <%= f.text_field :industry %>
-    </div>
-    <div class="field">
       <%= f.label :category_list, "Categories" %>
       <%= f.select :category_list, @categories, {selected:@idea.category_list}, {:multiple => true, :style => "height:180px;"} %>
     </div>

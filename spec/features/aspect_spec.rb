@@ -3,13 +3,12 @@ require 'spec_helper'
 feature 'Visitor submits an aspect' do
     before(:each) do
         @idea_brief = 'Social network based on premise of only disliking posts'
-        @industry = 'Social Media'
         @aspect_title ='Target demographic'
         @aspect_brief = 'This social network should target a speific audience'
     end
 
   scenario 'with valid params' do
-        submit_idea @idea_brief, @industry
+        submit_idea @idea_brief
         update_idea
         submit_aspect @aspect_title, @aspect_brief
         expect(page).to have_content(@idea_brief)
@@ -17,7 +16,7 @@ feature 'Visitor submits an aspect' do
   end
 
   scenario 'with invalid params' do
-        submit_idea @idea_brief, @industry
+        submit_idea @idea_brief
         update_idea
         submit_aspect @aspect_title, ""
         expect(page).to have_no_content(@idea_brief)

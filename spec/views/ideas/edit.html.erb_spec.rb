@@ -18,7 +18,6 @@ describe "ideas/edit" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", idea_path(@idea), "post" do
       assert_select "textarea#idea_brief[name=?]", "idea[brief]"
-      assert_select "input#idea_industry[name=?]", "idea[industry]"
     end
   end
 end

@@ -8,7 +8,6 @@ describe "ideas/show" do
       :phase => 1,
       :brief => "MyText",
       :active => true,
-      :industry => "Industry",
       :user => @user
     )
     @aspect = FactoryGirl.create(
@@ -25,6 +24,5 @@ describe "ideas/show" do
     rendered.should match(/MyText/)
     rendered.should match(/Image/)
     rendered.should match(/true/)
-    rendered.should match(/Industry/)
   end
 end

@@ -98,7 +98,6 @@ class IdeasController < ApplicationController
         :brief,
         :image,
         :active,
-        :industry,
         :user_id,
         :category_list => [],
         :aspects_attributes => [:id, :brief, :title]

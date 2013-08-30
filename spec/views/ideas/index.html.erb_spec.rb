@@ -7,15 +7,13 @@ describe "ideas/index" do
         :phase => 1,
         :brief => "MyText",
         :image => "Image",
-        :active => false,
-        :industry => "Industry"
+        :active => false
       ),
       stub_model(Idea,
         :phase => 1,
         :brief => "MyText",
         :image => "Image",
-        :active => false,
-        :industry => "Industry"
+        :active => false
       )
     ])
   end
@@ -27,6 +25,5 @@ describe "ideas/index" do
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => "Image".to_s, :count => 2
     assert_select "tr>td", :text => false.to_s, :count => 2
-    assert_select "tr>td", :text => "Industry".to_s, :count => 2
   end
 end

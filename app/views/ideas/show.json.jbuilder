@@ -1,1 +1,1 @@
-json.extract! @idea, :phase, :brief, :image, :active, :industry, :created_at, :updated_at
+json.extract! @idea, :phase, :brief, :image, :active, :created_at, :updated_at

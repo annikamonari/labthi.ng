@@ -9,7 +9,6 @@ describe IdeasController do
       brief: "This is a brief",
       phase: 1,
       active: true,
-      industry: 'Technology',
       user: FactoryGirl.create(:user),
       category_list: "Science & Technology"
     }}

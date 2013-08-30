@@ -9,10 +9,6 @@ describe Idea do
     idea = Idea.create(brief: nil)
     idea.should_not be_valid
   end
-  it "is not valid without an industry" do
-    idea = Idea.create(industry: nil)
-    idea.should_not be_valid
-  end
   it "is valid with a phase, brief, and category" do
     idea = Idea.create(phase:1, brief: "A website for crowdsourcing startup ideas", category_list: "other")
     idea.should be_valid
