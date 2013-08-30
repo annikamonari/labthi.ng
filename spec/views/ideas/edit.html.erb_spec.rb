@@ -7,24 +7,12 @@ describe "ideas/edit" do
       :brief => "MyText",
       :image => "MyString",
       :active => true,
-      :activity_list => ["Science & Technology"]
+      :category_list => ["Science & Technology"]
     ))
-
-    @categories = [
-        "Arts & Entertainment",
-        "Science & Technology",
-        "Business & Finance",
-        "Software & Internet",
-        "Retail",
-        "Education",
-        "Energy & Utilities",
-        "Food & Health",
-        "Media & Communications",
-        "Other"
-      ]
   end
 
   it "renders the edit idea form" do
+    assign :categories, []
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
