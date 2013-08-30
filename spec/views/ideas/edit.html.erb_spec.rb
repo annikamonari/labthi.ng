@@ -9,6 +9,19 @@ describe "ideas/edit" do
       :active => true,
       :activity_list => ["Science & Technology"]
     ))
+
+    @categories = [
+        "Arts & Entertainment",
+        "Science & Technology",
+        "Business & Finance",
+        "Software & Internet",
+        "Retail",
+        "Education",
+        "Energy & Utilities",
+        "Food & Health",
+        "Media & Communications",
+        "Other"
+      ]
   end
 
   it "renders the edit idea form" do
