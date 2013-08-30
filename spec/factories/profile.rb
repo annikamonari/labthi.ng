@@ -6,5 +6,6 @@ FactoryGirl.define do
     profession 'Validprofession'
     age 22
     user
+    photo { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'profile_photos', 'default.png')) }
   end
 end

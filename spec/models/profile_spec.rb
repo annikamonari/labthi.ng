@@ -13,7 +13,7 @@ describe Profile do
 	it { should respond_to(:country) }
 	it { should respond_to(:profession) }
 	it { should respond_to(:age) }
-	#its :user { should eq user }
+	it { should respond_to(:photo) }
 
 	it { should be_valid }
 
