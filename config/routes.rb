@@ -5,7 +5,6 @@ StartIt::Application.routes.draw do
   get "activities/index"
   resources :comments
   resources :solutions
-  resources :idea_tags
   resources :aspects
   resources :ideas
   resources :profiles
