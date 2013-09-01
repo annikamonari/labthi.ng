@@ -10,7 +10,8 @@ describe IdeasController do
       phase: 1,
       active: true,
       user: FactoryGirl.create(:user),
-      category_list: "Science & Technology"
+      category_list: "Science & Technology",
+      component_list: "Website"
     }}
 
   # This should return the minimal set of values that should be in the session

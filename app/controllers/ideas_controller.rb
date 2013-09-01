@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
   before_action :set_aspects, only: [:show]
   before_action :auth_user!, only: [:update] #cutstom method below
-  before_action :set_categories, only: [:edit, :update]
+  before_action :set_tags, only: [:edit, :update]
 
   # GET /ideas
   # GET /ideas.json
@@ -77,7 +77,7 @@ class IdeasController < ApplicationController
     def set_aspects
       @aspects = Aspect.where(idea_id: @idea)
     end
-    def set_categories
+    def set_tags
       @categories = [
         "Arts & Entertainment",
         "Science & Technology",
@@ -90,6 +90,14 @@ class IdeasController < ApplicationController
         "Media & Communications",
         "Other"
       ]
+      @components = [
+        "Website",
+        "App",
+        "Software",
+        "Hardware",
+        "Good",
+        "Service"
+      ]
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
@@ -100,6 +108,7 @@ class IdeasController < ApplicationController
         :active,
         :user_id,
         :category_list => [],
+        :component_list => [],
         :aspects_attributes => [:id, :brief, :title]
         )
     end

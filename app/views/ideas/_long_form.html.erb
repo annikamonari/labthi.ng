@@ -19,6 +19,10 @@
       <%= f.text_field :image %>
     </div>
     <div class="field">
+      <%= f.label :component_list, "Components" %>
+      <%= f.select :component_list, @components, {selected:@idea.category_list}, {:multiple => true, :style => "height:111px;"} %>
+    </div>
+    <div class="field">
       <%= f.label :category_list, "Categories" %>
       <%= f.select :category_list, @categories, {selected:@idea.category_list}, {:multiple => true, :style => "height:180px;"} %>
     </div>

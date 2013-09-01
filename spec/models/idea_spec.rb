@@ -10,7 +10,12 @@ describe Idea do
     idea.should_not be_valid
   end
   it "is valid with a phase, brief, and category" do
-    idea = Idea.create(phase:1, brief: "A website for crowdsourcing startup ideas", category_list: "other")
+    idea = Idea.create(
+      phase:1,
+      brief: "A website for crowdsourcing startup ideas",
+      category_list: "Other",
+      component_list: "App"
+      )
     idea.should be_valid
   end
 

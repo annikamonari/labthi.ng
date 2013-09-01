@@ -32,6 +32,7 @@ module Features
     end
 
     def update_idea()
+      select 'Website', :from => 'idea_component_list'
       select 'Science & Technology', :from => 'idea_category_list'
       click_button 'Update Idea'
     end
