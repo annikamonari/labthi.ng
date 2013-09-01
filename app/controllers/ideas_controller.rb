@@ -79,15 +79,16 @@ class IdeasController < ApplicationController
     end
     def set_tags
       @categories = [
+        "Advertising & Media",
         "Arts & Entertainment",
-        "Science & Technology",
         "Business & Finance",
-        "Software & Internet",
-        "Retail",
         "Education",
         "Energy & Utilities",
         "Food & Health",
-        "Media & Communications",
+        "Science & Technology",
+        "Social",
+        "Travel & Leisure",
+        "Retail",
         "Other"
       ]
       @components = [
