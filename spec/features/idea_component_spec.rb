@@ -1,19 +1,19 @@
 require 'spec_helper'
 
-feature 'Idea Type' do
+feature 'Idea Component' do
   scenario 'User selects a type' do
     submit_idea
     select 'Science & Technology', :from => 'idea_category_list'
-    select 'Website', :from => 'idea_component_list'
+    check 'Website'
     click_button 'Update Idea'
     page.should have_content('Website')
   end
   scenario 'User selects three types' do
     submit_idea
     select 'Science & Technology', :from => 'idea_category_list'
-    select 'Website', :from => 'idea_component_list'
-    select 'App', :from => 'idea_component_list'
-    select 'Service', :from => 'idea_component_list'
+    check 'Website'
+    check 'App'
+    check 'Service'
     click_button 'Update Idea'
     page.should have_content('Website')
     page.should have_content('App')

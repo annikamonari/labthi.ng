@@ -19,9 +19,15 @@
       <%= f.text_field :image %>
     </div>
     <div class="field">
-      <%= f.label :component_list, "Components" %>
-      <%= f.select :component_list, @components, {selected:@idea.category_list}, {:multiple => true, :style => "height:111px;"} %>
+    <%= f.label :component_list, "Components" %>
+      <% @components.each do |c| %>
+        <%= f.label :c, class: 'checkbox' do %>
+          <%= f.check_box :component_list, { :multiple => true }, c, nil %>
+          <%= c %>
+        <% end %>
+      <% end %>
     </div>
+    <br />
     <div class="field">
       <%= f.label :category_list, "Categories" %>
       <%= f.select :category_list, @categories, {selected:@idea.category_list}, {:multiple => true, :style => "height:180px;"} %>
