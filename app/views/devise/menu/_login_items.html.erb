@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
     <li>
-      <%= nav_link('Profile',  '/profile')  %>
+      <%= nav_link(current_user.name, current_user.profile)  %>
     </li>
     <li>
       <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
