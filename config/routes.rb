@@ -1,5 +1,6 @@
 StartIt::Application.routes.draw do
   
+  get 'explore', to: 'explore#index'
   #get "profile/show"
   #get "profile/edit"
   get "activities/index"

@@ -26,7 +26,8 @@ feature 'View a page with the navbar' do
   end
 
   scenario 'navigate to explore page' do
-  	#click_link "Explore"
+  	click_link "Explore"
+  	current_path.should == '/explore'
   end
 
 end

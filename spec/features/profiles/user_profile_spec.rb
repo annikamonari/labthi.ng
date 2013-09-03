@@ -3,7 +3,8 @@ require 'spec_helper'
 feature 'Visitor views profile page' do
 	before(:each) do
     @user = sign_in
-  	click_link "Profile"
+  	click_link @user.name
+    click_link "Edit"
   end
 
   scenario 'for the first time' do
@@ -23,7 +24,8 @@ feature 'Visitor views profile page' do
   scenario 'after another user has created a profile' do
     sign_out
     @user2 = sign_in
-    click_link "Profile"
+    click_link @user2.name
+    click_link 'Edit'
     fill_in 'Profession', with: 'Technology Director'
     click_button "Update Profile"
     expect(page).to have_content "Successfully updated profile."

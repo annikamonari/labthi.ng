@@ -3,7 +3,8 @@ require 'spec_helper'
 feature 'Guest visits a profile page' do 
   before(:each) do
     @user = sign_in
-    click_link "Profile"
+    click_link @user.name
+    click_link "Edit"
     fill_in 'Profession', with: 'Marketing Director'
     click_button "Update Profile"
     sign_out

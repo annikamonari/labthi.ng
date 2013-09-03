@@ -4,6 +4,7 @@
     <ul class="nav">
       <% #nav_link is a custom method defined in application_helper.rb %>
       <%= nav_link 'Home', root_url %>
+      <%= nav_link 'Explore', '/explore' %>
       <%= nav_link 'Ideas', '/ideas' %>
       <%= nav_link 'Recent Activity', '/activities/index' %>
       <%= render 'devise/menu/registration_items' %>
