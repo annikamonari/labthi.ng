@@ -28,7 +28,7 @@ StartIt::Application.routes.draw do
 
 
   #Rails Admin interface
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  #mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   
   get "home/index"
   root to: 'home#index'
