@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Labthi.ng</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= favicon_link_tag 'favicon.ico' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>Labthi.ng</title>
+	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	  <%= favicon_link_tag 'favicon.ico' %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
 
-<%= render 'layouts/navbar' %>
+	<%= render 'layouts/navbar' %>
 
-<%= render partial: "shared/flash_messages", flash: flash %>
+	<%= render partial: "shared/flash_messages", flash: flash %>
 
-<%= yield %>
+	<%= render 'layouts/sidebar_left' if content_for :sidebar_left %>
 
-</body>
+	<%= yield %>
+
+	<%= render 'layouts/sidebar_right' if content_for :sidebar_right %>
+
+	</body>
 </html>
