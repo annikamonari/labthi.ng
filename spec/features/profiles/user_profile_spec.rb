@@ -33,4 +33,5 @@ feature 'Visitor views profile page' do
     visit url_for(@user.profile)
     expect(page).to_not have_content "Technology Director"
   end
+
 end
