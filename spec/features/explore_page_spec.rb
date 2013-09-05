@@ -15,9 +15,8 @@ feature 'User visits explore page' do
 
   scenario 'and sees a listing of ideas' do
     brief = 'iPhone app that enables multitasking while beekeeping'
-    submit_idea brief
-    update_idea
-    click_link 'Explore'
+    idea = FactoryGirl.create(:idea, brief: brief)
+    visit '/explore'
     expect(page).to have_content(brief)
   end
 
