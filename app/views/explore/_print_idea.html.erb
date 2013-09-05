@@ -1,6 +1,9 @@
-	<strong>
-		<%= link_to idea.brief, idea %>
-	</strong>
-	<p>
-		<%= "Phase: #{idea.phase}" %>
-	</p>
+<% brief_class = idea.brief.downcase.gsub(/\s+/, '-').gsub(/[^a-z0-9_-]/, '').squeeze('-') %>
+	<div class='idea-block col-sm-4 <%= brief_class %>'>
+		<strong>
+			<%= link_to idea.brief, idea %>
+		</strong>
+		<p>
+			<%= "Phase: #{idea.phase}" %>
+		</p>
+	</div>

@@ -12,4 +12,9 @@ class ExploreController < ApplicationController
   def print_idea
 
   end
+
+  def brief_class
+    this.downcase.gsub(/\s+/, '-').gsub(/[^a-z0-9_-]/, '').squeeze('-')
+  end
+
 end
