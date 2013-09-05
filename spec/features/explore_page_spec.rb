@@ -21,4 +21,19 @@ feature 'User visits explore page' do
     expect(page).to have_content(brief)
   end
 
+  scenario 'and filters ideas by category' do
+    5.times { FactoryGirl.create(:idea, phase: '2') }
+    5.times { FactoryGirl.create(:idea, phase: '3') }
+    5.times { FactoryGirl.create(:idea, phase: '1') }
+    click_link "Phase 1"
+    expect(page).to have_content("Phase: 1")
+    expect(page).to have_no_content("Phase: 2")
+    click_link "Phase 2"
+    expect(page).to have_content("Phase: 2")
+    expect(page).to have_no_content("Phase: 3")
+    click_link "Phase 3"
+    expect(page).to have_content("Phase: 3")
+    expect(page).to have_no_content("Phase: 1")
+  end
+
 end

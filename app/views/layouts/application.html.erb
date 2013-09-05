@@ -15,7 +15,11 @@
 
 	<%= render 'layouts/sidebar_left' if content_for :sidebar_left %>
 
-	<%= yield %>
+	<%= render 'layouts/secondary_nav' if content_for :secondary_nav %>
+
+	<div class="content col-sm-8">
+		<%= yield %>
+	</div>
 
 	<%= render 'layouts/sidebar_right' if content_for :sidebar_right %>
 

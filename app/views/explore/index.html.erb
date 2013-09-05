@@ -2,11 +2,17 @@
 	<%= link_to "Submit Idea", '/ideas/new', class: 'btn btn-primary' %>
 <% end %>
 
+<% content_for :secondary_nav do %>
+	<%= link_to "Phase 1", controller: 'explore', phase: '1' %>
+	<%= link_to "Phase 2", controller: 'explore', phase: '2' %>
+	<%= link_to "Phase 3", controller: 'explore', phase: '3' %>
+<% end %>
+
+<% if @ideas then %>
 	<% @ideas.each do |idea| %>
-	<p>
-		<%= idea.brief %>
-	</p>
+		<%= render 'print_idea', :idea => idea %>
 	<% end %>
+<% else %>
+		<%= render 'print_idea', :idea => @idea %>
+<% end %>
 
-
-<%= %>
