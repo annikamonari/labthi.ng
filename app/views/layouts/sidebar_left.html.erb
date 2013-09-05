@@ -1,8 +1,12 @@
 <%= render 'layouts/header' %>
 
+<div class="sidebar sidebar_left col-sm-4">
+	<%= yield :sidebar_left %>
+</div>
+
 <%= render 'layouts/secondary_nav' if content_for :secondary_nav %>
 
-<div class="content col-sm-12">
+<div class="content col-sm-8">
 	<%= yield %>
 </div>
 
