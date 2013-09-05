@@ -15,6 +15,7 @@
 /* bootstrap overrides */
 
 @import "twitter/bootstrap";
+html {overflow-y: scroll;}
 
 label{
     cursor: auto;
