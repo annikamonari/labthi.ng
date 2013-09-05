@@ -78,27 +78,8 @@ class IdeasController < ApplicationController
       @aspects = Aspect.where(idea_id: @idea)
     end
     def set_tags
-      @categories = [
-        "Advertising & Media",
-        "Arts & Entertainment",
-        "Business & Finance",
-        "Education",
-        "Energy & Utilities",
-        "Food & Health",
-        "Science & Technology",
-        "Social",
-        "Travel & Leisure",
-        "Retail",
-        "Other"
-      ]
-      @components = [
-        "Website",
-        "App",
-        "Software",
-        "Hardware",
-        "Good",
-        "Service"
-      ]
+      @categories = set_categories
+      @components = set_components
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params

@@ -18,6 +18,32 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def set_categories
+    @categories = [
+        "Advertising & Media",
+        "Arts & Entertainment",
+        "Business & Finance",
+        "Education",
+        "Energy & Utilities",
+        "Food & Health",
+        "Science & Technology",
+        "Social",
+        "Travel & Leisure",
+        "Retail",
+        "Other"
+      ]
+    end
+    def set_components
+      @components = [
+        "Website",
+        "App",
+        "Software",
+        "Hardware",
+        "Good",
+        "Service"
+      ]
+    end
+
     #def after_sign_in_path_for(resource_or_scope)
       #user_show_path(current_user)
     #end

@@ -1,11 +1,9 @@
 class ExploreController < ApplicationController
   def index
-  	if params[:phase]
-  		@ideas = Idea.where(phase: params[:phase])
-  		#@idea = Idea.find_by phase: params[:phase]
-		else
-  		@ideas = Idea.all
-		end
+    get_ideas
+    get_ideas
+
+    @categories = set_categories
   end
 
   private
@@ -17,4 +15,14 @@ class ExploreController < ApplicationController
     this.downcase.gsub(/\s+/, '-').gsub(/[^a-z0-9_-]/, '').squeeze('-')
   end
 
+  def get_ideas
+    if params[:phase]
+      @ideas = Idea.where(phase: params[:phase])
+    elsif params[:category]
+      category = params[:category]
+      @ideas = Idea.tagged_with category, :on => :categories
+    else
+      @ideas = Idea.all
+    end
+  end
 end

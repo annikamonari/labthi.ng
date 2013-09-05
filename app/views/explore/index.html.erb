@@ -1,5 +1,11 @@
 <% content_for :sidebar_left do %>
 	<%= link_to "Submit Idea", '/ideas/new', class: 'btn btn-primary' %>
+
+	<% @categories.each do |category| %>
+	<p>
+		<%= link_to category, { controller: 'explore', category: category }, class: 'category-tag' %>
+	</p>
+	<% end %>
 <% end %>
 
 <% content_for :secondary_nav do %>
