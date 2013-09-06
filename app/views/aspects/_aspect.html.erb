@@ -11,9 +11,9 @@
       <%= best_in_place aspect, :brief %>
     </p>
     <ul>
-      <%= render Solution.where(aspect_id: aspect.id) || "No solutions found" %>   
+      <%= render aspect.solutions || "No solutions found" %>   
       <p>
-        <%= link_to "Add solution", controller: "solutions", action: "new", aspect_id: aspect.id %>
+        <%= link_to "Add solution", controller: "solutions", action: "new", solution_id: solution.id %>
       </p>
     </ul>
 </li>

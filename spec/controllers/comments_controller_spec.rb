@@ -89,7 +89,7 @@ describe CommentsController do
 
       it "redirects to the created comment" do
         post :create, :comment => valid_attributes, :solution_id => valid_attributes[:solution_id]
-        response.should redirect_to((Idea.find(Aspect.find(Solution.find(Comment.last.solution_id).aspect_id).idea_id)))
+        response.should redirect_to((Idea.find(Question.find(Solution.find(Comment.last.solution_id).question_id).idea_id)))
       end
     end
 

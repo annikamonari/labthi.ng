@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+=begin
 feature 'Visitor submits an aspect' do
     before(:each) do
         @idea_brief = 'Social network based on premise of only disliking posts'
@@ -22,5 +23,5 @@ feature 'Visitor submits an aspect' do
         expect(page).to have_no_content(@idea_brief)
         expect(page).to have_no_content(@aspect_brief)
   end
-
 end
+=end

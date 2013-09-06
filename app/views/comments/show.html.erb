@@ -6,5 +6,5 @@
 </p>
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
-<% @idea = Idea.find(Aspect.find(Solution.find(@comment.solution_id).aspect_id).idea_id) %>
+<% @idea = Idea.find(Question.find(Solution.find(@comment.solution_id).question_id).idea_id) %>
 <%= link_to 'Back', @idea %>

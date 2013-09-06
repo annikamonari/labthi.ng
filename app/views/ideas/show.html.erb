@@ -47,19 +47,8 @@
 
 <h4>Questions:</h4>
   <ul class="questions">
-    <%= render Question.where(idea_id: @idea.id) || "No questions found" %>   
+    <%= render @idea.questions || "No questions found" %>   
   </ul>
-<h4>Questions:</h4>
-  <ul class="questions">
-    <% if @questions %>
-      <% @questions.each do |q| %>
-        <li>
-          <%= link_to q.title, url_for(q) %>
-        </li>
-      <% end %>
-    <% else %>
-      <p>No questions yet. Why don't you ask one?</p>
-    <% end %>
-  </ul>
+
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <%= link_to 'Back', ideas_path %>

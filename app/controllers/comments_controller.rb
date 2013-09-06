@@ -84,7 +84,7 @@ class CommentsController < ApplicationController
       else
         solution_id = params[:solution_id]
       end
-        @idea = Idea.find(Aspect.find(Solution.find(solution_id).aspect_id).idea_id)
+        @idea = Idea.find(Question.find(Solution.find(solution_id).question_id).idea_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

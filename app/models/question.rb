@@ -1,4 +1,5 @@
 class Question < ActiveRecord::Base
+  include PublicActivity::Model
   validates :idea, presence: true
   validates :user, presence: true
   validates :title, presence: true

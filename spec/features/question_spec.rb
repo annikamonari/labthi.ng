@@ -19,7 +19,7 @@ feature 'Visitor submits a question' do
   scenario 'and views it on the idea page' do
     question = 'How could this product be manufactured?'
     brief = 'Lorem ipsum dolor sit amet.'
-    submit_question 
+    submit_question question, brief
     visit url_for(@idea)
     expect(page).to have_content(question)
   end

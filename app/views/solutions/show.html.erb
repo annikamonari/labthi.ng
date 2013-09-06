@@ -6,4 +6,4 @@
 </p>
 
 <%= link_to 'Edit', edit_solution_path(@solution) %> |
-<%= link_to 'Back', Idea.find(Aspect.find(@solution.aspect_id).idea_id) %>
+<%= link_to 'Back', Idea.find(Question.find(@solution.question_id).idea_id) %>

@@ -1,6 +1,6 @@
 class SolutionsController < ApplicationController
   before_action :set_solution, only: [:show, :edit, :update, :destroy]
-  before_action :set_aspect, only: [:new]
+  before_action :set_question, only: [:new]
   before_action :auth_user!
 
   # GET /solutions
@@ -27,13 +27,13 @@ class SolutionsController < ApplicationController
   # POST /solutions.json
   def create
     @solution = Solution.new(solution_params)
-    @solution.aspect_id = params[:aspect_id]
+    @solution.question_id = params[:question_id]
     @solution.user = current_user
 
     respond_to do |format|
       if @solution.save
         @solution.create_activity :create, owner: (current_user || current_admin)
-        format.html { redirect_to Idea.find(Aspect.find(@solution.aspect_id).idea_id), notice: 'Solution was successfully created.' }
+        format.html { redirect_to Idea.find(Question.find(@solution.question_id).idea_id), notice: 'Solution was successfully created.' }
         format.json { render action: 'show', status: :created, location: @solution }
       else
         format.html { render action: 'new' }
@@ -73,12 +73,12 @@ class SolutionsController < ApplicationController
       @solution = Solution.find(params[:id])
     end
 
-    def set_aspect
-      @aspect = Aspect.find(params[:aspect_id])
+    def set_question
+      @question = Question.find(params[:question_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def solution_params
-      params.require(:solution).permit(:brief, :user_id, :aspect_id)
+      params.require(:solution).permit(:brief, :user_id, :question_id)
     end
 end

@@ -11,7 +11,7 @@
       <%= best_in_place question, :brief %>
     </p>
     <ul>
-      <%= render Solution.where(question_id: question.id) || "No solutions found" %>   
+      <%= render question.solutions || "No solutions found" %>   
       <p>
         <%= link_to "Add solution", controller: "solutions", action: "new", question_id: question.id %>
       </p>

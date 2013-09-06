@@ -11,7 +11,7 @@ describe SolutionsController do
     {
     brief: @solution.brief,
     user_id: @solution.user.id,
-    aspect_id: @solution.aspect.id
+    question_id: @solution.question.id
     }
   }
 
@@ -43,7 +43,7 @@ describe SolutionsController do
 
   describe "GET new" do
     it "assigns a new solution as @solution" do
-      get :new, {:aspect_id => valid_attributes[:aspect_id]}, valid_session
+      get :new, {:question_id => valid_attributes[:question_id]}, valid_session
       assigns(:solution).should be_a_new(Solution)
     end
   end
@@ -60,19 +60,19 @@ describe SolutionsController do
     describe "with valid params" do
       it "creates a new Solution" do
         expect {
-          post :create, :solution => valid_attributes, :aspect_id => valid_attributes[:aspect_id]
+          post :create, :solution => valid_attributes, :question_id => valid_attributes[:question_id]
         }.to change(Solution, :count).by(1)
       end
 
       it "assigns a newly created solution as @solution" do
-        post :create, :solution => valid_attributes, :aspect_id => valid_attributes[:aspect_id]
+        post :create, :solution => valid_attributes, :question_id => valid_attributes[:question_id]
         assigns(:solution).should be_a(Solution)
         assigns(:solution).should be_persisted
       end
 
       it "redirects to the created solution's idea" do
-        post :create, :solution => valid_attributes, :aspect_id => valid_attributes[:aspect_id]
-        response.should redirect_to(Idea.find(Aspect.find(Solution.last.aspect_id).idea_id))
+        post :create, :solution => valid_attributes, :question_id => valid_attributes[:question_id]
+        response.should redirect_to(Idea.find(Question.find(Solution.last.question_id).idea_id))
       end
     end
 
