@@ -38,12 +38,15 @@ module Features
     end
 
     # This must be called from an idea page
-    def submit_aspect(title, brief)
-      click_link 'Add aspect'
-      fill_in 'aspect_title', with: title
-      fill_in 'aspect_brief', with: brief
+=begin
+    def submit_aspect(title, brief, a)
+      click_link 'Create a question'
+      fill_in 'Title', with: title
+      fill_in 'Description', with: brief
+      fill_in 'Answers expected', with: brief
       click_button 'Save Aspect'
     end
+=end
     # This must be called from an idea page
     def update_aspect(title, brief)
       click_link 'Add aspect'

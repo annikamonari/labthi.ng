@@ -23,6 +23,11 @@
     <%= f.label :answers_expected %><br>
     <%= f.number_field :answers_expected %>
   </div>
+
+  <% if user_signed_in? %>
+    <%= hidden_field_tag :idea_id, params[:idea_id] %>
+  <% end %>
+
   <div class="actions">
     <%= f.submit 'Create Question', class: 'btn btn-primary' %>
   </div>

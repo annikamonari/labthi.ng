@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
   before_action :set_aspects, only: [:show]
+  before_action :set_questions, only: [:show]
   before_action :auth_user!, only: [:update] #cutstom method below
   before_action :set_tags, only: [:edit, :update]
 
@@ -77,6 +78,9 @@ class IdeasController < ApplicationController
     end
     def set_aspects
       @aspects = Aspect.where(idea_id: @idea)
+    end
+    def set_questions
+      @questions = Question.where(idea_id: @idea.id)
     end
     def set_tags
       @categories = set_categories

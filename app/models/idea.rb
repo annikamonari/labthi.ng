@@ -8,6 +8,7 @@ class Idea < ActiveRecord::Base
   validates_presence_of :component_list, :on => :update
   belongs_to :user, inverse_of: :ideas
   has_many :aspects, inverse_of: :idea, :dependent => :destroy
+  has_many :questions, inverse_of: :idea, :dependent => :destroy
 
   acts_as_taggable_on :categories, :components
 

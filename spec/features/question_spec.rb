@@ -2,8 +2,9 @@ require 'spec_helper'
 
 feature 'Visitor submits a question' do
     before(:each) do
-        @idea = FactoryGirl.create(:idea)
-        visit url_for(@idea)
+      sign_in
+      @idea = FactoryGirl.create(:idea)
+      visit url_for(@idea)
     end
 
   scenario 'with valid params' do

@@ -1,0 +1,19 @@
+<% # This template is called from Idea#show %>
+<li>
+    <p>
+    <strong>Question:</strong>
+      <%= link_to question.title, question %>
+      by
+      <%= User.find(question.user_id).email %>
+    </p>
+    <p>
+    <strong>Brief:</strong>
+      <%= best_in_place question, :brief %>
+    </p>
+    <ul>
+      <%= render Solution.where(question_id: question.id) || "No solutions found" %>   
+      <p>
+        <%= link_to "Add solution", controller: "solutions", action: "new", question_id: question.id %>
+      </p>
+    </ul>
+</li>

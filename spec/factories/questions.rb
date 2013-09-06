@@ -5,7 +5,7 @@ FactoryGirl.define do
     title "MyText"
     brief "MyText"
     answers_expected 1
-    idea nil
-    user nil
+    idea
+    user
   end
 end

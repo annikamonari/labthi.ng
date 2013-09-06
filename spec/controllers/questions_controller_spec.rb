@@ -23,12 +23,23 @@ describe QuestionsController do
   # This should return the minimal set of attributes required to create a valid
   # Question. As you add validations to Question, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "title" => "MyText" } }
+  let(:valid_attributes) { {
+    title: "MyText",
+    brief: "MyBrief",
+    answers_expected: "2",
+    user: FactoryGirl.create(:user),
+    idea: FactoryGirl.create(:idea)
+    } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # QuestionsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+
+  before(:each) {
+    @user = User.find(valid_attributes[:user])
+    sign_in @user
+  }
 
   describe "GET index" do
     it "assigns all questions as @questions" do
@@ -65,18 +76,18 @@ describe QuestionsController do
     describe "with valid params" do
       it "creates a new Question" do
         expect {
-          post :create, {:question => valid_attributes}, valid_session
+          post :create, :question => valid_attributes, :idea_id => valid_attributes[:idea].id
         }.to change(Question, :count).by(1)
       end
 
       it "assigns a newly created question as @question" do
-        post :create, {:question => valid_attributes}, valid_session
+        post :create, :question => valid_attributes, :idea_id => valid_attributes[:idea].id
         assigns(:question).should be_a(Question)
         assigns(:question).should be_persisted
       end
 
       it "redirects to the created question" do
-        post :create, {:question => valid_attributes}, valid_session
+        post :create, :question => valid_attributes, :idea_id => valid_attributes[:idea].id
         response.should redirect_to(Question.last)
       end
     end
