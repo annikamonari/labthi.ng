@@ -14,6 +14,7 @@ class IdeasController < ApplicationController
   # GET /ideas/1.json
   def show
     @user = @idea.user
+    render layout: 'sidebar_left'
   end
 
   # GET /ideas/new

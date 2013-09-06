@@ -1,5 +1,7 @@
 StartIt::Application.routes.draw do
   
+  resources :questions
+
   get 'explore', to: 'explore#index'
   #get "profile/show"
   #get "profile/edit"

@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130830191746) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20130906202519) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -86,6 +83,19 @@ ActiveRecord::Schema.define(version: 20130830191746) do
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
+  create_table "questions", force: true do |t|
+    t.text     "title"
+    t.text     "brief"
+    t.integer  "answers_expected"
+    t.integer  "idea_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["idea_id"], name: "index_questions_on_idea_id", using: :btree
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"
