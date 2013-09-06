@@ -63,5 +63,14 @@ module Features
       fill_in 'Brief', with: brief
       click_button 'Create Comment'
     end
+
+    # This must be called from an idea page
+    def submit_question(title = 'valid title', brief = 'valid brief', answers_expected = '2')
+      click_link 'Create a question'
+      fill_in 'Title', with: title
+      fill_in 'Description', with: brief
+      fill_in 'Answers expected', with: answers_expected
+      click_button 'Create Question'
+    end
   end
 end
