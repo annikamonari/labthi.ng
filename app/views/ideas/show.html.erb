@@ -3,16 +3,15 @@
 <%= render 'secondary_nav' %>
 <%= render 'sidebar' %>
 
-
-<%= link_to "Create a question", {
-  controller: "questions",
-  action: "new",
-  idea_id: @idea.id},
-  class: 'btn btn-info'
-%>
-
-
-<h4>Critique, expand, and improve this idea!</h4>
+<div class="welcome-block clearfix">
+	<h4 class="pull-left">Critique, expand, and improve this idea!</h4>
+	<%= link_to "Create a question", {
+	  controller: "questions",
+	  action: "new",
+	  idea_id: @idea.id},
+	  class: 'btn btn-info pull-right'
+	%>
+</div>
   <ul class="questions">
     <%= render @idea.questions || "No questions found" %>   
   </ul>

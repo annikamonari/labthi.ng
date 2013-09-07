@@ -11,6 +11,8 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @idea = @question.idea
+    render layout: 'sidebar_left'
   end
 
   # GET /questions/new

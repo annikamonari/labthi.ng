@@ -1,12 +1,14 @@
 <% content_for :secondary_nav do %>
-	<%= link_to "Direct", {
-	  controller: "ideas",
-	  action: "show" },
-	  class: 'btn btn-info'
-	%>
-	<%= link_to "Define", {
-	  controller: "ideas",
-	  action: "define" },
-	  class: 'btn btn-info'
-	%>
+	<div class="btn-group">
+		<%= link_to "Direct", {
+		  controller: "ideas",
+		  action: "show" },
+		  class: 'btn btn-default'
+		%>
+		<%= link_to "Define", {
+		  controller: "ideas",
+		  action: "define" },
+		  class: 'btn btn-default'
+		%>
+	</div>
 <% end %>
