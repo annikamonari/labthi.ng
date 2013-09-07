@@ -6,6 +6,9 @@ module ApplicationHelper
       link_to link_text, link_path
     end
   end
+  def active_when(path)
+    current_page?(path) ? 'active' : ''
+  end
 # Use Bootstrap for our statuses
   def bootstrap_class_for flash_type
     case flash_type
