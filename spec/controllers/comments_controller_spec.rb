@@ -87,9 +87,9 @@ describe CommentsController do
         assigns(:comment).should be_persisted
       end
 
-      it "redirects to the created comment" do
+      it "redirects to the comment's question" do
         post :create, :comment => valid_attributes, :solution_id => valid_attributes[:solution_id]
-        response.should redirect_to((Idea.find(Question.find(Solution.find(Comment.last.solution_id).question_id).idea_id)))
+        response.should redirect_to(Comment.last.solution.question)
       end
     end
 
@@ -128,10 +128,10 @@ describe CommentsController do
         assigns(:comment).should eq(comment)
       end
 
-      it "redirects to the comment" do
+      it "redirects to the comment's question" do
         comment = Comment.create! valid_attributes
         put :update, {:id => comment.to_param, :comment => valid_attributes}, valid_session
-        response.should redirect_to(comment)
+        response.should redirect_to(comment.solution.question)
       end
     end
 

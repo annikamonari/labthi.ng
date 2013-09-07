@@ -33,7 +33,7 @@ class SolutionsController < ApplicationController
     respond_to do |format|
       if @solution.save
         @solution.create_activity :create, owner: (current_user || current_admin)
-        format.html { redirect_to Idea.find(Question.find(@solution.question_id).idea_id), notice: 'Solution was successfully created.' }
+        format.html { redirect_to @solution.question, notice: 'Solution was successfully created.' }
         format.json { render action: 'show', status: :created, location: @solution }
       else
         format.html { render action: 'new' }
@@ -48,7 +48,7 @@ class SolutionsController < ApplicationController
     respond_to do |format|
       if @solution.update(solution_params)
         @solution.create_activity :update, owner: (current_user || current_admin)
-        format.html { redirect_to @solution, notice: 'Solution was successfully updated.' }
+        format.html { redirect_to @solution.question, notice: 'Solution was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

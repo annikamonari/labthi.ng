@@ -88,7 +88,7 @@ describe QuestionsController do
 
       it "redirects to the created question" do
         post :create, :question => valid_attributes, :idea_id => valid_attributes[:idea].id
-        response.should redirect_to(valid_attributes[:idea])
+        response.should redirect_to(Question.last)
       end
     end
 

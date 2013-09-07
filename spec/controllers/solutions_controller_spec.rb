@@ -70,9 +70,9 @@ describe SolutionsController do
         assigns(:solution).should be_persisted
       end
 
-      it "redirects to the created solution's idea" do
+      it "redirects to the created solution's question" do
         post :create, :solution => valid_attributes, :question_id => valid_attributes[:question_id]
-        response.should redirect_to(Idea.find(Question.find(Solution.last.question_id).idea_id))
+        response.should redirect_to(Solution.last.question)
       end
     end
 
@@ -111,10 +111,10 @@ describe SolutionsController do
         assigns(:solution).should eq(solution)
       end
 
-      it "redirects to the solution" do
+      it "redirects to the solution's question" do
         solution = Solution.create! valid_attributes
         put :update, {:id => solution.to_param, :solution => valid_attributes}, valid_session
-        response.should redirect_to(solution)
+        response.should redirect_to(solution.question)
       end
     end
 

@@ -22,7 +22,6 @@ feature 'Visitor checks activity stream' do
   end
   scenario 'for a recently updated question' do
     submit_question "Shipping considerations", "An efficient packing and shipping method should be considered"
-    click_link "Shipping considerations"
     click_link "Edit"
     click_button "Create Question"
     visit '/activities/index'

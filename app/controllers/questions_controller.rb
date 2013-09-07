@@ -32,7 +32,7 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.save
         @question.create_activity :create, owner: (current_user || current_admin)
-        format.html { redirect_to @question.idea, notice: 'Question was successfully created.' }
+        format.html { redirect_to @question, notice: 'Question was successfully created.' }
         format.json { render action: 'show', status: :created, location: @question }
       else
         format.html { render action: 'new' }

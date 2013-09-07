@@ -58,3 +58,24 @@ p.notice {
   border: solid 2px #C66;
   &:first-letter { text-transform: uppercase; }
 }
+
+
+.questions, .solutions{
+  background: #eee;
+  padding: 8px;
+  list-style:none;
+  li{
+    border-left: 1px dotted #aaa;
+    border-right: 1px dotted #aaa;
+    padding-left: 8px;
+  }
+  ul{
+    background:#fff;
+    padding: 8px;
+    list-style:none;
+    margin-bottom:8px;
+  }
+  ul ul {
+  background: #eee;
+  }
+}

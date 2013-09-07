@@ -6,14 +6,4 @@
       by
       <%= User.find(question.user_id).email %>
     </p>
-    <p>
-    <strong>Brief:</strong>
-      <%= best_in_place question, :brief %>
-    </p>
-    <ul>
-      <%= render question.solutions || "No solutions found" %>   
-      <p>
-        <%= link_to "Add solution", controller: "solutions", action: "new", question_id: question.id %>
-      </p>
-    </ul>
 </li>

@@ -16,5 +16,11 @@ feature 'Visitor submits a solution' do
         expect(page).to have_content(@question_brief)
         expect(page).to have_content(@solution_brief)
   end
+  scenario 'and sees it on the question page' do
+        submit_idea @idea_brief
+        submit_question @question_title, @question_brief
+        submit_solution @solution_brief
+        expect(page).to have_content(@solution_brief)
+  end
 
 end

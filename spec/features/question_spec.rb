@@ -23,5 +23,13 @@ feature 'Visitor submits a question' do
     visit url_for(@idea)
     expect(page).to have_content(question)
   end
+  scenario 'and views it' do
+    question = 'Why should this product be manufactured?'
+    brief = 'Lorem ipsum dolor sit amet!!!'
+    submit_question question, brief
+    visit url_for(@idea)
+    click_link(question)
+    expect(page).to have_content(brief)
+  end
 
 end
