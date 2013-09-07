@@ -1,0 +1,14 @@
+<%= render 'layouts/header' %>
+
+
+<%= render 'layouts/secondary_nav' if content_for :secondary_nav %>
+
+<div class="content col-sm-8">
+	<%= yield %>
+</div>
+
+<div class="sidebar sidebar_right col-sm-4">
+	<%= yield :sidebar_right %>
+</div>
+
+<%= render 'layouts/footer' %>

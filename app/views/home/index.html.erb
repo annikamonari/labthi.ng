@@ -2,11 +2,14 @@
 
 <% #it would be nice to split this out into a method %>
 
+
 <% if current_user  then %>
     <p><%= "Welcome, #{current_user.email}" %></p>
 <% else %>
     <p><%= "Please sign in :)" %></p>
 <% end %>
 
-
-<%= render template: 'devise/registrations/new' %>
+<% content_for :sidebar_right do %>
+	<% title = "Sign up and Create" %>
+	<%= render template: 'devise/registrations/new', locals: {title: title} %>
+<% end %>
