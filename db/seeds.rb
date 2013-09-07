@@ -16,7 +16,16 @@
   FactoryGirl.create(:solution)
 end
 
-User.create!(name: "Michael G", email: "mpgarate@gmail.com", password: "banana123")
-User.create!(name: "Annika M", email: "annikamonari@gmail.com", password: "banana123")
-Admin.create!(email: "mpgarate@gmail.com", password: "banana123")
-Admin.create!(email: "annikamonari@gmail.com", password: "banana123")
+FactoryGirl.create(:admin,
+	name: "Michael G",
+	email: "mpgarate@gmail.com",
+	password: "banana123",
+	password_confirmation: "banana123"
+	)
+
+FactoryGirl.create(:admin, 
+	name: "Annika M",
+	email: "annikamonari@gmail.com",
+	password: "banana123",
+	password_confirmation: "banana123"
+	)
