@@ -1,0 +1,37 @@
+
+<% content_for :sidebar_left do %>
+  <p>
+    <strong>Phase:</strong>
+    <%= @idea.phase %>
+  </p>
+
+  <p>
+    <strong>Brief:</strong>
+    <%= best_in_place @idea, :brief, :ok_button => "Submit", :ok_button_class => "btn best-in-place-submit" %>
+  </p>
+
+  <p>
+    <strong>Image:</strong>
+    <%= @idea.image %>
+  </p>
+
+  <p>
+    <strong>Active:</strong>
+    <%= @idea.active %>
+  </p>
+
+  <p>
+    <strong>Components:</strong>
+    <%= @idea.component_list %>
+  </p>
+
+  <p>
+    <strong>Categories:</strong>
+    <%= @idea.category_list %>
+  </p>
+
+  <p>
+    <strong>User:</strong>
+    <%= link_to @idea.user.name, @idea.user.profile %>
+  </p>
+<% end %>

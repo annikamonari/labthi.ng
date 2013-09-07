@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show, :edit, :update, :destroy]
+  before_action :set_idea, only: [:show, :edit, :update, :destroy, :define]
   before_action :set_aspects, only: [:show]
   before_action :set_questions, only: [:show]
   before_action :auth_user!, only: [:new, :create, :edit, :update]
@@ -68,6 +68,10 @@ class IdeasController < ApplicationController
       format.html { redirect_to ideas_url }
       format.json { head :no_content }
     end
+  end
+
+  def define
+    
   end
 
   private

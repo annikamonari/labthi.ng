@@ -9,8 +9,10 @@ StartIt::Application.routes.draw do
   resources :comments
   resources :solutions
   resources :aspects
-  resources :ideas
   resources :profiles
+
+  get '/ideas/:id/define', to: 'ideas#define'
+  resources :ideas
   
   get "profile", :to => "profiles#edit" # We want this to be: get "profile", :to => "profiles#show"
 
