@@ -71,7 +71,7 @@ class IdeasController < ApplicationController
   end
 
   def define
-    
+    render layout: 'sidebar_left'
   end
 
   private
