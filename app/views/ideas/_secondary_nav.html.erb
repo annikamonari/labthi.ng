@@ -10,5 +10,15 @@
 		  action: "define" },
 		  class: 'btn btn-default ' + active_when(:controller => 'ideas', :action => 'define')
 		%>
+		<%= link_to "Reputation", {
+		  controller: "ideas",
+		  action: "reputation" },
+		  class: 'btn btn-default ' + active_when(:controller => 'ideas', :action => 'reputation')
+		%>
+		<%= link_to "Activity", {
+		  controller: "ideas",
+		  action: "activity" },
+		  class: 'btn btn-default ' + active_when(:controller => 'ideas', :action => 'activity')
+		%>
 	</div>
 <% end %>

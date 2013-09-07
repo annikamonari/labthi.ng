@@ -12,6 +12,8 @@ StartIt::Application.routes.draw do
   resources :profiles
 
   get '/ideas/:id/define', to: 'ideas#define'
+  get '/ideas/:id/reputation', to: 'ideas#reputation'
+  get '/ideas/:id/activity', to: 'ideas#activity'
   resources :ideas
   
   get "profile", :to => "profiles#edit" # We want this to be: get "profile", :to => "profiles#show"

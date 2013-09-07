@@ -15,12 +15,14 @@ feature 'User visits an idea page' do
   	click_link 'Direct'
     page.should have_content(greeting)
   end
-=begin
   scenario 'and clicks "Reputation"' do
+    greeting = 'See a list of contributors and their reputation earnings!'
   	click_link 'Reputation'
+    page.should have_content(greeting)
   end
   scenario 'and clicks "Activity"' do
+    greeting = 'Recent activity'
   	click_link 'Activity'
+    page.should have_content(greeting)
   end
-=end
 end

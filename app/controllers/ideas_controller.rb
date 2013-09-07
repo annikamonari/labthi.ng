@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show, :edit, :update, :destroy, :define]
+  before_action :set_idea, except: [:create, :new, :index]
   before_action :set_aspects, only: [:show]
   before_action :set_questions, only: [:show]
   before_action :auth_user!, only: [:new, :create, :edit, :update]
@@ -71,6 +71,14 @@ class IdeasController < ApplicationController
   end
 
   def define
+    render layout: 'sidebar_left'
+  end
+
+  def reputation
+    render layout: 'sidebar_left'
+  end
+
+  def activity
     render layout: 'sidebar_left'
   end
 
