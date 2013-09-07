@@ -33,6 +33,6 @@
       <%= f.select :category_list, @categories, {selected:@idea.category_list}, {:multiple => true, :style => "height:180px;"} %>
     </div>
     <div class="actions">
-      <%= f.submit 'Update Idea', :class => "btn btn-primary" %>
+      <%= f.submit :class => "btn btn-primary" %>
     </div>
 <% end %>

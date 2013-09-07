@@ -2,8 +2,8 @@ class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
   before_action :set_aspects, only: [:show]
   before_action :set_questions, only: [:show]
-  before_action :auth_user!, only: [:update] #cutstom method below
-  before_action :set_tags, only: [:edit, :update]
+  before_action :auth_user!, only: [:new, :create, :edit, :update]
+  before_action :set_tags, except: [:index]
 
   # GET /ideas
   # GET /ideas.json
@@ -14,7 +14,6 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
-    @user = @idea.user
     render layout: 'sidebar_left'
   end
 
@@ -33,10 +32,11 @@ class IdeasController < ApplicationController
     @idea = Idea.new(idea_params)
     @idea.phase = 1
     @idea.active = 'true'
+    @idea.user = current_user
     respond_to do |format|
       if @idea.save
         @idea.create_activity :create, owner: (current_user || current_admin)
-        format.html { redirect_to edit_idea_path(@idea), notice: "Great! Now let's expand on that a little." }
+        format.html { redirect_to @idea, notice: "Great! Now let's expand on that a little." }
         format.json { render action: 'show', status: :created, location: @idea }
       else
         format.html { render action: 'new' }
@@ -48,7 +48,6 @@ class IdeasController < ApplicationController
   # PATCH/PUT /ideas/1
   # PATCH/PUT /ideas/1.json
   def update
-    @idea.user = current_user
     respond_to do |format|
       if @idea.update(idea_params)
         @idea.create_activity :update, owner: (current_user || current_admin)

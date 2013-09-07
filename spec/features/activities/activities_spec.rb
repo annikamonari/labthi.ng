@@ -4,13 +4,14 @@ feature 'Visitor checks activity stream' do
 
   before(:each) do
       submit_idea "import corn-free pringles from europe"
-      update_idea
   end
   scenario 'for a recently created idea' do
     visit '/activities/index'
     expect(page).to have_content('created an idea import corn-free pringles from europe')
   end 
   scenario 'for a recently updated idea' do
+    click_link 'Edit'
+    click_button 'Update Idea'
     visit '/activities/index'
     expect(page).to have_content('updated an idea import corn-free pringles from europe')
   end

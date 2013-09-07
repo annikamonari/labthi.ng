@@ -10,7 +10,6 @@ feature 'Visitor submits a solution' do
 
   scenario 'with valid params' do
         submit_idea @idea_brief
-        update_idea
         submit_question @question_title, @question_brief
         submit_solution @solution_brief
         expect(page).to have_content(@idea_brief)

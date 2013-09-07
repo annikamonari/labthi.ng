@@ -23,20 +23,16 @@ module Features
       click_link 'Sign out'
     end
 
-    def submit_idea(brief = 'valid brief', path = '/ideas/new')
-      sign_in
+    def submit_idea(brief = 'valid brief', path = '/ideas/new', test_signin = 1)
+      sign_in if test_signin == 1
       visit path
       fill_in 'Brief', with: brief
+      check 'Website'
+      select 'Science & Technology', :from => 'idea_category_list'
       click_button 'Create Idea'
       # Insert information to test updates here
     end
-
-    def update_idea()
-      check 'Website'
-      select 'Science & Technology', :from => 'idea_category_list'
-      click_button 'Update Idea'
-    end
-
+    
     # This must be called from an idea page
 =begin
     def submit_aspect(title, brief, a)

@@ -8,6 +8,28 @@ describe "ideas/new" do
      :image => "MyString",
      :active => true
     ).as_new_record)
+
+    @components = [
+      "Website",
+      "App",
+      "Software",
+      "Hardware",
+      "Good",
+      "Service"
+    ]
+    @categories = [
+    "Advertising & Media",
+    "Arts & Entertainment",
+    "Business & Finance",
+    "Education",
+    "Energy & Utilities",
+    "Food & Health",
+    "Science & Technology",
+    "Social",
+    "Travel & Leisure",
+    "Retail",
+    "Other"
+  ]
   end
 
   it "renders new idea form" do

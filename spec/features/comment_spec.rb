@@ -11,7 +11,6 @@ feature 'Visitor submits a comment' do
 
   scenario 'with valid params' do
         submit_idea @idea_brief
-        update_idea
         submit_question @question_title, @question_brief
         submit_solution @solution_brief
         submit_comment @comment_brief

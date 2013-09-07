@@ -7,10 +7,10 @@ feature 'User visits explore page' do
     end
 
   scenario 'and submits an idea' do
+    sign_in
+    click_link 'Explore'
     click_link 'Submit Idea'
-    fill_in 'Brief', with: 'valid brief'
-    click_button 'Create Idea'
-    update_idea
+    expect(page).to have_content 'What business needs to exist?'
   end
 
   scenario 'and sees a listing of ideas' do
