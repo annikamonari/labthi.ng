@@ -6,6 +6,17 @@ feature 'User wants to submit a startup idea' do
     visit '/ideas/new'
     expect(page).to have_content('What business needs to exist?')
   end
+  scenario 'From home page' do
+    sign_in
+    visit '/'
+    click_link 'Create Idea'
+    fill_in 'Brief', with: 'This is a valid brief'
+    check 'Website'
+    select 'Science & Technology', :from => 'idea_category_list'
+    click_button 'Create Idea'
+    page.should have_content "Great! Now let's expand on that a little."
+    page.should have_content 'This is a valid brief'
+  end
   scenario 'with valid input' do
     valid_brief = 'Social network based on premise of only disliking posts'
     submit_idea valid_brief

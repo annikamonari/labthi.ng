@@ -10,5 +10,4 @@
 
 
 <p>What business needs to exist?</p>
-<% @idea = Idea.new %>
-<%= render partial: "ideas/short_form", locals: {idea: @idea} %>
+<%= link_to "Create Idea", '/ideas/new', class: 'btn btn-primary' %>
