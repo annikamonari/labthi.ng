@@ -23,8 +23,8 @@ module Features
       click_link 'Sign out'
     end
 
-    def submit_idea(brief = 'valid brief', path = '/ideas/new', test_signin = 1)
-      sign_in if test_signin == 1
+    def submit_idea(brief = 'valid brief', path = '/ideas/new')
+      sign_in
       visit path
       fill_in 'Brief', with: brief
       check 'Website'
