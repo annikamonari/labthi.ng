@@ -34,7 +34,7 @@
 </div><!-- .question -->
 
 <ul class="solutions">
-  <%= render @question.solutions || "No solutions found" %>   
+  <%= render @question.solutions.includes(:comments) || "No solutions found" %>   
   <p>
     <%= link_to "Add solution", controller: "solutions", action: "new", question_id: @question.id %>
   </p>
