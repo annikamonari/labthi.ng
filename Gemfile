@@ -77,6 +77,7 @@ end
 
 group :development do
   gem 'guard-livereload'
+  gem 'bullet'
 end
 
 group :test, :development do

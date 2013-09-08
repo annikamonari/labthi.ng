@@ -29,4 +29,12 @@ StartIt::Application.configure do
 
   # Address bootstrap + jQuery issue (Michael G)
   # config.serve_static_assets = false
+
+  config.after_initialize do
+  Bullet.enable = true
+  Bullet.alert = true
+  Bullet.bullet_logger = true
+  Bullet.console = true
+  Bullet.rails_logger = true
+  end
 end
