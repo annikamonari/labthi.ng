@@ -5,5 +5,5 @@ class Solution < ActiveRecord::Base
   validates :question, presence: true
   belongs_to :question, inverse_of: :solutions
   belongs_to :user, inverse_of: :solutions  
-  has_many :comments, inverse_of: :solution, :dependent => :destroy
+  has_many :comments, as: :commentable, :dependent => :destroy
 end

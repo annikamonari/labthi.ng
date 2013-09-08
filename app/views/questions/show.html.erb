@@ -3,26 +3,36 @@
 <%= render 'ideas/sidebar' %>
 <%= render 'ideas/secondary_nav' %>
 
-<p>
-  <strong>Question:</strong>
-  <%= @question.title %>
-</p>
-<p>
-  <strong>Brief:</strong>
-  <%= @question.brief %>
-</p>
-<p>
-  <strong>Answers expected:</strong>
-  <%= @question.answers_expected %>
-</p>
-<p>
-  <strong>Idea:</strong>
-  <%= link_to @question.idea.brief, @question.idea %>
-</p>
-<p>
-  <strong>User:</strong>
-  <%= link_to(@question.user.name, @question.user.profile) %>
-</p>
+<div class="question">
+  <p>
+    <strong>Question:</strong>
+    <%= @question.title %>
+  </p>
+  <p>
+    <strong>Brief:</strong>
+    <%= @question.brief %>
+  </p>
+  <p>
+    <strong>Answers expected:</strong>
+    <%= @question.answers_expected %>
+  </p>
+  <p>
+    <strong>Idea:</strong>
+    <%= link_to @question.idea.brief, @question.idea %>
+  </p>
+  <p>
+    <strong>User:</strong>
+    <%= link_to(@question.user.name, @question.user.profile) %>
+  </p>
+
+<ul class="comments question-comments">
+  <%= render @question.comments || "No comments found" %>
+  <p>
+    <%= link_to "Add comment", new_question_comment_path(@question, question_id: @question.id) %>
+  </p>
+</ul>
+</div><!-- .question -->
+
 <ul class="solutions">
   <%= render @question.solutions || "No solutions found" %>   
   <p>

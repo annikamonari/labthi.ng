@@ -9,14 +9,23 @@ feature 'Visitor submits a comment' do
         @comment_brief = 'That is kind of a silly idea. NYC is too important.'
     end
 
-  scenario 'with valid params' do
+  scenario 'on a solution' do
         submit_idea @idea_brief
         submit_question @question_title, @question_brief
         submit_solution @solution_brief
-        submit_comment @comment_brief
+        submit_comment @comment_brief, '.solutions li:first-child'
         expect(page).to have_content(@idea_brief)
         expect(page).to have_content(@question_brief)
         expect(page).to have_content(@solution_brief)
+        expect(page).to have_content(@comment_brief)
+  end
+
+  scenario 'on a question' do
+        submit_idea @idea_brief
+        submit_question @question_title, @question_brief
+
+        submit_comment @comment_brief, '.question'
+        expect(page).to have_content(@question_brief)
         expect(page).to have_content(@comment_brief)
   end
 end

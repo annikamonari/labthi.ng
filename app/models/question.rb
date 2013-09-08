@@ -7,4 +7,5 @@ class Question < ActiveRecord::Base
   belongs_to :idea
   belongs_to :user
   has_many :solutions, inverse_of: :question, :dependent => :destroy
+  has_many :comments, as: :commentable, :dependent => :destroy
 end

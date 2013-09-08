@@ -36,7 +36,7 @@ feature 'Visitor checks activity stream' do
   scenario 'for a recently added solution' do
     submit_question "Shipping considerations", "An efficient packing and shipping method should be considered"
     submit_solution "send by owl"
-    submit_comment "this is an excellent idea"
+    submit_comment "this is an excellent idea", '.solutions'
     visit '/activities/index'
     expect(page).to have_content('added a comment this is an excellent idea')
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130908140750) do
+ActiveRecord::Schema.define(version: 20130908161527) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -56,7 +56,8 @@ ActiveRecord::Schema.define(version: 20130908140750) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "solution_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
   end
 
   create_table "ideas", force: true do |t|
@@ -158,7 +159,6 @@ ActiveRecord::Schema.define(version: 20130908140750) do
   add_foreign_key "aspects", "ideas", :name => "aspects_idea_id_fk"
   add_foreign_key "aspects", "users", :name => "aspects_user_id_fk"
 
-  add_foreign_key "comments", "solutions", :name => "comments_solution_id_fk"
   add_foreign_key "comments", "users", :name => "comments_user_id_fk"
 
   add_foreign_key "ideas", "users", :name => "ideas_user_id_fk"

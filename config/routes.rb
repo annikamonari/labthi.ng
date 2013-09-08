@@ -1,13 +1,19 @@
 StartIt::Application.routes.draw do
   
-  resources :questions
-
   get 'explore', to: 'explore#index'
   #get "profile/show"
   #get "profile/edit"
   get "activities/index"
-  resources :comments
-  resources :solutions
+
+  resources :comments do
+    resources :comments
+  end
+  resources :questions do                                                      
+    resources :comments
+  end
+  resources :solutions do                                                      
+    resources :comments
+  end
   resources :aspects
   resources :profiles
 

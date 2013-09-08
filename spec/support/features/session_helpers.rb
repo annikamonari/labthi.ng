@@ -57,8 +57,8 @@ module Features
       click_button 'Create Solution'
     end
     # This must be called from an idea page
-    def submit_comment(brief)
-      click_link 'Add comment'
+    def submit_comment(brief, selector='html')
+      find(selector).click_link 'Add comment'
       fill_in 'Brief', with: brief
       click_button 'Create Comment'
     end

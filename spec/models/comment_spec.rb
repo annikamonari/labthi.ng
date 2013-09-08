@@ -9,14 +9,16 @@ describe Comment do
     comment = Comment.create(user: nil)
     comment.should_not be_valid
   end
-  it "is not valid without a solution" do
-    comment = Comment.create(solution: nil)
+  it "is not valid without a commentable" do
+    comment = Comment.create(commentable_id: nil)
     comment.should_not be_valid
   end
-  it "is valid with a message, user, and solution" do
+  it "is valid with a message, user, and commentable" do
+    solution = FactoryGirl.build(:solution)
     comment = Comment.create(brief: "Valid message",
                            user: FactoryGirl.create(:user),
-                           solution: FactoryGirl.create(:solution)
+                           commentable_id: solution.id,
+                           commentable_type: solution.class.to_s
     )
     comment.should be_valid
   end

@@ -28,7 +28,8 @@ describe CommentsController do
     {
     brief: @comment.brief,
     user_id: @comment.user.id,
-    solution_id: @comment.solution.id
+    commentable_id: @comment.commentable.id,
+    commentable_type: @comment.commentable.class.to_s
     }
   }
 
@@ -45,7 +46,10 @@ describe CommentsController do
   describe "GET index" do
     it "assigns all comments as @comments" do
       comment = Comment.create! valid_attributes
-      get :index, {}, valid_session
+      get :index, {
+        commentable_id: valid_attributes[:commentable_id],
+        commentable_type: valid_attributes[:commentable_type]
+        }, valid_session
       assigns(:comments).should eq([comment])
     end
   end
@@ -60,7 +64,7 @@ describe CommentsController do
 
   describe "GET new" do
     it "assigns a new comment as @comment" do
-      get :new, {:solution_id => valid_attributes[:solution_id]}, valid_session
+      get :new, {:solution_id => valid_attributes[:commentable_id]}, valid_session
       assigns(:comment).should be_a_new(Comment)
     end
   end
@@ -77,19 +81,19 @@ describe CommentsController do
     describe "with valid params" do
       it "creates a new Comment" do
         expect {
-          post :create, :comment => valid_attributes, :solution_id => valid_attributes[:solution_id]
+          post :create, :comment => valid_attributes, :solution_id => valid_attributes[:commentable_id]
         }.to change(Comment, :count).by(1)
       end
 
       it "assigns a newly created comment as @comment" do
-        post :create, :comment => valid_attributes, :solution_id => valid_attributes[:solution_id]
+        post :create, :comment => valid_attributes, :solution_id => valid_attributes[:commentable_id]
         assigns(:comment).should be_a(Comment)
         assigns(:comment).should be_persisted
       end
 
       it "redirects to the comment's question" do
-        post :create, :comment => valid_attributes, :solution_id => valid_attributes[:solution_id]
-        response.should redirect_to(Comment.last.solution.question)
+        post :create, :comment => valid_attributes, :solution_id => valid_attributes[:commentable_id]
+        response.should redirect_to(Comment.last.commentable.question)
       end
     end
 
@@ -97,14 +101,14 @@ describe CommentsController do
       it "assigns a newly created but unsaved comment as @comment" do
         # Trigger the behavior that occurs when invalid params are submitted
         Comment.any_instance.stub(:save).and_return(false)
-        post :create, {:comment => { "brief" => "invalid value" }, :solution_id => valid_attributes[:solution_id]}, valid_session
+        post :create, {:comment => { "brief" => "invalid value" }, :solution_id => valid_attributes[:commentable_id]}, valid_session
         assigns(:comment).should be_a_new(Comment)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Comment.any_instance.stub(:save).and_return(false)
-        post :create, {:comment => { "brief" => "invalid value" }, :solution_id => valid_attributes[:solution_id]}, valid_session
+        post :create, {:comment => { "brief" => "invalid value" }, :solution_id => valid_attributes[:commentable_id]}, valid_session
         response.should render_template("new")
       end
     end
@@ -131,7 +135,7 @@ describe CommentsController do
       it "redirects to the comment's question" do
         comment = Comment.create! valid_attributes
         put :update, {:id => comment.to_param, :comment => valid_attributes}, valid_session
-        response.should redirect_to(comment.solution.question)
+        response.should redirect_to(comment.commentable.question)
       end
     end
 
