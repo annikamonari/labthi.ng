@@ -28,7 +28,7 @@
 <ul class="comments question-comments">
   <%= render @question.comments || "No comments found" %>
   <p>
-    <%= link_to "Add comment", new_question_comment_path(@question, question_id: @question.id) %>
+    <%= link_to "Add comment", new_question_comment_path(@question) %>
   </p>
 </ul>
 </div><!-- .question -->

@@ -32,11 +32,10 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.new(comment_params)
     @comment.user = current_user
-    @redirect_path = @comment.commentable.try(:question) || @comment.commentable
     respond_to do |format|
       if @comment.save
         @comment.create_activity :create, owner: (current_user || current_admin)
-        format.html { redirect_to @redirect_path, notice: 'Comment was successfully created.' }
+        format.html { redirect_to get_question_path(@comment.commentable), notice: 'Comment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @comment }
       else
         format.html { render action: 'new' }
@@ -49,7 +48,7 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1.json
   def update
     @comment = Comment.find(params[:id])
-    @redirect_path = @comment.commentable.question || @comment.commentable
+    @redirect_path = @comment.commentable.try(:question) || @comment.commentable.commentable.try(:question) || @comment.commentable
     respond_to do |format|
       if @comment.update(comment_params)
         @comment.create_activity :update, owner: (current_user || current_admin)
@@ -89,6 +88,16 @@ class CommentsController < ApplicationController
       commentable_type = params[:commentable_type]
       id = params[:commentable_id]
       @commentable = commentable_type.singularize.classify.constantize.find_by_id(id) unless commentable_type == nil
+    end
+
+    def get_question_path(commentable)
+      if commentable.class.name == 'Comment' then
+        return @question_path = get_question_path(commentable.commentable)
+      elsif commentable.class.name == 'Question' then
+        return @question_path = commentable
+      elsif commentable.class.name == 'Solution' then
+        return @question_path = commentable.question
+      end
     end
 
     def set_idea

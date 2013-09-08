@@ -1,7 +1,11 @@
 <% # This template is called from Idea#show %>
-<li>
+<li class="comment">
   <p>
     <strong>Comment:</strong>
     <%= best_in_place comment, :brief %>
+  </p>
+  <%= render comment.comments %>
+  <p>
+    <%= link_to "Reply to comment", new_comment_comment_path(comment) %>
   </p>
 </li>

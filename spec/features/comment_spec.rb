@@ -7,11 +7,12 @@ feature 'Visitor submits a comment' do
         @question_brief = 'This social network should target a speific audience'
         @solution_brief = 'This product could target upper middle class males in NYC'
         @comment_brief = 'That is kind of a silly idea. NYC is too important.'
+
+        submit_idea @idea_brief
+        submit_question @question_title, @question_brief
     end
 
   scenario 'on a solution' do
-        submit_idea @idea_brief
-        submit_question @question_title, @question_brief
         submit_solution @solution_brief
         submit_comment @comment_brief, '.solutions li:first-child'
         expect(page).to have_content(@idea_brief)
@@ -21,11 +22,16 @@ feature 'Visitor submits a comment' do
   end
 
   scenario 'on a question' do
-        submit_idea @idea_brief
-        submit_question @question_title, @question_brief
-
         submit_comment @comment_brief, '.question'
         expect(page).to have_content(@question_brief)
         expect(page).to have_content(@comment_brief)
+  end
+
+  scenario 'on a comment' do
+        @comment_reply = "That was a great comment!"
+        submit_comment @comment_brief, '.question'
+        submit_comment @comment_reply, '.comment', 'Reply to comment'
+        expect(page).to have_content(@question_brief)
+        expect(page).to have_content(@comment_reply)
   end
 end
