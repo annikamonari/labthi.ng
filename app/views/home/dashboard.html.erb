@@ -1,0 +1,8 @@
+<h1>Dashboard</h1>
+<p>Welcome, 
+<%= link_to current_user.name, current_user.profile %>
+</p>
+
+<% content_for :sidebar_right do %>
+	<h3>My labs</h3>
+<% end %>

@@ -1,13 +1,4 @@
-<h1>Home#index</h1>
-
-<% #it would be nice to split this out into a method %>
-
-
-<% if current_user  then %>
-    <p><%= "Welcome, #{current_user.email}" %></p>
-<% else %>
-    <p><%= "Please sign in :)" %></p>
-<% end %>
+<h1>Labthi.ng</h1>
 
 <% content_for :sidebar_right do %>
 	<% title = "Sign up and Create" %>
