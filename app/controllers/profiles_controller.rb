@@ -1,9 +1,11 @@
 class ProfilesController < ApplicationController
 	before_action :auth_user!, except: [:show]
-  before_action :set_profile, only: [:show, :edit, :update]
-  before_action :get_user, only: [:show, :edit, :update]
+  before_action :set_profile, only: [:show, :edit, :update, :labs]
+  before_action :get_user, only: [:show, :edit, :update, :labs]
 
   def show
+    @activities = PublicActivity::Activity.where(owner: @user).order("created_at desc")
+    render layout: 'sidebar_left'
   end
 
   def edit
@@ -25,6 +27,10 @@ class ProfilesController < ApplicationController
         end
       end
     end
+  end
+
+  def labs
+    render layout: 'sidebar_left'
   end
 
 	private

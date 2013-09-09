@@ -6,7 +6,6 @@ feature 'Visitor views profile page' do
   	click_link @user.name
     click_link "Edit"
   end
-
   scenario 'for the first time' do
   	expect(page).to have_content(@user.name)
   	expect(page).to have_content('Profession')
@@ -34,4 +33,13 @@ feature 'Visitor views profile page' do
     expect(page).to_not have_content "Technology Director"
   end
 
+  scenario 'to view recent activity' do
+    visit '/ideas/new'
+    fill_in 'Brief', with: 'Popcorn machine made of diamond'
+    check 'Website'
+    select 'Science & Technology', :from => 'idea_category_list'
+    click_button 'Create Idea'
+    visit url_for(@user.profile)
+    page.should have_content(@user.name + " created an idea Popcorn machine made of diamond")
+  end
 end

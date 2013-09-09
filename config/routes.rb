@@ -10,6 +10,9 @@ StartIt::Application.routes.draw do
     resources :comments
   end
   resources :aspects
+
+
+  get '/profiles/:id/labs', to: 'profiles#labs'
   resources :profiles
 
   get '/ideas/:id/define', to: 'ideas#define'
