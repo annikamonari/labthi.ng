@@ -2,7 +2,7 @@
 <li class="comment">
   <p>
     <strong>Comment:</strong>
-    <%= best_in_place comment, :brief %>
+    <%= comment.brief %>
   </p>
   <% unless comment.commentable_type == 'Comment' then %>
 	  <ul class="comment-replies">
