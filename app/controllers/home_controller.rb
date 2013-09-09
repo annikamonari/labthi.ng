@@ -1,15 +1,11 @@
 class HomeController < ApplicationController
   #before_filter :authenticate_user!
   def index
-  	#if user_signed_in? then
-  	#	render 'home/dashboard'
-  	#else
-    	render layout: 'sidebar_right'
-		#end
+    render layout: 'sidebar_right'
   end
 
   def dashboard
-  	@test = 'it worked'
+  	@activities = PublicActivity::Activity.where(owner: current_user).order("created_at desc")
   	render layout: 'sidebar_right'
   end
 end
