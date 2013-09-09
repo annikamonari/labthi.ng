@@ -34,4 +34,15 @@ feature 'Visitor submits a comment' do
         expect(page).to have_content(@question_brief)
         expect(page).to have_content(@comment_reply)
   end
+  scenario "and clicks its idea's tabs" do
+    @idea = FactoryGirl.create(:idea, id: 800)
+    visit url_for(@idea)
+    question = 'Why should this product be manufactured?'
+    brief = 'Lorem ipsum dolor sit amet!!!'
+    submit_question question, brief
+    visit url_for(@idea)
+    click_link(question)
+    click_link "Direct"
+    page.should have_content
+  end
 end

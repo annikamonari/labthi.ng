@@ -1,23 +1,15 @@
 <% content_for :secondary_nav do %>
 	<div class="btn-group">
-		<%= link_to "Direct", {
-		  controller: "ideas",
-		  action: "show" },
+		<%= link_to "Direct", '/ideas/' + @idea.id.to_s,
 		  class: 'btn btn-default ' + active_when(@idea)
 		%>
-		<%= link_to "Define", {
-		  controller: "ideas",
-		  action: "define" },
+		<%= link_to "Define", '/ideas/' + @idea.id.to_s + '/define',
 		  class: 'btn btn-default ' + active_when(:controller => 'ideas', :action => 'define')
 		%>
-		<%= link_to "Reputation", {
-		  controller: "ideas",
-		  action: "reputation" },
+		<%= link_to "Reputation", '/ideas/' + @idea.id.to_s + '/reputation',
 		  class: 'btn btn-default ' + active_when(:controller => 'ideas', :action => 'reputation')
 		%>
-		<%= link_to "Activity", {
-		  controller: "ideas",
-		  action: "activity" },
+		<%= link_to "Activity", '/ideas/' + @idea.id.to_s + '/activity',
 		  class: 'btn btn-default ' + active_when(:controller => 'ideas', :action => 'activity')
 		%>
 	</div>

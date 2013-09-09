@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <%= render 'ideas/sidebar' %>
-<%= render 'ideas/secondary_nav' %>
+<%= render 'ideas/secondary_nav', locals: {idea: @question.idea } %>
 
 <div class="question">
   <p>
