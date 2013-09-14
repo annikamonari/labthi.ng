@@ -13,7 +13,7 @@
       :name => "Robot R2D#{i}"
   )
   u.save!
-  FactoryGirl.create(:solution)
+  FactoryGirl.create(:comment)
 end
 
 FactoryGirl.create(:admin,
