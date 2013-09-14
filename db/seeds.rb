@@ -29,3 +29,10 @@ FactoryGirl.create(:admin,
 	password: "banana123",
 	password_confirmation: "banana123"
 	)
+
+FactoryGirl.create(:admin, 
+	name: "Emily P",
+	email: "emily.pakulski@gmail.com",
+	password: "banana123",
+	password_confirmation: "banana123"
+	)
