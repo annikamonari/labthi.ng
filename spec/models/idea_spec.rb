@@ -19,14 +19,6 @@ describe Idea do
     idea.should be_valid
   end
 
-  it "should destroy associated aspect" do
-    idea = FactoryGirl.create(:idea)
-    aspect = FactoryGirl.create(:aspect, :idea => idea)
-    expect {
-        idea.destroy
-      }.to change(Aspect, :count).by(-1)
-  end
-
   it "should accept a category" do
     idea = FactoryGirl.create(:idea)
     idea.category_list = "retail, other"

@@ -4,23 +4,16 @@
   <h1><%= @aspect.title %></h1>
   <strong>Brief:</strong>
   <%= @aspect.brief %>
-  <br />
-  <strong>User:</strong>
-  <%= User.find(@aspect.user_id).email %>
-  <br />
-  <strong>Idea:</strong>
-  <%= link_to @aspect.idea.brief, @aspect.idea %>
 </p>
 
-<% @answers = Answer.where(aspect_id: @aspect) %>
-<% if @answers.count > 0 %>
+<% if defined? @answers %>
     <h4>Answers:</h4>
     <p>Number of answers: <%= @answers.count %></p>
     <% @answers.each do |answer| %>
         <p>
           <%= link_to answer.brief, answer %>
           by
-          <%= User.find(answer.user_id).email %>
+          <%= answer.user.email %>
         </p>
     <% end %>
 <% else %>
@@ -29,5 +22,4 @@
     </p>
 <% end %>
 
-<%= link_to 'Edit', edit_aspect_path(@aspect) %> |
-<%= link_to 'Back', Idea.find(@aspect.idea_id) %>
+<%= link_to 'Edit', edit_aspect_path(@aspect) %>

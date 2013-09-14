@@ -1,6 +1,5 @@
 class IdeasController < ApplicationController
   before_action :set_idea, except: [:create, :new, :index]
-  before_action :set_aspects, only: [:show]
   before_action :set_questions, only: [:show]
   before_action :auth_user!, only: [:new, :create, :edit, :update]
   before_action :set_tags, except: [:index]
@@ -71,6 +70,7 @@ class IdeasController < ApplicationController
   end
 
   def define
+    @aspects = Aspect.all
     render layout: 'sidebar_left'
   end
 
@@ -86,9 +86,6 @@ class IdeasController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_idea
       @idea = Idea.find(params[:id])
-    end
-    def set_aspects
-      @aspects = Aspect.where(idea_id: @idea)
     end
     def set_questions
       @questions = Question.where(idea_id: @idea.id)

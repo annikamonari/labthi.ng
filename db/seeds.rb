@@ -16,6 +16,12 @@
   FactoryGirl.create(:comment)
 end
 
+
+
+FactoryGirl.create(:aspect, brief: "Problems & Solutions")
+
+
+
 FactoryGirl.create(:admin,
 	name: "Michael G",
 	email: "mpgarate@gmail.com",

@@ -17,10 +17,6 @@
     <%= f.label :brief %><br>
     <%= f.text_area :brief %>
     
-    <% if user_signed_in? %>
-    <%= hidden_field_tag :user_id, current_user.id %>
-    <%= hidden_field_tag :idea_id, params[:idea_id] %>
-    <% end %>
   </div>
   <div class="actions">
     <%= f.submit 'Save Aspect', :class => "btn btn-primary" %>

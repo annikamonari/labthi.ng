@@ -9,7 +9,6 @@ describe IdeasController do
       brief: "This is a brief",
       phase: 1,
       active: true,
-      user: FactoryGirl.create(:user),
       category_list: ["Science & Technology"],
       component_list: ["Website"]
     }}
@@ -20,7 +19,7 @@ describe IdeasController do
   let(:valid_session) { {} }
 
   before(:each) {
-    @user = User.find(valid_attributes[:user])
+    @user = FactoryGirl.create(:user)
     sign_in @user
   }
 

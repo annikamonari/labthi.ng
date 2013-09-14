@@ -1,6 +1,5 @@
 class AspectsController < ApplicationController
   before_action :set_aspect, only: [:show, :edit, :update, :destroy]
-  before_action :set_idea, only: [:new]
   before_action :auth_user!
 
   # GET /aspects
@@ -12,6 +11,7 @@ class AspectsController < ApplicationController
   # GET /aspects/1
   # GET /aspects/1.json
   def show
+    @answers = Answer.where(aspect_id: @aspect)
   end
 
   # GET /aspects/new
@@ -27,12 +27,10 @@ class AspectsController < ApplicationController
   # POST /aspects.json
   def create
     @aspect = Aspect.new(aspect_params)
-    @aspect.idea_id = params[:idea_id]
-    @aspect.user = current_user
     respond_to do |format|
       if @aspect.save
         @aspect.create_activity :create, owner: (current_user || current_admin)
-        format.html { redirect_to Idea.find(@aspect.idea_id), notice: 'Aspect was successfully created.' }
+        format.html { redirect_to @aspect, notice: 'Aspect was successfully created.' }
         format.json { render action: 'show', status: :created, location: @aspect }
       else
         format.html { render action: 'new' }
@@ -71,12 +69,9 @@ class AspectsController < ApplicationController
     def set_aspect
       @aspect = Aspect.find(params[:id])
     end
-    def set_idea
-      @idea = Idea.find(params[:idea_id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def aspect_params
-      params.require(:aspect).permit(:brief, :title, :user_id, :idea_id)
+      params.require(:aspect).permit(:brief, :title)
     end
 end

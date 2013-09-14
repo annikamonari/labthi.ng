@@ -7,12 +7,9 @@ class Idea < ActiveRecord::Base
   validates_presence_of :category_list
   validates_presence_of :component_list
   belongs_to :user, inverse_of: :ideas
-  has_many :aspects, inverse_of: :idea, :dependent => :destroy
   has_many :questions, inverse_of: :idea, :dependent => :destroy
 
   acts_as_taggable_on :categories, :components
-
-  accepts_nested_attributes_for :aspects, :allow_destroy => true
 
 
   def instance_validations

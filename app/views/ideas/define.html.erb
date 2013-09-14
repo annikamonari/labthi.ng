@@ -4,3 +4,9 @@
 <%= render 'sidebar' %>
 
 <h4>Fill in aspects of the Startup Business Canvas</h4>
+
+  <ul class="questions">
+<% @aspects.each do |aspect| %>
+    <%= render aspect || "No aspects found" %>   
+<% end %>
+  </ul>

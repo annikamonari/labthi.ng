@@ -9,9 +9,7 @@ describe AspectsController do
     let(:valid_attributes){
       {
       title: "my title",
-      brief: "this is a valid brief",
-      user_id: FactoryGirl.create(:user).id,
-      idea_id: FactoryGirl.create(:idea, :user_id=>:user_id).id
+      brief: "this is a valid brief"
     } }
 
   # This should return the minimal set of values that should be in the session
@@ -20,7 +18,7 @@ describe AspectsController do
   let(:valid_session) { {  } }
 
   before(:each) {
-    @user = User.find(valid_attributes[:user_id])
+    @user = FactoryGirl.create(:user)
     sign_in @user
   }
 
@@ -42,7 +40,7 @@ describe AspectsController do
 
   describe "GET new" do
     it "assigns a new aspect as @aspect" do
-      get :new, {:idea_id => valid_attributes[:idea_id]}, valid_session
+      get :new, {}, valid_session
       assigns(:aspect).should be_a_new(Aspect)
     end
   end
@@ -59,20 +57,19 @@ describe AspectsController do
     describe "with valid params" do
       it "creates a new Aspect" do
         expect {
-          post :create, :aspect => valid_attributes,
-          :idea_id => valid_attributes[:idea_id]
+          post :create, :aspect => valid_attributes
         }.to change{Aspect.count}.by(1)
       end
 
       it "assigns a newly created aspect as @aspect" do
-        post :create, :aspect => valid_attributes, :idea_id => valid_attributes[:idea_id]
+        post :create, :aspect => valid_attributes
         assigns(:aspect).should be_a(Aspect)
         assigns(:aspect).should be_persisted
       end
 
       it "redirects to the associated idea" do
-        post :create, :aspect => valid_attributes, :idea_id => valid_attributes[:idea_id]
-        response.should redirect_to(Idea.find(Aspect.last.idea_id))
+        post :create, :aspect => valid_attributes
+        response.should redirect_to(Aspect.last)
       end
     end
 
@@ -80,14 +77,14 @@ describe AspectsController do
       it "assigns a newly created but unsaved aspect as @aspect" do
         # Trigger the behavior that occurs when invalid params are submitted
         Aspect.any_instance.stub(:save).and_return(false)
-        post :create, {:aspect => { "brief" => "invalid value" }, :idea_id => valid_attributes[:idea_id]}, valid_session
+        post :create, {:aspect => { "brief" => "invalid value" }}
         assigns(:aspect).should be_a_new(Aspect)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Aspect.any_instance.stub(:save).and_return(false)
-        post :create, {:aspect => { "brief" => "invalid value" }, :idea_id => valid_attributes[:idea_id]}, valid_session
+        post :create, {:aspect => { "brief" => "invalid value" }}
         response.should render_template("new")
       end
     end

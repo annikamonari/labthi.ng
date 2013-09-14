@@ -1,19 +1,7 @@
 <% # This template is called from Idea#show %>
 <li>
     <p>
-    <strong>Aspect:</strong>
-      <%= link_to aspect.title, aspect %>
-      by
-      <%= User.find(aspect.user_id).email %>
-    </p>
-    <p>
     <strong>Brief:</strong>
       <%= aspect.brief %>
     </p>
-    <ul>
-      <%= render aspect.answers || "No answers found" %>   
-      <p>
-        <%= link_to "Add answer", controller: "answers", action: "new", answer_id: answer.id %>
-      </p>
-    </ul>
 </li>
