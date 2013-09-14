@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-  	@activities = PublicActivity::Activity.where(owner: current_user).order("created_at desc")
+  	@activities = PublicActivity::Activity.includes(:owner, :trackable).where(owner: current_user).order("created_at desc")
   	render layout: 'sidebar_right'
   end
 end
