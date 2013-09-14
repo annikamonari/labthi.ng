@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Solution do
+describe Answer do
 	  it "should destroy associated comment" do
-    solution = FactoryGirl.create(:solution)
-    comment = FactoryGirl.create(:comment, :commentable => solution)
+    answer = FactoryGirl.create(:answer)
+    comment = FactoryGirl.create(:comment, :commentable => answer)
     expect {
-        solution.destroy
+        answer.destroy
       }.to change(Comment, :count).by(-1)
   end
 end

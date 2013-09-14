@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :load_commentable
-  before_action :set_idea, only: [:show, :new, :create]
   before_action :auth_user!
 
   # GET /comments
@@ -95,24 +94,13 @@ class CommentsController < ApplicationController
         return @question_path = get_question_path(commentable.commentable)
       elsif commentable.class.name == 'Question' then
         return @question_path = commentable
-      elsif commentable.class.name == 'Solution' then
+      elsif commentable.class.name == 'Answer' then
         return @question_path = commentable.question
       end
     end
 
-    def set_idea
-=begin
-      if defined? @comment
-        solution_id = @comment.solution_id
-      else
-        solution_id = params[:solution_id]
-      end
-        @idea = Idea.find(Question.find(Solution.find(solution_id).question_id).idea_id)
-=end
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:brief, :user_id, :commentable_id, :solution_id, :question_id)
+      params.require(:comment).permit(:brief, :user_id, :commentable_id, :answer_id, :question_id)
     end
 end

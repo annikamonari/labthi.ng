@@ -1,0 +1,13 @@
+<% # This template is called from Idea#show %>
+<li class="answer">
+  <p>
+    <strong>Answer:</strong>
+    <%= answer.brief %>
+  </p>
+    <ul class="comments answer-comments">
+      <%= render answer.comments || "No comments found" %>
+	 		<p>
+	      <%= link_to "Add comment", new_answer_comment_path(answer, answer_id: answer.id) %>
+	  	</p>
+    </ul>
+</li>

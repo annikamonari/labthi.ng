@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130908161527) do
+ActiveRecord::Schema.define(version: 20130914042616) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20130908161527) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+  end
+
+  create_table "answers", force: true do |t|
+    t.text     "brief"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "aspect_id"
+    t.integer  "user_id"
+    t.integer  "question_id"
   end
 
   create_table "aspects", force: true do |t|
@@ -111,15 +120,6 @@ ActiveRecord::Schema.define(version: 20130908161527) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories", using: :btree
 
-  create_table "solutions", force: true do |t|
-    t.text     "brief"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "aspect_id"
-    t.integer  "user_id"
-    t.integer  "question_id"
-  end
-
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -156,6 +156,10 @@ ActiveRecord::Schema.define(version: 20130908161527) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "answers", "aspects", :name => "solutions_aspect_id_fk"
+  add_foreign_key "answers", "questions", :name => "solutions_question_id_fk"
+  add_foreign_key "answers", "users", :name => "solutions_user_id_fk"
+
   add_foreign_key "aspects", "ideas", :name => "aspects_idea_id_fk"
   add_foreign_key "aspects", "users", :name => "aspects_user_id_fk"
 
@@ -167,10 +171,6 @@ ActiveRecord::Schema.define(version: 20130908161527) do
 
   add_foreign_key "questions", "ideas", :name => "questions_idea_id_fk"
   add_foreign_key "questions", "users", :name => "questions_user_id_fk"
-
-  add_foreign_key "solutions", "aspects", :name => "solutions_aspect_id_fk"
-  add_foreign_key "solutions", "questions", :name => "solutions_question_id_fk"
-  add_foreign_key "solutions", "users", :name => "solutions_user_id_fk"
 
   add_foreign_key "taggings", "tags", :name => "taggings_tag_id_fk"
 

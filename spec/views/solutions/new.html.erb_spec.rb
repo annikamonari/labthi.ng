@@ -1,19 +1,19 @@
 require 'spec_helper'
 
-describe "solutions/new" do
+describe "answers/new" do
   include Devise::TestHelpers
   before(:each) do
-    assign(:solution, stub_model(Solution,
+    assign(:answer, stub_model(Answer,
       :brief => "MyText"
     ).as_new_record)
   end
 
-  it "renders new solution form" do
+  it "renders new answer form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", solutions_path, "post" do
-      assert_select "textarea#solution_brief[name=?]", "solution[brief]"
+    assert_select "form[action=?][method=?]", answers_path, "post" do
+      assert_select "textarea#answer_brief[name=?]", "answer[brief]"
     end
   end
 end

@@ -51,10 +51,10 @@ module Features
       click_button 'Create Aspect'
     end
     # This must be called from an idea page
-    def submit_solution(brief)
-      click_link 'Add solution'
+    def submit_answer(brief)
+      click_link 'Add answer'
       fill_in 'Brief', with: brief
-      click_button 'Create Solution'
+      click_button 'Create Answer'
     end
     # This must be called from an idea page
     def submit_comment(brief, selector='html', add_comment_link = 'Add comment')

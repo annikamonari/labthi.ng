@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :ideas, inverse_of: :user
   has_many :questions, inverse_of: :user
   has_many :aspects, inverse_of: :user
-  has_many :solutions, inverse_of: :user
+  has_many :answers, inverse_of: :user
   has_many :comments, inverse_of: :user
   has_one :profile, dependent: :destroy
 

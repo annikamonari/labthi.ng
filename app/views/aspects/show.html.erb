@@ -12,20 +12,20 @@
   <%= link_to @aspect.idea.brief, @aspect.idea %>
 </p>
 
-<% @solutions = Solution.where(aspect_id: @aspect) %>
-<% if @solutions.count > 0 %>
-    <h4>Solutions:</h4>
-    <p>Number of solutions: <%= @solutions.count %></p>
-    <% @solutions.each do |solution| %>
+<% @answers = Answer.where(aspect_id: @aspect) %>
+<% if @answers.count > 0 %>
+    <h4>Answers:</h4>
+    <p>Number of answers: <%= @answers.count %></p>
+    <% @answers.each do |answer| %>
         <p>
-          <%= link_to solution.brief, solution %>
+          <%= link_to answer.brief, answer %>
           by
-          <%= User.find(solution.user_id).email %>
+          <%= User.find(answer.user_id).email %>
         </p>
     <% end %>
 <% else %>
     <p id="notice">
-    This aspect does not yet have a solution. Why don't you describe one?
+    This aspect does not yet have a answer. Why don't you describe one?
     </p>
 <% end %>
 

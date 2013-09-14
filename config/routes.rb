@@ -6,7 +6,7 @@ StartIt::Application.routes.draw do
   resources :questions do                                                      
     resources :comments
   end
-  resources :solutions do                                                      
+  resources :answers do                                                      
     resources :comments
   end
   resources :aspects

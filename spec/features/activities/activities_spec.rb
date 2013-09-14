@@ -27,16 +27,16 @@ feature 'Visitor checks activity stream' do
     visit '/activities/index'
     expect(page).to have_content('updated a question Shipping considerations')
   end
-  scenario 'for a recently added solution' do
+  scenario 'for a recently added answer' do
     submit_question "Shipping considerations", "An efficient packing and shipping method should be considered"
-    submit_solution "send by owl"
+    submit_answer "send by owl"
     visit '/activities/index'
-    expect(page).to have_content('added a solution send by owl')
+    expect(page).to have_content('added an answer send by owl')
   end
-  scenario 'for a recently added solution' do
+  scenario 'for a recently added comment' do
     submit_question "Shipping considerations", "An efficient packing and shipping method should be considered"
-    submit_solution "send by owl"
-    submit_comment "this is an excellent idea", '.solutions'
+    submit_answer "send by owl"
+    submit_comment "this is an excellent idea", '.answers'
     visit '/activities/index'
     expect(page).to have_content('added a comment this is an excellent idea')
   end

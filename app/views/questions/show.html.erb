@@ -33,10 +33,10 @@
 </ul>
 </div><!-- .question -->
 
-<ul class="solutions">
-  <%= render @question.solutions.includes(:comments) || "No solutions found" %>   
+<ul class="answers">
+  <%= render @question.answers.includes(:comments) || "No answers found" %>   
   <p>
-    <%= link_to "Add solution", controller: "solutions", action: "new", question_id: @question.id %>
+    <%= link_to "Add answer", controller: "answers", action: "new", question_id: @question.id %>
   </p>
 </ul>
 

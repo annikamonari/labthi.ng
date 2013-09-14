@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe "solutions/show" do
+describe "answers/show" do
   include Devise::TestHelpers
   before(:each) do
-    @solution = FactoryGirl.create(:solution,
+    @answer = FactoryGirl.create(:answer,
       :brief => "MyText"
     )
   end

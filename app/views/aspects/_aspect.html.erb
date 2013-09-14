@@ -11,9 +11,9 @@
       <%= aspect.brief %>
     </p>
     <ul>
-      <%= render aspect.solutions || "No solutions found" %>   
+      <%= render aspect.answers || "No answers found" %>   
       <p>
-        <%= link_to "Add solution", controller: "solutions", action: "new", solution_id: solution.id %>
+        <%= link_to "Add answer", controller: "answers", action: "new", answer_id: answer.id %>
       </p>
     </ul>
 </li>

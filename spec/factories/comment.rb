@@ -2,6 +2,6 @@ FactoryGirl.define do
   factory :comment do
     brief 		'Valid brief'
     user
-	association :commentable, :factory => :solution
+	association :commentable, :factory => :answer
   end
 end

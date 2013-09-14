@@ -14,11 +14,11 @@ describe Comment do
     comment.should_not be_valid
   end
   it "is valid with a message, user, and commentable" do
-    solution = FactoryGirl.build(:solution)
+    answer = FactoryGirl.build(:answer)
     comment = Comment.create(brief: "Valid message",
                            user: FactoryGirl.create(:user),
-                           commentable_id: solution.id,
-                           commentable_type: solution.class.to_s
+                           commentable_id: answer.id,
+                           commentable_type: answer.class.to_s
     )
     comment.should be_valid
   end
