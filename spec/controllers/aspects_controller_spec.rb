@@ -7,6 +7,7 @@ describe AspectsController do
   # adjust the attributes here as well.
 
     let(:valid_attributes){
+      @idea = FactoryGirl.create(:idea)
       {
       title: "my title",
       brief: "this is a valid brief"
@@ -33,7 +34,7 @@ describe AspectsController do
   describe "GET show" do
     it "assigns the requested aspect as @aspect" do
       aspect = Aspect.create! valid_attributes
-      get :show, {:id => aspect.to_param}, valid_session
+      get :show, {idea_id: @idea.id, :id => aspect.to_param}
       assigns(:aspect).should eq(aspect)
     end
   end

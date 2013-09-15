@@ -1,6 +1,6 @@
 class AspectsController < ApplicationController
   before_action :set_aspect, only: [:show, :edit, :update, :destroy]
-  before_action :auth_user!
+  before_action :auth_user!, except: [:show]
 
   # GET /aspects
   # GET /aspects.json
@@ -11,7 +11,10 @@ class AspectsController < ApplicationController
   # GET /aspects/1
   # GET /aspects/1.json
   def show
-    @answers = Answer.where(aspect_id: @aspect)
+    @idea = Idea.find(params[:idea_id])
+    @solutions = Solution.where(idea_id: @idea.id, aspect_id:@aspect.id)
+    ## @solutions
+    render layout: 'sidebar_left'
   end
 
   # GET /aspects/new

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130915153135) do
+ActiveRecord::Schema.define(version: 20130915170539) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -117,6 +117,19 @@ ActiveRecord::Schema.define(version: 20130915153135) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories", using: :btree
+
+  create_table "solutions", force: true do |t|
+    t.text     "brief"
+    t.integer  "aspect_id"
+    t.integer  "idea_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "solutions", ["aspect_id"], name: "index_solutions_on_aspect_id", using: :btree
+  add_index "solutions", ["idea_id"], name: "index_solutions_on_idea_id", using: :btree
+  add_index "solutions", ["user_id"], name: "index_solutions_on_user_id", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

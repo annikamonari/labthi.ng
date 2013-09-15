@@ -7,6 +7,8 @@
 
 <ul class="questions">
 	<% @aspects.each do |aspect| %>
-    <%= render aspect || "No aspects found" %>   
+		<li>
+			<%= link_to aspect.title, idea_aspect_path(idea_id:@idea.id, id: aspect.id) %>
+		</li>
 	<% end %>
 </ul>

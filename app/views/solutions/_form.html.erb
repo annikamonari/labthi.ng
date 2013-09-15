@@ -1,0 +1,25 @@
+<%= form_for(@solution) do |f| %>
+  <% if @solution.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@solution.errors.count, "error") %> prohibited this solution from being saved:</h2>
+
+      <ul>
+      <% @solution.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :brief %><br>
+    <%= f.text_area :brief %>
+  </div>
+
+    <%= hidden_field_tag :aspect_id, params[:aspect_id] %>
+    <%= hidden_field_tag :idea_id, params[:idea_id] %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

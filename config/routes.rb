@@ -9,7 +9,12 @@ StartIt::Application.routes.draw do
   resources :answers do                                                      
     resources :comments
   end
-  resources :aspects
+
+  get '/ideas/:idea_id/aspects/:id', to: 'aspects#show', as: 'idea_aspect'
+  resources :aspects do
+    resources :solutions
+  end
+  resources :solutions
 
 
   get '/profiles/:id/labs', to: 'profiles#labs'

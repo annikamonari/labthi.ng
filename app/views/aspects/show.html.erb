@@ -1,25 +1,31 @@
 <p id="notice"><%= notice %></p>
 
+<%= render 'ideas/sidebar' %>
+<%= render 'ideas/secondary_nav', locals: {idea: @idea} %>
+
 <p>
   <h1><%= @aspect.title %></h1>
-  <strong>Brief:</strong>
   <%= @aspect.brief %>
 </p>
 
-<% if defined? @answers %>
-    <h4>Answers:</h4>
-    <p>Number of answers: <%= @answers.count %></p>
-    <% @answers.each do |answer| %>
+<% if defined? @solutions %>
+    <h4>Solutions:</h4>
+    <p>Number of solutions: <%= @solutions.count %></p>
+    <% @solutions.each do |solution| %>
         <p>
-          <%= link_to answer.brief, answer %>
+          <%= link_to solution.brief, solution %>
           by
-          <%= answer.user.email %>
+          <%= solution.user.email %>
         </p>
     <% end %>
 <% else %>
-    <p id="notice">
-    This aspect does not yet have a answer. Why don't you describe one?
+    <p>
+    This aspect does not yet have a solution. Why don't you describe one?
     </p>
 <% end %>
+
+  <p>
+    <%= link_to "Add solution", new_aspect_solution_path(aspect_id: @aspect.id, idea_id: @idea.id), class: "btn btn-info" %>
+  </p>
 
 <%= link_to 'Edit', edit_aspect_path(@aspect) %>
