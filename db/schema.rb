@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130915170539) do
+ActiveRecord::Schema.define(version: 20130915191554) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20130915170539) do
     t.text     "brief"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "aspect_id"
     t.integer  "user_id"
     t.integer  "question_id"
   end
@@ -167,7 +166,6 @@ ActiveRecord::Schema.define(version: 20130915170539) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "answers", "aspects", :name => "solutions_aspect_id_fk"
   add_foreign_key "answers", "questions", :name => "solutions_question_id_fk"
   add_foreign_key "answers", "users", :name => "solutions_user_id_fk"
 
