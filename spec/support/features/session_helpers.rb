@@ -71,5 +71,10 @@ module Features
       fill_in 'Answers expected', with: answers_expected
       click_button 'Create Question'
     end
+    def submit_solution(brief = 'valid title')
+      click_link 'Add solution'
+      fill_in "Brief", with: brief
+      click_button "Create Solution"
+    end
   end
 end

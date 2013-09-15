@@ -32,6 +32,7 @@ class SolutionsController < ApplicationController
 
     respond_to do |format|
       if @solution.save
+        @solution.create_activity :create, owner: (current_user || current_admin)
         format.html { redirect_to redirect_path, notice: 'Solution was successfully created.' }
         format.json { render action: 'show', status: :created, location: @solution }
       else
@@ -46,6 +47,7 @@ class SolutionsController < ApplicationController
   def update
     respond_to do |format|
       if @solution.update(solution_params)
+        @solution.create_activity :update, owner: (current_user || current_admin)
         format.html { redirect_to @solution, notice: 'Solution was successfully updated.' }
         format.json { head :no_content }
       else

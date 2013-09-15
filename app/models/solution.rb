@@ -1,4 +1,5 @@
 class Solution < ActiveRecord::Base
+  include PublicActivity::Model
   validates :brief, presence: true
   validates :user, presence: true
   validates :aspect, presence: true
