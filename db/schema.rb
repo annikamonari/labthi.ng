@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914042616) do
+ActiveRecord::Schema.define(version: 20130915153135) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -55,8 +55,6 @@ ActiveRecord::Schema.define(version: 20130914042616) do
     t.text     "brief"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "idea_id"
-    t.integer  "user_id"
     t.string   "title"
   end
 
@@ -159,9 +157,6 @@ ActiveRecord::Schema.define(version: 20130914042616) do
   add_foreign_key "answers", "aspects", :name => "solutions_aspect_id_fk"
   add_foreign_key "answers", "questions", :name => "solutions_question_id_fk"
   add_foreign_key "answers", "users", :name => "solutions_user_id_fk"
-
-  add_foreign_key "aspects", "ideas", :name => "aspects_idea_id_fk"
-  add_foreign_key "aspects", "users", :name => "aspects_user_id_fk"
 
   add_foreign_key "comments", "users", :name => "comments_user_id_fk"
 
