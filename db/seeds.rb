@@ -20,31 +20,31 @@ end
 
 aspect_data = [
 	{
-		brief: "Problems & Solutions"
+		title: "Problems & Solutions"
 	},
 	{
-		brief: "Key Activities"		
+		title: "Key Activities"		
 	},
 	{
-		brief: "Key Resources"		
+		title: "Key Resources"		
 	},
 	{
-		brief: "Vaue Propositions"		
+		title: "Vaue Propositions"		
 	},
 	{
-		brief: "Customer Relationship"		
+		title: "Customer Relationship"		
 	},
 	{
-		brief: "Channels"		
+		title: "Channels"		
 	},
 	{
-		brief: "Customer Segments"		
+		title: "Customer Segments"		
 	},
 	{
-		brief: "Cost Structure"		
+		title: "Cost Structure"		
 	},
 	{
-		brief: "Revenue Streams"		
+		title: "Revenue Streams"		
 	}
 ]
 
