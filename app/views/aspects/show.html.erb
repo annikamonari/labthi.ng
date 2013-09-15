@@ -11,13 +11,13 @@
 <% if defined? @solutions %>
     <h4>Solutions:</h4>
     <p>Number of solutions: <%= @solutions.count %></p>
+  <ul class="solutions">
     <% @solutions.each do |solution| %>
         <p>
-          <%= link_to solution.brief, solution %>
-          by
-          <%= solution.user.email %>
+          <%= render solution || "No solutions found" %>
         </p>
     <% end %>
+  </ul><!-- .solutions -->
 <% else %>
     <p>
     This aspect does not yet have a solution. Why don't you describe one?
@@ -25,7 +25,7 @@
 <% end %>
 
   <p>
-    <%= link_to "Add solution", new_aspect_solution_path(aspect_id: @aspect.id, idea_id: @idea.id), class: "btn btn-info" %>
+    <%= link_to "Add solution", new_aspect_solution_path(aspect_id: @aspect.id, idea_id: @idea.id) %>
   </p>
 
 <%= link_to 'Edit', edit_aspect_path(@aspect) %>

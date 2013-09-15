@@ -1,0 +1,10 @@
+<% # This template is called from Idea#show %>
+<li class="solution">
+  <p>
+  	<%= best_in_place_if current_user == solution.user, solution, :brief, activator: '.edit-solution-' + solution.id.to_s %>
+  	<%= link_to "Edit", "", class: "edit-solution-#{solution.id.to_s}" %>
+  </p>
+  <p>
+    <%= solution.user.name %>
+  </p>
+</li>
