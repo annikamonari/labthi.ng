@@ -73,6 +73,7 @@ end
 group :test do
   gem 'cucumber-rails', require: false
   gem "database_cleaner", ">= 0.8.0"
+  gem 'simplecov', require: false
 end
 
 group :development do
