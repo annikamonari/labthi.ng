@@ -13,7 +13,7 @@
 
   <p>
     <strong>Photo:</strong>
-    <%= image_tag @profile.photo if @profile.photo? %>
+    <%= image_tag @profile.photo.display if @profile.photo? %>
   </p>
 
   <div class="field">
