@@ -13,9 +13,7 @@
     <p>Number of solutions: <%= @solutions.count %></p>
   <ul class="solutions">
     <% @solutions.each do |solution| %>
-        <p>
           <%= render solution || "No solutions found" %>
-        </p>
     <% end %>
   </ul><!-- .solutions -->
 <% else %>

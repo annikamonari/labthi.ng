@@ -14,12 +14,21 @@ feature 'Visit an idea Define tab ' do
     end
 
     scenario 'and submit a solution' do
-    	click_link @aspect.title
-    	click_link "Add solution"
-    	fill_in "Brief", with: "This is an example solution"
-    	click_button "Create Solution"
-    	page.should have_content @idea.brief
-    	page.should have_content @aspect.title
-    	page.should have_content "This is an example solution"
+      click_link @aspect.title
+      click_link "Add solution"
+      fill_in "Brief", with: "This is an example solution"
+      click_button "Create Solution"
+      page.should have_content @idea.brief
+      page.should have_content @aspect.title
+      page.should have_content "This is an example solution"
+    end
+
+    scenario 'and submits a comment' do
+      click_link @aspect.title
+      submit_solution "Valid solution"
+    # submit_comment(brief, selector='html', add_comment_link = 'Add comment')
+      submit_comment "My comment", ".solutions li:first-child"
+      page.should have_content "Valid solution"
+      page.should have_content "My comment"
     end
 end

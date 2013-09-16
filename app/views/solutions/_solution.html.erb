@@ -7,4 +7,10 @@
   <p>
     <%= solution.user.name %>
   </p>
+    <ul class="comments solution-comments">
+      <%= render solution.comments || "No comments found" %>
+	 		<p>
+	      <%= link_to "Add comment", new_solution_comment_path(solution, solution_id: solution.id) %>
+	  	</p>
+    </ul>
 </li>

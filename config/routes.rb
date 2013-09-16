@@ -14,7 +14,9 @@ StartIt::Application.routes.draw do
   resources :aspects do
     resources :solutions
   end
-  resources :solutions
+  resources :solutions do
+    resources :comments
+  end
 
 
   get '/profiles/:id/labs', to: 'profiles#labs'
