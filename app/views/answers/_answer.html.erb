@@ -7,7 +7,7 @@
     <ul class="comments answer-comments">
       <%= render answer.comments || "No comments found" %>
 	 		<p>
-	      <%= link_to "Add comment", new_answer_comment_path(answer, answer_id: answer.id) %>
+	      <%= link_to "Add comment", new_answer_comment_path(answer) %>
 	  	</p>
     </ul>
 </li>
