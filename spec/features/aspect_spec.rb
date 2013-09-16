@@ -26,9 +26,17 @@ feature 'Visit an idea Define tab ' do
     scenario 'and submits a comment' do
       click_link @aspect.title
       submit_solution "Valid solution"
-    # submit_comment(brief, selector='html', add_comment_link = 'Add comment')
       submit_comment "My comment", ".solutions li:first-child"
       page.should have_content "Valid solution"
       page.should have_content "My comment"
+    end
+
+    scenario 'and submits a comment' do
+      click_link @aspect.title
+      submit_solution "Valid solution"
+      submit_comment "My comment", ".solutions li:first-child"
+      submit_comment "Reply to my comment", ".comments li:first-child", 'Reply to comment'
+      page.should have_content "Valid solution"
+      page.should have_content "Reply to my comment"
     end
 end
