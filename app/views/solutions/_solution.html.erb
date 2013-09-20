@@ -2,7 +2,8 @@
 <li class="solution">
   <p>
   	<%= best_in_place_if current_user == solution.user, solution, :brief, activator: '.edit-solution-' + solution.id.to_s %>
-  	<%= link_to "Edit", "", class: "edit-solution-#{solution.id.to_s}" %>
+  	<%= link_to "Edit", "",
+      class: "edit-solution-#{solution.id.to_s}" if current_user == solution.user %>
   </p>
   <p>
     <%= solution.user.name %>
