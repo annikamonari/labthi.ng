@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   	
     def auth_user!(opts = {})
       if admin_user_signed_in?
-        authenticate_admin!
+        authenticate_admin_user!
       else
         authenticate_user!
       end
