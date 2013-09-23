@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'fastercsv' # Only required on Ruby 1.8 and below
 
 # user authentication
-gem 'devise', '3.0.0.rc'
+gem 'devise' #, '3.0.0.rc'
 
 gem 'best_in_place', github: 'bernat/best_in_place'
 
@@ -95,7 +95,6 @@ group :test, :development do
   require 'rbconfig'
   gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
 end
-
 
 # Use ActiveModel has_secure_password
   gem 'bcrypt-ruby', '~> 3.0.0'
