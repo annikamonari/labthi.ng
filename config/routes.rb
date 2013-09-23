@@ -28,7 +28,6 @@ StartIt::Application.routes.draw do
   resources :ideas
   
   # Users and Admins
-  devise_for :admins
   devise_for :users
   devise_scope :user do
     get "users/sign_in", :to => "devise/sessions#new"
@@ -53,4 +52,6 @@ StartIt::Application.routes.draw do
   end
   root to: 'home#index'
   
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 end

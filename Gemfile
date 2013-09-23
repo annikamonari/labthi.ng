@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 1.2'
 # Railsadmin for creating control panels, easy viewing
 gem 'fastercsv' # Only required on Ruby 1.8 and below
 
+gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
+
 # user authentication
 gem 'devise' #, '3.0.0.rc'
 

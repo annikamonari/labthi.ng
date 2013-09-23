@@ -58,27 +58,24 @@ end
 
 
 
-admin_data = [
+admin_user_data = [
   { 
-		name: "Michael G",
 		email: "mpgarate@gmail.com",
 		password: "banana123",
 		password_confirmation: "banana123"
 	},
 	{
-		name: "Annika M",
 		email: "annikamonari@gmail.com",
 		password: "banana123",
 		password_confirmation: "banana123"
 	},
 	{
-		name: "Emily P",
 		email: "emily.pakulski@gmail.com",
 		password: "banana123",
 		password_confirmation: "banana123"
 	}
 ]
 
-admin_data.each do |d|
-	FactoryGirl.create(:admin, d) if Admin.where(d) ==0
+admin_user_data.each do |d|
+	FactoryGirl.create(:admin_user, d) if AdminUser.count == 0
 end
