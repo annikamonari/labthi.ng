@@ -19,6 +19,7 @@
 
 #ignore image uploads
 public/uploads/profile/photo*
+public/uploads/*
 public/uploads/tmp/*
 
 
