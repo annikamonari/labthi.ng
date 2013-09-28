@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     respond_to do |format|
       if @comment.save
-        @comment.create_activity :create, owner: (current_user || current_admin_user)
+        @comment.create_activity :create, owner: (current_user)
         format.html { redirect_to get_question_path(@comment.commentable), notice: 'Comment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @comment }
       else
@@ -52,7 +52,7 @@ class CommentsController < ApplicationController
     @comment.commentable
     respond_to do |format|
       if @comment.update(comment_params)
-        @comment.create_activity :update, owner: (current_user || current_admin_user)
+        @comment.create_activity :update, owner: (current_user)
         format.html { redirect_to @redirect_path, notice: 'Comment was successfully updated.' }
         format.json { head :no_content }
       else

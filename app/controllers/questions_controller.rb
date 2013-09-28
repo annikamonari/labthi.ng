@@ -33,7 +33,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        @question.create_activity :create, owner: (current_user || current_admin_user)
+        @question.create_activity :create, owner: (current_user)
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
         format.json { render action: 'show', status: :created, location: @question }
       else
@@ -48,7 +48,7 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        @question.create_activity :update, owner: (current_user || current_admin_user)
+        @question.create_activity :update, owner: (current_user)
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.json { head :no_content }
       else
