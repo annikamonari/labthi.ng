@@ -34,7 +34,7 @@ class IdeasController < ApplicationController
     @idea.user = current_user
     respond_to do |format|
       if @idea.save
-        @idea.create_activity :create, owner: (current_user || current_admin)
+        @idea.create_activity :create, owner: (current_user || current_admin_user)
         format.html { redirect_to @idea, notice: "Great! Now let's expand on that a little." }
         format.json { render action: 'show', status: :created, location: @idea }
       else
@@ -49,7 +49,7 @@ class IdeasController < ApplicationController
   def update
     respond_to do |format|
       if @idea.update(idea_params)
-        @idea.create_activity :update, owner: (current_user || current_admin)
+        @idea.create_activity :update, owner: (current_user || current_admin_user)
         format.html { redirect_to @idea, notice: 'Idea was successfully updated.' }
         format.json { head :no_content }
       else

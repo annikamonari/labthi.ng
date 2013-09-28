@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
     if current_user == @profile.user
       respond_to do |format|
         if @profile.update(profile_params)
-          @profile.create_activity :update, owner: (current_user || current_admin)
+          @profile.create_activity :update, owner: (current_user || current_admin_user)
           format.html { redirect_to @profile, notice: 'Successfully updated profile.' }
           format.json { head :no_content }
         else
