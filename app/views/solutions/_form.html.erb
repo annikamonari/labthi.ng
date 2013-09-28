@@ -13,8 +13,14 @@
 
   <div class="field">
     <%= f.label :brief %><br>
-    <%= f.text_area :brief %>
+    <%= f.text_area :brief %><br>
   </div>
+    <% if is_image_submission? %>
+      <div class="field">
+        <%= f.label :image %><br>
+        <%= f.file_field :image %>
+      </div>
+    <% end %>
 
     <%= hidden_field_tag :aspect_id, params[:aspect_id] %>
     <%= hidden_field_tag :idea_id, params[:idea_id] %>

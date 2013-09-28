@@ -4,7 +4,8 @@ feature 'Visit an idea Define tab ' do
     before(:each) do
       @idea = FactoryGirl.create(:idea)
 			@aspect = FactoryGirl.create(:aspect, title: "Problems & Solutions")
-			sign_in
+      @photo_aspect = FactoryGirl.create(:aspect, title: "Image")
+      sign_in
       visit url_for @idea
       click_link "Define"
     end
@@ -21,6 +22,15 @@ feature 'Visit an idea Define tab ' do
       page.should have_content @idea.brief
       page.should have_content @aspect.title
       page.should have_content "This is an example solution"
+    end
+
+    scenario 'and submit a photo' do
+      image = "/spec/support/default.png"
+      click_link @photo_aspect.title
+      click_link "Add solution"
+      fill_in "Brief", with: "This is an image title"
+      attach_file('Image', File.join(Rails.root, image))
+      click_button "Create Solution"
     end
 
     scenario 'and submits a comment' do

@@ -45,6 +45,9 @@ aspect_data = [
 	},
 	{
 		title: "Prototype Elements"		
+	},
+	{
+		title: "Image"		
 	}
 ]
 
