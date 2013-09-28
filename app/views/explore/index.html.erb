@@ -8,17 +8,20 @@
 	<% end %>
 <% end %>
 
-<% content_for :secondary_nav do %>
-	<%= link_to "Phase 1", { controller: 'explore', phase: '1' }, class: 'btn btn-info' %>
-	<%= link_to "Phase 2", { controller: 'explore', phase: '2' }, class: 'btn btn-info' %>
-	<%= link_to "Phase 3", { controller: 'explore', phase: '3' }, class: 'btn btn-info' %>
-<% end %>
-
-<% if @ideas then %>
-	<% @ideas.each do |idea| %>
-		<%= render 'print_idea', :idea => idea %>
+	<% content_for :secondary_nav do %>
+		<%= link_to "Phase 1", { controller: 'explore', phase: '1' }, class: 'btn btn-info' %>
+		<%= link_to "Phase 2", { controller: 'explore', phase: '2' }, class: 'btn btn-info' %>
+		<%= link_to "Phase 3", { controller: 'explore', phase: '3' }, class: 'btn btn-info' %>
 	<% end %>
-<% else %>
-		<%= render 'print_idea', :idea => @idea %>
-<% end %>
 
+	<% if @ideas then %>
+		<% @ideas.in_groups_of(3, false).each do |group| %>
+			<div cass="row">
+				<% group.each do |idea| %>
+					<%= render 'print_idea', :idea => idea %>
+				<% end %>
+			</div><!-- .row -->
+		<% end %>
+		<% else %>
+				<%= render 'print_idea', :idea => @idea %>
+	<% end %>

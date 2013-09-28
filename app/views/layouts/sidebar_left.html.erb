@@ -4,9 +4,9 @@
 	<%= yield :sidebar_left %>
 </div>
 
-<%= render 'layouts/secondary_nav' if content_for :secondary_nav %>
 
-<div class="content col-sm-8">
+<%= render 'layouts/secondary_nav' if content_for :secondary_nav %>
+<div class="col content col-sm-8">
 	<%= yield %>
 </div>
 
