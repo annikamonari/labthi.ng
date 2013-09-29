@@ -30,7 +30,7 @@ module ApplicationHelper
     image_aspect = Aspect.where(title:"Image").take
     if (image_aspect)
       @solution = Solution.where(aspect_id: image_aspect.id, idea_id: idea.id).last
-      @idea_top_image = @solution.image if @solution
+      @idea_top_image = @solution if @solution
     end
     return @idea_top_image
   end

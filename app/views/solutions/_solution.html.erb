@@ -8,6 +8,11 @@
   <p>
     <%= solution.user.name %>
   </p>
+  <% if solution.aspect.title == "Image" %>
+    <p>
+      <%= image_tag solution.image.display %>
+    </p>
+  <% end %>
     <ul class="comments solution-comments">
       <%= render solution.comments || "No comments found" %>
 	 		<p>
