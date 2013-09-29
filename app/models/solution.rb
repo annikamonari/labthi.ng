@@ -8,4 +8,6 @@ class Solution < ActiveRecord::Base
   belongs_to :idea
   belongs_to :user
   has_many :comments, as: :commentable, :dependent => :destroy
+
+  mount_uploader :image, PhotoUploader
 end

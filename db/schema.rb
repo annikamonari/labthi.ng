@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130928204616) do
+ActiveRecord::Schema.define(version: 20130928215141) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 20130928204616) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo"
+    t.string   "image"
   end
 
   add_index "solutions", ["aspect_id"], name: "index_solutions_on_aspect_id", using: :btree

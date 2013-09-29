@@ -24,4 +24,14 @@ module ApplicationHelper
         flash_type.to_s
     end
   end
+
+  def idea_top_image(idea)
+    @idea_top_image = nil
+    image_aspect = Aspect.where(title:"Image").take
+    if (image_aspect)
+      @solution = Solution.where(aspect_id: image_aspect.id, idea_id: idea.id).last
+      @idea_top_image = @solution.image if @solution
+    end
+    return @idea_top_image
+  end
 end

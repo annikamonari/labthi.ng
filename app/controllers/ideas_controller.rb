@@ -35,6 +35,7 @@ class IdeasController < ApplicationController
     respond_to do |format|
       if @idea.save
         @idea.create_activity :create, owner: (current_user)
+        #Aspect.find_or_create_by(title: "Image")
         format.html { redirect_to @idea, notice: "Great! Now let's expand on that a little." }
         format.json { render action: 'show', status: :created, location: @idea }
       else
