@@ -22,4 +22,28 @@
 $(document).ready(function() {
   /* Activating Best In Place */
   jQuery(".best_in_place").best_in_place();
+
+	jQuery.fn.voteUpdate = function() {
+	  this.click(function() {
+	  	$(this).siblings().removeClass("active");
+	  	$(this).addClass("active");
+
+	  	var value = 0;
+	  	if ($(this).hasClass("vote-up")){
+	  		value = 1;
+	  	}
+	  	else if ($(this).hasClass("vote-down")){
+	  		value = -1;
+	  	}
+	  	var $voteCount = $("p span.vote-count");
+	  	var prevVal = parseInt($voteCount.html());
+	  	console.log(value);
+	  	$voteCount.html(prevVal + value);
+
+	  });
+
+	};
+
+	// Here's an example of the class that will be 'clicked'
+	$(".vote").voteUpdate();
 });
