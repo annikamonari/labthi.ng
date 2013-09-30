@@ -38,6 +38,8 @@ gem 'fastercsv' # Only required on Ruby 1.8 and below
 
 gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
 
+gem 'activerecord-reputation-system', github: 'NARKOZ/activerecord-reputation-system', branch: 'rails4'
+
 # user authentication
 gem 'devise' #, '3.0.0.rc'
 

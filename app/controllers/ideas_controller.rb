@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
   before_action :set_idea, except: [:create, :new, :index]
   before_action :set_questions, only: [:show]
-  before_action :auth_user!, only: [:new, :create, :edit, :update]
+  before_action :auth_user!, only: [:new, :create, :edit, :update, :vote]
   before_action :set_tags, except: [:index]
 
   # GET /ideas
@@ -83,6 +83,12 @@ class IdeasController < ApplicationController
     render layout: 'sidebar_left'
   end
 
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @idea.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Vote submitted"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_idea
@@ -103,6 +109,7 @@ class IdeasController < ApplicationController
         :image,
         :active,
         :user_id,
+        :type,
         :category_list => [],
         :component_list => [],
         :aspects_attributes => [:id, :brief, :title]

@@ -1,5 +1,14 @@
 
 <% content_for :sidebar_left do %>
+  
+  <%= link_to(vote_idea_path(@idea, type: "up"), method: "post", id: "vote-up", class: "btn btn-default btn-xs") do %>
+      <span class="glyphicon glyphicon-arrow-up"></span>
+  <% end %>
+  <p>
+    <strong>Votes:</strong>
+    <%= @idea.reputation_for(:votes).to_i %>
+  </p>
+
   <p>
     <strong>Phase:</strong>
     <%= @idea.phase %>
@@ -43,4 +52,5 @@
     <strong>User:</strong>
     <%= link_to @idea.user.name, @idea.user.profile %>
   </p>
+
 <% end %>

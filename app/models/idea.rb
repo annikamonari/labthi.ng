@@ -12,6 +12,7 @@ class Idea < ActiveRecord::Base
 
   acts_as_taggable_on :categories, :components
 
+  has_reputation :votes, source: :user, aggregated_by: :sum
 
   def instance_validations
   	validates_with MaxCategories

@@ -25,7 +25,9 @@ StartIt::Application.routes.draw do
   get '/ideas/:id/define', to: 'ideas#define'
   get '/ideas/:id/reputation', to: 'ideas#reputation'
   get '/ideas/:id/activity', to: 'ideas#activity'
-  resources :ideas
+  resources :ideas do
+    member { post :vote }
+  end
   
   # Users and Admins
   devise_for :users

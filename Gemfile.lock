@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/NARKOZ/activerecord-reputation-system.git
+  revision: 01197ad78cac3136317b2884b61ed3da34c607d0
+  branch: rails4
+  specs:
+    activerecord-reputation-system (2.0.2)
+
+GIT
   remote: git://github.com/anjlab/bootstrap-rails.git
   revision: 01749c1f7341e89e7bff2dbfff45a402e32df296
   specs:
@@ -353,6 +360,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  activerecord-reputation-system!
   acts-as-taggable-on
   anjlab-bootstrap-rails!
   bcrypt-ruby (~> 3.0.0)
