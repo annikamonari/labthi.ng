@@ -17,10 +17,22 @@ class User < ActiveRecord::Base
   has_many :solutions, inverse_of: :user
   has_many :comments, inverse_of: :user
   has_one :profile, dependent: :destroy
-
+  has_many :evaluations, class_name: "ReputationSystem::Evaluation", as: :source
+  
   after_create :create_user_profile
 
   def create_user_profile
     Profile.create(:user_id => self.id)
   end
+
+  def up_voted_for?(item)
+    eval = evaluations.where(target_type: item.class, target_id: item.id).first
+    eval.present? && eval.value > 0 ? true : false
+  end
+
+  def down_voted_for?(item)
+    eval = evaluations.where(target_type: item.class, target_id: item.id).first
+    eval.present? && eval.value < 0 ? true : false
+  end
+  
 end

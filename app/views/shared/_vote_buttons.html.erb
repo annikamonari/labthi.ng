@@ -1,7 +1,10 @@
-  <%= link_to(vote_idea_path(voteable, type: "up"), method: "post", id: "vote-up", remote: true, class: "vote vote-up btn btn-default btn-xs") do %>
+  <% current_user.up_voted_for?(voteable) == true ? up_class = "active" : "" %>
+  <% current_user.down_voted_for?(voteable) == true ? down_class = "active" : "" %>
+
+  <%= link_to(vote_idea_path(voteable, type: "up"), method: "post", id: "vote-up", remote: true, class: "vote vote-up btn btn-default btn-xs #{up_class}") do %>
       <span class="glyphicon glyphicon-arrow-up"></span>
   <% end %>
-  <%= link_to(vote_idea_path(voteable, type: "down"), method: "post", id: "vote-down", remote: true, class: "vote vote-down btn btn-default btn-xs") do %>
+  <%= link_to(vote_idea_path(voteable, type: "down"), method: "post", id: "vote-down", remote: true, class: "vote vote-down btn btn-default btn-xs #{down_class}") do %>
       <span class="glyphicon glyphicon-arrow-down"></span>
   <% end %>
 
