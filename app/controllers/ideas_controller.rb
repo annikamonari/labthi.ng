@@ -86,7 +86,10 @@ class IdeasController < ApplicationController
   def vote
     value = params[:type] == "up" ? 1 : -1
     @idea.add_or_update_evaluation(:votes, value, current_user)
-    redirect_to :back, notice: "Vote submitted"
+    respond_to do |format|
+      format.html {redirect_to :back, notice: "Vote submitted"}
+      format.js {render 'vote'}
+    end
   end
 
   private

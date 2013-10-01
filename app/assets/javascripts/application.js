@@ -23,7 +23,7 @@ $(document).ready(function() {
   /* Activating Best In Place */
   jQuery(".best_in_place").best_in_place();
 
-	jQuery.fn.voteUpdate = function() {
+	jQuery.fn.voteUpdate = function() { /*
 	  this.click(function() {
 	  	$(this).siblings().removeClass("active");
 	  	$(this).addClass("active");
@@ -41,7 +41,7 @@ $(document).ready(function() {
 	  	$voteCount.html(prevVal + value);
 
 	  });
-
+*/
 	};
 
 	// Here's an example of the class that will be 'clicked'

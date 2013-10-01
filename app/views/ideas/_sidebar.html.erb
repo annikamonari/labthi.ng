@@ -1,18 +1,9 @@
 
 <% content_for :sidebar_left do %>
   
-  <%= link_to(vote_idea_path(@idea, type: "up"), method: "post", id: "vote-up", remote: true, class: "vote vote-up btn btn-default btn-xs") do %>
-      <span class="glyphicon glyphicon-arrow-up"></span>
-  <% end %>
-  <%= link_to(vote_idea_path(@idea, type: "down"), method: "post", id: "vote-down", remote: true, class: "vote vote-down btn btn-default btn-xs") do %>
-      <span class="glyphicon glyphicon-arrow-down"></span>
-  <% end %>
-  <p>
-    <strong>Votes:</strong>
-    <span class="vote-count">
-      <%= @idea.reputation_for(:votes).to_i %>
-    </span>
-  </p>
+  <div class="vote-wrapper">
+    <%= render 'shared/vote_buttons', voteable: @idea %>
+  </div>
 
   <p>
     <strong>Phase:</strong>
