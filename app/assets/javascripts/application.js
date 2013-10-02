@@ -39,9 +39,9 @@ $(document).ready(function() {
 	  	var prevVal = parseInt($voteCount.html());
 	  	console.log(value);
 	  	$voteCount.html(prevVal + value);
-
-	  });
 */
+	  });
+
 	};
 
 	// Here's an example of the class that will be 'clicked'

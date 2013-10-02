@@ -1,13 +1,46 @@
-  <% current_user.up_voted_for?(voteable) == true ? up_class = "active" : "" %>
-  <% current_user.down_voted_for?(voteable) == true ? down_class = "active" : "" %>
+  <% if current_user.up_voted_for?(voteable) == true %>
 
-  <%= link_to(vote_idea_path(voteable, type: "up"), method: "post", id: "vote-up", remote: true, class: "vote vote-up btn btn-default btn-xs #{up_class}") do %>
-      <span class="glyphicon glyphicon-arrow-up"></span>
-  <% end %>
-  <%= link_to(vote_idea_path(voteable, type: "down"), method: "post", id: "vote-down", remote: true, class: "vote vote-down btn btn-default btn-xs #{down_class}") do %>
-      <span class="glyphicon glyphicon-arrow-down"></span>
-  <% end %>
+  <%= render 'shared/vote_link',
+      type: "undo",
+      active:"active",
+      voteable: voteable,
+      arrow_type: "up"
+       %>
 
+  <%= render 'shared/vote_link',
+      type: "down",
+      active:"",
+      voteable: voteable 
+       %>
+
+  <% elsif current_user.down_voted_for?(voteable) == true %>
+
+  <%= render 'shared/vote_link',
+      type: "up",
+      active:"",
+      voteable: voteable 
+       %>
+
+  <%= render 'shared/vote_link',
+      type: "undo",
+      active:"active",
+      voteable: voteable,
+      arrow_type: "down"
+       %>
+  <% else %>
+
+  <%= render 'shared/vote_link',
+      type: "up",
+      active:"",
+      voteable: voteable 
+       %>
+
+  <%= render 'shared/vote_link',
+      type: "down",
+      active:"",
+      voteable: voteable 
+       %>
+  <% end %>
   <p>
     <strong>Votes:</strong>
     <span class="vote-count">
