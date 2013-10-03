@@ -2,7 +2,7 @@
 <% content_for :sidebar_left do %>
   
   <div class="vote-wrapper">
-    <%= render 'shared/vote_buttons', voteable: @idea %>
+    <%= render partial: 'shared/vote_buttons', voteable: @idea %>
   </div>
 
   <p>
