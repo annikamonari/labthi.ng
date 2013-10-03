@@ -1,4 +1,4 @@
 <% arrow_type = type unless arrow_type %>
-<%= link_to(vote_idea_path(voteable, type: type), method: "post", id: "vote-#{type}", remote: true, class: "vote vote-#{type} btn btn-default btn-xs #{active}") do %>
+<%= link_to(vote_idea_path(voteable, type: type), method: "post", id: "vote-#{type}", remote: true, class: "vote vote-#{type} vote-#{type}-#{voteable.class} btn btn-default btn-xs #{active}") do %>
     <span class="glyphicon glyphicon-arrow-<%= arrow_type %>"></span>
 <% end %>
