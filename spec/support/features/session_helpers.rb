@@ -7,7 +7,6 @@ module Features
       fill_in 'First Name', with: first_name
       fill_in 'Last Name', with: last_name
       fill_in 'Password', with: password
-      fill_in 'Password confirmation', with: password
       click_button 'Register'
     end
 
