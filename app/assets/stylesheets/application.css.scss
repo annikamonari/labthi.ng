@@ -23,7 +23,8 @@ label{
 }
 
 body{
-    margin: 20px auto 0;
+    /* margin: 0 auto 0; */
+    width:100%;
   }
 
 .best-in-place-submit{
@@ -31,6 +32,9 @@ body{
   margin-left:6px;
 }
 
+.navbar > .container .navbar-brand{
+  margin-left:0;
+}
 
 ul.hmenu {
     list-style: none;
