@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :name, presence: true, length: { maximum: 20 }
+  validates :first_name, presence: true, length: { maximum: 20 }
+  validates :last_name, presence: true, length: { maximum: 20 }
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
@@ -20,6 +22,10 @@ class User < ActiveRecord::Base
   has_many :evaluations, class_name: "ReputationSystem::Evaluation", as: :source
   
   after_create :create_user_profile
+
+  def name
+    first_name.to_s + " " + last_name.to_s
+  end
 
   def create_user_profile
     Profile.create(:user_id => self.id)

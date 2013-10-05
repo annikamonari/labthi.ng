@@ -6,17 +6,28 @@ describe User do
 
   subject { @user }
 
-  it { should respond_to(:name) }
+  it { should respond_to(:first_name) }
+  it { should respond_to(:last_name) }
   it { should respond_to(:email) }
   it { should respond_to(:profile) }
 
-  describe "when name is not present" do
-    before { @user.name = " " }
+  describe "when first name is not present" do
+    before { @user.first_name = " " }
     it { should_not be_valid }
   end
 
-  describe "when name is too long" do
-    before { @user.name = "a" * 21 }
+  describe "when last name is not present" do
+    before { @user.last_name = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when first name is too long" do
+    before { @user.first_name = "a" * 21 }
+    it { should_not be_valid }
+  end
+
+  describe "when last name is too long" do
+    before { @user.last_name = "a" * 21 }
     it { should_not be_valid }
   end
 
