@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
   before_action :set_idea, except: [:create, :new, :index]
   before_action :set_questions, only: [:show]
-  before_action :auth_user!, only: [:new, :create, :edit, :update, :vote]
+  before_action :auth_user!, only: [:new, :create, :edit, :update]
   before_action :set_tags, except: [:index]
 
   # GET /ideas
@@ -81,22 +81,6 @@ class IdeasController < ApplicationController
 
   def activity
     render layout: 'sidebar_left'
-  end
-
-  def vote
-    case params[:type]
-      when "up"
-        value = 1
-      when "down"
-        value = -1
-      when "undo"
-        value = 0
-    end
-    @idea.add_or_update_evaluation(:votes, value, current_user)
-    respond_to do |format|
-      format.html {redirect_to :back, notice: "Vote submitted"}
-      format.js {render 'vote'}
-    end
   end
 
   private

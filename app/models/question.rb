@@ -8,4 +8,7 @@ class Question < ActiveRecord::Base
   belongs_to :user
   has_many :answers, inverse_of: :question, :dependent => :destroy
   has_many :comments, as: :commentable, :dependent => :destroy
+
+  
+  has_reputation :votes, source: :user, aggregated_by: :sum
 end

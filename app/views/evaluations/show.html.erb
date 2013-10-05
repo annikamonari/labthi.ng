@@ -1,44 +1,44 @@
   <% if current_user && current_user.up_voted_for?(voteable) == true %>
 
-  <%= render 'shared/vote_link',
+  <%= render 'evaluations/vote_link',
       type: "undo",
       active:"active",
-      voteable: voteable,
-      arrow_type: "up"
+      arrow_type: "up",
+      voteable: voteable
        %>
 
-  <%= render 'shared/vote_link',
+  <%= render 'evaluations/vote_link',
       type: "down",
       active:"",
-      voteable: voteable 
+      voteable: voteable
        %>
 
   <% elsif current_user && current_user.down_voted_for?(voteable) == true %>
 
-  <%= render 'shared/vote_link',
+  <%= render 'evaluations/vote_link',
       type: "up",
       active:"",
-      voteable: voteable 
+      voteable: voteable
        %>
 
-  <%= render 'shared/vote_link',
+  <%= render 'evaluations/vote_link',
       type: "undo",
       active:"active",
-      voteable: voteable,
-      arrow_type: "down"
+      arrow_type: "down",
+      voteable: voteable
        %>
   <% else %>
 
-  <%= render 'shared/vote_link',
+  <%= render 'evaluations/vote_link',
       type: "up",
       active:"",
-      voteable: voteable 
+      voteable: voteable
        %>
 
-  <%= render 'shared/vote_link',
+  <%= render 'evaluations/vote_link',
       type: "down",
       active:"",
-      voteable: voteable 
+      voteable: voteable
        %>
   <% end %>
   <p>

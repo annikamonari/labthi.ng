@@ -1,5 +1,8 @@
 StartIt::Application.routes.draw do
   
+  match "/evaluations/vote", via:[:post], as: "vote"
+  get "evaluations/show"
+  #resources :evaluations
   resources :comments do
     resources :comments
   end

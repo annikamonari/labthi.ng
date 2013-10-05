@@ -1,8 +1,8 @@
 
 <% content_for :sidebar_left do %>
   
-  <div class="vote-wrapper">
-    <%= render partial: 'shared/vote_buttons', voteable: @idea %>
+  <div class="idea-<%= @idea.id %>-vote-wrapper">
+    <%= render template: "evaluations/show", locals: {voteable: @idea} %>
   </div>
 
   <p>
