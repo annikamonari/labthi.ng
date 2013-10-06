@@ -14,6 +14,10 @@ class Idea < ActiveRecord::Base
 
   has_reputation :votes, source: :user, aggregated_by: :sum
 
+  def image_aspect
+    Aspect.find_or_create_by(title: "Image")
+  end
+
   def instance_validations
   	validates_with MaxCategories
   end

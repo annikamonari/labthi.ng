@@ -21,11 +21,15 @@
     <% if @image_solution %>
       <%= link_to idea_aspect_path(
           idea_id:@idea.id,
-          id: @image_solution.aspect.id) do %>
+          id: @idea.image_aspect) do %>
         <%= image_tag @image_solution.image.display %>
       <% end %>
     <% else %>
+      <%= link_to idea_aspect_path(
+          idea_id:@idea.id,
+          id: @idea.image_aspect) do %>
         <%= image_tag 'default.png' %>
+      <% end %>
     <% end %>
   </p>
 
