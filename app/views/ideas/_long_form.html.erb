@@ -15,10 +15,6 @@
       <%= f.text_area :brief %>
     </div>
     <div class="field">
-      <%= f.label :image %>
-      <%= f.text_field :image %>
-    </div>
-    <div class="field">
     <%= f.label :component_list, "Components" %>
       <% @components.each do |c| %>
         <%= f.label :c, class: 'checkbox' do %>
