@@ -16,10 +16,12 @@ class SolutionsController < ApplicationController
   # GET /solutions/new
   def new
     @solution = Solution.new
+    render layout: "form_left"
   end
 
   # GET /solutions/1/edit
   def edit
+    render layout: "form_left"
   end
 
   # POST /solutions
