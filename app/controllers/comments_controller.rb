@@ -19,11 +19,13 @@ class CommentsController < ApplicationController
   def new
     @comment = @commentable.comments.new
     @comment.commentable_id = params[:commentable_id]
+    render layout: "form_left"
   end
 
   # GET /comments/1/edit
   def edit
     @comment = Comment.find(params[:id])
+    render layout: "form_left"
   end
 
   # POST /comments

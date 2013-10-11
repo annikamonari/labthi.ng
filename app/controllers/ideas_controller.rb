@@ -20,10 +20,12 @@ class IdeasController < ApplicationController
   # GET /ideas/new
   def new
     @idea = Idea.new
+    render layout: 'form_left'
   end
 
   # GET /ideas/1/edit
   def edit
+    render layout: 'form_left'
   end
 
   # POST /ideas

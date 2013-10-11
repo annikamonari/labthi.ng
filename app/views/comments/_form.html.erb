@@ -11,9 +11,9 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :brief %><br>
-    <%= f.text_area :brief %>
+    <%= f.text_area :brief, class: "form-control" %>
     <% if user_signed_in? %>
     <%= hidden_field_tag :user_id, current_user.id %>
     <%= hidden_field_tag :commentable_id, @commentable.id %>

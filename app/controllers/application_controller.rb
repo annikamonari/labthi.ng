@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   	before_filter :configure_permitted_parameters, if: :devise_controller?
   	protect_from_forgery with: :exception
+
+    layout :layout_by_resource
   	protected
   	def configure_permitted_parameters
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :password, :password_confirmation) }
@@ -39,8 +41,11 @@ class ApplicationController < ActionController::Base
         "Service"
       ]
     end
-
-    #def after_sign_in_path_for(resource_or_scope)
-      #user_show_path(current_user)
-    #end
+    def layout_by_resource
+      if devise_controller?
+        "form_left"
+      else
+        "application"
+      end
+    end
 end

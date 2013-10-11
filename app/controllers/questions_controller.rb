@@ -18,10 +18,12 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
+    render layout: 'form_left'
   end
 
   # GET /questions/1/edit
   def edit
+    render layout: 'form_left'
   end
 
   # POST /questions
