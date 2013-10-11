@@ -8,5 +8,7 @@ class Comment < ActiveRecord::Base
 	belongs_to :question
 	belongs_to :comment
 	belongs_to :commentable, :polymorphic => true
-  	has_many :comments, as: :commentable, :dependent => :destroy
+	has_many :comments, as: :commentable, :dependent => :destroy
+  	
+  has_reputation :votes, source: :user, aggregated_by: :sum
 end
