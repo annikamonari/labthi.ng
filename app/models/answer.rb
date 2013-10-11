@@ -6,4 +6,6 @@ class Answer < ActiveRecord::Base
   belongs_to :question, inverse_of: :answers
   belongs_to :user, inverse_of: :answers  
   has_many :comments, as: :commentable, :dependent => :destroy
+
+  has_reputation :votes, source: :user, aggregated_by: :sum
 end

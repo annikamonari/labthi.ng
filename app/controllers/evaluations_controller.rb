@@ -22,6 +22,8 @@ private
         @voteable = Question.find(params[:voteable_id])
       when "Solution"
         @voteable = Solution.find(params[:voteable_id])
+      when "Answer"
+        @voteable = Answer.find(params[:voteable_id])
     end
   end
 
