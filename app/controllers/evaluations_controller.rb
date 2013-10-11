@@ -18,9 +18,11 @@ private
   	case params[:voteable_class]
   		when "Idea"
   			@voteable = Idea.find(params[:voteable_id])
-  		when "Question"
-  			@voteable = Question.find(params[:voteable_id])
-  	end
+      when "Question"
+        @voteable = Question.find(params[:voteable_id])
+      when "Solution"
+        @voteable = Solution.find(params[:voteable_id])
+    end
   end
 
   def set_value
