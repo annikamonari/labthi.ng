@@ -2,21 +2,26 @@ require 'spec_helper'
 
 feature 'Visitor votes' do
   before(:each) do
-  	@answer = FactoryGirl.create(:answer)
+    @question = FactoryGirl.create(:question)
+    @answer_before = FactoryGirl.create(:answer, question: @question)
+  	@answer = FactoryGirl.create(:answer, question: @question)
+    @answer_after = FactoryGirl.create(:answer, question: @question)
     @selector = ".answer-#{@answer.id}-vote-wrapper"
   	sign_in
-    visit url_for(@answer.question)
+    visit url_for(@question)
   end
 
   scenario 'in favor of a answer' do
-  	page.should have_content("Votes: 0")
+  	find(@selector).should have_content("Votes: 0")
   	click_link "vote-up-answer-#{@answer.id}"
   	find(@selector).should have_content("Votes: 1")
+    page.should have_selector("ul.answers li:first-child #{@selector}", :text => "Votes: 1")
   end
   scenario 'against a answer' do
   	page.should have_content("Votes: 0")
   	click_link "vote-down-answer-#{@answer.id}"
   	find(@selector).should have_content("Votes: -1")
+    page.should have_selector("ul.answers li:last-child #{@selector}", :text => "Votes: -1")
   end
   scenario 'to undo an upvote on a answer' do
     click_link "vote-up-answer-#{@answer.id}"

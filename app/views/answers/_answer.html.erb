@@ -4,6 +4,10 @@
   <div class="answer-<%= answer.id %>-vote-wrapper">
     <%= render template: "evaluations/show", locals: {voteable: answer} %>
   </div>
+
+  <p>
+    <%= answer.reputation_for(:votes) %>
+  </p>
   
   <p>
     <strong>Answer:</strong>

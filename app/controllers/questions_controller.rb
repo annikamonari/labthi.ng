@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @idea = @question.idea
+    @answers = @question.answers.sort_by {|a| a.reputation_for(:votes)}
     render layout: 'sidebar_left'
   end
 

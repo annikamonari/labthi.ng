@@ -34,12 +34,12 @@
 </div><!-- .question -->
 
 <ul class="answers">
-  <%= render @question.answers.includes(:comments) || "No answers found" %>   
-  <p>
-    <%= link_to "Add answer", controller: "answers", action: "new", question_id: @question.id %>
-  </p>
+  <%= render @answers.reverse || "No answers found" %>
 </ul>
 
+<p>
+  <%= link_to "Add answer", controller: "answers", action: "new", question_id: @question.id %>
+</p>
 
 
 
