@@ -10,7 +10,7 @@
     <%= answer.brief %>
   </p>
     <ul class="comments answer-comments">
-      <%= render answer.comments.sort_by! {|a| a.reputation_for(:votes)}.reverse || "No comments found" %>
+      <%= render vote_order(answer.comments) || "No comments found" %>
     </ul>
     <p>
       <%= link_to "Add comment", new_answer_comment_path(answer) %>

@@ -11,4 +11,5 @@ class Comment < ActiveRecord::Base
 	has_many :comments, as: :commentable, :dependent => :destroy
   	
   has_reputation :votes, source: :user, aggregated_by: :sum
+
 end

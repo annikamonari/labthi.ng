@@ -34,4 +34,8 @@ module ApplicationHelper
     end
     return @idea_top_image
   end
+
+  def vote_order(items)
+    items.sort_by {|a| a.reputation_for(:votes)}.reverse
+  end
 end

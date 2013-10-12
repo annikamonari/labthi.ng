@@ -34,7 +34,7 @@
 </div><!-- .question -->
 
 <ul class="answers">
-  <%= render @answers.reverse || "No answers found" %>
+  <%= render vote_order(@answers) || "No answers found" %>
 </ul>
 
 <p>
