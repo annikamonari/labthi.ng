@@ -29,7 +29,7 @@ module ApplicationHelper
     @idea_top_image = nil
     image_aspect = Aspect.where(title:"Image").take
     if (image_aspect)
-      @solution = Solution.where(aspect_id: image_aspect.id, idea_id: idea.id).last
+      @solution = Solution.where(aspect_id: image_aspect.id, idea_id: idea.id){|a| a.reputation_for(:votes)}.last
       @idea_top_image = @solution if @solution
     end
     return @idea_top_image
