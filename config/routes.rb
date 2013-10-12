@@ -6,10 +6,10 @@ StartIt::Application.routes.draw do
   resources :comments do
     resources :comments
   end
-  resources :questions do                                                      
+  resources :questions, except: [:index] do
     resources :comments
   end
-  resources :answers do                                                      
+  resources :answers, except: [:index] do                     
     resources :comments
   end
 
@@ -17,7 +17,7 @@ StartIt::Application.routes.draw do
   resources :aspects do
     resources :solutions
   end
-  resources :solutions do
+  resources :solutions, except: [:index] do
     resources :comments
   end
 

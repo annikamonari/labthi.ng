@@ -42,14 +42,6 @@ describe SolutionsController do
   # SolutionsController. Be sure to keep this updated too.
   let(:valid_session) { { } }
 
-  describe "GET index" do
-    it "assigns all solutions as @solutions" do
-      solution = Solution.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:solutions).should eq([solution])
-    end
-  end
-
   describe "GET show" do
     it "assigns the requested solution as @solution" do
       solution = Solution.create! valid_attributes

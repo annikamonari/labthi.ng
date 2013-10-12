@@ -25,14 +25,6 @@ describe AnswersController do
     sign_in @user
   }
 
-  describe "GET index" do
-    it "assigns all answers as @answers" do
-      answer = Answer.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:answers).should eq([answer])
-    end
-  end
-
   describe "GET show" do
     it "assigns the requested answer as @answer" do
       answer = Answer.create! valid_attributes

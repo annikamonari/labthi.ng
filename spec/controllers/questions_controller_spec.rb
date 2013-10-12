@@ -41,14 +41,6 @@ describe QuestionsController do
     sign_in @user
   }
 
-  describe "GET index" do
-    it "assigns all questions as @questions" do
-      question = Question.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:questions).should eq([question])
-    end
-  end
-
   describe "GET show" do
     it "assigns the requested question as @question" do
       question = Question.create! valid_attributes

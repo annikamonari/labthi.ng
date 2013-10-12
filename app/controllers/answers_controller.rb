@@ -3,12 +3,6 @@ class AnswersController < ApplicationController
   before_action :set_question, only: [:new]
   before_action :auth_user!
 
-  # GET /answers
-  # GET /answers.json
-  def index
-    @answers = Answer.all
-  end
-
   # GET /answers/1
   # GET /answers/1.json
   def show
