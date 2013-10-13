@@ -12,7 +12,7 @@
     <h4>Solutions:</h4>
     <p>Number of solutions: <%= @solutions.count %></p>
   <ul class="solutions">
-    <% @solutions.each do |solution| %>
+    <% vote_order(@solutions).each do |solution| %>
           <%= render solution || "No solutions found" %>
     <% end %>
   </ul><!-- .solutions -->
