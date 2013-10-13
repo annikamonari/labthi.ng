@@ -11,10 +11,10 @@
   </p>
   <% unless comment.commentable_type == 'Comment' then %>
 	  <ul class="comment-replies">
-	  	<%= render comment.comments %>
-	  	<p>
-	    	<%= link_to "Reply to comment", new_comment_comment_path(comment) %>
-	  	</p>
+	  	<%= render vote_order(comment.comments) %>
 	  </ul>
+    <p>
+      <%= link_to "Reply to comment", new_comment_comment_path(comment) %>
+    </p>
   <% end %>
 </li>
