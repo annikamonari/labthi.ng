@@ -14,11 +14,11 @@ feature 'Visitor votes' do
     visit url_for(@answer.question)
   end
 
-  scenario 'in favor of an answer comment' do
+  scenario 'in favor of a comment comment' do
   	click_link "vote-up-comment-#{@comment.id}"
     page.should have_selector("ul.comments li:first-child #{@selector}", :text => "Votes: 1")
   end
-  scenario 'against an answer comment' do
+  scenario 'against a comment comment' do
   	click_link "vote-down-comment-#{@comment.id}"
     page.should have_selector("ul.comments li:last-child #{@selector}", :text => "Votes: -1")
   end

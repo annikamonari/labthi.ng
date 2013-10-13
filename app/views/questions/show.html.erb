@@ -26,11 +26,11 @@
   </p>
 
 <ul class="comments question-comments">
-  <%= render @question.comments.includes(:comments) || "No comments found" %>
+  <%= render vote_order(@question.comments.includes(:comments)) || "No comments found" %>
+</ul>
   <p>
     <%= link_to "Add comment", new_question_comment_path(@question) %>
   </p>
-</ul>
 </div><!-- .question -->
 
 <ul class="answers">
