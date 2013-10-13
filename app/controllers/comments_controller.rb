@@ -3,12 +3,6 @@ class CommentsController < ApplicationController
   before_action :load_commentable
   before_action :auth_user!
 
-  # GET /comments
-  # GET /comments.json
-  def index
-    @comments = @commentable.try(:comments) || Comment.all
-  end
-
   # GET /comments/1
   # GET /comments/1.json
   def show

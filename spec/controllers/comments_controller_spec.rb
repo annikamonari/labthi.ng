@@ -25,17 +25,6 @@ describe CommentsController do
     sign_in @user
   }
 
-  describe "GET index" do
-    it "assigns all comments as @comments" do
-      comment = Comment.create! valid_attributes
-      get :index, {
-        commentable_id: valid_attributes[:commentable_id],
-        commentable_type: valid_attributes[:commentable_type]
-        }, valid_session
-      assigns(:comments).should eq([comment])
-    end
-  end
-
   describe "GET show" do
     it "assigns the requested comment as @comment" do
       comment = Comment.create! valid_attributes

@@ -3,7 +3,7 @@ StartIt::Application.routes.draw do
   match "/evaluations/vote", via:[:post], as: "vote"
   get "evaluations/show"
   #resources :evaluations
-  resources :comments do
+  resources :comments, except: [:index] do
     resources :comments
   end
   resources :questions, except: [:index] do
@@ -14,7 +14,7 @@ StartIt::Application.routes.draw do
   end
 
   get '/ideas/:idea_id/aspects/:id', to: 'aspects#show', as: 'idea_aspect'
-  resources :aspects do
+  resources :aspects, except: [:index] do
     resources :solutions
   end
   resources :solutions, except: [:index] do
@@ -23,7 +23,7 @@ StartIt::Application.routes.draw do
 
 
   get '/profiles/:id/labs', to: 'profiles#labs'
-  resources :profiles
+  resources :profiles, except: [:index]
 
   get '/ideas/:id/define', to: 'ideas#define'
   get '/ideas/:id/reputation', to: 'ideas#reputation'
