@@ -13,7 +13,7 @@
 	%>
 </div>
   <ul class="questions">
-    <%= render @idea.questions || "No questions found" %>   
+    <%= render vote_order(@idea.questions) || "No questions found" %>   
   </ul>
 
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
