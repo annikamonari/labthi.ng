@@ -1,0 +1,3 @@
+  <div class="<%= voteable.class.to_s.downcase %>-<%= voteable.id %>-vote-wrapper clearfix">
+    <%= render template: "evaluations/show", locals: {voteable: voteable} %>
+  </div>

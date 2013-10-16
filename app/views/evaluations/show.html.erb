@@ -1,49 +1,51 @@
-  <% if current_user && current_user.up_voted_for?(voteable) == true %>
 
-  <%= render 'evaluations/vote_link',
-      type: "undo",
-      active:"active",
-      arrow_type: "up",
-      voteable: voteable
-       %>
+<% if current_user && current_user.up_voted_for?(voteable) == true %>
 
-  <%= render 'evaluations/vote_link',
-      type: "down",
-      active:"",
-      voteable: voteable
-       %>
+<%= render 'evaluations/vote_link',
+    type: "undo",
+    active:"active",
+    arrow_type: "up",
+    voteable: voteable
+     %>
 
-  <% elsif current_user && current_user.down_voted_for?(voteable) == true %>
+<%= render 'evaluations/vote_count', voteable:voteable %>
 
-  <%= render 'evaluations/vote_link',
-      type: "up",
-      active:"",
-      voteable: voteable
-       %>
+<%= render 'evaluations/vote_link',
+    type: "down",
+    active:"",
+    voteable: voteable
+     %>
 
-  <%= render 'evaluations/vote_link',
-      type: "undo",
-      active:"active",
-      arrow_type: "down",
-      voteable: voteable
-       %>
-  <% else %>
+<% elsif current_user && current_user.down_voted_for?(voteable) == true %>
 
-  <%= render 'evaluations/vote_link',
-      type: "up",
-      active:"",
-      voteable: voteable
-       %>
+<%= render 'evaluations/vote_link',
+    type: "up",
+    active:"",
+    voteable: voteable
+     %>
 
-  <%= render 'evaluations/vote_link',
-      type: "down",
-      active:"",
-      voteable: voteable
-       %>
-  <% end %>
-  <p>
-    <strong>Votes:</strong>
-    <span class="vote-count">
-      <%= voteable.reputation_for(:votes).to_i %>
-    </span>
-  </p>
+<%= render 'evaluations/vote_count', voteable:voteable %>
+
+<%= render 'evaluations/vote_link',
+    type: "undo",
+    active:"active",
+    arrow_type: "down",
+    voteable: voteable
+     %>
+
+<% else %>
+
+<%= render 'evaluations/vote_link',
+    type: "up",
+    active:"",
+    voteable: voteable
+     %>
+
+<%= render 'evaluations/vote_count', voteable:voteable %>
+
+<%= render 'evaluations/vote_link',
+    type: "down",
+    active:"",
+    voteable: voteable
+     %>
+<% end %>

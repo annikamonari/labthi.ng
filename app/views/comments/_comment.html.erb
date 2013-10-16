@@ -1,9 +1,7 @@
 <% # This template is called from Idea#show %>
 <li class="comment">
 
-  <div class="comment-<%= comment.id %>-vote-wrapper">
-    <%= render template: "evaluations/show", locals: {voteable: comment} %>
-  </div>
+  <%= render partial: "evaluations/vote_wrapper", locals: {voteable: comment} %>
 	
   <p>
     <strong>Comment:</strong>

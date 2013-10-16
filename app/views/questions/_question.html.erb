@@ -1,10 +1,8 @@
 <% # This template is called from Idea#show %>
 <li>
 
-  <div class="question-<%= question.id %>-vote-wrapper">
-    <%= render template: "evaluations/show", locals: {voteable: question} %>
-  </div>
-
+  <%= render partial: "evaluations/vote_wrapper", locals: {voteable: question} %>
+  
     <p>
     <strong>Question:</strong>
       <%= link_to question.title, question %>

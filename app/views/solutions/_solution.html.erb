@@ -1,9 +1,7 @@
 <% # This template is called from Idea#show %>
 <li class="solution">
 
-  <div class="solution-<%= solution.id %>-vote-wrapper">
-    <%= render template: "evaluations/show", locals: {voteable: solution} %>
-  </div>
+  <%= render partial: "evaluations/vote_wrapper", locals: {voteable: solution} %>
 
   <p>
   	<%= best_in_place_if current_user == solution.user, solution, :brief, activator: '.edit-solution-' + solution.id.to_s %>

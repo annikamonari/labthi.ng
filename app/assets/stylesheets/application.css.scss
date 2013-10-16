@@ -81,4 +81,12 @@ p.notice {
   ul ul {
   background: #eee;
   }
+
+  .vote, .vote-count{
+    float:left;
+    clear:both;
+  }
+  .vote-count{
+    padding-left:2px;
+  }
 }
