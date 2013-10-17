@@ -9,17 +9,17 @@ feature 'Visitor votes' do
     @comment_before = FactoryGirl.create(:comment, commentable: @parent)
     @comment = FactoryGirl.create(:comment, commentable: @parent)
     @comment_after = FactoryGirl.create(:comment, commentable: @parent)
-  	@selector = ".comment-#{@comment.id}-vote-wrapper"
+  	@selector = ".comment-#{@comment.id}-vote-wrapper .vote-count"
   	sign_in
     visit url_for(@answer.question)
   end
 
   scenario 'in favor of a comment comment' do
   	click_link "vote-up-comment-#{@comment.id}"
-    page.should have_selector("ul.comments li:first-child #{@selector}", :text => "Votes: 1")
+    page.should have_selector("ul.comments li:first-child #{@selector}", :text => "1")
   end
   scenario 'against a comment comment' do
   	click_link "vote-down-comment-#{@comment.id}"
-    page.should have_selector("ul.comments li:last-child #{@selector}", :text => "Votes: -1")
+    page.should have_selector("ul.comments li:last-child #{@selector}", :text => "-1")
   end
 end
