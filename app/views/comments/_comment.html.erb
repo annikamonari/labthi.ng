@@ -1,18 +1,26 @@
 <% # This template is called from Idea#show %>
-<li class="comment">
+<li class="media comment">
 
   <%= render partial: "evaluations/vote_wrapper", locals: {voteable: comment} %>
 	
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.brief %>
-  </p>
-  <% unless comment.commentable_type == 'Comment' then %>
-	  <ul class="comment-replies">
-	  	<%= render vote_order(comment.comments) %>
-	  </ul>
-    <p>
-      <%= link_to "Reply to comment", new_comment_comment_path(comment) %>
-    </p>
-  <% end %>
+  <div class="media-body">
+      <div class="pull-left">
+        <%= link_to comment.user.profile do %>
+          <%= image_tag comment.user.profile.photo.thumb %>
+        <% end %>
+      </div>
+    <div class="media-item-body">
+      <strong>
+        <%= link_to comment.user.name, comment.user.profile %>
+      </strong>
+      <br />
+      <%= comment.brief %>
+    </div>
+    <% unless comment.commentable_type == 'Comment' then %>
+  	  <ul class="media-list comment-replies">
+  	  	<%= render vote_order(comment.comments.includes(:user)) %>
+  	  </ul>
+        <%= link_to "Reply to comment", new_comment_comment_path(comment) %>
+    <% end %>
+  </div>
 </li>

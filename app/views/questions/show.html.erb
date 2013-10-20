@@ -25,15 +25,15 @@
     <%= link_to(@question.user.name, @question.user.profile) %>
   </p>
 
-<ul class="comments question-comments">
-  <%= render vote_order(@question.comments.includes(:comments)) || "No comments found" %>
+<ul class="media-list comments question-comments">
+  <%= render vote_order(@question.comments.includes(:user)) || "No comments found" %>
 </ul>
   <p>
     <%= link_to "Add comment", new_question_comment_path(@question) %>
   </p>
 </div><!-- .question -->
 
-<ul class="answers">
+<ul class="answers media-list">
   <%= render vote_order(@answers) || "No answers found" %>
 </ul>
 

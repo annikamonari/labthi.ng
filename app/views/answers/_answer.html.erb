@@ -1,16 +1,18 @@
 <% # This template is called from Idea#show %>
-<li class="answer">
+<li class="media answer">
 
-  <%= render partial: "evaluations/vote_wrapper", locals: {voteable: answer} %>
+    <%= render partial: "evaluations/vote_wrapper", locals: {voteable: answer} %>
 
-  <p>
-    <strong>Answer:</strong>
-    <%= answer.brief %>
-  </p>
-    <ul class="comments answer-comments">
-      <%= render vote_order(answer.comments) || "No comments found" %>
-    </ul>
-    <p>
-      <%= link_to "Add comment", new_answer_comment_path(answer) %>
-    </p>
+
+    <div class="media-body">
+      <div class="media-item-body">
+        <%= answer.brief %>
+      </div>
+      <ul class="media-list comments answer-comments">
+        <%= render vote_order(answer.comments) || "No comments found" %>
+      </ul>
+      <p>
+        <%= link_to "Add comment", new_answer_comment_path(answer) %>
+      </p>
+    </div>
 </li>

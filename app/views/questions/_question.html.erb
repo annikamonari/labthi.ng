@@ -1,12 +1,12 @@
 <% # This template is called from Idea#show %>
-<li>
+<li class="media">
 
   <%= render partial: "evaluations/vote_wrapper", locals: {voteable: question} %>
-  
-    <p>
-    <strong>Question:</strong>
-      <%= link_to question.title, question %>
-      by
-      <%= User.find(question.user_id).email %>
-    </p>
+
+    <div class="media-body">
+	    <h4 class="media-heading">
+	      <%= link_to question.title, question %>
+	  	</h4>
+	  		<%= link_to "#{question.answers.count} #{'Answer'.pluralize(question.answers.count)}", question %>
+    </div>
 </li>

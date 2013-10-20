@@ -62,16 +62,10 @@ p.notice {
   &:first-letter { text-transform: uppercase; }
 }
 
-
 .questions, .answers, .question-comments, .solutions{
   background: #eee;
   padding: 8px;
   list-style:none;
-  li{
-    border-left: 1px dotted #aaa;
-    border-right: 1px dotted #aaa;
-    padding-left: 8px;
-  }
   ul{
     background:#fff;
     padding: 8px;
@@ -89,4 +83,10 @@ p.notice {
   .vote-count{
     padding-left:2px;
   }
+}
+
+a:focus {outline:none;} 
+
+.media-item-body{
+  min-height:56px;
 }
