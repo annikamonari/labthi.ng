@@ -26,15 +26,25 @@
   </p>
 
 <ul class="media-list comments question-comments">
-  <%= render vote_order(@question.comments.includes(:user)) || "No comments found" %>
-</ul>
+  <% if @question.comments.count > 0 %>
+    <%= render vote_order(@question.comments.includes(:user)) || "No comments found" %>
+  <% else %>
+    No comments. 
+  <% end %>
+  </ul>
   <p>
     <%= link_to "Add comment", new_question_comment_path(@question) %>
   </p>
 </div><!-- .question -->
 
 <ul class="answers media-list">
-  <%= render vote_order(@answers) || "No answers found" %>
+  <% if @answers.count > 0 %>
+    <%= render vote_order(@answers) %>
+  <% else %>
+    No answers yet. Why don't you 
+    <%= link_to "add one", controller: "answers", action: "new", question_id: @question.id %>
+    ?
+  <% end %>
 </ul>
 
 <p>

@@ -13,8 +13,17 @@
 	%>
 </div>
   <ul class="media-list questions">
-    <%= render vote_order(@idea.questions) || "No questions found" %>   
+		<% if @idea.questions.count > 0 %>
+    	<%= render vote_order(@idea.questions) %>
+  	<% else %>
+		No questions found. Why don't you 
+		<%= link_to "ask one", {
+		  controller: "questions",
+		  action: "new",
+		  idea_id: @idea.id}
+		%>
+	  ?  
+		<% end %>
   </ul>
-
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <%= link_to 'Back', ideas_path %>

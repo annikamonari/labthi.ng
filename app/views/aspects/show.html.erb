@@ -8,12 +8,12 @@
   <%= @aspect.brief %>
 </p>
 
-<% if defined? @solutions %>
+  <% if @solutions.count > 0 %>
     <h4>Solutions:</h4>
     <p>Number of solutions: <%= @solutions.count %></p>
-  <ul class="media-list solutions">
-    <% vote_order(@solutions).each do |solution| %>
-          <%= render solution || "No solutions found" %>
+      <ul class="media-list solutions">
+      <% vote_order(@solutions).each do |solution| %>
+            <%= render solution || "No solutions found" %>
     <% end %>
   </ul><!-- .solutions -->
 <% else %>
