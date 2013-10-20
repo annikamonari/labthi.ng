@@ -17,10 +17,12 @@
       <%= comment.brief %>
     </div>
     <% unless comment.commentable_type == 'Comment' then %>
-  	  <ul class="media-list comment-replies">
-  	  	<%= render vote_order(comment.comments.includes(:user)) %>
-  	  </ul>
-        <%= link_to "Reply to comment", new_comment_comment_path(comment) %>
+      <% if comment.comments.count > 0 %>
+    	  <ul class="media-list comment-replies">
+    	  	<%= render vote_order(comment.comments.includes(:user)) %>
+    	  </ul>
+      <% end %>
+      <%= link_to "Reply to comment", new_comment_comment_path(comment) %>
     <% end %>
   </div>
 </li>

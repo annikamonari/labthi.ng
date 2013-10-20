@@ -6,7 +6,7 @@ class AspectsController < ApplicationController
   # GET /aspects/1.json
   def show
     @idea = Idea.find(params[:idea_id])
-    @solutions = Solution.includes(:user, :aspect, :comments).where(idea_id: @idea.id, aspect_id:@aspect.id)
+    @solutions = Solution.includes(:user, :aspect).where(idea_id: @idea.id, aspect_id:@aspect.id)
     render layout: 'sidebar_left'
   end
 

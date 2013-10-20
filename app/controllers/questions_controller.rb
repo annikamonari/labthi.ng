@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @idea = @question.idea
-    @answers = @question.answers.includes(:comments)
+    @answers = @question.answers.includes(:user, :comments)
     render layout: 'sidebar_left'
   end
 

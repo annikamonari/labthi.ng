@@ -7,10 +7,15 @@
     <div class="media-body">
       <div class="media-item-body">
         <%= answer.brief %>
+      <div class="pull-right">
+        <%= link_to answer.user.name, answer.user.profile %>
       </div>
-      <ul class="media-list comments answer-comments">
-        <%= render vote_order(answer.comments) || "No comments found" %>
-      </ul>
+      </div>
+      <% if answer.comments.count > 0 %>
+        <ul class="media-list comments answer-comments">
+          <%= render vote_order(answer.comments) || "No comments found" %>
+        </ul>
+      <% end %>
       <p>
         <%= link_to "Add comment", new_answer_comment_path(answer) %>
       </p>
