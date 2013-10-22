@@ -6,6 +6,7 @@ describe IdeasController do
   # Idea. As you add validations to Idea, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes){ { 
+      title: "This is a title",
       brief: "This is a brief",
       phase: 1,
       active: true,

@@ -4,6 +4,10 @@
   <%= render partial: "evaluations/vote_wrapper", locals: {voteable: @idea} %>
 
   <p>
+    <strong>Title:</strong>
+    <%= @idea.title %>
+  </p>
+  <p>
     <strong>Phase:</strong>
     <%= @idea.phase %>
   </p>

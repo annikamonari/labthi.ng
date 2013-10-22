@@ -23,9 +23,10 @@ module Features
       click_link 'Sign out'
     end
 
-    def submit_idea(brief = 'valid brief', path = '/ideas/new')
+    def submit_idea(title = 'valid title', brief = 'valid brief', path = '/ideas/new')
       sign_in
       visit path
+      fill_in 'Title', with: title
       fill_in 'Brief', with: brief
       check 'Website'
       select 'Science & Technology', :from => 'idea_category_list'

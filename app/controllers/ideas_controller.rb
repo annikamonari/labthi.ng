@@ -102,6 +102,7 @@ class IdeasController < ApplicationController
     def idea_params
       params.require(:idea).permit(
         :phase,
+        :title,
         :brief,
         :image,
         :active,

@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :idea do
+  	title 'Valid Title'
     brief 'Valid brief for an idea'
     phase 1
     active true

@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Phase</th>
+      <th>Title</th>
       <th>Brief</th>
       <th>Image</th>
       <th>Active</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @ideas.each do |idea| %>
       <tr>
+        <td><%= idea.title %></td>
         <td><%= idea.phase %></td>
         <td><%= idea.brief %></td>
         <td><%= idea.image %></td>

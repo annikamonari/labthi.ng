@@ -2,6 +2,7 @@ class Idea < ActiveRecord::Base
   include PublicActivity::Model
   include ActiveModel::Validations
   validates :phase, presence: true
+  validates :title, presence: true
   validates :brief, presence: true
   validate :instance_validations
   validates_presence_of :category_list
