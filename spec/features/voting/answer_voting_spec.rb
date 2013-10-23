@@ -33,5 +33,13 @@ feature 'Visitor votes' do
     click_link "vote-undo-answer-#{@answer.id}"
     find(@selector).should have_content("0")
   end
+  scenario 'after signing out' do
+    sign_out
+    visit url_for(@question)
+    find(@selector).should have_content("0")
+    click_link "vote-up-answer-#{@answer.id}"
+    find(@selector).should_not have_content("1")
+    page.should_not have_selector("ul.answers li:first-child #{@selector}", :text => "1")
+  end
 
 end

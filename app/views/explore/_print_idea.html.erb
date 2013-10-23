@@ -1,8 +1,10 @@
-<% brief_class = idea.brief.downcase.gsub(/\s+/, '-').gsub(/[^a-z0-9_-]/, '').squeeze('-') %>
 <div class="idea-block col-sm-4">
-	<%= link_to idea, class: "idea-block-link list-group-item #{brief_class}" do %>
+	<%= link_to idea, class: "idea-block-link list-group-item #{idea.title}" do %>
 
-		<h4><%= idea.brief %></h4>
+		<h4><%= idea.title %></h4>
+		<p>
+			<%= idea.brief %>
+		</p>
 		<p>
 			<%= "Phase: #{idea.phase}" %>
 		</p>
