@@ -3,17 +3,19 @@ require 'spec_helper'
 feature 'Visitor checks activity stream' do
 
   before(:each) do
-      submit_idea "import corn-free pringles from europe"
+      title = "import corn-free pringles from eurpoe"
+      brief = "this explains the descriptive idea title"
+      submit_idea title, brief
   end
   scenario 'for a recently created idea' do
     visit '/activities/index'
-    expect(page).to have_content('created an idea import corn-free pringles from europe')
+    expect(page).to have_content(title)
   end 
   scenario 'for a recently updated idea' do
     click_link 'Edit'
     click_button 'Update Idea'
     visit '/activities/index'
-    expect(page).to have_content('updated an idea import corn-free pringles from europe')
+    expect(page).to have_content(title)
   end
   scenario 'for a recently added question' do
     submit_question "Shipping considerations", "An efficient packing and shipping method should be considered"

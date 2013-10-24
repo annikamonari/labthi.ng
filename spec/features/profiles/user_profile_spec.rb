@@ -35,7 +35,8 @@ feature 'Visitor views profile page' do
 
   scenario 'to view recent activity' do
     visit '/ideas/new'
-    fill_in 'Brief', with: 'Popcorn machine made of diamond'
+    fill_in 'Title', with: 'Popcorn machine made of diamond'
+    fill_in 'Brief', with: 'This brief explains the title'
     check 'Website'
     select 'Science & Technology', :from => 'idea_category_list'
     click_button 'Create Idea'
