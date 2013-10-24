@@ -2,8 +2,8 @@ class Idea < ActiveRecord::Base
   include PublicActivity::Model
   include ActiveModel::Validations
   validates :phase, presence: true
-  validates :title, presence: true
-  validates :brief, presence: true
+  validates :title, presence: true, length: { maximum: 100 }
+  validates :brief, presence: true, length: { maximum: 500 }
   validate :instance_validations
   validates_presence_of :category_list
   validates_presence_of :component_list

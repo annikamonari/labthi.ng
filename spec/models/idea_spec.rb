@@ -29,5 +29,14 @@ describe Idea do
     idea.category_list = "retail, other"
     idea.category_list.should eq(["retail", "other"])
   end
-
+  describe "when title is too long" do
+    idea = FactoryGirl.create(:idea)
+    before {idea.title = "a" * 101 }
+    it { should_not be_valid }
+  end
+  describe "when brief is too long" do
+    idea = FactoryGirl.create(:idea)
+    before {idea.brief = "a" * 501 }
+    it { should_not be_valid }
+  end
 end

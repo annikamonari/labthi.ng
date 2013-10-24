@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   include PublicActivity::Model
-	validates :brief, presence: true
+	validates :brief, presence: true, length: { maximum: 500 }
 	validates :user, presence: true
 	belongs_to :user, inverse_of: :comments
 	belongs_to :answer

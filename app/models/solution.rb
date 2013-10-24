@@ -1,6 +1,6 @@
 class Solution < ActiveRecord::Base
   include PublicActivity::Model
-  validates :brief, presence: true
+  validates :brief, presence: true, length: { maximum: 1000 }
   validates :user, presence: true
   validates :aspect, presence: true
   validates :idea, presence: true

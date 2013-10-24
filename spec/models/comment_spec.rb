@@ -22,4 +22,9 @@ describe Comment do
     )
     comment.should be_valid
   end
+  it "is not valid when it is too long" do
+    comment = FactoryGirl.create(:comment)
+    comment.brief = "a" * 501
+    comment.should_not be_valid
+  end
 end

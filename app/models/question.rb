@@ -2,7 +2,8 @@ class Question < ActiveRecord::Base
   include PublicActivity::Model
   validates :idea, presence: true
   validates :user, presence: true
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 100 }
+  validates :brief, presence: true, :allow_nil => true, :allow_blank => true, length: {maximum: 500}
   validates :answers_expected, presence: true
   belongs_to :idea
   belongs_to :user

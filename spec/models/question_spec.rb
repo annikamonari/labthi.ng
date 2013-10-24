@@ -31,4 +31,14 @@ describe Question do
       )
     question.should be_valid
   end
+  it "is not valid when title is too long" do
+    question = FactoryGirl.create(:question)
+    question.title = "a" * 101
+    question.should_not be_valid 
+  end
+  it "is not valid when brief is too long" do
+    question = FactoryGirl.create(:question)
+    question.brief = "a" * 501 
+    question.should_not be_valid 
+  end
 end

@@ -44,7 +44,7 @@ describe Profile do
 	end
 
 	describe "when website is too long" do
-		before { @profile.website = "a" * 26 }
+		before { @profile.website = "a" * 200 }
 		it { should_not be_valid }
 	end
 
@@ -59,7 +59,7 @@ describe Profile do
 	end
 
 	describe "when country is too long" do
-		before { @profile.country = "a" * 21 }
+		before { @profile.country = "a" * 56 }
 		it { should_not be_valid }
 	end
 
@@ -78,23 +78,13 @@ describe Profile do
 		it { should_not be_valid }
 	end
 
-	#describe "when age format is invalid" do
-	#	it "should be invalid" do
-	#		ages = %w[$8 hello po#]
-	#		ages.each do |invalid_age|
-	#			@profile.age = invalid_age
-	#			expect(@profile).not_to be_valid
-	#		end
-	#	end
-	#end
-
 	describe "when age is nil" do
 		before { @profile.age = nil }
 		it { should be_valid }
 	end
 
 	describe "when about is too long" do
-		before { @profile.about = "a" * 201 }
+		before { @profile.about = "a" * 1001 }
 		it { should_not be_valid }
 	end
 
