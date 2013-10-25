@@ -1,3 +1,26 @@
 // Place all the styles related to the Evaluations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+a.vote .glyphicon {
+	color: #888;
+}
+
+a.vote-undo, a.vote-undo:hover, a.vote-active {
+	.glyphicon{
+		color:#000;
+	}
+}
+
+a.vote:hover .glyphicon {
+	color:#000;
+}
+
+.vote, .vote-count{
+  float:left;
+  clear:both;
+}
+.vote-count{
+  padding-left:2px;
+}
