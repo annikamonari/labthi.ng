@@ -1,6 +1,7 @@
 class Idea < ActiveRecord::Base
   include PublicActivity::Model
   include ActiveModel::Validations
+  after_create :set_first_vote
   validates :phase, presence: true
   validates :title, presence: true, length: { maximum: 100 }
   validates :brief, presence: true, length: { maximum: 500 }
@@ -21,5 +22,9 @@ class Idea < ActiveRecord::Base
 
   def instance_validations
   	validates_with MaxCategories
+  end
+
+  def set_first_vote
+    self.add_or_update_evaluation(:votes, 1, self.user)
   end
 end

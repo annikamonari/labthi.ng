@@ -14,7 +14,7 @@ describe Idea do
     idea.should_not be_valid
   end
   it "is valid with a title, phase, brief, and category" do
-    idea = Idea.create(
+    idea = FactoryGirl.create(:idea,
       phase:1,
       title: "Crowdsourcing Ideas",
       brief: "A website for crowdsourcing startup ideas",

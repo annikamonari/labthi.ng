@@ -11,7 +11,8 @@ describe IdeasController do
       phase: 1,
       active: true,
       category_list: ["Science & Technology"],
-      component_list: ["Website"]
+      component_list: ["Website"],
+      user: @user
     }}
 
   # This should return the minimal set of values that should be in the session
