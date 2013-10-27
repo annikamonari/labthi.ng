@@ -12,26 +12,26 @@ feature 'Visitor votes' do
   end
 
   scenario 'in favor of an answer comment' do
-  	find(@selector).should have_content("0")
-  	click_link "vote-up-comment-#{@comment.id}"
   	find(@selector).should have_content("1")
-    page.should have_selector("ul.comments li:first-child #{@selector}", :text => "1")
+  	click_link "vote-up-comment-#{@comment.id}"
+  	find(@selector).should have_content("2")
+    page.should have_selector("ul.comments li:first-child #{@selector}", :text => "2")
   end
   scenario 'against an answer comment' do
-  	find(@selector).should have_content("0")
+  	find(@selector).should have_content("1")
   	click_link "vote-down-comment-#{@comment.id}"
-  	find(@selector).should have_content("-1")
-    page.should have_selector("ul.comments li:last-child #{@selector}", :text => "-1")
+  	find(@selector).should have_content("0")
+    page.should have_selector("ul.comments li:last-child #{@selector}", :text => "0")
   end
   scenario 'to undo an upvote on an answer comment' do
     click_link "vote-up-comment-#{@comment.id}"
     click_link "vote-undo-comment-#{@comment.id}"
-    find(@selector).should have_content("0")
+    find(@selector).should have_content("1")
   end
   scenario 'to undo a dowvote on an answer comment' do
     click_link "vote-down-comment-#{@comment.id}"
     click_link "vote-undo-comment-#{@comment.id}"
-    find(@selector).should have_content("0")
+    find(@selector).should have_content("1")
   end
 
 end

@@ -16,10 +16,10 @@ feature 'Visitor votes' do
 
   scenario 'in favor of a comment comment' do
   	click_link "vote-up-comment-#{@comment.id}"
-    page.should have_selector("ul.comments li:first-child #{@selector}", :text => "1")
+    page.should have_selector("ul.comments li:first-child #{@selector}", :text => "2")
   end
   scenario 'against a comment comment' do
   	click_link "vote-down-comment-#{@comment.id}"
-    page.should have_selector("ul.comments li:last-child #{@selector}", :text => "-1")
+    page.should have_selector("ul.comments li:last-child #{@selector}", :text => "0")
   end
 end

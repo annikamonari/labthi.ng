@@ -11,26 +11,26 @@ feature 'Visitor votes' do
   end
 
   scenario 'in favor of a question' do
-  	find(@selector).should have_content("0")
-  	click_link "vote-up-question-#{@question.id}"
   	find(@selector).should have_content("1")
-    page.should have_selector("ul.questions li:first-child #{@selector}", :text => "1")
+  	click_link "vote-up-question-#{@question.id}"
+  	find(@selector).should have_content("2")
+    page.should have_selector("ul.questions li:first-child #{@selector}", :text => "2")
   end
   scenario 'against a question' do
-  	find(@selector).should have_content("0")
+  	find(@selector).should have_content("1")
   	click_link "vote-down-question-#{@question.id}"
-  	find(@selector).should have_content("-1")
-    page.should have_selector("ul.questions li:last-child #{@selector}", :text => "-1")
+  	find(@selector).should have_content("0")
+    page.should have_selector("ul.questions li:last-child #{@selector}", :text => "0")
   end
   scenario 'to undo an upvote on a question' do
     click_link "vote-up-question-#{@question.id}"
     click_link "vote-undo-question-#{@question.id}"
-    find(@selector).should have_content("0")
+    find(@selector).should have_content("1")
   end
   scenario 'to undo a dowvote on a question' do
     click_link "vote-down-question-#{@question.id}"
     click_link "vote-undo-question-#{@question.id}"
-    find(@selector).should have_content("0")
+    find(@selector).should have_content("1")
   end
 
 end

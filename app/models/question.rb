@@ -1,5 +1,7 @@
 class Question < ActiveRecord::Base
   include PublicActivity::Model
+  include SharedMethods
+  after_create :set_first_vote
   validates :idea, presence: true
   validates :user, presence: true
   validates :title, presence: true, length: { maximum: 100 }

@@ -1,5 +1,7 @@
 class Comment < ActiveRecord::Base
   include PublicActivity::Model
+  include SharedMethods
+  after_create :set_first_vote
 	validates :brief, presence: true, length: { maximum: 500 }
 	validates :user, presence: true
 	belongs_to :user, inverse_of: :comments

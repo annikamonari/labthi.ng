@@ -1,5 +1,7 @@
 class Solution < ActiveRecord::Base
   include PublicActivity::Model
+  include SharedMethods
+  after_create :set_first_vote
   validates :brief, presence: true, length: { maximum: 1000 }
   validates :user, presence: true
   validates :aspect, presence: true
