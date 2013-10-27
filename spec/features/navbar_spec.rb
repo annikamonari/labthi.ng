@@ -19,15 +19,15 @@ feature 'View a page with the navbar' do
     expect(page).to have_content('Profession: ' + @user.profile.profession)
   end
 
-  scenario 'navigate to explore page' do
+  scenario 'navigate to root page' do
   	click_link @user.name
   	click_link "Labthi.ng"
   	current_path.should == '/'
   end
 
-  scenario 'navigate to explore page' do
-  	click_link "Explore"
-  	current_path.should == '/explore'
+  scenario 'navigate to create page' do
+  	click_link "Create"
+  	current_path.should == '/create'
   end
 
 end
