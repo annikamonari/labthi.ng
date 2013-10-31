@@ -17,9 +17,10 @@ feature 'Visit an idea Define tab ' do
   scenario 'and submit a solution', js: true do
     click_link @aspect.title
     click_link "Add solution"
-    page.should have_content("myGiggles")
-    fill_in "Brief", with: "This is an example solution"
-    click_button "Create Solution"
+    within(find(".solutions")) do
+      fill_in "Brief", with: "This is an example solution"
+      click_button "Create Solution"
+    end
     page.should have_content @idea.brief
     page.should have_content @aspect.title
     page.should have_content "This is an example solution"

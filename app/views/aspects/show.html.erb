@@ -20,9 +20,8 @@
     <p>
     This aspect does not yet have a solution. Why don't you describe one?
     </p>
+    <ul class="media-list solutions">
+  </ul><!-- .solutions -->
 <% end %>
 
-  <p class="replaceMe">
-    <%= link_to "Add solution", new_aspect_solution_path(aspect_id: @aspect.id, idea_id: @idea.id), remote:true %>
-  </p>
-  
+  <%= link_to "Add solution", new_aspect_solution_path(aspect_id: @aspect.id, idea_id: @idea.id), remote:true %>
