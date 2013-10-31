@@ -2,11 +2,13 @@
 var selector = ".<%= j @commentable.class.to_s.downcase + '-' + @commentable.id.to_s + ' .media-body ' %>"
 selector = selector + ".<%= j @commentable.class.to_s.downcase %>-comments"
 
-if ($(selector + " .js-inline-form").length == 0) {
-	$("li.js-inline-form").remove()
+console.log(selector)
+
+if ($(selector + ".js-inline-form").length == 0) {
+	$(".js-inline-form").remove()
 	$(selector)
 		.append("<li class='js-inline-form'><%= j render :partial => 'comments/form' %></li>")
 }
 else {
-	$("li.js-inline-form").remove()
+	$(".js-inline-form").remove()
 }
