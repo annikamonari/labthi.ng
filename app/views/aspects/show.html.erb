@@ -22,7 +22,7 @@
     </p>
 <% end %>
 
-  <p>
-    <%= link_to "Add solution", new_aspect_solution_path(aspect_id: @aspect.id, idea_id: @idea.id) %>
+  <p class="replaceMe">
+    <%= link_to "Add solution", new_aspect_solution_path(aspect_id: @aspect.id, idea_id: @idea.id), remote:true %>
   </p>
   

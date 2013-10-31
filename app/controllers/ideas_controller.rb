@@ -7,7 +7,7 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    redirect_to '/explore'
+    redirect_to '/create'
     @ideas = Idea.all
   end
 

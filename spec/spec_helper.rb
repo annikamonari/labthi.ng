@@ -72,6 +72,12 @@ RSpec.configure do |config|
 
   #add Capybara commands
   config.include Capybara::DSL
+  Capybara.javascript_driver = :webkit
+  #Capybara.current_driver = Capybara.javascript_driver
+
+  Capybara.run_server = true 
+  #Capybara.server_port = 7787
+  #Capybara.app_host = "http://127.0.0.1:#{Capybara.server_port}" 
   config.include FactoryGirl::Syntax::Methods
 
   # Clean up the database
@@ -84,6 +90,8 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.clean
   end
+
+
 
   # ## Mock Framework
   #

@@ -18,7 +18,11 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1/edit
   def edit
-    render layout: 'form_left'
+    if current_user == @question.user then
+      render layour: 'form_left'
+    else
+      redirect_to :back, notice: "Oops. You can't access that page."
+    end
   end
 
   # POST /questions
@@ -43,6 +47,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
+    render status: 401 unless current_user == @question.user
     respond_to do |format|
       if @question.update(question_params)
         @question.create_activity :update, owner: (current_user)
