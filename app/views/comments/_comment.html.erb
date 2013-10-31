@@ -17,7 +17,7 @@
       <%= comment.brief %>
     </div>
     <% unless comment.commentable_type == 'Comment' then %>
-      <ul class="media-list comments comment-replies">
+      <ul class="media-list comments comment-comments">
         <% if comment.comments.count > 0 %>
     	  	<%= render vote_order(comment.comments.includes(:user)) %>
         <% end %>
