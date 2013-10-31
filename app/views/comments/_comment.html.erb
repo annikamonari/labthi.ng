@@ -1,5 +1,5 @@
 <% # This template is called from Idea#show %>
-<li class="media comment">
+<li class="media comment comment-<%= comment.id %>">
 
   <%= render partial: "evaluations/vote_wrapper", locals: {voteable: comment} %>
 	
@@ -17,12 +17,12 @@
       <%= comment.brief %>
     </div>
     <% unless comment.commentable_type == 'Comment' then %>
-      <% if comment.comments.count > 0 %>
-    	  <ul class="media-list comment-replies">
+      <ul class="media-list comments comment-replies">
+        <% if comment.comments.count > 0 %>
     	  	<%= render vote_order(comment.comments.includes(:user)) %>
-    	  </ul>
-      <% end %>
-      <%= link_to "Reply to comment", new_comment_comment_path(comment) %>
+        <% end %>
+      </ul>
+      <%= link_to "Reply to comment", new_comment_comment_path(comment), remote: true %>
     <% end %>
   </div>
 </li>

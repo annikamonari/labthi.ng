@@ -1,0 +1,4 @@
+/* Select things like .solution-12 */
+var selector = ".<%= j @commentable.class.to_s.downcase + '-' + @commentable.id.to_s + ' .media-body .comments' %>"
+$(selector)
+	.append("<li class='js-inline-form'><%= j render :partial => 'comments/form' %></li>")

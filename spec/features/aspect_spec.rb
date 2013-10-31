@@ -17,7 +17,7 @@ feature 'Visit an idea Define tab ' do
   scenario 'and submit a solution', js: true do
     click_link @aspect.title
     click_link "Add solution"
-    within(find(".solutions")) do
+    within(".solutions") do
       fill_in "Brief", with: "This is an example solution"
       click_button "Create Solution"
     end
@@ -35,15 +35,15 @@ feature 'Visit an idea Define tab ' do
     click_button "Create Solution"
   end
 
-  scenario 'and submits a comment' do
+  scenario 'and submits a comment', js: true do
     click_link @aspect.title
     submit_solution "Valid solution"
-    submit_comment "My comment", ".solutions li:first-child"
+      submit_comment "My comment", ".solutions li:first-child"
     page.should have_content "Valid solution"
     page.should have_content "My comment"
   end
 
-  scenario 'and submits a comment' do
+  scenario 'and submits a comment', js: true do
     click_link @aspect.title
     submit_solution "Valid solution"
     submit_comment "My comment", ".solutions li:first-child"

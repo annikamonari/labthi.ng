@@ -32,6 +32,7 @@ class CommentsController < ApplicationController
         @comment.create_activity :create, owner: (current_user)
         format.html { redirect_to get_question_path(@comment.commentable), notice: 'Comment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @comment }
+        format.js {render template: 'comments/create'}
       else
         format.html { render action: 'new' }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
