@@ -1,1 +1,9 @@
-$("ul.solutions").append("<li class='js-inline-form'><%= j render :partial => 'solutions/form' %></li>");
+var selector = "ul.solutions"
+if ($(selector + ".js-inline-form").length == 0) {
+	$(".js-inline-form").remove()
+	$(selector)
+		.append("<li class='js-inline-form'><%= j render :partial => 'solutions/form' %></li>")
+}
+else {
+	$(".js-inline-form").remove()
+}
