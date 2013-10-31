@@ -42,14 +42,12 @@
   <% if @answers.count > 0 %>
     <%= render vote_order(@answers) %>
   <% else %>
-    No answers yet. Why don't you 
-    <%= link_to "add one", controller: "answers", action: "new", question_id: @question.id %>
-    ?
+    No answers yet. Why don't you add one?
   <% end %>
 </ul>
 
 <p>
-  <%= link_to "Add answer", controller: "answers", action: "new", question_id: @question.id %>
+  <%= link_to "Add answer", controller: "answers", action: "new", question_id: @question.id, remote: true %>
 </p>
 
 

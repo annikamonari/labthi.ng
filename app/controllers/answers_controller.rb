@@ -29,6 +29,7 @@ class AnswersController < ApplicationController
         @answer.create_activity :create, owner: (current_user)
         format.html { redirect_to @answer.question, notice: 'Answer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @answer }
+        format.js {render template: 'answers/create'}
       else
         format.html { render action: 'new' }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
