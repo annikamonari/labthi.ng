@@ -1,5 +1,5 @@
 <% # This template is called from Idea#show %>
-<li class="media answer">
+<li class="media answer answer-<%= answer.id %>">
 
     <%= render partial: "evaluations/vote_wrapper", locals: {voteable: answer} %>
 
@@ -11,13 +11,13 @@
         <%= link_to answer.user.name, answer.user.profile %>
       </div>
       </div>
-      <% if answer.comments.count > 0 %>
-        <ul class="media-list comments answer-comments">
+      <ul class="media-list comments answer-comments">
+        <% if answer.comments.count > 0 %>
           <%= render vote_order(answer.comments) || "No comments found" %>
-        </ul>
-      <% end %>
+        <% end %>
+      </ul>
       <p>
-        <%= link_to "Add comment", new_answer_comment_path(answer) %>
+        <%= link_to "Add comment", new_answer_comment_path(answer), remote: true %>
       </p>
     </div>
 </li>

@@ -3,7 +3,7 @@
 <%= render 'ideas/sidebar' %>
 <%= render 'ideas/secondary_nav', locals: {idea: @question.idea } %>
 
-<div class="question">
+<div class="question question-<%= @question.id %>">
   <p>
     <strong>Question:</strong>
     <%= @question.title %>
@@ -24,17 +24,18 @@
     <strong>User:</strong>
     <%= link_to(@question.user.name, @question.user.profile) %>
   </p>
-
-<ul class="media-list comments question-comments">
-  <% if @question.comments.count > 0 %>
-    <%= render vote_order(@question.comments.includes(:user)) || "No comments found" %>
-  <% else %>
-    No comments. 
-  <% end %>
-  </ul>
-  <p>
-    <%= link_to "Add comment", new_question_comment_path(@question) %>
-  </p>
+  <div class="media-body">
+    <ul class="media-list comments question-comments">
+      <% if @question.comments.count > 0 %>
+        <%= render vote_order(@question.comments.includes(:user)) || "No comments found" %>
+      <% else %>
+        No comments. 
+      <% end %>
+      </ul>
+    <p>
+      <%= link_to "Add comment", new_question_comment_path(@question), remote: true %>
+    </p>
+  </div>
 </div><!-- .question -->
 
 <ul class="answers media-list">

@@ -12,7 +12,7 @@ feature 'Visitor submits a comment' do
         submit_question @question_title, @question_brief
     end
 
-  scenario 'on a answer' do
+  scenario 'on a answer', js: true do
         submit_answer @answer_brief
         submit_comment @comment_brief, '.answers li:first-child'
         expect(page).to have_content(@idea_brief)
@@ -21,13 +21,13 @@ feature 'Visitor submits a comment' do
         expect(page).to have_content(@comment_brief)
   end
 
-  scenario 'on a question' do
+  scenario 'on a question', js: true do
         submit_comment @comment_brief, '.question'
         expect(page).to have_content(@question_brief)
         expect(page).to have_content(@comment_brief)
   end
 
-  scenario 'on a comment' do
+  scenario 'on a comment', js: true do
         @comment_reply = "That was a great comment!"
         submit_comment @comment_brief, '.question'
         submit_comment @comment_reply, '.comment', 'Reply to comment'
