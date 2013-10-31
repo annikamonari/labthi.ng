@@ -1,5 +1,12 @@
 /* Select things like .solution-12 */
 var selector = ".<%= j @commentable.class.to_s.downcase + '-' + @commentable.id.to_s + ' .media-body ' %>"
 selector = selector + ".<%= j @commentable.class.to_s.downcase %>-comments"
-$(selector)
-	.append("<li class='js-inline-form'><%= j render :partial => 'comments/form' %></li>")
+
+if ($(selector + " .js-inline-form").length == 0) {
+	$("li.js-inline-form").remove()
+	$(selector)
+		.append("<li class='js-inline-form'><%= j render :partial => 'comments/form' %></li>")
+}
+else {
+	$("li.js-inline-form").remove()
+}
