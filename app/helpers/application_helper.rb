@@ -1,7 +1,8 @@
 module ApplicationHelper
   # Detect current page
-  def nav_link(link_text, link_path)
+  def nav_link(link_text, link_path, className = "")
     class_name = current_page?(link_path) ? 'active' : ''
+    class_name += " " + className if className.length > 0
     content_tag(:li, :class => class_name) do
       link_to link_text, link_path
     end
