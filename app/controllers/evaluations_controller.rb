@@ -49,6 +49,18 @@ private
   end
 
   def update_user_score_from_upvote
+    case @voteable.class.to_s
+      when "Idea"
+        @voteable.user.add_points(10, 'Idea upvoted')
+      when "Question"
+        @voteable.user.add_points(5, 'Question upvoted')
+      when "Answer"
+        @voteable.user.add_points(10, 'Answer upvoted')
+      when "Solution"
+        @voteable.user.add_points(10, 'Solution upvoted')
+      when "Comment"
+        @voteable.user.add_points(1, 'Comment upvoted')
+    end
   end
 
   def update_user_score_from_downvote
