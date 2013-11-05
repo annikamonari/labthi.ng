@@ -34,20 +34,19 @@ module Features
       # Insert information to test updates here
     end
     
-    # This must be called from an idea page
     def update_aspect(title, brief)
       click_link 'Add aspect'
       fill_in 'aspect_title', with: title
       fill_in 'aspect_brief', with: brief
       click_button 'Create Aspect'
     end
-    # This must be called from an idea page
+    # This must be called from a question page
     def submit_answer(brief)
       click_link 'Add answer'
       fill_in 'Brief', with: brief
       click_button 'Create Answer'
     end
-    # This must be called from an idea page
+    # This must be called from the desired page
     def submit_comment(brief, selector='html', add_comment_link = 'Add comment')
       find(selector).click_link add_comment_link
       fill_in 'Brief', with: brief

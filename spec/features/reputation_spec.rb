@@ -17,4 +17,21 @@ feature 'Visitor gets reputation from' do
     find('.show-user-profile a').click
     find(".rep-points").should have_content '3'
   end
+  scenario 'writing an answer' do
+  	@question = FactoryGirl.create(:question)
+  	sign_in
+  	visit question_path @question
+  	submit_answer("valid answer")
+    find('.show-user-profile a').click
+    find(".rep-points").should have_content '5'
+  end
+  scenario 'writing a solution' do
+  	@idea = FactoryGirl.create(:idea)
+  	@aspect = FactoryGirl.create(:aspect)
+  	sign_in
+  	visit idea_aspect_path @idea, @aspect
+  	submit_solution("valid answer")
+    find('.show-user-profile a').click
+    find(".rep-points").should have_content '5'
+  end
 end

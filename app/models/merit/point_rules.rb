@@ -31,6 +31,13 @@ module Merit
       score 3, on: [
         'questions#create'
       ]
+
+      score 5, on: [
+        'answers#create'
+      ]
+      score 5, on: [
+        'solutions#create'
+      ]
     end
   end
 end
