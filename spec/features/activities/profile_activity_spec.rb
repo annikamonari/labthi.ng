@@ -7,6 +7,6 @@ feature 'Visitor checks activity stream' do
   	click_link "Edit"
   	click_button 'Update Profile'
     visit '/activities/index'
-    expect(page).to have_content(@user.name + " updated profile information")
+    expect(page).to have_content(@user.name + " 0 updated profile information")
   end
 end

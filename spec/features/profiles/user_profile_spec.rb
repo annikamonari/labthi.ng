@@ -41,6 +41,6 @@ feature 'Visitor views profile page' do
     select 'Science & Technology', :from => 'idea_category_list'
     click_button 'Create Idea'
     visit url_for(@user.profile)
-    page.should have_content(@user.name + " created an idea Popcorn machine made of diamond")
+    page.should have_content("#{@user.name} 10 created an idea Popcorn machine made of diamond")
   end
 end
