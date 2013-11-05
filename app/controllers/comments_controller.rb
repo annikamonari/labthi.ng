@@ -7,6 +7,8 @@ class CommentsController < ApplicationController
   # GET /comments/1.json
   def show
     @comment = Comment.find(params[:id])
+
+    redirect_to get_redirect_path(@comment.commentable)
   end
 
   # GET /comments/new
@@ -30,7 +32,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         @comment.create_activity :create, owner: (current_user)
-        format.html { redirect_to get_question_path(@comment.commentable), notice: 'Comment was successfully created.' }
+        format.html { redirect_to get_redirect_path(@comment.commentable), notice: 'Comment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @comment }
         format.js {render template: 'comments/create'}
       else
@@ -88,9 +90,9 @@ class CommentsController < ApplicationController
       @commentable = commentable_type.singularize.classify.constantize.find_by_id(id) unless commentable_type == nil
     end
 
-    def get_question_path(c)
+    def get_redirect_path(c)
       if c.class.name == 'Comment' then
-        return @question_path = get_question_path(c.commentable)
+        return @question_path = get_redirect_path(c.commentable)
       elsif c.class.name == 'Question' then
         return @question_path = c
       elsif c.class.name == 'Answer' then
@@ -100,14 +102,6 @@ class CommentsController < ApplicationController
       elsif c.class.name == 'Solution' then
         return @question_path = idea_aspect_path(id: c.aspect.id, idea_id: c.idea.id)
       end
-    end
-
-    def redirect_path
-      @comment.commentable.try(:question) ||
-        @comment.commentable.try(:aspect) ||
-        @comment.commentable.commentable.try(:question) ||
-        @comment.commentable.commentable.try(:aspect) ||
-        @comment.commentable
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

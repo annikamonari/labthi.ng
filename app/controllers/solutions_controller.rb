@@ -5,6 +5,7 @@ class SolutionsController < ApplicationController
   # GET /solutions/1
   # GET /solutions/1.json
   def show
+    redirect_to idea_aspect_path(@solution.idea, @solution.aspect)
   end
 
   # GET /solutions/new
