@@ -1,6 +1,8 @@
 <% content_for :sidebar_left do %>
-  <h1><%= render @user %></h1>
-
+  <h1><%= @user.name %></h1>
+  <div class="rep-points">
+    <%= @user.points %>
+  </div>
   <p>
     <%= image_tag @profile.photo.display %>
   </p>
