@@ -11,7 +11,7 @@
           class: "edit-solution-#{solution.id.to_s}" if current_user == solution.user %>
       </p>
       <div class="pull-right">
-        <%= link_to solution.user.name, solution.user.profile %>
+        <%= render solution.user %>
       </div>
       <% if solution.aspect.title == "Image" %>
         <p>

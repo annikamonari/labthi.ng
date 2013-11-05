@@ -22,7 +22,7 @@
   </p>
   <p>
     <strong>User:</strong>
-    <%= link_to(@question.user.name, @question.user.profile) %>
+    <%= render @question.user %>
   </p>
   <div class="media-body">
     <ul class="media-list comments question-comments">

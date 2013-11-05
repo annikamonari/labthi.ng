@@ -8,7 +8,7 @@
       <div class="media-item-body">
         <%= answer.brief %>
       <div class="pull-right">
-        <%= link_to answer.user.name, answer.user.profile %>
+        <%= render answer.user %>
       </div>
       </div>
       <ul class="media-list comments answer-comments">
