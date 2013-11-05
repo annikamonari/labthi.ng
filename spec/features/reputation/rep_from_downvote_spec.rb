@@ -5,14 +5,14 @@ feature 'Visitor gets reputation from' do
   	sign_in
   end
 
-  scenario 'upvoting an idea' do
+  scenario 'downvoting an idea' do
   	@idea = FactoryGirl.create(:idea)
     visit idea_path @idea
     click_link "vote-down-idea-#{@idea.id}"
     find('.show-user-profile a').click
     find(".rep-points").should have_content '-10'
   end
-  scenario 'writing a question' do
+  scenario 'downvoting a question' do
   	@question = FactoryGirl.create(:question)
   	visit idea_path @question.idea
     click_link "vote-down-question-#{@question.id}"
