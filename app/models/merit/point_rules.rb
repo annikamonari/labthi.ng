@@ -38,6 +38,9 @@ module Merit
       score 5, on: [
         'solutions#create'
       ]
+      score 1, on: [
+        'comments#create'
+      ]
     end
   end
 end
