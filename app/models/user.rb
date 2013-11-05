@@ -42,5 +42,10 @@ class User < ActiveRecord::Base
     eval = evaluations.where(target_type: item.class, target_id: item.id).first
     eval.present? && eval.value < 0 ? true : false
   end
+
+  #alias merit gem spelling quirk
+  def subtract_points(*args)
+    substract_points(args)
+  end
   
 end
