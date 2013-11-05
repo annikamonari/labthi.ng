@@ -48,41 +48,41 @@ private
     update_user_score_from_undo if @value == 0
   end
 
-  def update_user_score_from_upvote
+  def update_user_score_from_upvote(sign = 1)
     case @voteable.class.to_s
       when "Idea"
-        @voteable.user.add_points(10, 'Idea upvoted')
+        @voteable.user.add_points(sign*10, 'Idea upvoted')
       when "Question"
-        @voteable.user.add_points(5, 'Question upvoted')
+        @voteable.user.add_points(sign*5, 'Question upvoted')
       when "Answer"
-        @voteable.user.add_points(10, 'Answer upvoted')
+        @voteable.user.add_points(sign*10, 'Answer upvoted')
       when "Solution"
-        @voteable.user.add_points(10, 'Solution upvoted')
+        @voteable.user.add_points(sign*10, 'Solution upvoted')
       when "Comment"
-        @voteable.user.add_points(1, 'Comment upvoted')
+        @voteable.user.add_points(sign*1, 'Comment upvoted')
     end
   end
 
-  def update_user_score_from_downvote
+  def update_user_score_from_downvote(sign = 1)
     case @voteable.class.to_s
       when "Idea"
-        current_user.subtract_points(10, 'Downvoted an idea')
+        current_user.subtract_points(sign*10, 'Downvoted an idea')
       when "Question"
-        current_user.subtract_points(3, 'Downvoted a question')
+        current_user.subtract_points(sign*3, 'Downvoted a question')
       when "Answer"
-        current_user.subtract_points(5, 'Downvoted an answer')
+        current_user.subtract_points(sign*5, 'Downvoted an answer')
       when "Solution"
-        current_user.subtract_points(5, 'Downvoted a solution')
+        current_user.subtract_points(sign*5, 'Downvoted a solution')
       when "Comment"
-        current_user.subtract_points(1, 'Downvoted a comment')
+        current_user.subtract_points(sign*1, 'Downvoted a comment')
     end
   end
 
   def update_user_score_from_undo
     if @voteable.reputation_for(:votes) - @previous_votes == -1
-      update_user_score_from_upvote
+      update_user_score_from_upvote(-1)
     else
-      update_user_score_from_downvote
+      update_user_score_from_downvote(-1)
     end
   end
 end
