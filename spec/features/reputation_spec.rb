@@ -9,4 +9,12 @@ feature 'Visitor gets reputation from' do
     find('.show-user-profile a').click
     find(".rep-points").should have_content '10'
   end
+  scenario 'writing a question' do
+  	@idea = FactoryGirl.create(:idea)
+  	sign_in
+  	visit idea_path @idea
+  	submit_question
+    find('.show-user-profile a').click
+    find(".rep-points").should have_content '3'
+  end
 end

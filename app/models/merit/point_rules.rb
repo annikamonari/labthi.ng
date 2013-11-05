@@ -27,6 +27,10 @@ module Merit
       score 10, on: [
         'ideas#create'
       ]
+
+      score 3, on: [
+        'questions#create'
+      ]
     end
   end
 end

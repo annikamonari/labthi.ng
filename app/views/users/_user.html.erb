@@ -1,4 +1,6 @@
-<%= user.name %>
-<div class="rep-points">
-	<%= user.points %>
-</div>
+<%= link_to user.profile do %>
+	<%= user.name %>
+	<span class="rep-points">
+		<%= user.points %>
+	</span>
+<% end%>

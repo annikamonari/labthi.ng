@@ -4,14 +4,9 @@
   <%= render partial: "evaluations/vote_wrapper", locals: {voteable: comment} %>
 	
   <div class="media-body">
-      <div class="pull-left">
-        <%= link_to comment.user.profile do %>
-          <%= image_tag comment.user.profile.photo.thumb %>
-        <% end %>
-      </div>
     <div class="media-item-body">
       <strong>
-        <%= link_to comment.user.name, comment.user.profile %>
+        <%= render comment.user %>
       </strong>
       <br />
       <%= comment.brief %>
