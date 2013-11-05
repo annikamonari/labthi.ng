@@ -12,14 +12,14 @@ feature 'Visitor gets reputation from' do
     find('.show-user-profile a').click
     find(".rep-points").should have_content '-10'
   end
-=begin
   scenario 'writing a question' do
-  	@idea = FactoryGirl.create(:idea)
-  	visit idea_path @idea
-  	submit_question
+  	@question = FactoryGirl.create(:question)
+  	visit idea_path @question.idea
+    click_link "vote-down-question-#{@question.id}"
     find('.show-user-profile a').click
-    find(".rep-points").should have_content '3'
+    find(".rep-points").should have_content '-3'
   end
+=begin
   scenario 'writing an answer' do
   	@question = FactoryGirl.create(:question)
   	visit question_path @question

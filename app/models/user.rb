@@ -44,8 +44,6 @@ class User < ActiveRecord::Base
   end
 
   #alias merit gem spelling quirk
-  def subtract_points(*args)
-    substract_points(args)
-  end
+  alias_method :subtract_points, :substract_points
   
 end
