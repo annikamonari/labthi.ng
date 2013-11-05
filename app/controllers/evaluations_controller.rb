@@ -6,6 +6,7 @@ class EvaluationsController < ApplicationController
 	end
 
   def vote
+    @previous_votes = @voteable.reputation_for(:votes)
     @voteable.add_or_update_evaluation(:votes, @value, current_user) unless current_user == nil
     respond_to do |format|
       update_user_score
@@ -42,11 +43,26 @@ private
   end
 
   def update_user_score
-    #current_user.add_points(-10, 'Downvoted an idea')
-    puts "got here"
+    update_user_score_from_downvote if @value == -1
+    update_user_score_from_upvote if @value == 1
+    update_user_score_from_undo if @value == 0
+  end
+
+  def update_user_score_from_upvote
+  end
+
+  def update_user_score_from_downvote
     case @voteable.class.to_s
       when "Idea"
         current_user.subtract_points(10, 'Downvoted an idea')
+    end
+  end
+
+  def update_user_score_from_undo
+    if @voteable.reputation_for(:votes) - @previous_votes == -1
+      update_user_score_from_upvote
+    else
+      update_user_score_from_downvote
     end
   end
 end
