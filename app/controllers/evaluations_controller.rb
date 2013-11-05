@@ -57,6 +57,8 @@ private
         current_user.subtract_points(10, 'Downvoted an idea')
       when "Question"
         current_user.subtract_points(3, 'Downvoted a question')
+      when "Answer"
+        current_user.subtract_points(5, 'Downvoted an answer')
     end
   end
 
