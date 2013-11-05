@@ -26,4 +26,11 @@ feature 'Visitor gets reputation from' do
     find('.show-user-profile a').click
     find(".rep-points").should have_content '-5'
   end
+  scenario 'downvoting a solution' do
+    @solution = FactoryGirl.create(:solution)
+    visit idea_aspect_path @solution.idea, @solution.aspect
+    click_link "vote-down-solution-#{@solution.id}"
+    find('.show-user-profile a').click
+    find(".rep-points").should have_content '-5'
+  end
 end
