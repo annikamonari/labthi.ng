@@ -1,8 +1,10 @@
 <% if user_signed_in? %>
-    <%= nav_link(current_user.name, current_user.profile, "show-user-profile")  %>
-    <li>
-      <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
-    </li>
+  <li class="show-user-profile">
+    <%= render current_user %>
+  </li>
+  <li>
+    <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
+  </li>
 <% else %>
       <%= nav_link('Log in', '/login')  %>
 <% end %>

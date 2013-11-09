@@ -12,9 +12,41 @@
  *= require_tree .
  */
 
-/* bootstrap overrides */
+/************************************/
+/*********** Color Palette **********/
+/************************************/
+$lab-light-grey: #ecf0f1;
+$lab-med-grey: #bdc3c7;
+$lab-near-black: #333333;
+
+/************************************/
+/******** Bootstrap Overrides *******/
+/************************************/
+
+/* Typography */
+
+$font-family-sans-serif: arial, sans-serif;
+
+/* Navbar */
+$navbar-height: 40px;
+$navbar-default-bg: $lab-light-grey;
+$navbar-default-border: none;
+
+/* Navbar Links*/
+$navbar-default-link-color: $lab-near-black;
+$navbar-default-link-hover-coor: black;
+$navbar-default-link-active-bg: none;
+$navbar-default-link-active-color: black;
+
+/* Badge */
+$badge-bg: $lab-med-grey;
 
 @import "twitter/bootstrap";
+
+
+/************************************/
+/************ Custom CSS ************/
+/************************************/
 
 html {overflow-y: scroll;}
 
@@ -34,6 +66,14 @@ body{
 
 .navbar > .container .navbar-brand{
   margin-left:0;
+}
+
+.navbar a {
+}
+
+.nav a {
+  font-size: 13px;
+  font-weight: bold;
 }
 
 ul.hmenu {
