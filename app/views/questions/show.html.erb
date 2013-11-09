@@ -4,6 +4,8 @@
 <%= render 'ideas/secondary_nav', locals: {idea: @question.idea } %>
 
 <div class="question question-<%= @question.id %>">
+<%= render partial: "evaluations/vote_wrapper", locals: {voteable: @question} %>
+
   <p>
     <strong>Question:</strong>
     <%= @question.title %>
@@ -24,6 +26,7 @@
     <strong>User:</strong>
     <%= render @question.user %>
   </p>
+
   <div class="media-body">
     <ul class="media-list comments question-comments">
       <% if @question.comments.count > 0 %>
