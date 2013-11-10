@@ -7,6 +7,11 @@
 }
 
 .idea-block {
-	/* height:136px */
 	margin-bottom:30px;
+
+	.idea-block-link{
+		min-height:150px;
+		max-height:150px;
+		padding-top:0;
+	}
 }
