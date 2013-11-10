@@ -5,9 +5,6 @@
 
 
 $(document).on "page:change", ->
-		console.log("got to this one")
 
 	$("a.vote").click ->
 		$(this).toggleClass("active")
-		console.log("yo")
-		alert("clicked")

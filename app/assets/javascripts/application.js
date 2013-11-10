@@ -23,3 +23,11 @@ $(document).ready(function() {
   /* Activating Best In Place */
   jQuery(".best_in_place").best_in_place();
 });
+
+$(document).on('page:fetch', function(){
+	$(".container-main").fadeTo(40, 0.6);
+});
+
+$(document).on('page:change', function(){
+	$(".container-main").css("opacity","1");
+});
