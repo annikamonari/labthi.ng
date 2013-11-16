@@ -2,6 +2,7 @@ class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
   before_action :set_question, only: [:new]
   before_action :auth_user!
+  before_action :set_vote_value, only: [:vote]
 
   # GET /answers/1
   # GET /answers/1.json
@@ -60,6 +61,16 @@ class AnswersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to answers_url }
       format.json { head :no_content }
+    end
+  end
+
+  def vote
+    @voteable = Answer.find(params[:voteable_id])
+    @previous_votes = @voteable.reputation_for(:votes)
+    @voteable.add_or_update_evaluation(:votes, @value, current_user) unless current_user == nil
+    respond_to do |format|
+      format.html {redirect_to :back, notice: "Vote submitted"}
+      format.js {render template: 'evaluations/vote'}
     end
   end
 

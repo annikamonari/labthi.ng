@@ -38,6 +38,7 @@ feature 'Visitor votes' do
     visit url_for(@question)
     find(@selector).should have_content("1")
     click_link "vote-up-answer-#{@answer.id}"
+    visit url_for(@question)    
     find(@selector).should_not have_content("2")
     page.should_not have_selector("ul.answers li:first-child #{@selector}", :text => "2")
   end
