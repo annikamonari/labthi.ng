@@ -25,7 +25,7 @@ module Merit
       # ]
 
       # Points gained and lost from voting are handled manually
-      # in the evaluations controller
+      # in the relevant controller's vote action
 
       score 10, on: [
         'ideas#create'
@@ -44,7 +44,6 @@ module Merit
       score 1, on: [
         'comments#create'
       ]
-
     end
   end
 end

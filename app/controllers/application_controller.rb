@@ -50,7 +50,6 @@ class ApplicationController < ActionController::Base
       end
     end
 
-
   def set_vote_value
     case params[:type]
       when "up"
@@ -59,6 +58,23 @@ class ApplicationController < ActionController::Base
         @value = -1
       when "undo"
         @value = 0
+    end
+  end
+
+  def update_user_vote_rep(voteable, previous_votes, value, up_pts, down_pts = up_pts)
+    # check if vote is 'undo'
+    if value == 0 then
+      # Check if last vote was an upvote
+      if previous_votes - voteable.reputation_for(:votes) == 1
+        # Subtract previously gained points
+        current_user.subtract_points(up_pts)
+      else
+        # Regain lost points
+        current_user.add_points(down_pts)
+      end
+    else
+      current_user.add_points(up_pts) if value == 1
+      current_user.subtract_points(down_pts) if value == -1 
     end
   end
 end
