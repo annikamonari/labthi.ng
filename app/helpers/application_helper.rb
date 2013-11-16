@@ -39,4 +39,20 @@ module ApplicationHelper
   def vote_order(items)
     items.sort_by {|a| a.reputation_for(:votes)}.reverse
   end
+
+#link_to(vote_path(voteable_id: voteable.id, voteable_class: voteable.class, type: type)
+  def foo_vote_path(voteable_id, voteable_class, type)
+    case voteable_class.to_s
+      when "Comment"
+        comment_vote_path(voteable_id: voteable_id, voteable_class: voteable_class, type: type)
+      when "Question"
+        question_vote_path(voteable_id: voteable_id, voteable_class: voteable_class, type: type)
+      when "Answer"
+        answer_vote_path(voteable_id: voteable_id, voteable_class: voteable_class, type: type)
+      when "Solution"
+        solution_vote_path(voteable_id: voteable_id, voteable_class: voteable_class, type: type)
+      when "Idea"
+        idea_vote_path(voteable_id: voteable_id, voteable_class: voteable_class, type: type)
+    end
+  end
 end

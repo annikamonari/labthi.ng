@@ -1,6 +1,12 @@
 StartIt::Application.routes.draw do
   
-  match "/evaluations/vote", via:[:post], as: "vote"
+  #match "/evaluations/vote", via:[:post], as: "vote"
+  match "/comments/vote", via:[:post], as: "comment_vote"
+  match "/questions/vote", via:[:post], as: "question_vote"
+  match "/answers/vote", via:[:post], as: "answer_vote"
+  match "/ideas/vote", via:[:post], as: "idea_vote"
+  match "/solutions/vote", via:[:post], as: "solution_vote"
+  
   get "evaluations/show"
   #resources :evaluations
   resources :comments, except: [:index] do

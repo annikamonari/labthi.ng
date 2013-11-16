@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :load_commentable
   before_action :auth_user!
+  before_action :set_vote_value, only: [:vote]
 
   # GET /comments/1
   # GET /comments/1.json
@@ -69,6 +70,16 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to comments_url }
       format.json { head :no_content }
+    end
+  end
+
+  def vote
+    @voteable = Comment.find(params[:voteable_id])
+    @previous_votes = @voteable.reputation_for(:votes)
+    @voteable.add_or_update_evaluation(:votes, @value, current_user) unless current_user == nil
+    respond_to do |format|
+      format.html {redirect_to :back, notice: "Vote submitted"}
+      format.js {render template: 'evaluations/vote'}
     end
   end
 

@@ -49,4 +49,16 @@ class ApplicationController < ActionController::Base
         "application"
       end
     end
+
+
+  def set_vote_value
+    case params[:type]
+      when "up"
+        @value = 1
+      when "down"
+        @value = -1
+      when "undo"
+        @value = 0
+    end
+  end
 end

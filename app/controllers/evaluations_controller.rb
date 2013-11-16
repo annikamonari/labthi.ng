@@ -4,7 +4,7 @@ class EvaluationsController < ApplicationController
 
 	def show
 	end
-
+=begin
   def vote
     @previous_votes = @voteable.reputation_for(:votes)
     @voteable.add_or_update_evaluation(:votes, @value, current_user) unless current_user == nil
@@ -14,7 +14,7 @@ class EvaluationsController < ApplicationController
       format.js {render template: 'evaluations/vote'}
     end
   end
-
+=end
 private
   def set_voteable
   	case params[:voteable_class]
