@@ -40,4 +40,14 @@ feature 'Visitor gets reputation from' do
     visit profile_path @comment.user
     find(".sidebar .rep-points").should have_content '1'
   end
+  scenario 'a comment upvoted after downvoting it' do
+    @comment = FactoryGirl.create(:comment)
+    visit question_path @comment.commentable.question
+    click_link "vote-down-comment-#{@comment.id}"
+    click_link "vote-up-comment-#{@comment.id}"
+    visit profile_path @comment.user
+    find(".sidebar .rep-points").should have_content '1'
+    find('.show-user-profile a').click
+    find(".sidebar .rep-points").should have_content '0'
+  end
 end

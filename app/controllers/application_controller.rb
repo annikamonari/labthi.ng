@@ -63,18 +63,20 @@ class ApplicationController < ActionController::Base
 
   def update_user_vote_rep(voteable, previous_votes, value, up_pts, down_pts = up_pts)
     # check if vote is 'undo'
-    if value == 0 then
+    vote_change = previous_votes - voteable.reputation_for(:votes)
+    vote_change += value
       # Check if last vote was an upvote
-      if previous_votes - voteable.reputation_for(:votes) == 1
+      if vote_change > 0
         # Subtract previously gained points
         voteable.user.subtract_points(up_pts)
-      else
+      elsif vote_change < 0
         # Regain lost points
         current_user.add_points(down_pts)
+        voteable.user.add_points(up_pts)
       end
-    else
+
       voteable.user.add_points(up_pts) if value == 1
-      current_user.subtract_points(down_pts) if value == -1 
-    end
+      current_user.subtract_points(down_pts) if value == -1
+      voteable.user.subtract_points(up_pts) if value == -1
   end
 end
