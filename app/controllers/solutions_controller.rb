@@ -71,7 +71,7 @@ class SolutionsController < ApplicationController
     @previous_votes = @voteable.reputation_for(:votes)
     @voteable.add_or_update_evaluation(:votes, @value, current_user) unless current_user == nil
     respond_to do |format|
-      update_user_vote_rep(@voteable, @previous_votes, @value, 5)
+      update_user_vote_rep(@voteable, @previous_votes, @value, 10, 5)
       format.html {redirect_to :back, notice: "Vote submitted"}
       format.js {render template: 'evaluations/vote'}
     end

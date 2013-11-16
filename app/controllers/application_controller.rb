@@ -67,13 +67,13 @@ class ApplicationController < ActionController::Base
       # Check if last vote was an upvote
       if previous_votes - voteable.reputation_for(:votes) == 1
         # Subtract previously gained points
-        current_user.subtract_points(up_pts)
+        voteable.user.subtract_points(up_pts)
       else
         # Regain lost points
         current_user.add_points(down_pts)
       end
     else
-      current_user.add_points(up_pts) if value == 1
+      voteable.user.add_points(up_pts) if value == 1
       current_user.subtract_points(down_pts) if value == -1 
     end
   end
