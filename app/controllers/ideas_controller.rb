@@ -1,8 +1,9 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, except: [:create, :new, :index]
+  before_action :set_idea, except: [:create, :new, :index, :vote]
   before_action :set_questions, only: [:show]
   before_action :auth_user!, only: [:new, :create, :edit, :update]
-  before_action :set_tags, except: [:index]
+  before_action :set_tags, except: [:index, :vote]
+  before_action :set_vote_value, only: [:vote]
 
   # GET /ideas
   # GET /ideas.json
@@ -70,6 +71,16 @@ class IdeasController < ApplicationController
     respond_to do |format|
       format.html { redirect_to ideas_url }
       format.json { head :no_content }
+    end
+  end
+
+  def vote
+    @voteable = Idea.find(params[:voteable_id])
+    @previous_votes = @voteable.reputation_for(:votes)
+    @voteable.add_or_update_evaluation(:votes, @value, current_user) unless current_user == nil
+    respond_to do |format|
+      format.html {redirect_to :back, notice: "Vote submitted"}
+      format.js {render template: 'evaluations/vote'}
     end
   end
 
