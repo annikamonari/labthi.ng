@@ -11,7 +11,8 @@ if User.count == 0
 	  u = User.new(
 	      :email => "email#{Time.new.usec}@domain.com",
 	      :password => '12341234',
-	      :name => "Robot R2D#{i}"
+	      :first_name => "Robot",
+	      :last_name => "R2D#{i}"
 	  )
 	  u.save!
 	  FactoryGirl.create(:comment)
@@ -69,11 +70,6 @@ admin_user_data = [
 	},
 	{
 		email: "annikamonari@gmail.com",
-		password: "banana123",
-		password_confirmation: "banana123"
-	},
-	{
-		email: "emily.pakulski@gmail.com",
 		password: "banana123",
 		password_confirmation: "banana123"
 	}
