@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 1.2'
 # Railsadmin for creating control panels, easy viewing
 gem 'fastercsv' # Only required on Ruby 1.8 and below
 
-gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'activerecord-reputation-system', github: 'NARKOZ/activerecord-reputation-system', branch: 'rails4'
 
