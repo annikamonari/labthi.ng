@@ -76,5 +76,8 @@ admin_user_data = [
 ]
 
 admin_user_data.each do |d|
-	FactoryGirl.create(:admin_user, d) if AdminUser.count == 0
+	if AdminUser.count == 0 then
+		FactoryGirl.create(:admin_user, d)
+		FactoryGirl.create(:user, d)
+	end
 end
