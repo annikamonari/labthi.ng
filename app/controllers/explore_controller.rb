@@ -6,13 +6,6 @@ class ExploreController < ApplicationController
   end
 
   private
-  def print_idea
-
-  end
-
-  def brief_class
-    this.downcase.gsub(/\s+/, '-').gsub(/[^a-z0-9_-]/, '').squeeze('-')
-  end
 
   def get_ideas
     if params[:phase]
