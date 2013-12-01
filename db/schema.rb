@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105005350) do
+ActiveRecord::Schema.define(version: 20131201203608) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -104,6 +104,20 @@ ActiveRecord::Schema.define(version: 20131105005350) do
     t.integer  "user_id"
     t.string   "title"
   end
+
+  create_table "lab_evaluations", force: true do |t|
+    t.integer  "evaluator_id"
+    t.integer  "content_creator_id"
+    t.integer  "content_id"
+    t.string   "content_type"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lab_evaluations", ["content_creator_id"], name: "index_lab_evaluations_on_content_creator_id", using: :btree
+  add_index "lab_evaluations", ["content_id", "content_type"], name: "index_lab_evaluations_on_content_id_and_content_type", using: :btree
+  add_index "lab_evaluations", ["evaluator_id"], name: "index_lab_evaluations_on_evaluator_id", using: :btree
 
   create_table "merit_actions", force: true do |t|
     t.integer  "user_id"
