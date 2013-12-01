@@ -19,7 +19,7 @@
 
   <p>
     <strong>Image:</strong>
-    <% @image_solution = idea_top_image(@idea) %>
+    <% @image_solution = @idea.top_image %>
     <% if @image_solution %>
       <%= link_to idea_aspect_path(
           idea_id:@idea.id,

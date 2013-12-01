@@ -21,6 +21,17 @@ class Idea < ActiveRecord::Base
     Aspect.find_or_create_by(title: "Image")
   end
 
+
+  def top_image
+    @top_image = nil
+    image_aspect = Aspect.where(title:"Image").take
+    if (image_aspect)
+      @solution = Solution.where(aspect_id: image_aspect.id, idea_id: self.id).sort_by {|a| a.reputation_for(:votes)}.last
+      @top_image = @solution if @solution
+    end
+    return @top_image
+  end
+
   def instance_validations
   	validates_with MaxCategories
   end

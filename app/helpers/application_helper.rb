@@ -26,15 +26,6 @@ module ApplicationHelper
     end
   end
 
-  def idea_top_image(idea)
-    @idea_top_image = nil
-    image_aspect = Aspect.where(title:"Image").take
-    if (image_aspect)
-      @solution = Solution.where(aspect_id: image_aspect.id, idea_id: idea.id).sort_by {|a| a.reputation_for(:votes)}.last
-      @idea_top_image = @solution if @solution
-    end
-    return @idea_top_image
-  end
 
   def vote_order(items)
     items.sort_by {|a| a.reputation_for(:votes)}.reverse
