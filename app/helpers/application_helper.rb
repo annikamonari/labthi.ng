@@ -28,7 +28,7 @@ module ApplicationHelper
 
 
   def vote_order(items)
-    items.sort_by {|a| a.reputation_for(:votes)}.reverse
+    items.sort_by {|a| a.lab_rep}.reverse
   end
 
 #link_to(vote_path(voteable_id: voteable.id, voteable_class: voteable.class, type: type)

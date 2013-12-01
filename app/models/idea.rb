@@ -3,7 +3,9 @@ class Idea < ActiveRecord::Base
   include ActiveModel::Validations
   include SharedMethods
   include LabReputable
-  after_create :set_first_vote
+  include LabReputable
+  after_create :set_first_vote #REMOVE_ME
+  after_create :add_first_vote
   validates :phase, presence: true
   validates :title, presence: true, length: { maximum: 100 }
   validates :brief, presence: true, length: { maximum: 500 }

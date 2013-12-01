@@ -22,7 +22,6 @@ module LabReputable
     rep = 0
     evaluations.each do |e|
     	rep += e.value
-    	puts "value is #{e.value}, rep: #{rep}"
     end
 
     return rep

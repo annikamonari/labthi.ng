@@ -69,7 +69,7 @@ class SolutionsController < ApplicationController
   def vote
     @voteable = Solution.find(params[:voteable_id])
     @previous_votes = @voteable.reputation_for(:votes)
-    @voteable.add_or_update_evaluation(:votes, @value, current_user) unless current_user == nil
+    @voteable.update_lab_evaluation(@value, current_user) unless current_user == nil
     respond_to do |format|
       update_user_vote_rep(@voteable, @previous_votes, @value, 10, 5)
       format.html {redirect_to :back, notice: "Vote submitted"}
