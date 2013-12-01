@@ -41,12 +41,12 @@ class User < ActiveRecord::Base
   end
 
   def up_voted_for?(item)
-    eval = evaluations.where(target_type: item.class, target_id: item.id).first
+    eval = LabEvaluation.where(evaluator: self, content_type: item.class, content: item).first
     eval.present? && eval.value > 0 ? true : false
   end
 
   def down_voted_for?(item)
-    eval = evaluations.where(target_type: item.class, target_id: item.id).first
+    eval = LabEvaluation.where(evaluator: self, content_type: item.class, content: item).first
     eval.present? && eval.value < 0 ? true : false
   end
 

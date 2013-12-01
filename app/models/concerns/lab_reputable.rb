@@ -3,6 +3,7 @@ module LabReputable
 
 
   def update_lab_evaluation(value, evaluator)
+
   	eval = LabEvaluation.new
   	eval.value = value
   	eval.content = self
@@ -13,11 +14,11 @@ module LabReputable
   end
 
 	def lab_rep
-    evaluations = LabEvaluation.where(content: self)
+    evaluations = LabEvaluation.where(content: self, content_type: self.class.to_s)
     rep = 0
-    puts evaluations.first.value if evaluations.first != nil
     evaluations.each do |e|
     	rep += e.value
+    	puts "value is #{e.value}, rep: #{rep}"
     end
 
     return rep
