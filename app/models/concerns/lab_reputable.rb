@@ -4,7 +4,11 @@ module LabReputable
 
   def update_lab_evaluation(value, evaluator)
 
-  	eval = LabEvaluation.new
+  	# set eval to any prior evaluation by this user else create a new one
+  	eval = evaluator.up_voted_for?(self)
+  	eval = evaluator.down_voted_for?(self) unless eval
+ 		eval = LabEvaluation.new unless eval
+
   	eval.value = value
   	eval.content = self
   	eval.content_type = self.class.to_s

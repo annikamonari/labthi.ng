@@ -22,7 +22,7 @@ feature 'Visitor votes' do
   	find(@selector).should have_content("0")
     page.should have_selector("ul.questions li:last-child #{@selector}", :text => "0")
   end
-=begin
+
   scenario 'to undo an upvote on a question' do
     click_link "vote-up-question-#{@question.id}"
     click_link "vote-undo-question-#{@question.id}"
@@ -33,5 +33,5 @@ feature 'Visitor votes' do
     click_link "vote-undo-question-#{@question.id}"
     find(@selector).should have_content("1")
   end
-=end
+
 end

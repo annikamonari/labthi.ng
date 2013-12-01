@@ -42,12 +42,12 @@ class User < ActiveRecord::Base
 
   def up_voted_for?(item)
     eval = LabEvaluation.where(evaluator: self, content_type: item.class, content: item).first
-    eval.present? && eval.value > 0 ? true : false
+    eval.present? && eval.value > 0 ? eval : false
   end
 
   def down_voted_for?(item)
     eval = LabEvaluation.where(evaluator: self, content_type: item.class, content: item).first
-    eval.present? && eval.value < 0 ? true : false
+    eval.present? && eval.value < 0 ? eval : false
   end
 
   #alias merit gem spelling quirk
