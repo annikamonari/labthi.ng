@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Visitor gets reputation from' do
+feature 'Creator gets reputation from' do
   before(:each) do
   	sign_in
   end
