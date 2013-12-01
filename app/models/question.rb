@@ -1,7 +1,9 @@
 class Question < ActiveRecord::Base
   include PublicActivity::Model
   include SharedMethods
-  after_create :set_first_vote
+  include LabReputable
+  after_create :set_first_vote #REMOVE ME
+  after_create :add_first_vote
   validates :idea, presence: true
   validates :user, presence: true
   validates :title, presence: true, length: { maximum: 100 }
@@ -12,6 +14,6 @@ class Question < ActiveRecord::Base
   has_many :answers, -> { includes :user }, inverse_of: :question, :dependent => :destroy
   has_many :comments, as: :commentable, :dependent => :destroy
 
-  
   has_reputation :votes, source: :user, aggregated_by: :sum
+
 end
