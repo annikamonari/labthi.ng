@@ -16,32 +16,6 @@ class ApplicationController < ActionController::Base
     def auth_user!(opts = {})
         authenticate_user!
     end
-
-    def set_categories
-    @categories = [
-        "Advertising & Media",
-        "Arts & Entertainment",
-        "Business & Finance",
-        "Education",
-        "Energy & Utilities",
-        "Food & Health",
-        "Science & Technology",
-        "Social",
-        "Travel & Leisure",
-        "Retail",
-        "Other"
-      ]
-    end
-    def set_components
-      @components = [
-        "Website",
-        "App",
-        "Software",
-        "Hardware",
-        "Good",
-        "Service"
-      ]
-    end
     def layout_by_resource
       if devise_controller?
         "form_left"

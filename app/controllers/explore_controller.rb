@@ -2,7 +2,7 @@ class ExploreController < ApplicationController
   layout 'sidebar_left'
   def index
     get_ideas
-    @categories = set_categories
+    @categories = Idea.categories
   end
 
   private

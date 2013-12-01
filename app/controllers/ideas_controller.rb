@@ -107,8 +107,8 @@ class IdeasController < ApplicationController
       @questions = Question.where(idea_id: @idea.id)
     end
     def set_tags
-      @categories = set_categories
-      @components = set_components
+      @categories = Idea.categories
+      @components = Idea.components
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params

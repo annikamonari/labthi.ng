@@ -25,4 +25,31 @@ class Idea < ActiveRecord::Base
   	validates_with MaxCategories
   end
 
+  def self.categories
+    [
+      "Advertising & Media",
+      "Arts & Entertainment",
+      "Business & Finance",
+      "Education",
+      "Energy & Utilities",
+      "Food & Health",
+      "Science & Technology",
+      "Social",
+      "Travel & Leisure",
+      "Retail",
+      "Other"
+    ]
+  end
+
+  def self.components
+    [
+      "Website",
+      "App",
+      "Software",
+      "Hardware",
+      "Good",
+      "Service"
+    ]
+  end
+
 end
