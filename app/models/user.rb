@@ -50,6 +50,9 @@ class User < ActiveRecord::Base
     evals_as_content_creator.each do |e|
       points += e.weighted_value_for_content_creator
     end
+
+    points = 0 if points < 0
+
     return points.to_i
   end
 

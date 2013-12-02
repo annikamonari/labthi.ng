@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-feature 'Visitor loses reputation' do
+feature 'Visitor maintains minimum reputation' do
   before(:each) do
   	sign_in
   end
 
-  scenario 'from downvoting a question' do
+  scenario 'after downvoting a question' do
     find('.show-user-profile a').click
   	@question = FactoryGirl.create(:question)
     visit question_path @question
