@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131202175753) do
+ActiveRecord::Schema.define(version: 20131202184532) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -117,38 +117,6 @@ ActiveRecord::Schema.define(version: 20131202175753) do
 
   add_index "lab_evaluations", ["content_creator_id"], name: "index_lab_evaluations_on_content_creator_id", using: :btree
   add_index "lab_evaluations", ["evaluator_id"], name: "index_lab_evaluations_on_evaluator_id", using: :btree
-
-  create_table "merit_actions", force: true do |t|
-    t.integer  "user_id"
-    t.string   "action_method"
-    t.integer  "action_value"
-    t.boolean  "had_errors",    default: false
-    t.string   "target_model"
-    t.integer  "target_id"
-    t.boolean  "processed",     default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "merit_activity_logs", force: true do |t|
-    t.integer  "action_id"
-    t.string   "related_change_type"
-    t.integer  "related_change_id"
-    t.string   "description"
-    t.datetime "created_at"
-  end
-
-  create_table "merit_score_points", force: true do |t|
-    t.integer  "score_id"
-    t.integer  "num_points", default: 0
-    t.string   "log"
-    t.datetime "created_at"
-  end
-
-  create_table "merit_scores", force: true do |t|
-    t.integer "sash_id"
-    t.string  "category", default: "default"
-  end
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
