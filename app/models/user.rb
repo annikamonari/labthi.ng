@@ -28,13 +28,6 @@ class User < ActiveRecord::Base
     first_name.to_s + " " + last_name.to_s
   end
 
-
-  def clear_points_if_negative
-    if self.points < 0
-      self.add_points(self.points.abs)
-    end
-  end
-
   def lab_rep_points
     evals_as_evaluator = LabEvaluation.where(evaluator:self)
     evals_as_content_creator = LabEvaluation.where(content_creator:self)
