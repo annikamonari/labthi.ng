@@ -6,11 +6,11 @@ class LabEvaluation < ActiveRecord::Base
 
   def weighted_value_for_evaluator
     up_weight = {
-      "Idea" => 10,
-      "Question" => 5,
-      "Answer" => 10,
-      "Solution"=> 10,
-      "Comment" => 1
+      "Idea" => 0,
+      "Question" => 0,
+      "Answer" => 0,
+      "Solution"=> 0,
+      "Comment" => 0
     }
     down_weight = {
       "Idea" => 10,
@@ -31,8 +31,6 @@ class LabEvaluation < ActiveRecord::Base
     end
 
     value = weight*(self.value)
-
-    puts "e_value is #{value} for class #{type} and o_val: #{self.value}"
     return value
   end
 
@@ -63,8 +61,6 @@ class LabEvaluation < ActiveRecord::Base
     end
 
     value = weight*(self.value)
-
-    puts "c_value is #{value} for class #{type} and o_val: #{self.value}"
     return value
   end
 end

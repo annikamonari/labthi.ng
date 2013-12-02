@@ -48,6 +48,6 @@ feature 'Creator gets reputation from' do
     visit profile_path @comment.user
     find(".sidebar .rep-points").should have_content '2'
     find('.show-user-profile a').click
-    find(".sidebar .rep-points").should have_content '1'
+    find(".sidebar .rep-points").should have_content '0'
   end
 end
