@@ -70,6 +70,9 @@ gem 'public_activity', github: 'pokonski/public_activity'
 # Used to support Amazon S3
 gem "fog"
 
+# Library used by fog gem
+gem 'unf'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
