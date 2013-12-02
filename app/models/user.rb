@@ -21,7 +21,6 @@ class User < ActiveRecord::Base
   has_many :solutions, inverse_of: :user
   has_many :comments, inverse_of: :user
   has_one :profile, dependent: :destroy
-  has_many :evaluations, class_name: "ReputationSystem::Evaluation", as: :source
   
   after_create :create_user_profile
 
@@ -69,8 +68,5 @@ class User < ActiveRecord::Base
     eval = LabEvaluation.where(evaluator: self, content_type: item.class, content: item).first
     eval.present? && eval.value < 0 ? eval : false
   end
-
-  #alias merit gem spelling quirk
-  alias_method :subtract_points, :substract_points
   
 end

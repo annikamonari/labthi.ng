@@ -1,10 +1,7 @@
 class Idea < ActiveRecord::Base
   include PublicActivity::Model
   include ActiveModel::Validations
-  include SharedMethods
   include LabReputable
-  include LabReputable
-  after_create :set_first_vote #REMOVE_ME
   after_create :add_first_vote
   validates :phase, presence: true
   validates :title, presence: true, length: { maximum: 100 }
@@ -16,9 +13,7 @@ class Idea < ActiveRecord::Base
   has_many :questions, inverse_of: :idea, :dependent => :destroy
   has_many :solutions, inverse_of: :idea, :dependent => :destroy
 
-  acts_as_taggable_on :categories, :components
-
-  has_reputation :votes, source: :user, aggregated_by: :sum
+  acts_as_taggable_on :categories, :component
 
   def image_aspect
     Aspect.find_or_create_by(title: "Image")
