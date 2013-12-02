@@ -24,7 +24,7 @@ class Idea < ActiveRecord::Base
     @top_image = nil
     image_aspect = Aspect.where(title:"Image").take
     if (image_aspect)
-      @solution = Solution.where(aspect_id: image_aspect.id, idea_id: self.id).sort_by {|a| a.reputation_for(:votes)}.last
+      @solution = Solution.where(aspect_id: image_aspect.id, idea_id: self.id).sort_by {|a| a.lab_rep}.last
       @top_image = @solution if @solution
     end
     return @top_image
