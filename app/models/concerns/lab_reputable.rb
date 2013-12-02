@@ -1,7 +1,6 @@
 module LabReputable
 	extend ActiveSupport::Concern
 
-
   def update_lab_evaluation(value, evaluator)
 
   	# set eval to any prior evaluation by this user else create a new one
@@ -30,4 +29,5 @@ module LabReputable
   def add_first_vote
   	update_lab_evaluation(1,self.user)
   end
+
 end

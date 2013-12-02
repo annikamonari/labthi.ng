@@ -79,7 +79,7 @@ class IdeasController < ApplicationController
     @previous_votes = @voteable.reputation_for(:votes)
     @voteable.update_lab_evaluation(@value, current_user) unless current_user == nil
     respond_to do |format|
-      update_user_vote_rep(@voteable, @previous_votes, @value, 10)
+      #update_user_vote_rep(@voteable, @previous_votes, @value, 10)
       format.html {redirect_to :back, notice: "Vote submitted"}
       format.js {render template: 'evaluations/vote'}
     end

@@ -36,6 +36,23 @@ class User < ActiveRecord::Base
     end
   end
 
+  def lab_rep_points
+    evals_as_evaluator = LabEvaluation.where(evaluator:self)
+    evals_as_content_creator = LabEvaluation.where(content_creator:self)
+
+    points = 0
+    evals_as_evaluator.each do |e|
+      unless e.evaluator_id == e.content_creator_id #prevent user from getting double points
+        points += e.weighted_value_for_evaluator
+      end
+    end
+
+    evals_as_content_creator.each do |e|
+      points += e.weighted_value_for_content_creator
+    end
+    return points.to_i
+  end
+
   def create_user_profile
     Profile.create(:user_id => self.id)
   end
