@@ -30,4 +30,14 @@ module LabReputable
   	update_lab_evaluation(1,self.user)
   end
 
+  def local_reputation
+    evals = LabEvaluation.where(content:self)
+
+    points = 0
+    evals.each do |e|
+      points += e.weighted_value_for_content_creator
+    end
+
+    return points
+  end
 end

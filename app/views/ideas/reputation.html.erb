@@ -4,3 +4,8 @@
 <%= render 'sidebar' %>
 
 <h4>See a list of contributors and their reputation earnings!</h4>
+
+<strong>Local idea reputation:</strong>
+<div class="idea-<%= @idea.id %>-local-rep">
+	<%= @idea.local_reputation %>
+</div>
