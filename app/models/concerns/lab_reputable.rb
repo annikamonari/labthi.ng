@@ -14,6 +14,9 @@ module LabReputable
   	eval.evaluator_id = evaluator.id
   	eval.content_creator_id = self.user.id
   	eval.save!
+
+    evaluator.update_lab_rep_points
+    self.user.update_lab_rep_points #update points for content creator 
   end
 
 	def lab_rep
@@ -28,6 +31,7 @@ module LabReputable
 
   def add_first_vote
   	update_lab_evaluation(1,self.user)
+    self.user.update_lab_rep_points
   end
 
   def local_reputation

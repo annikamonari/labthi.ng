@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Visitor gets reputation from' do
+feature 'Visitor loses reputation from' do
   before(:each) do
     #sign_in
     submit_idea

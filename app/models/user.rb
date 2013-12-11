@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
     first_name.to_s + " " + last_name.to_s
   end
 
-  def lab_rep_points
+  def update_lab_rep_points
     evals_as_evaluator = LabEvaluation.where(evaluator:self)
     evals_as_content_creator = LabEvaluation.where(content_creator:self)
 
@@ -44,7 +44,17 @@ class User < ActiveRecord::Base
 
     points = 0 if points < 0
 
-    return points.to_i
+    self.points = points.to_i
+    self.save!
+  end
+
+  def lab_rep_points
+    if self.points == nil then
+      self.points = 0
+      self.save!
+    end
+
+    return self.points
   end
 
   def create_user_profile
