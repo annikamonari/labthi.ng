@@ -31,7 +31,6 @@ module LabReputable
 
   def add_first_vote
   	update_lab_evaluation(1,self.user)
-    self.user.update_lab_rep_points
   end
 
   def local_reputation
