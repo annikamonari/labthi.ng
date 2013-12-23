@@ -1,4 +1,4 @@
 <% arrow_type = type unless arrow_type %>
 <%= link_to(foo_vote_path(voteable.id, voteable.class, type), method: "post", remote: true, id: "vote-#{type}-#{voteable.class.name.downcase}-#{voteable.id}", class: "vote vote-#{type} vote-#{type}-#{voteable.class.name.downcase}-#{voteable.id} #{active}") do %>
-    <span class="glyphicon glyphicon-arrow-<%= arrow_type %> glyphicon-align-justify"></span>
+    <span class="glyphicon glyphicon-chevron-<%= arrow_type %> glyphicon-align-justify"></span>
 <% end %>

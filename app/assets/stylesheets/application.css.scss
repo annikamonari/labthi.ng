@@ -26,6 +26,8 @@ $lab-near-black: #333333;
 /* Typography */
 
 $font-family-sans-serif: arial, sans-serif;
+$font-size-base: 13px;
+
 
 /* Navbar */
 $navbar-height: 40px;
@@ -115,6 +117,10 @@ p.notice {
   ul ul {
   background: #eee;
   }
+}
+
+.vote-wrapper{
+  padding: 0 12px;
 }
 
 a:focus {outline:none;} 

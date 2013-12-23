@@ -4,28 +4,21 @@
 <%= render 'ideas/secondary_nav', locals: {idea: @question.idea } %>
 
 <div class="question question-<%= @question.id %>">
-<%= render partial: "evaluations/vote_wrapper", locals: {voteable: @question} %>
+  <div class="show-question-wrapper clearfix">
+    <%= render partial: "evaluations/vote_wrapper", locals: {voteable: @question} %>
 
-  <p>
-    <strong>Question:</strong>
-    <%= @question.title %>
-  </p>
-  <p>
-    <strong>Brief:</strong>
-    <%= @question.brief %>
-  </p>
-  <p>
-    <strong>Answers expected:</strong>
-    <%= @question.answers_expected %>
-  </p>
-  <p>
-    <strong>Idea:</strong>
-    <%= link_to @question.idea.brief, @question.idea %>
-  </p>
-  <p>
-    <strong>User:</strong>
-    <%= render @question.user %>
-  </p>
+    <p>
+      <strong>
+        <%= @question.title %>
+      </strong>
+    </p>
+    <p>
+      <%= @question.brief %>
+    </p>
+    <p class="pull-right">
+      <%= render @question.user %>
+    </p>
+  </div><!-- .show-question-wrapper -->
 
   <div class="media-body">
     <ul class="media-list comments question-comments">

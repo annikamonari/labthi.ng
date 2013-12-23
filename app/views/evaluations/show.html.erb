@@ -1,6 +1,5 @@
 
 <% if current_user && current_user.up_voted_for?(voteable) %>
-
 <%= render 'evaluations/vote_link',
     type: "undo",
     active:"active",

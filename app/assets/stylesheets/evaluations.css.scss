@@ -4,17 +4,18 @@
 
 
 a.vote .glyphicon {
-	color: #888;
+	color: #bdc3c7;
+	font-size:14px;
 }
 
 a.vote-undo, a.vote-undo:hover, a.vote-active {
 	.glyphicon{
-		color:#000;
+		color:#2c3e50;
 	}
 }
 
 a.vote:hover .glyphicon {
-	color:#000;
+	color:#2c3e50;
 }
 
 .vote, .vote-count{
