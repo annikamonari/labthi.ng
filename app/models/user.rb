@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
     points = 0 if points < 0
 
     self.points = points.to_i
-    self.save
+    self.save!
   end
 
   def lab_rep_points

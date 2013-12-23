@@ -6,6 +6,6 @@ class Answer < ActiveRecord::Base
   validates :user, presence: true
   validates :question, presence: true
   belongs_to :question, inverse_of: :answers
-  belongs_to :user, -> { includes :profile }, inverse_of: :answers  
+  belongs_to :user, -> { includes :profile }, inverse_of: :answers
   has_many :comments, as: :commentable, :dependent => :destroy
 end

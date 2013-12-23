@@ -14,8 +14,8 @@ module LabReputable
   	eval.content_creator_id = self.user.id
   	eval.save!
 
-    evaluator.update_lab_rep_points
     self.user.update_lab_rep_points #update points for content creator 
+    evaluator.update_lab_rep_points unless self.user == evaluator
   end
 
 	def lab_rep

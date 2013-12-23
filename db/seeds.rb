@@ -65,11 +65,15 @@ end
 admin_user_data = [
   { 
 		email: "mpgarate@gmail.com",
+		first_name: "Michael",
+		last_name: "Garate",
 		password: "banana123",
 		password_confirmation: "banana123"
 	},
 	{
 		email: "annikamonari@gmail.com",
+		first_name: "Annika",
+		last_name: "Monari",
 		password: "banana123",
 		password_confirmation: "banana123"
 	}
@@ -77,7 +81,13 @@ admin_user_data = [
 
 admin_user_data.each do |d|
 	if AdminUser.count == 0 then
-		FactoryGirl.create(:admin_user, d)
 		FactoryGirl.create(:user, d)
+
+		d.delete(:first_name)
+		d.delete(:last_name)
+
+		FactoryGirl.create(:admin_user, d)
 	end
+
+
 end

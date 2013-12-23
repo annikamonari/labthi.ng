@@ -5,6 +5,7 @@
 
 <div class="question question-<%= @question.id %>">
   <div class="show-question-wrapper clearfix">
+    
     <%= render partial: "evaluations/vote_wrapper", locals: {voteable: @question} %>
 
     <p>
