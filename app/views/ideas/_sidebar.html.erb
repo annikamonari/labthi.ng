@@ -3,55 +3,39 @@
   
   <%= render partial: "evaluations/vote_wrapper", locals: {voteable: @idea} %>
 
-  <p>
-    <strong>Title:</strong>
+  <h2>
     <%= @idea.title %>
-  </p>
-  <p>
-    <strong>Phase:</strong>
-    <%= @idea.phase %>
-  </p>
+  </h2>
 
   <p>
-    <strong>Brief:</strong>
-    <%= @idea.brief %>
-  </p>
-
-  <p>
-    <strong>Image:</strong>
     <% @image_solution = @idea.top_image %>
+    <% img_name = 'default.png' %>
     <% if @image_solution %>
-      <%= link_to idea_aspect_path(
-          idea_id:@idea.id,
-          id: @idea.image_aspect) do %>
-        <%= image_tag @image_solution.image.display %>
-      <% end %>
-    <% else %>
-      <%= link_to idea_aspect_path(
-          idea_id:@idea.id,
-          id: @idea.image_aspect) do %>
-        <%= image_tag 'default.png' %>
-      <% end %>
+      <% img_name = image_tag @image_solution.image.display %>
+    <% end %>
+    <%= link_to idea_aspect_path(
+        idea_id:@idea.id,
+        id: @idea.image_aspect) do %>
+      <%= image_tag img_name %>
     <% end %>
   </p>
 
   <p>
-    <strong>Active:</strong>
-    <%= @idea.active %>
+    Phase <%= @idea.phase %>
   </p>
 
   <p>
-    <strong>Components:</strong>
-    <%= @idea.component_list %>
+    <%= @idea.brief %>
   </p>
 
   <p>
     <strong>Categories:</strong>
-    <%= @idea.category_list %>
+      <% @idea.category_list.each do |category| %>
+          <%= link_to category, { controller: 'create', category: category }, class: 'category-tag' %>
+      <% end %>
   </p>
 
   <p>
-    <strong>User:</strong>
     <%= render @idea.user %>
   </p>
 
