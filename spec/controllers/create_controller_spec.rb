@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ExploreController do
+describe CreateController do
 
   describe "GET 'index'" do
     it "returns http success" do

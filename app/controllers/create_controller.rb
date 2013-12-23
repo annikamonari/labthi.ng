@@ -1,4 +1,4 @@
-class ExploreController < ApplicationController
+class CreateController < ApplicationController
   layout 'sidebar_left'
   def index
     get_ideas

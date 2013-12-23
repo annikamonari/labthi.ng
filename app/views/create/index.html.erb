@@ -3,7 +3,7 @@
 
 	<% @categories.each do |category| %>
 	<p>
-		<%= link_to category, { controller: 'explore', category: category }, class: 'category-tag' %>
+		<%= link_to category, { controller: 'create', category: category }, class: 'category-tag' %>
 	</p>
 	<% end %>
 <% end %>
