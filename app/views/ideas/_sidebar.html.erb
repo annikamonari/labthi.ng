@@ -30,9 +30,7 @@
 
   <p>
     <strong>Categories:</strong>
-      <% @idea.category_list.each do |category| %>
-          <%= link_to category, { controller: 'create', category: category }, class: 'category-tag' %>
-      <% end %>
+    <%= print_categories %>
   </p>
 
   <p>
