@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  has_merit
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -21,7 +20,6 @@ class User < ActiveRecord::Base
   has_many :solutions, inverse_of: :user
   has_many :comments, inverse_of: :user
   has_one :profile, dependent: :destroy
-  has_many :evaluations, class_name: "ReputationSystem::Evaluation", as: :source
   
   after_create :create_user_profile
 
@@ -29,21 +27,48 @@ class User < ActiveRecord::Base
     first_name.to_s + " " + last_name.to_s
   end
 
+  def update_lab_rep_points
+    evals_as_evaluator = LabEvaluation.where(evaluator:self)
+    evals_as_content_creator = LabEvaluation.where(content_creator:self)
+
+    points = 0
+    evals_as_evaluator.each do |e|
+      unless e.evaluator_id == e.content_creator_id #prevent user from getting double points
+        points += e.weighted_value_for_evaluator
+      end
+    end
+
+    evals_as_content_creator.each do |e|
+      points += e.weighted_value_for_content_creator
+    end
+
+    points = 0 if points < 0
+
+    self.points = points.to_i
+    self.save!
+  end
+
+  def lab_rep_points
+    if self.points == nil then
+      self.points = 0
+      self.save!
+    end
+
+    return self.points
+  end
+
   def create_user_profile
     Profile.create(:user_id => self.id)
   end
 
   def up_voted_for?(item)
-    eval = evaluations.where(target_type: item.class, target_id: item.id).first
-    eval.present? && eval.value > 0 ? true : false
+    eval = LabEvaluation.where(evaluator: self, content_type: item.class, content: item).first
+    eval.present? && eval.value > 0 ? eval : false
   end
 
   def down_voted_for?(item)
-    eval = evaluations.where(target_type: item.class, target_id: item.id).first
-    eval.present? && eval.value < 0 ? true : false
+    eval = LabEvaluation.where(evaluator: self, content_type: item.class, content: item).first
+    eval.present? && eval.value < 0 ? eval : false
   end
-
-  #alias merit gem spelling quirk
-  alias_method :subtract_points, :substract_points
   
 end

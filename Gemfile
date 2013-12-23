@@ -36,11 +36,7 @@ gem 'jbuilder', '~> 1.2'
 # Railsadmin for creating control panels, easy viewing
 gem 'fastercsv' # Only required on Ruby 1.8 and below
 
-gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
-
-gem 'activerecord-reputation-system', github: 'NARKOZ/activerecord-reputation-system', branch: 'rails4'
-
-gem 'merit'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 # user authentication
 gem 'devise' #, '3.0.0.rc'
@@ -73,6 +69,9 @@ gem 'public_activity', github: 'pokonski/public_activity'
 
 # Used to support Amazon S3
 gem "fog"
+
+# Library used by fog gem
+gem 'unf'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

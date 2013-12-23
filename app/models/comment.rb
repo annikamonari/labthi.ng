@@ -1,7 +1,7 @@
 class Comment < ActiveRecord::Base
   include PublicActivity::Model
-  include SharedMethods
-  after_create :set_first_vote
+  include LabReputable
+  after_create :add_first_vote
 	validates :brief, presence: true, length: { maximum: 500 }
 	validates :user, presence: true
 	belongs_to :user, inverse_of: :comments
@@ -11,7 +11,5 @@ class Comment < ActiveRecord::Base
 	belongs_to :comment
 	belongs_to :commentable, :polymorphic => true
 	has_many :comments, as: :commentable, :dependent => :destroy
-  	
-  has_reputation :votes, source: :user, aggregated_by: :sum
 
 end

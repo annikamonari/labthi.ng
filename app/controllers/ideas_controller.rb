@@ -76,10 +76,8 @@ class IdeasController < ApplicationController
 
   def vote
     @voteable = Idea.find(params[:voteable_id])
-    @previous_votes = @voteable.reputation_for(:votes)
-    @voteable.add_or_update_evaluation(:votes, @value, current_user) unless current_user == nil
+    @voteable.update_lab_evaluation(@value, current_user) unless current_user == nil
     respond_to do |format|
-      update_user_vote_rep(@voteable, @previous_votes, @value, 10)
       format.html {redirect_to :back, notice: "Vote submitted"}
       format.js {render template: 'evaluations/vote'}
     end
@@ -107,8 +105,8 @@ class IdeasController < ApplicationController
       @questions = Question.where(idea_id: @idea.id)
     end
     def set_tags
-      @categories = set_categories
-      @components = set_components
+      @categories = Idea.categories
+      @components = Idea.components
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params

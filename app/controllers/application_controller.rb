@@ -16,32 +16,6 @@ class ApplicationController < ActionController::Base
     def auth_user!(opts = {})
         authenticate_user!
     end
-
-    def set_categories
-    @categories = [
-        "Advertising & Media",
-        "Arts & Entertainment",
-        "Business & Finance",
-        "Education",
-        "Energy & Utilities",
-        "Food & Health",
-        "Science & Technology",
-        "Social",
-        "Travel & Leisure",
-        "Retail",
-        "Other"
-      ]
-    end
-    def set_components
-      @components = [
-        "Website",
-        "App",
-        "Software",
-        "Hardware",
-        "Good",
-        "Service"
-      ]
-    end
     def layout_by_resource
       if devise_controller?
         "form_left"
@@ -59,24 +33,5 @@ class ApplicationController < ActionController::Base
       when "undo"
         @value = 0
     end
-  end
-
-  def update_user_vote_rep(voteable, previous_votes, value, up_pts, down_pts = up_pts)
-    # check if vote is 'undo'
-    vote_change = previous_votes - voteable.reputation_for(:votes)
-    vote_change += value
-      # Check if last vote was an upvote
-      if vote_change > 0
-        # Subtract previously gained points
-        voteable.user.subtract_points(up_pts)
-      elsif vote_change < 0
-        # Regain lost points
-        current_user.add_points(down_pts)
-        voteable.user.add_points(up_pts)
-      end
-
-      voteable.user.add_points(up_pts) if value == 1
-      current_user.subtract_points(down_pts) if value == -1
-      voteable.user.subtract_points(up_pts) if value == -1
   end
 end

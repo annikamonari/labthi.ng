@@ -2,17 +2,10 @@ class CreateController < ApplicationController
   layout 'sidebar_left'
   def index
     get_ideas
-    @categories = set_categories
+    @categories = Idea.categories
   end
 
   private
-  def print_idea
-
-  end
-
-  def brief_class
-    this.downcase.gsub(/\s+/, '-').gsub(/[^a-z0-9_-]/, '').squeeze('-')
-  end
 
   def get_ideas
     if params[:phase]

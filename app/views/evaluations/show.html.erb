@@ -1,5 +1,5 @@
 
-<% if current_user && current_user.up_voted_for?(voteable) == true %>
+<% if current_user && current_user.up_voted_for?(voteable) %>
 
 <%= render 'evaluations/vote_link',
     type: "undo",
@@ -16,7 +16,7 @@
     voteable: voteable
      %>
 
-<% elsif current_user && current_user.down_voted_for?(voteable) == true %>
+<% elsif current_user && current_user.down_voted_for?(voteable) %>
 
 <%= render 'evaluations/vote_link',
     type: "up",
