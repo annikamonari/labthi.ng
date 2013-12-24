@@ -25,14 +25,14 @@ feature 'User visits create page' do
     FactoryGirl.create(:idea, category_list: 'Science & Technology')
     FactoryGirl.create(:idea, category_list: 'Retail')
     click_link "Other"
-    expect(page).to have_content("Categories: Other")
-    expect(page).to have_no_content("Categories: Retail")
+    page.should have_selector(".idea-categories", :text => "Other")
+    page.should have_no_selector(".idea-categories", :text => "Retail")
     click_link "Retail"
-    expect(page).to have_content("Categories: Retail")
-    expect(page).to have_no_content("Categories: Other")
+    page.should have_selector(".idea-categories", :text => "Retail")
+    page.should have_no_selector(".idea-categories", :text => "Other")
     click_link "Science & Technology"
-    expect(page).to have_content("Categories: Science & Technology")
-    expect(page).to have_no_content("Categories: Retail")
+    page.should have_selector(".idea-categories", :text => "Science & Technology")
+    page.should have_no_selector(".idea-categories", :text => "Retail")
   end
 
 end

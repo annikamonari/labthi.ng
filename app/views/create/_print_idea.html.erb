@@ -9,5 +9,10 @@
 				<%= truncate(idea.brief, length: 255) %>
 			</p>
 		</div>
+		<div class="hidden idea-categories">
+			<% idea.category_list.each do |c| %>
+				<%= c %>
+			<% end %>
+		</div>
 	<% end %>
 </div>
