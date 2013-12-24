@@ -1,5 +1,5 @@
 <% content_for :secondary_nav do %>
-	<div class="btn-group">
+	<div class="secondary-nav">
 		<%= link_to "Direct", '/ideas/' + @idea.id.to_s,
 		  class: 'btn btn-default ' + active_when(@idea)
 		%>
