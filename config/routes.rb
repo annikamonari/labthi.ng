@@ -53,8 +53,11 @@ StartIt::Application.routes.draw do
   #mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   
 
-  get "home/dashboard"
   get 'create', to: 'explore#create'
+  get 'build', to: 'explore#build'
+  get 'buy', to: 'explore#buy'
+
+  get "home/dashboard"
   get "activities/index"
   get "home/index"
 
