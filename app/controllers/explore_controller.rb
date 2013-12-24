@@ -2,7 +2,7 @@ class ExploreController < ApplicationController
   before_action :get_ideas
   before_action :set_categories
   
-  layout 'sidebar_left'
+  layout 'sidebar_left_small'
 
   def create
     
