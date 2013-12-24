@@ -20,14 +20,32 @@ class Idea < ActiveRecord::Base
   end
 
 
-  def top_image
-    @top_image = nil
+  def top_image(thumbnail=false)
+    top_image = nil
     image_aspect = Aspect.where(title:"Image").take
     if (image_aspect)
-      @solution = Solution.where(aspect_id: image_aspect.id, idea_id: self.id).sort_by {|a| a.lab_rep}.last
-      @top_image = @solution if @solution
+      solution = Solution.where(aspect_id: image_aspect.id, idea_id: self.id).sort_by {|a| a.lab_rep}.last
     end
-    return @top_image
+
+    if solution then
+      if thumbnail
+        top_image = solution.image.thumb.to_s
+      elsif solution
+        top_image = solution.image.display.to_s
+      end
+    else
+      if thumbnail
+        top_image = 'thumb_default.png'
+      else
+        top_image = 'display_default.png'
+      end
+    end
+
+    return top_image
+  end
+
+  def top_image_thumb
+    top_image(true)
   end
 
   def instance_validations
