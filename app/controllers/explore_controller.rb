@@ -1,6 +1,6 @@
-class CreateController < ApplicationController
+class ExploreController < ApplicationController
   layout 'sidebar_left'
-  def index
+  def create
     get_ideas
     @categories = Idea.categories
   end

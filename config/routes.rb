@@ -54,7 +54,7 @@ StartIt::Application.routes.draw do
   
 
   get "home/dashboard"
-  get 'create', to: 'create#index'
+  get 'create', to: 'explore#create'
   get "activities/index"
   get "home/index"
 
