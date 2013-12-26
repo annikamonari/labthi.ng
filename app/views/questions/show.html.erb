@@ -24,9 +24,11 @@
   <div class="media-body">
     <ul class="media-list comments question-comments">
       <% if @question.comments.count > 0 %>
-        <%= render vote_order(@question.comments.includes(:user)) || "No comments found" %>
+        <%= render vote_order(@question.comments.includes(:user)) %>
       <% else %>
-        No comments. 
+        <div class='js-inline-form'>
+          No comments
+        </div>
       <% end %>
       </ul>
     <p>
@@ -39,7 +41,9 @@
   <% if @answers.count > 0 %>
     <%= render vote_order(@answers) %>
   <% else %>
-    No answers yet. Why don't you add one?
+    <div class='js-inline-form'>
+      No answers yet. Why don't you add one?
+    </div>
   <% end %>
 </ul>
 

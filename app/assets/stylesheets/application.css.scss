@@ -131,17 +131,20 @@ p.notice {
 }
 
 .questions, .answers, .question-comments, .solutions{
-  background: #eee;
-  padding: 8px;
+  background: #ecf0f1;
+  border-radius: 8px;
+  padding: 11px 13px;
+  margin-bottom: 8px;
   list-style:none;
   ul{
+    border-radius: 8px;
     background:#fff;
     padding: 8px;
     list-style:none;
     margin-bottom:8px;
   }
   ul ul {
-  background: #eee;
+
   }
 }
 
