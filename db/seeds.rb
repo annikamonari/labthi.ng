@@ -1,5 +1,3 @@
-require "factory_girl"
-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -83,12 +81,12 @@ admin_user_data = [
 
 admin_user_data.each do |d|
 	if AdminUser.count == 0 then
-		FactoryGirl.create(:user, d)
+		User.create(d)
 
 		d.delete(:first_name)
 		d.delete(:last_name)
 
-		FactoryGirl.create(:admin_user, d)
+		AdminUser.create(d)
 	end
 
 
