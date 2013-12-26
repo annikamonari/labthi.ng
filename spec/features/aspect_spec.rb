@@ -51,4 +51,17 @@ feature 'Visit an idea Define tab ' do
     page.should have_content "Valid solution"
     page.should have_content "Reply to my comment"
   end
+
+
+  scenario 'and see solution counts' do
+    click_link @aspect.title
+    submit_solution "Valid solution"
+    click_link "Define"
+    page.should have_content "1 Solution"
+
+    click_link @aspect.title
+    submit_solution "Valid solution #2"
+    click_link "Define"
+    page.should have_content "2 Solutions"
+  end
 end
