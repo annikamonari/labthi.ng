@@ -3,9 +3,9 @@
 <%= render 'secondary_nav' %>
 <%= render 'sidebar' %>
 
-<h4>Fill in aspects of the Startup Business Canvas</h4>
+<p>Fill in aspects of the Startup Business Canvas.</p>
 
-<ul class="questions">
+<ul class="aspects">
 	<% @aspects.each do |aspect| %>
 		<%= render partial: 'aspects/aspect', locals:{aspect: aspect, idea: @idea} %>
 	<% end %>

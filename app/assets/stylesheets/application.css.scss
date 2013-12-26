@@ -130,7 +130,7 @@ p.notice {
   &:first-letter { text-transform: uppercase; }
 }
 
-.questions, .answers, .question-comments, .solutions{
+.questions, .answers, .aspects, .aspect, .question-comments, .solutions{
   background: #ecf0f1;
   border-radius: 8px;
   padding: 11px 13px;
@@ -141,11 +141,20 @@ p.notice {
     background:#fff;
     padding: 8px;
     list-style:none;
-    margin-bottom:8px;
+    margin:8px 0;
   }
   ul ul {
 
   }
+}
+
+.aspects{
+  background:#fff;
+  padding:0;
+}
+
+.aspect a{
+  margin-bottom:8px;
 }
 
 a:focus {outline:none;} 

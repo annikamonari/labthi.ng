@@ -1,5 +1,16 @@
-<li>
-	<% solution_count = aspect.solutions.where(idea:idea).count %>
-	<%= link_to(aspect.title, idea_aspect_path(idea_id:idea.id, id: aspect.id)) %>
-		<%= pluralize(solution_count, 'Solution') %>
+<li class="aspect">
+	<% solutions = aspect.solutions.where(idea:idea) %>
+	<%= link_to(idea_aspect_path(idea_id:idea.id, id: aspect.id)) do %>
+		<div class="pull-right"><%= pluralize(solutions.count, 'Solution') %></div>
+		<%= aspect.title %>
+	<% end %>
+
+	<br>
+
+		<% solutions = vote_order(solutions) %>
+		<% if solutions.count > 0 %>
+			<ul>
+				<%= render partial: '/solutions/mini_solution', locals: {solution: solutions.first} %>
+			</ul>
+		<% end %>
 </li>
