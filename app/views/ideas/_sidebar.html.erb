@@ -1,12 +1,6 @@
 
 <% content_for :sidebar_left do %>
   
-  <%= render partial: "evaluations/vote_wrapper", locals: {voteable: @idea} %>
-
-  <h2>
-    <%= @idea.title %>
-  </h2>
-
   <p>
     <%= link_to idea_aspect_path(
         idea_id:@idea.id,

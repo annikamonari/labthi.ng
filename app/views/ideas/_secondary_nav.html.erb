@@ -1,4 +1,13 @@
-<% content_for :secondary_nav do %>
+<% content_for :page_title do %>
+	<div class="clearfix">
+		<%= render partial: "evaluations/vote_wrapper", locals: {voteable: @idea} %>
+		<h2>
+		  <%= @idea.title %>
+		</h2>
+	</div><!-- .clearfix -->
+<% end %>
+
+<% content_for :secondary_nav do %>	
 	<div class="secondary-nav">
 		<%= link_to "Direct", '/ideas/' + @idea.id.to_s,
 		  class: 'btn btn-default ' + active_when(@idea)
