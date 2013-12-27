@@ -1,6 +1,3 @@
 <%= link_to user.profile do %>
-	<%= user.name %>
-	<span class="rep-points badge">
-		<%= user.lab_rep_points %>
-	</span>
+<%= render 'users/user_without_link', user: user %>
 <% end %>

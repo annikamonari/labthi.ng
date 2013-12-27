@@ -5,7 +5,7 @@
     <%= link_to idea_aspect_path(
         idea_id:@idea.id,
         id: @idea.image_aspect) do %>
-      <%= image_tag @idea.top_image %>
+      <%= image_tag @idea.top_image, class: 'img-rounded'  %>
     <% end %>
   </p>
 

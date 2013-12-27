@@ -13,13 +13,9 @@
 <% end %>
 
 	<% if @ideas then %>
-		<% @ideas.in_groups_of(3, false).each do |group| %>
-			<div cass="row">
-				<% group.each do |idea| %>
-					<%= render 'print_idea_for_create', :idea => idea %>
-				<% end %>
-			</div><!-- .row -->
-		<% end %>
+			<% @ideas.each do |idea| %>
+				<%= render 'print_idea_for_create', :idea => idea %>
+			<% end %>
 		<% else %>
 				<%= render 'print_idea', :idea => @idea %>
 <% end %>

@@ -22,12 +22,12 @@ class ExploreController < ApplicationController
 
   def get_ideas
     if params[:phase]
-      @ideas = Idea.where(phase: params[:phase])
+      @ideas = Idea.where(phase: params[:phase]).includes(:user)
     elsif params[:category]
       category = params[:category]
-      @ideas = Idea.tagged_with category, :on => :categories
+      @ideas = Idea.tagged_with(category, :on => :categories).includes(:user)
     else
-      @ideas = Idea.all
+      @ideas = Idea.all.includes(:user)
     end
   end
 end
