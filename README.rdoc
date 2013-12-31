@@ -3,8 +3,8 @@
 This readme will be on the sparse side.
 
 === Heroku Apps
- - http://labthing.herokuapp.com
- - http://labthing-staging.herokuapp.com
+- http://labthing.herokuapp.com
+- http://labthing-staging.herokuapp.com
 
 
 === Versions
