@@ -2,6 +2,11 @@
 
 This readme will be on the sparse side.
 
+=== Heroku Apps
+ - http://labthing.herokuapp.com
+ - http://labthing-staging.herokuapp.com
+
+
 === Versions
 - Rails 4.0.0
 - Ruby 2.0
