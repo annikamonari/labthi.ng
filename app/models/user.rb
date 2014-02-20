@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   has_many :solutions, inverse_of: :user
   has_many :comments, inverse_of: :user
   has_one :profile, dependent: :destroy
+
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   
   after_create :create_user_profile
 
