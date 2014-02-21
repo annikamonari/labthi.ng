@@ -1,9 +1,18 @@
 <% content_for :page_title do %>
 	<div class="clearfix">
-		<%= render partial: "evaluations/vote_wrapper", locals: {voteable: @idea} %>
-		<h2>
-		  <%= @idea.title %>
-		</h2>
+		<div class="col-sm-6">
+			<%= render partial: "evaluations/vote_wrapper", locals: {voteable: @idea} %>
+			<h2>
+			  <%= @idea.title %>
+			</h2>
+		</div><!-- .pull-left -->
+	  <div class="col-sm-5 pull-right" id="follow_idea_form">
+	  	<% if current_user.following_idea?(@idea) %>
+	  		<%= render 'unfollow' %>
+  		<% else %>
+	  		<%= render 'follow' %>
+  		<% end %>
+	  </div>
 	</div><!-- .clearfix -->
 <% end %>
 

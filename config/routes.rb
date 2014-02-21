@@ -35,9 +35,20 @@ StartIt::Application.routes.draw do
   get '/ideas/:id/reputation', to: 'ideas#reputation'
   get '/ideas/:id/activity', to: 'ideas#activity'
   resources :ideas do
-    member { post :vote }
+    member do
+      post :vote 
+      get :following
+    end
   end
+
+  resources :idea_relationships, only: [:create, :destroy]
   
+  resources :users do
+    member do
+      get :following
+    end
+  end
+
   # Users and Admins
   devise_for :users
   devise_scope :user do

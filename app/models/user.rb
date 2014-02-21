@@ -21,7 +21,8 @@ class User < ActiveRecord::Base
   has_many :comments, inverse_of: :user
   has_one :profile, dependent: :destroy
 
-  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  has_many :idea_relationships, foreign_key: "follower_id", dependent: :destroy
+  has_many :followed_ideas, through: :idea_relationships, source: :followed
   
   after_create :create_user_profile
 
@@ -78,4 +79,15 @@ class User < ActiveRecord::Base
     eval.present? ? eval : false
   end
   
+  def following_idea?(idea)
+    idea_relationships.find_by(followed_id: idea.id)
+  end
+
+  def follow_idea!(idea)
+    idea_relationships.create!(followed_id: idea.id)
+  end
+
+  def unfollow_idea!(idea)
+    idea_relationships.find_by(followed_id: idea.id).destroy
+  end
 end

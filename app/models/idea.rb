@@ -13,6 +13,13 @@ class Idea < ActiveRecord::Base
   has_many :questions, inverse_of: :idea, :dependent => :destroy
   has_many :solutions, inverse_of: :idea, :dependent => :destroy
 
+
+  has_many :reverse_idea_relationships, foreign_key: "followed_id",
+                                        class_name: "IdeaRelationship",
+                                        dependent: :destroy
+
+  has_many :followers, through: :reverse_idea_relationships
+
   acts_as_taggable_on :categories, :component
 
   def image_aspect

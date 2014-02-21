@@ -1,11 +1,19 @@
 require 'spec_helper'
 
-feature 'User follows' do
-  scenario 'an idea' do
+feature 'User can' do
+  scenario 'follow an idea' do
     sign_in
-    @user2 = FactoryGirl.create(:user)
-    visit url_for(@user2.profile)
-    click_link "Follow"
-    page.should have_content "Following"
+    @idea = FactoryGirl.create(:idea)
+    visit url_for(@idea)
+    click_button("Follow")
+    page.should have_content "Unfollow"
+  end
+  scenario 'unfollow an idea' do
+    sign_in
+    @idea = FactoryGirl.create(:idea)
+    visit url_for(@idea)
+    click_button("Follow")
+    click_button("Unfollow")
+    page.should have_content "Follow"
   end
 end
