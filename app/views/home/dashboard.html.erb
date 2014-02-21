@@ -7,4 +7,5 @@
 
 <% content_for :sidebar_right do %>
 	<h3>My labs</h3>
+  <%= render 'users/followed_ideas', user: current_user %>
 <% end %>

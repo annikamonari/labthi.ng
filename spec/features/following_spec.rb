@@ -21,4 +21,14 @@ feature 'User can', js: true do
     click_link "Reputation"
     find(".idea-followers").should have_content @user.name
   end
+
+  scenario 'see followed ideas on dashboard' do
+    visit '/'
+    find(".followed-ideas").should have_content @idea.title
+  end
+  scenario 'see followed ideas on user profile' do
+    visit '/profiles/#{@user.profile.id}'
+    click_link "Labs"
+    find(".followed-ideas").should have_content @idea.title
+  end
 end

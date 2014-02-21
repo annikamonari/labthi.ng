@@ -28,6 +28,6 @@
     <strong>Website:</strong>
     <%= @profile.website %>
   </p>
-
+  
   <%= link_to "Edit", edit_profile_path(@profile) if current_user == @user %>
 <% end %>

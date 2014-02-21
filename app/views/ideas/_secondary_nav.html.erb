@@ -8,9 +8,9 @@
 		</div><!-- .pull-left -->
 	  <div class="col-sm-5 pull-right" id="follow_idea_form">
 	  	<% if current_user != nil && current_user.following_idea?(@idea) %>
-	  		<%= render 'ideas/unfollow' %>
+	  		<%= render 'ideas/unfollow', idea: @idea, classes:"pull-right" %>
   		<% else %>
-	  		<%= render 'ideas/follow' %>
+	  		<%= render 'ideas/follow', idea: @idea %>
   		<% end %>
 	  </div>
 	</div><!-- .clearfix -->

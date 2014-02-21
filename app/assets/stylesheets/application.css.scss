@@ -166,3 +166,25 @@ a:focus {outline:none;}
 .media-item-body{
   min-height:56px;
 }
+
+.vertical-center {
+    display:table-cell;
+    vertical-align:middle;
+    float:none;
+}
+
+ul.followed-ideas{
+  padding: 0;
+}
+
+li.followed-idea{
+  list-style-type: none;
+  margin-bottom:8px;
+}
+
+li.followed-idea .idea-render{
+  margin-top: 1px;
+}
+.unfollow-button-in-list{
+  margin-left:8px;
+}

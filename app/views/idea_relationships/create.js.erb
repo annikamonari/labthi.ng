@@ -1,1 +1,1 @@
-$("#follow_idea_form").html("<%= escape_javascript(render('ideas/unfollow')) %>")
+$("#follow_idea_form").html("<%= escape_javascript(render('ideas/unfollow', idea: @idea)) %>")
