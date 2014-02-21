@@ -37,7 +37,7 @@ StartIt::Application.routes.draw do
   resources :ideas do
     member do
       post :vote 
-      get :following
+      get :followers
     end
   end
 
