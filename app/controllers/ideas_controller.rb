@@ -80,7 +80,6 @@ class IdeasController < ApplicationController
     respond_to do |format|
       format.html {redirect_to :back, notice: "Vote submitted"}
       format.js {render template: 'evaluations/vote'}
-      raise "ERROR"
     end
   end
 

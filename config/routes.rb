@@ -43,11 +43,6 @@ StartIt::Application.routes.draw do
 
   resources :idea_relationships, only: [:create, :destroy]
   
-  resources :users do
-    member do
-      get :following
-    end
-  end
 
   # Users and Admins
   devise_for :users

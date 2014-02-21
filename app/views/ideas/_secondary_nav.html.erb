@@ -7,10 +7,10 @@
 			</h2>
 		</div><!-- .pull-left -->
 	  <div class="col-sm-5 pull-right" id="follow_idea_form">
-	  	<% if current_user.following_idea?(@idea) %>
-	  		<%= render 'unfollow' %>
+	  	<% if current_user != nil && current_user.following_idea?(@idea) %>
+	  		<%= render 'ideas/unfollow' %>
   		<% else %>
-	  		<%= render 'follow' %>
+	  		<%= render 'ideas/follow' %>
   		<% end %>
 	  </div>
 	</div><!-- .clearfix -->
