@@ -26,9 +26,23 @@ feature 'User can', js: true do
     visit '/'
     find(".followed-ideas").should have_content @idea.title
   end
+
+  scenario 'unfollow from the dashboard' do
+    page.find(".primary-logo").click
+    page.find(".unfollow-idea-#{@idea.id}").click
+    page.should have_selector ".follow-idea-#{@idea.id}"
+  end
+
   scenario 'see followed ideas on user profile' do
-    visit '/profiles/#{@user.profile.id}'
-    click_link "Labs"
+    click_link(@user.name, :match => :first)
+    click_on "Labs"
     find(".followed-ideas").should have_content @idea.title
+  end
+
+  scenario 'unfollow from own user profile' do
+    click_link(@user.name, :match => :first)
+    click_on "Labs"
+    page.find(".unfollow-idea-#{@idea.id}").click
+    page.should have_selector ".follow-idea-#{@idea.id}"
   end
 end

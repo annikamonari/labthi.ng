@@ -1,1 +1,2 @@
-$("#follow_idea_form").html("<%= escape_javascript(render('ideas/unfollow', idea: @idea)) %>")
+idea_id = "<%= escape_javascript(@idea.id.to_s) %>";
+$(".idea-follow-form-" + idea_id).replaceWith("<%= escape_javascript(render('ideas/unfollow', idea: @idea)) %>");

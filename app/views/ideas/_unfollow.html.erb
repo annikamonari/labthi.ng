@@ -1,7 +1,8 @@
 <% classes ||= "" %>
 <%= form_for(current_user.idea_relationships.find_by(followed_id: idea.id), 
     remote: true,
-    html: {method: :delete}) do |f| %>
+    html: {method: :delete,
+    class: "idea-unfollow-form-#{idea.id}"}) do |f| %>
   <%= f.submit "Unfollow",
-    class: "btn btn-success #{classes} unfollow-idea-button" %>
+    class: "btn btn-success btn-xs #{classes} unfollow-idea-button unfollow-idea-#{idea.id}" %>
 <% end %>

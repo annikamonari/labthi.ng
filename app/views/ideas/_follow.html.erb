@@ -3,11 +3,16 @@
           '/login', 
           class: "btn btn-success pull-right follow-idea-button" %>
 <% else %>
-  <%= form_for(current_user.idea_relationships.build(followed_id: idea.id), remote: true) do |f| %>
+
+  <%= form_for(current_user.idea_relationships.build(followed_id: idea.id),
+    remote: true,
+    html: { class: "idea-follow-form-#{idea.id}"}
+    ) do |f| %>
+
     <div>
       <%= f.hidden_field :followed_id %>
     </div>
     <%= f.submit "Follow", 
-          class: "btn btn-success pull-right follow-idea-button" %>
+          class: "btn btn-success btn-xs follow-idea-button follow-idea-#{idea.id}" %>
   <% end %>
 <% end %>
