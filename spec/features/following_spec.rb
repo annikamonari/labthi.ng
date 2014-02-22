@@ -23,7 +23,7 @@ feature 'User can', js: true do
   end
 
   scenario 'see followed ideas on dashboard' do
-    visit '/'
+    page.find(".primary-logo").click
     find(".followed-ideas").should have_content @idea.title
   end
 
