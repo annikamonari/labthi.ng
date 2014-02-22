@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'User can', js: true do
 
-  before(:each)  do
+  before(:each) do
     @user = sign_in
     @idea = FactoryGirl.create(:idea)
     visit "/ideas/#{@idea.id}"
@@ -23,6 +23,7 @@ feature 'User can', js: true do
   end
 
   scenario 'see followed ideas on dashboard' do
+    page.should have_css ".unfollow-idea-button"
     page.find(".primary-logo").click
     find(".followed-ideas").should have_content @idea.title
   end
