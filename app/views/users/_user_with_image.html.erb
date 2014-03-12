@@ -1,0 +1,11 @@
+<div class="media">
+<%= link_to user.profile, class: "pull-left" do %>
+<%= image_tag(user.profile.photo.thumb, class:'media-object') %>
+<% end %>
+  <div class="media-body">
+    <h4 class="media-heading">
+      <%= user.name %>
+    </h4>
+    lorem ipsum dolor sit amet
+  </div>
+</div>

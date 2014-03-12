@@ -10,6 +10,11 @@
   </p>
 
   <p>
+    <%= link_to "Followers", '/ideas/' + @idea.id.to_s + '/followers',
+      class: 'followers' %>
+  </p>
+
+  <p>
     <strong>
       Phase <%= @idea.phase %>
     </strong>

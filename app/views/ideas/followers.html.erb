@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'secondary_nav' %>
+<%= render 'sidebar' %>
+
+
+<h3>Followers</h3>
+
+<div class="content-bg">
+  <p>
+    <strong>
+      <%= pluralize(@idea.followers.count, "follower") %> of <%=@idea.title %>
+    </strong>
+  </p>
+  <ul class="idea-followers">
+    <% @idea_followers.each do |user| %>
+      <%= render 'users/user_with_image', user: user %>
+    <% end %>
+  </ul>
+</div>

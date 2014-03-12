@@ -17,8 +17,8 @@ feature 'User can', js: true do
     page.should have_css ".follow-idea-button"
   end
 
-  scenario 'see followers on reputation overview page' do
-    click_link "Reputation"
+  scenario 'see followers by clicking link on idea sidebar' do
+    page.find(".followers").click
     find(".idea-followers").should have_content @user.name
   end
 

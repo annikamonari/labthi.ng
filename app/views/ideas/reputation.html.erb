@@ -10,13 +10,3 @@
 	<%= @idea.local_reputation %>
 </div>
 <br />
-<div>
-  <strong><%= pluralize(@idea.followers.count, "follower") %> of <%=@idea.title %></strong>
-  <ul class="idea-followers">
-    <% @idea.followers.each do |user| %>
-      <li class="idea-follower">
-        <%= render user %>
-      </li>
-    <% end %>
-  </ul>
-</div>
