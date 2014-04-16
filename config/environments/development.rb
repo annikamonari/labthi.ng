@@ -43,7 +43,7 @@ StartIt::Application.configure do
         :user_name => 'labthi.ng.adm1n.passw0rd.reset@gmail.com',
         :password => 'annikamike123'
   }
-  
+
   config.after_initialize do
     Bullet.enable = true
     Bullet.alert = true
