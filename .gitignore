@@ -47,4 +47,3 @@ pickle-email-*.html
 database.yml
 
 .env
-Procfile
