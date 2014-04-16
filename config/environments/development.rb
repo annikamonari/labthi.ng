@@ -53,3 +53,7 @@ StartIt::Application.configure do
     Bullet.rails_logger = true
   end
 end
+
+
+
+
