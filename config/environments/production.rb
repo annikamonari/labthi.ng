@@ -72,7 +72,7 @@ StartIt::Application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'labthi.ng.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'labthing-staging.herokuapp.com' }
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 
