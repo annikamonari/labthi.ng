@@ -45,3 +45,6 @@ pickle-email-*.html
 
 # Ignore the database language encoding
 database.yml
+
+.env
+Procfile

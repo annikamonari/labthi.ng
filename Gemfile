@@ -100,6 +100,7 @@ group :test, :development do
   gem 'spork'
   gem 'launchy'
   gem 'guard-rspec'
+  gem 'foreman'
   #gem 'warden', '>= 1.2.2'
   #
   require 'rbconfig'
