@@ -38,10 +38,11 @@ StartIt::Application.configure do
   ActionMailer::Base.smtp_settings = {
         :address => "smtp.gmail.com",
         :port => 587,
+        :domain => ENV["GMAIL_DOMAIN"],
         :authentication => :plain,
-        :domain => 'gmail.com',
-        :user_name => 'labthi.ng.adm1n.passw0rd.reset@gmail.com',
-        :password => 'annikamike123'
+        enable_starttls_auto: true,
+        :user_name => ENV["GMAIL_USERNAME"],
+        password: ENV["GMAIL_PASSWORD"]
   }
 
   config.after_initialize do
