@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220231008) do
+ActiveRecord::Schema.define(version: 20140418141717) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -147,7 +150,6 @@ ActiveRecord::Schema.define(version: 20140220231008) do
   create_table "questions", force: true do |t|
     t.text     "title"
     t.text     "brief"
-    t.integer  "answers_expected"
     t.integer  "idea_id"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -228,11 +230,6 @@ ActiveRecord::Schema.define(version: 20140220231008) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  add_foreign_key "answers", "questions", name: "solutions_question_id_fk"
-  add_foreign_key "answers", "users", name: "solutions_user_id_fk"
-
-  add_foreign_key "comments", "users", name: "comments_user_id_fk"
 
   add_foreign_key "ideas", "users", name: "ideas_user_id_fk"
 

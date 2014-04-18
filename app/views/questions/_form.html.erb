@@ -19,11 +19,6 @@
     <%= f.label :brief, "Description" %><br>
     <%= f.text_area :brief, class:"form-control" %>
   </div>
-  <div class="field form-group">
-    <%= f.label :answers_expected %><br>
-    <%= f.number_field :answers_expected, class:"form-control" %>
-  </div>
-
   <% if user_signed_in? %>
     <%= hidden_field_tag :idea_id, params[:idea_id] %>
   <% end %>
