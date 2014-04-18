@@ -1,1 +1,3 @@
 $(".js-inline-form").replaceWith("<%= j render @answer %>");
+idea_id = "<%= escape_javascript(@answer.question.idea.id.to_s) %>";
+$(".idea-follow-form-" + idea_id).replaceWith("<%= escape_javascript(render('ideas/unfollow', idea: @answer.question.idea)) %>");
