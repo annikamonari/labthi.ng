@@ -26,7 +26,6 @@ describe QuestionsController do
   let(:valid_attributes) { {
     title: "MyText",
     brief: "MyBrief",
-    answers_expected: "2",
     user: FactoryGirl.create(:user),
     idea: FactoryGirl.create(:idea)
     } }

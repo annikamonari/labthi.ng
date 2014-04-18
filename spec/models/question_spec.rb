@@ -13,19 +13,14 @@ describe Question do
 		question = FactoryGirl.build(:question, idea: nil)
     question.should_not be_valid
   end
-  it "is not valid without an answers_expected" do
-		question = FactoryGirl.build(:question, answers_expected: nil)
-    question.should_not be_valid
-  end
   it "is valid without a brief" do
 		question = FactoryGirl.build(:question, brief: nil)
     question.should be_valid
   end
-  it "is valid with a title, brief, and answers_expected" do
+  it "is valid with a title and brief" do
     question = Question.create(
 	  	title: "What material would the product be made of?",
       brief: "The jacket must be durable and warm.",
-      answers_expected: 2,
       user: FactoryGirl.create(:user),
       idea: FactoryGirl.create(:idea)
       )

@@ -3,19 +3,24 @@ require 'spec_helper'
 feature 'Visitor checks activity stream' do
 
   before(:each) do
-      @title = "import corn-free pringles from eurpoe"
-      @brief = "this explains the descriptive idea title"
-      submit_idea @title, @brief
+      @idea = FactoryGirl.create(:idea)
+      submit_idea @idea.title, @idea.brief
   end
   scenario 'for a recently created idea' do
     visit '/activities/index'
-    expect(page).to have_content(@title)
+    expect(page).to have_content(@idea.title)
   end 
   scenario 'for a recently updated idea' do
-    click_link 'Edit'
-    click_button 'Update Idea'
-    visit '/activities/index'
-    expect(page).to have_content(@title)
+    if :user == @idea.user
+      click_link 'Edit'
+      fill_in 'Title', with: 'Greatest idea ever'
+      click_button 'Update Idea'
+      visit '/activities/index'
+      expect(page).to have_content('Greatest idea ever')
+    else
+      visit '/activities/index'
+      expect(page).to have_content(@idea.title)
+    end
   end
   scenario 'for a recently added question' do
     submit_question "Shipping considerations", "An efficient packing and shipping method should be considered"
@@ -23,11 +28,17 @@ feature 'Visitor checks activity stream' do
     expect(page).to have_content('added a question Shipping considerations')
   end
   scenario 'for a recently updated question' do
-    submit_question "Shipping considerations", "An efficient packing and shipping method should be considered"
-    click_link "Edit"
-    click_button "Create Question"
-    visit '/activities/index'
-    expect(page).to have_content('updated a question Shipping considerations')
+    @question = FactoryGirl.create(:question)
+    submit_question @question.title, @question.brief
+    if @question.user == @idea.user
+      click_link "Edit"
+      click_button "Create Question"
+      visit '/activities/index'
+      expect(page).to have_content('updated a question Shipping considerations')
+    else
+      visit '/activities/index'
+      expect(page).to have_content("added a question #{@question.title}")
+    end
   end
   scenario 'for a recently added answer' do
     submit_question "Shipping considerations", "An efficient packing and shipping method should be considered"
