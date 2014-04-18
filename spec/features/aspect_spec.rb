@@ -64,4 +64,11 @@ feature 'Visit an idea Define tab ' do
     click_link "Define"
     page.should have_content "2 Solutions"
   end
+
+  scenario 'and automatically follows the idea upon solution submission' do
+    click_link @aspect.title
+    submit_solution "This is an example solution"
+    page.should have_css ".unfollow-idea-button"
+  end
+
 end

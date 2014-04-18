@@ -34,6 +34,9 @@ class SolutionsController < ApplicationController
         format.html { redirect_to redirect_path, notice: 'Solution was successfully created.' }
         format.json { render action: 'show', status: :created, location: @solution }
         format.js {render template: 'solutions/create'}
+        if not current_user.following_idea?(@solution.idea)
+          current_user.follow_idea!(@solution.idea)
+        end
       else
         format.html { render action: 'new' }
         format.json { render json: @solution.errors, status: :unprocessable_entity }

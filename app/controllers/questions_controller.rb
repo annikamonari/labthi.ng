@@ -34,6 +34,9 @@ class QuestionsController < ApplicationController
         @question.create_activity :create, owner: (current_user)
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
         format.json { render action: 'show', status: :created, location: @question }
+        if not current_user.following_idea?(@question.idea)
+          current_user.follow_idea!(@question.idea)
+        end
       else
         format.html { render action: 'new' }
         format.json { render json: @question.errors, status: :unprocessable_entity }

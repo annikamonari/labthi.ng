@@ -32,4 +32,12 @@ feature 'Visitor submits a question' do
     expect(page).to have_content(brief)
   end
 
+  scenario 'and automatically follows the idea' do
+    question = 'What are legal implications?'
+    brief = 'Lorem ipsum'
+    submit_question question, brief
+    visit url_for(@idea)
+    page.should have_css ".unfollow-idea-button"
+  end
+
 end

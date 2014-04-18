@@ -42,6 +42,7 @@ class IdeasController < ApplicationController
         #Aspect.find_or_create_by(title: "Image")
         format.html { redirect_to @idea }
         format.json { render action: 'show', status: :created, location: @idea }
+        current_user.follow_idea!(@idea)
       else
         format.html { render action: 'new' }
         format.json { render json: @idea.errors, status: :unprocessable_entity }

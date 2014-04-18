@@ -26,4 +26,8 @@ feature 'User wants to submit a startup idea' do
     submit_idea 'best idea ever'
     page.should have_content 'best idea ever'
   end
+  scenario 'and automatically follows it if input is valid' do
+    submit_idea 'best idea ever'
+    page.should have_css ".unfollow-idea-button" 
+  end
 end
