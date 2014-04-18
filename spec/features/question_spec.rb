@@ -11,7 +11,6 @@ feature 'Visitor submits a question' do
     click_link 'Create a question'
     fill_in 'Question', with: 'Valid question'
     fill_in 'Description', with: 'This is valid description for the question.'
-    fill_in 'Answers expected', with: '2'
     click_button 'Create Question'
     expect(page).to have_content('Question was successfully created.')
   end
@@ -38,6 +37,16 @@ feature 'Visitor submits a question' do
     submit_question question, brief
     visit url_for(@idea)
     page.should have_css ".unfollow-idea-button"
+  end
+
+  scenario 'and another user cannot edit it' do
+    @question = FactoryGirl.create(:question)
+    submit_question @question.title, @question.brief
+    sign_out
+    @user = sign_in
+    visit url_for(@question)
+    click_link 'Edit'
+    page.should_not have_content('Editing question')
   end
 
 end

@@ -54,11 +54,10 @@ module Features
     end
 
     # This must be called from an idea page
-    def submit_question(title = 'valid title', brief = 'valid brief', answers_expected = '2')
+    def submit_question(title = 'valid title', brief = 'valid brief')
       click_link 'Create a question'
       fill_in 'Question', with: title
       fill_in 'Description', with: brief
-      fill_in 'Answers expected', with: answers_expected
       click_button 'Create Question'
     end
     def submit_solution(brief = 'valid title')
