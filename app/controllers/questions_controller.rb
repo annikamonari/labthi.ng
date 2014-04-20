@@ -91,8 +91,8 @@ class QuestionsController < ApplicationController
     end
 
     def correct_user
-      current_user = :auth_user!
-      user = Question.find(params[:id]).user if params[:id]
-      redirect_to @question, notice: "You do not have permission to edit this question." unless current_user == user
+      unless current_user == @question.user then
+        redirect_to @question, notice: "You do not have permission to edit this question."
+      end
     end
 end
