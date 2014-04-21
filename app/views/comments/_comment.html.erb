@@ -17,7 +17,14 @@
     	  	<%= render vote_order(comment.comments.includes(:user)) %>
         <% end %>
       </ul>
-      <%= link_to "Reply to comment", new_comment_comment_path(comment), remote: true %>
     <% end %>
+    <div class="<%= comment.id %>">
+      <p class="add comment">
+        <%= link_to "Reply to comment", new_comment_comment_path(comment), remote: true %>
+      </p>
+      <p class="comment cancel" style="display:none">
+        <%= link_to "Cancel", new_comment_comment_path(comment), remote: true %>
+      </p> 
+    </div>
   </div>
 </li>

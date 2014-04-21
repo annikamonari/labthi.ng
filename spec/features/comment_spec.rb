@@ -7,17 +7,17 @@ feature 'Visitor submits a comment' do
         @question_brief = 'This social network should target a speific audience'
         @answer_brief = 'This product could target upper middle class males in NYC'
         @comment_brief = 'That is kind of a silly idea. NYC is too important.'
-
+        @answer = FactoryGirl.create(:answer, id: 300)
         submit_idea @idea_brief
         submit_question @question_title, @question_brief
     end
 
-  scenario 'on a answer', js: true do
-        submit_answer @answer_brief
-        submit_comment @comment_brief, '.answers li:first-child'
+  scenario 'on a answer', js:true do
+        submit_answer @answer.brief
+        submit_comment @comment_brief, '.answers'
         expect(page).to have_content(@idea_brief)
         expect(page).to have_content(@question_brief)
-        expect(page).to have_content(@answer_brief)
+        expect(page).to have_content(@answer.brief)
         expect(page).to have_content(@comment_brief)
   end
 
@@ -28,9 +28,9 @@ feature 'Visitor submits a comment' do
   end
 
   scenario 'on a comment', js: true do
-        @comment_reply = "That was a great comment!"
-        submit_comment @comment_brief, '.question'
-        submit_comment @comment_reply, '.comment', 'Reply to comment'
+        @commentreply = FactoryGirl.create(:comment)
+        submit_comment @comment_brief, ".question"
+        submit_comment @commentreply.brief, '.question-comments', 'Reply to comment'
         expect(page).to have_content(@question_brief)
         expect(page).to have_content(@comment_reply)
   end

@@ -31,29 +31,35 @@
         </div>
       <% end %>
       </ul>
-    <p>
-      <%= link_to "Add comment", new_question_comment_path(@question), remote: true %>
-    </p>
+    <div class="<%= @question.id %>">
+      <p class="add comment">
+        <%= link_to "Add comment", new_question_comment_path(@question), remote: true %>
+      </p>
+      <p class="cancel comment" style="display:none">
+        <%= link_to "Cancel", new_question_comment_path(@question), remote: true %>
+      </p>
+    </div>
   </div>
 </div><!-- .question -->
 
-<ul class="answers media-list">
-  <% if @answers.count > 0 %>
-    <%= render vote_order(@answers) %>
-  <% else %>
-    <div class='js-inline-form'>
-      No answers yet. Why don't you add one?
-    </div>
-  <% end %>
-</ul>
 
-<p>
-  <%= link_to "Add answer", controller: "answers", action: "new", question_id: @question.id, remote: true %>
-</p>
-
-
-
-
+  <ul class="answers media-list">
+    <% if @answers.count > 0 %>
+      <%= render vote_order(@answers) %>
+    <% else %>
+      <div class='js-inline-form'>
+        No answers yet. Why don't you add one?
+      </div>
+    <% end %>
+  </ul>
+<div class="answers">
+  <p class="add answer">
+    <%= link_to "Add answer", controller: "answers", action: "new", question_id: @question.id, remote: true %>
+  </p>
+  <p class="cancel" style="display:none">
+    <%= link_to "Cancel", controller: "answers", action: "new", question_id: @question.id, remote: true %>
+  </p>
+</div>
 
 
 <%= link_to 'Edit', edit_question_path(@question) %> |

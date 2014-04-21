@@ -24,8 +24,13 @@
           <%= render vote_order(solution.comments.includes(:user)) || "No comments found" %>
       <% end%>
     </ul>
-    <p>
-      <%= link_to "Add comment", new_solution_comment_path(solution), remote: true %>
-    </p>
+    <div class="<%= solution.id %>">
+      <p class='add comment'>
+        <%= link_to "Add comment", new_solution_comment_path(solution), remote: true %>
+      </p>
+      <p class="comment cancel" style="display:none">
+        <%= link_to "Cancel", new_solution_comment_path(solution), remote: true %>
+      </p>
     </div>
+  </div>
 </li>

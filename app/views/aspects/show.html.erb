@@ -24,4 +24,9 @@
   </ul><!-- .solutions -->
 <% end %>
 
+<p class="add solution">
   <%= link_to "Add solution", new_aspect_solution_path(aspect_id: @aspect.id, idea_id: @idea.id), remote:true %>
+</p>
+<p class="cancel" style="display:none">
+  <%= link_to "Cancel", new_aspect_solution_path(aspect_id: @aspect.id, idea_id: @idea.id), remote:true %>
+</p>

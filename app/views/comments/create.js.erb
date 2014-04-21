@@ -1,1 +1,7 @@
+var selector1 = ".<%= j @commentable.class.to_s.downcase%>"
+var selector2 = ".<%= j @commentable.class.to_s.downcase + '-' + @commentable.id.to_s%>"
+var selector3 = selector1 + selector2 + " div.<%= j @commentable.id.to_s%>"
+
 $(".js-inline-form").replaceWith("<%= j render @comment %>");
+$(selector3 + " .comment.cancel").hide()
+$(selector3 + " .add.comment").show()

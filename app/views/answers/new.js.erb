@@ -1,9 +1,24 @@
-var selector = "ul.answers"
-if ($(selector + ".js-inline-form").length == 0) {
-	$(".js-inline-form").remove()
-	$(selector)
-		.append("<li class='js-inline-form'><%= j render :partial => 'answers/form' %></li>")
+var selector = "div.answers"
+var selector2 = "ul.answers"
+if($(selector + " p.add.answer").is(":visible")){ 
+	console.log('add answer link visible')
+	if ($(selector2 + " .js-inline-form").length == 0) {
+		console.log('there is an answer')
+		$(selector2)
+			.append("<li class='js-inline-form'><%= j render :partial => 'answers/form' %></li>")
+	}
+	else {
+		console.log('there are no answers')
+		$(selector2 + " .js-inline-form").remove()
+		$(selector2)
+			.append("<li class='js-inline-form'><%= j render :partial => 'answers/form' %></li>")
+	}
+	$(selector + " p.add.answer").hide()
+	$(selector + " p.cancel").show()
 }
-else {
-	$(".js-inline-form").remove()
+else if($(selector + " p.cancel").is(":visible")){
+	console.log('cancel link is visible')
+	$(selector2 + " li.js-inline-form").remove()
+	$(selector + " p.cancel").hide()
+	$(selector + " p.add.answer").show()
 }

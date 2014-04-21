@@ -15,9 +15,14 @@
         <% if answer.comments.count > 0 %>
           <%= render vote_order(answer.comments.includes(:user)) || "No comments found" %>
         <% end %>
+        <div class="<%= answer.id %>">
+          <p class="add comment">
+            <%= link_to "Add comment", new_answer_comment_path(answer), remote: true %>
+          </p>
+          <p class="comment cancel" style="display:none">
+            <%= link_to "Cancel", new_answer_comment_path(answer), remote: true %>
+          </p>
+        </div>
       </ul>
-      <p>
-        <%= link_to "Add comment", new_answer_comment_path(answer), remote: true %>
-      </p>
     </div>
 </li>

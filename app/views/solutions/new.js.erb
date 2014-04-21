@@ -1,9 +1,19 @@
 var selector = "ul.solutions"
-if ($(selector + ".js-inline-form").length == 0) {
-	$(".js-inline-form").remove()
-	$(selector)
-		.append("<li class='js-inline-form'><%= j render :partial => 'solutions/form' %></li>")
+if($("p.add.solution").is(":visible")){ 
+	if ($(selector + " .js-inline-form").length == 0) {
+		$(selector)
+			.append("<li class='js-inline-form'><%= j render :partial => 'solutions/form' %></li>")
+	}
+	else {
+		$(selector + " .js-inline-form").remove()
+		$(selector)
+			.append("<li class='js-inline-form'><%= j render :partial => 'solutions/form' %></li>")
+	}
+	$("p.add.solution").hide()
+	$("p.cancel").show()
 }
-else {
-	$(".js-inline-form").remove()
+else if($("p.cancel").is(":visible")){
+	$(selector + " li.js-inline-form").remove()
+	$("p.cancel").hide()
+	$("p.add.solution").show()
 }

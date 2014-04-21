@@ -1,14 +1,28 @@
 /* Select things like .solution-12 */
 var selector = ".<%= j @commentable.class.to_s.downcase + '-' + @commentable.id.to_s + ' .media-body ' %>"
-selector = selector + ".<%= j @commentable.class.to_s.downcase %>-comments"
+selector0 = selector + ".<%= j @commentable.class.to_s.downcase %>-comments"
 
-console.log(selector)
+var selector1 = ".<%= j @commentable.class.to_s.downcase%>"
+var selector2 = ".<%= j @commentable.class.to_s.downcase + '-' + @commentable.id.to_s%>"
+var selector3 = selector1 + selector2 + " div.<%= j @commentable.id.to_s%>"
 
-if ($(selector + ".js-inline-form").length == 0) {
-	$(".js-inline-form").remove()
-	$(selector)
-		.append("<li class='js-inline-form'><%= j render :partial => 'comments/form' %></li>")
+if($(selector3 + " .add.comment").is(":visible")){ 
+	if ($(selector0 + " .js-inline-form").length == 0) {
+		console.log("if there are comments")
+		$(selector0)
+			.append("<li class='js-inline-form'><%= j render :partial => 'comments/form' %></li>")
+	}
+	else {
+		$(selector0 + " .js-inline-form").remove()
+		$(selector0) 
+			.append("<li class='js-inline-form'><%= j render :partial => 'comments/form' %></li>")
+	}
+	$(selector3 + " .add.comment").hide()
+	$(selector3 + " .comment.cancel").show()
+
 }
-else {
-	$(".js-inline-form").remove()
+else if($(selector3 + " .comment.cancel").is(":visible")){
+	$(selector0 + " li.js-inline-form").remove()
+	$(selector3 + " .comment.cancel").hide()
+	$(selector3 + " .add.comment").show()
 }

@@ -13,7 +13,9 @@ class AnswersController < ApplicationController
   # GET /answers/new
   def new
     @answer = Answer.new
-  end
+    render layout: 'form_left'
+    
+  end 
 
   # GET /answers/1/edit
   def edit
@@ -38,6 +40,7 @@ class AnswersController < ApplicationController
       else
         format.html { render action: 'new' }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
+        format.js { render template: 'answers/new' }
       end
     end
   end

@@ -48,7 +48,7 @@ module Features
     end
     # This must be called from the desired page
     def submit_comment(brief, selector='html', add_comment_link = 'Add comment')
-      find(selector).click_link add_comment_link
+      first(selector).click_link add_comment_link
       fill_in 'Brief', with: brief
       click_button 'Create Comment'
     end
