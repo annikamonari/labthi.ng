@@ -1,3 +1,7 @@
 $(".js-inline-form").replaceWith("<%= j render @answer %>");
 idea_id = "<%= escape_javascript(@answer.question.idea.id.to_s) %>";
 $(".idea-follow-form-" + idea_id).replaceWith("<%= escape_javascript(render('ideas/unfollow', idea: @answer.question.idea)) %>");
+$("#newanswer").text("Add answer");
+if($("div.no.answers").length > 0) {
+	$("div.no.answers").remove()
+}

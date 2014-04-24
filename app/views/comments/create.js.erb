@@ -1,1 +1,10 @@
 $(".js-inline-form").replaceWith("<%= j render @comment %>");
+if($("#<%= j @commentable.id.to_s %>").closest("li.media.comment.comment-<%= j @commentable.id.to_s %>").length > 0) {
+	$("#<%= j @commentable.id.to_s %>").text("Reply to comment")
+}
+else {
+	$("#<%= j @commentable.id.to_s %>").text("Add comment")
+}
+if($("div.no.comments").length > 0) {
+	$("div.no.comments").remove()
+}

@@ -26,13 +26,13 @@
       <% if @question.comments.count > 0 %>
         <%= render vote_order(@question.comments.includes(:user)) %>
       <% else %>
-        <div class='js-inline-form'>
+        <div class='no comments'>
           No comments
         </div>
       <% end %>
       </ul>
     <p>
-      <%= link_to "Add comment", new_question_comment_path(@question), remote: true %>
+      <%= link_to "Add comment", new_question_comment_path(@question), id: "#{@question.id}", remote: true %>
     </p>
   </div>
 </div><!-- .question -->
@@ -41,14 +41,14 @@
   <% if @answers.count > 0 %>
     <%= render vote_order(@answers) %>
   <% else %>
-    <div class='js-inline-form'>
+    <div class='no answers'>
       No answers yet. Why don't you add one?
     </div>
   <% end %>
 </ul>
 
 <p>
-  <%= link_to "Add answer", controller: "answers", action: "new", question_id: @question.id, remote: true %>
+  <%= link_to "Add answer", new_answer_path(question_id: @question.id), id: 'newanswer', remote:true %>
 </p>
 
 

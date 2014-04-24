@@ -1,14 +1,28 @@
 /* Select things like .solution-12 */
 var selector = ".<%= j @commentable.class.to_s.downcase + '-' + @commentable.id.to_s + ' .media-body ' %>"
-selector = selector + ".<%= j @commentable.class.to_s.downcase %>-comments"
+selector = selector + " ul.media-list.comments.<%= j @commentable.class.to_s.downcase %>-comments"
 
-console.log(selector)
+var y = $("a:contains('Cancel')").not("#<%= j @commentable.id.to_s %>")
+if ($(y).closest(" .media.comment.comment").length > 0) {
+	$(y).text("Reply to comment")
+}
+else if ($(y).closest(" .media.comment.comment").length == 0) {
+	$(y).text("Add comment")
+}
 
-if ($(selector + ".js-inline-form").length == 0) {
-	$(".js-inline-form").remove()
+
+if (!$(selector).children().hasClass("js-inline-form")) {
+	$(" .js-inline-form").remove()
 	$(selector)
 		.append("<li class='js-inline-form'><%= j render :partial => 'comments/form' %></li>")
+	$("#<%= j @commentable.id.to_s %>").text("Cancel")
 }
 else {
-	$(".js-inline-form").remove()
+	$(" li.js-inline-form").remove()
+	if($("#<%= j @commentable.id.to_s %>").closest("li.media.comment.comment-<%= j @commentable.id.to_s %>").length > 0) {
+		$("#<%= j @commentable.id.to_s %>").text("Reply to comment")
+	}
+	else {
+		$("#<%= j @commentable.id.to_s %>").text("Add comment")
+	}
 }

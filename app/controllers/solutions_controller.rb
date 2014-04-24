@@ -3,6 +3,7 @@ class SolutionsController < ApplicationController
   before_action :auth_user!, only: [:create, :new, :update, :destroy]
   before_action :set_vote_value, only: [:vote]
 
+
   # GET /solutions/1
   # GET /solutions/1.json
   def show
@@ -82,7 +83,7 @@ class SolutionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_solution
       @solution = Solution.find(params[:id])
-    end
+    end      
 
     def redirect_path
       idea_aspect_path(idea_id:@solution.idea.id, id: @solution.aspect.id)
