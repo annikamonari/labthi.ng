@@ -17,7 +17,7 @@
         <% end %>
       </ul>
       <p>
-        <%= link_to "Add comment", new_answer_comment_path(answer), id: "#{answer.id}", remote: true %>
+        <%= link_to "Add comment", new_answer_comment_path(answer), id: "answer-#{answer.id}", remote: true %>
       </p>
     </div>
 </li>

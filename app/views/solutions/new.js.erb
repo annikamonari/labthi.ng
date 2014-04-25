@@ -1,10 +1,22 @@
 var selector = "ul.solutions"
-if ($(selector + " .js-inline-form").length == 0) {
+var y = $("a:contains('Cancel')").not("#newsolution")
+if ($(y).closest(" .media.comment.comment").length > 0) {
+	$(y).text("Reply to comment")
+}
+else {
+	$(y).text("Add comment")
+	$("div.no.comments").show()
+}
+
+if (!$(selector).children().hasClass("js-inline-form")) {
+	$(" .js-inline-form").remove()
 	$(selector)
 		.append("<li class='js-inline-form'><%= j render :partial => 'solutions/form' %></li>")
 	$("#newsolution").text("Cancel")
+	$("p.no.solution").hide()
 }
 else {
 	$(" .js-inline-form").remove()
 	$("#newsolution").text("Add solution")
+	$("p.no.solution").show()
 }

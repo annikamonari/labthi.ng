@@ -1,10 +1,22 @@
 var selector = "ul.answers"
-if ($(selector + " .js-inline-form").length == 0) {
+var y = $("a:contains('Cancel')").not("#newanswer")
+if ($(y).closest(" .media.comment.comment").length > 0) {
+	$(y).text("Reply to comment")
+}
+else {
+	$(y).text("Add comment")
+	$("div.no.comments").show()
+}
+
+if (!$(selector).children().hasClass("js-inline-form")) {
+	$(" .js-inline-form").remove()
 	$(selector)
 		.append("<li class='js-inline-form'><%= j render :partial => 'answers/form' %></li>")
 	$("#newanswer").text("Cancel")
+	$("div.no.answers").hide()
 }
 else {
-	$(".js-inline-form").remove()
+	$(" .js-inline-form").remove()
 	$("#newanswer").text("Add answer")
+	$("div.no.answers").show()
 }

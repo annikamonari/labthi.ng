@@ -17,7 +17,7 @@
     	  	<%= render vote_order(comment.comments.includes(:user)) %>
         <% end %>
       </ul>
-      <%= link_to "Reply to comment", new_comment_comment_path(comment), id: "#{comment.id}", remote: true %>
+      <%= link_to "Reply to comment", new_comment_comment_path(comment), id: "comment-#{comment.id}", remote: true %>
     <% end %>
   </div>
 </li>

@@ -32,7 +32,7 @@
       <% end %>
       </ul>
     <p>
-      <%= link_to "Add comment", new_question_comment_path(@question), id: "#{@question.id}", remote: true %>
+      <%= link_to "Add comment", new_question_comment_path(@question), id: "question-#{@question.id}", remote: true %>
     </p>
   </div>
 </div><!-- .question -->
