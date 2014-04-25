@@ -18,6 +18,7 @@
 //= require turbolinks
 //= require twitter/bootstrap
 //= require_tree .
+//= require ajax401
 
 $(document).ready(function() {
   /* Activating Best In Place */
@@ -31,3 +32,4 @@ $(document).on('page:fetch', function(){
 $(document).on('page:change', function(){
 	$(".container-main").css("opacity","1");
 });
+
