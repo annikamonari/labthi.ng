@@ -8,10 +8,6 @@ class CommentsController < ApplicationController
   # GET /comments/1.json
   def show
     @comment = Comment.find(params[:id])
-    respond_to do |format|
-      format.html { redirect_to get_redirect_path(@comment.commentable) }
-      format.js {render template: 'comments/show' }
-    end
   end
 
   # GET /comments/new
