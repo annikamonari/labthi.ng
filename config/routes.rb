@@ -31,6 +31,8 @@ StartIt::Application.routes.draw do
   get '/profiles/:id/labs', to: 'profiles#labs'
   resources :profiles, except: [:index]
 
+  get "/ideas/:id/build", to: "idea_builds#overview", as: 'idea_build'
+  get "/ideas/:id/build/components", to: "idea_builds#components", as: 'idea_build_components'
   get '/ideas/:id/define', to: 'ideas#define'
   get '/ideas/:id/reputation', to: 'ideas#reputation'
   get '/ideas/:id/activity', to: 'ideas#activity'

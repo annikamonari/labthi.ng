@@ -20,7 +20,7 @@ class IpComponent < Component
     ]
 
     names.each do |name|
-      create_component_part(name)
+      self.parts.create(name:name)
     end
   end  
 end

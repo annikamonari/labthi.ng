@@ -1,0 +1,18 @@
+class IdeaBuildsController < ApplicationController
+  before_action :set_idea
+  before_action :set_idea_build
+
+  def overview
+  end
+
+  def components
+  end
+
+  def set_idea
+    @idea = Idea.find(params[:id])
+  end
+
+  def set_idea_build
+    @idea_build = @idea.idea_build
+  end
+end

@@ -1,14 +1,14 @@
 class ExploreController < ApplicationController
-  before_action :get_ideas
   before_action :set_categories
   
   layout 'sidebar_left_small'
 
   def create
-    
+    get_ideas(1)
   end
   def build
-    
+    get_ideas(2)
+    @ideas = Idea.where(phase: 2).includes(:idea_build, :user)
   end
   def buy
     
@@ -20,14 +20,12 @@ class ExploreController < ApplicationController
     @categories = Idea.categories
   end
 
-  def get_ideas
-    if params[:phase]
-      @ideas = Idea.where(phase: params[:phase]).includes(:user)
-    elsif params[:category]
+  def get_ideas(phase)
+    if params[:category]
       category = params[:category]
-      @ideas = Idea.tagged_with(category, :on => :categories).includes(:user)
+      @ideas = Idea.where(phase: phase).tagged_with(category, :on => :categories).includes(:idea_build, :user)
     else
-      @ideas = Idea.all.includes(:user)
+      @ideas = Idea.where(phase: phase).includes(:idea_build, :user)
     end
   end
 end

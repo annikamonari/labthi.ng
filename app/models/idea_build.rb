@@ -9,11 +9,20 @@ class IdeaBuild < ActiveRecord::Base
   before_create :create_required_components
 
   def create_required_components
-    create_component(PlanComponent.new)
-    create_component(IpComponent.new)
-    create_component(BusinessPlanComponent.new)
-    create_component(PrototypeComponent.new)
-    create_component(DesignComponent.new)
+    self.plan_component = PlanComponent.new
+    create_component(plan_component)
+
+    self.ip_component = IpComponent.new
+    create_component(ip_component)
+
+    self.business_plan_component = BusinessPlanComponent.new
+    create_component(business_plan_component)
+
+    self.prototype_component = PrototypeComponent.new
+    create_component(prototype_component)
+
+    self.design_component = DesignComponent.new
+    create_component(design_component)
   end
 
   def create_component(component)

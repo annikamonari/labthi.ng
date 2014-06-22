@@ -1,4 +1,5 @@
 class DesignComponent < Component
+  
   def create_required_parts
     names = [
       "Style Tile",
@@ -10,7 +11,7 @@ class DesignComponent < Component
     ]
 
     names.each do |name|
-      create_component_part(name)
+      self.parts.create(name:name)
     end
   end
 end

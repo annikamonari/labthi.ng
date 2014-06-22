@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 if User.count == 0
-	5.times do |i|
+	6.times do |i|
 	  u = User.new(
 	      :email => "email#{Time.new.usec}@domain.com",
 	      :password => '12341234',
@@ -17,6 +17,9 @@ if User.count == 0
 	  u.save!
 	  FactoryGirl.create(:comment)
 	end
+
+	Idea.last.promote!
+	Idea.first.promote!
 end
 
 aspect_data = [

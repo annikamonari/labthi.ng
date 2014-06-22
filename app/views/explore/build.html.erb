@@ -1,3 +1,19 @@
 <% ### explore#build ### %>
 
-<%= render template: 'explore/create' %>
+<% content_for :sidebar_left_small do %>
+  <p>
+    <%= link_to "Submit Idea", '/ideas/new', class: 'btn btn-primary' %>
+  </p>
+  <hr>
+  <% @categories.each do |category| %>
+  <p>
+    <%= link_to category, { controller: 'explore', action: 'build', category: category }, class: 'category-tag' %>
+  </p>
+  <% end %>
+<% end %>
+
+<% if @ideas then %>
+  <% @ideas.each do |idea| %>
+    <%= render 'print_idea_for_build', :idea => idea %>
+  <% end %>
+<% end %>
