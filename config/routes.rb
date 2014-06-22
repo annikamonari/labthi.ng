@@ -33,9 +33,9 @@ StartIt::Application.routes.draw do
 
 
 
-  get "/ideas/:idea_id/parts/:id/edit", to: "parts#edit"
-  delete "/ideas/:idea_id/parts/:id/clear", to: "parts#clear"
-  delete "/ideas/:idea_id/parts/:id/update", to: "parts#update"
+  get "/ideas/:idea_id/parts/:id/edit", to: "parts#edit", as: "edit_part"
+  delete "/ideas/:idea_id/parts/:id/clear", to: "parts#clear", as: "clear_part"
+  put "/ideas/:idea_id/parts/:id/update", to: "parts#update", as: "update_part"
 
   get "/ideas/:idea_id/build", to: "idea_builds#overview", as: 'idea_build'
   get "/ideas/:idea_id/build/components", to: "idea_builds#components", as: 'idea_build_components'
