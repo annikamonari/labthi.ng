@@ -3,9 +3,8 @@ require 'spec_helper'
 describe PlanComponent do
 
   it "creates its required parts" do
-    expect{
       plan_component = create(:plan_component)
-      }.to change(Part, :count).by(8)
+      expect(plan_component.parts.count).to eq(8) 
   end
 
   context "method implementations" do
