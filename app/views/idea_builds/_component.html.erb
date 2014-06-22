@@ -1,6 +1,6 @@
 <% component.parts.each do |part| %>
 
-  <%= part.name %>
-<% end %>
+  <%= link_to part.name, edit_part_path(id: part) %>
 
-<br>
+  <br>
+<% end %>

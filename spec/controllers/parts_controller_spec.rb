@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe PartsController do
 
+  before(:each) do
+    @user = create(:user)
+    sign_in @user
+  end
+
   describe "GET 'edit'" do
     before(:each) do
       @part = create(:part)

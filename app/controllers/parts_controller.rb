@@ -1,5 +1,6 @@
 class PartsController < ApplicationController
   before_action :set_part
+  before_action :auth_user!
 
   def edit
   end
@@ -13,6 +14,7 @@ class PartsController < ApplicationController
   end
 
   def update
+    @part.user = current_user
     respond_to do |format|
       if @part.update(part_params)
         format.html {redirect_to @part.idea_build}
@@ -27,7 +29,7 @@ class PartsController < ApplicationController
   end
 
   def part_params
-    params.require(:part).permit(:user, :value)
+    params.require(:part).permit(:value)
   end
 
 end
