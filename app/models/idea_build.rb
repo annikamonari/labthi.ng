@@ -10,7 +10,7 @@ class IdeaBuild < ActiveRecord::Base
 
   def create_required_components
     create_component(PlanComponent.new)
-    create_component(IPComponent.new)
+    create_component(IpComponent.new)
     create_component(BusinessPlanComponent.new)
     create_component(PrototypeComponent.new)
     create_component(DesignComponent.new)

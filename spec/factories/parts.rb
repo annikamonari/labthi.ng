@@ -5,6 +5,6 @@ FactoryGirl.define do
     name "MyString"
     value "MyText"
     user
-    component
+    component { create(:plan_component) }
   end
 end

@@ -38,7 +38,7 @@ describe IdeaBuild do
     it "creates an ip component" do
       expect {
         create(:idea_build)
-      }.to change(IPComponent, :count).by(1)
+      }.to change(IpComponent, :count).by(1)
     end
 
     it "creates a business plan component" do

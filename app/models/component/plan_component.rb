@@ -1,6 +1,4 @@
 class PlanComponent < Component
-  before_create :create_required_parts
-
   def create_required_parts
     names = [
       "Advisory",
