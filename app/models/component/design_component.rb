@@ -1,0 +1,2 @@
+class DesignComponent < Component
+end

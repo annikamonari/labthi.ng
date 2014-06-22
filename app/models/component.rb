@@ -1,5 +1,6 @@
 class Component < ActiveRecord::Base
   has_many :parts
+  belongs_to :idea_build
 
   private
 

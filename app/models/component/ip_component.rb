@@ -1,0 +1,3 @@
+class IPComponent < Component
+  
+end

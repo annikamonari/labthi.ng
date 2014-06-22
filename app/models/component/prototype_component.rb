@@ -1,0 +1,2 @@
+class PrototypeComponent < Component
+end

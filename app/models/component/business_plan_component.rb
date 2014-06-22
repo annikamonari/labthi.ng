@@ -1,0 +1,2 @@
+class BusinessPlanComponent < Component
+end
