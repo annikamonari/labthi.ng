@@ -1,4 +1,4 @@
 FactoryGirl.define do
-  factory :ip_component do
+  factory :design_component do
   end
 end

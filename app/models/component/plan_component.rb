@@ -5,11 +5,14 @@ class PlanComponent < Component
       "Idea Scope Summary",
       "Business Scope Summary", 
       "Prototype & Design Flowchart, List & Explanations",
-      "Survey"
+      "Survey",
+      "IP Survey",
+      "Prototype Survey",
+      "Design Survey"
     ]
 
     names.each do |name|
-      create_component_part("Advisory")
+      create_component_part(name)
     end
   end
 end

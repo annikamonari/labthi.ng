@@ -4,7 +4,7 @@ describe IpComponent do
   it "creates its required parts" do
     expect{
       ip_component = create(:ip_component)
-      }.to change(Part, :count).by(5)
+      }.to change(Part, :count).by(15)
   end
 
   context "method implementations" do
