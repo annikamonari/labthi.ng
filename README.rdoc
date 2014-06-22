@@ -1,5 +1,7 @@
 == Labthi.ng
 
+[ ![Codeship Status for mpgarate/labthi.ng](https://codeship.io/projects/e8da92d0-dc4a-0131-d767-0e4b520412df/status)](https://codeship.io/projects/24517)
+
 This readme will be on the sparse side.
 
 === Heroku Apps
