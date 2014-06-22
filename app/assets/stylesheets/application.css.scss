@@ -44,6 +44,21 @@ $navbar-default-link-active-color: black;
 /* Badge */
 $badge-bg: $lab-med-grey;
 
+.badge-rep {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  line-height: 1;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #bdc3c7;
+  border-radius: 10px;
+  margin-bottom: 3px;
+}
 
 /* Secondary Nav */
 .secondary-nav .btn {
@@ -62,8 +77,6 @@ $badge-bg: $lab-med-grey;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-
-
 
 @import "twitter/bootstrap";
 
