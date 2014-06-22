@@ -34,6 +34,7 @@ StartIt::Application.routes.draw do
   get '/ideas/:id/define', to: 'ideas#define'
   get '/ideas/:id/reputation', to: 'ideas#reputation'
   get '/ideas/:id/activity', to: 'ideas#activity'
+  get '/ideas/:id/build', to: 'ideas#build'
   resources :ideas do
     member do
       post :vote 

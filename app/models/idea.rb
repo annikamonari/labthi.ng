@@ -86,4 +86,11 @@ class Idea < ActiveRecord::Base
     ]
   end
 
+  def promote!
+    self.phase += 1
+    idea_build = IdeaBuild.new
+    idea_build.idea_id = self.id
+    idea_build.save
+  end
+
 end

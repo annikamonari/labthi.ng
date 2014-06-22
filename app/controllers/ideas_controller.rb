@@ -85,6 +85,10 @@ class IdeasController < ApplicationController
     end
   end
 
+  def build
+    
+  end
+
   def define
     @aspects = Aspect.all
     render layout: 'sidebar_left'

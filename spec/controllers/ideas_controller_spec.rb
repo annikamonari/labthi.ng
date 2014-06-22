@@ -146,5 +146,4 @@ describe IdeasController do
       response.should redirect_to(ideas_url)
     end
   end
-
 end

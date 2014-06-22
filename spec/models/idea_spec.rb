@@ -39,4 +39,16 @@ describe Idea do
     before {idea.brief = "a" * 501 }
     it { should_not be_valid }
   end
+
+  describe "idea promotion" do
+    before(:each) do
+      @idea = FactoryGirl.create(:idea)
+    end
+
+    it "creates a new IdeaBuild object" do
+      expect {
+        @idea.promote!
+      }.to change(IdeaBuild, :count).by(1)
+    end
+  end
 end

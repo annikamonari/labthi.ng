@@ -23,6 +23,8 @@ module StartIt
     #config.i18n.enforce_available_locales = true
     #I18n.config.enforce_available_locales = true
     
+    config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**/}')]
+
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
 
     config.generators do |g|
