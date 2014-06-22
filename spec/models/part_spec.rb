@@ -20,4 +20,12 @@ describe Part do
   it "responds to component" do
     expect(@part).to respond_to :component
   end
+
+  it "responds to idea" do
+    expect(@part).to respond_to :idea
+  end
+
+  it "retrieves an idea" do
+    expect(@part.idea).to_not be nil
+  end
 end

@@ -9,7 +9,7 @@ class IdeaBuildsController < ApplicationController
   end
 
   def set_idea
-    @idea = Idea.find(params[:id])
+    @idea = Idea.find(params[:idea_id])
   end
 
   def set_idea_build

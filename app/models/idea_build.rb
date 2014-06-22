@@ -9,24 +9,15 @@ class IdeaBuild < ActiveRecord::Base
   before_create :create_required_components
 
   def create_required_components
-    self.plan_component = PlanComponent.new
-    create_component(plan_component)
 
-    self.ip_component = IpComponent.new
-    create_component(ip_component)
+    create_plan_component
 
-    self.business_plan_component = BusinessPlanComponent.new
-    create_component(business_plan_component)
+    create_ip_component
 
-    self.prototype_component = PrototypeComponent.new
-    create_component(prototype_component)
+    create_business_plan_component
 
-    self.design_component = DesignComponent.new
-    create_component(design_component)
-  end
+    create_prototype_component
 
-  def create_component(component)
-    component.idea_build_id = self.id
-    component.save
+    create_design_component
   end
 end
