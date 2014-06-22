@@ -2,6 +2,18 @@
 
 This readme will be on the sparse side.
 
+
+=== Workflow
+- check out the dev branch
+- create a new branch with `git checkout -b my_feature_name`
+- make changes and commits. It is ok to push with `git push my_feature_name` even if tests fail
+- once feature is complete and tests pass, submit a pull request back into dev
+- another team member must review the code and provide feedback
+- if the code is ready to ship, the reviewer marks a :ship: and merges the pull request
+
+- periodically, when all tests pass in dev, code will be merged to staging and tested on heroku-staging. If all goes well, it will be merged into master and pushed to production on heroku.  
+
+
 === Heroku Apps
 - http://labthing.herokuapp.com
 - http://labthing-staging.herokuapp.com
