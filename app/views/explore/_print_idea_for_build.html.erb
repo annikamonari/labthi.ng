@@ -1,5 +1,5 @@
 <div class="idea-block col-sm-12 col-md-6 col-lg-6">
-  <%= link_to idea.idea_build, class: "idea-block-link list-group-item #{idea.title} clearfix" do %>
+  <%= link_to idea_build_path(idea), class: "idea-block-link list-group-item #{idea.title} clearfix" do %>
     <div classs="clearfix">
       <div><strong classs=""><%= idea.title %></strong></div>
       <div class="pull-right">

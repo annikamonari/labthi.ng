@@ -17,9 +17,9 @@ class PartsController < ApplicationController
     @part.user = current_user
     respond_to do |format|
       if @part.update(part_params)
-        format.html {redirect_to @part.idea_build}
+        format.html {redirect_to idea_build_path(@part.idea)}
       else
-        format.html {redirect_to @part.idea_build}
+        format.html {redirect_to idea_build_path(@part.idea)}
       end
     end
   end

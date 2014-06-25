@@ -48,6 +48,7 @@ StartIt::Application.routes.draw do
       post :vote 
       get :followers
     end
+    resources :idea_build, only: [:edit, :clear, :update]
   end
 
   resources :idea_relationships, only: [:create, :destroy]

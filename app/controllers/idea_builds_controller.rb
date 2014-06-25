@@ -14,5 +14,7 @@ class IdeaBuildsController < ApplicationController
 
   def set_idea_build
     @idea_build = @idea.idea_build
+    puts "-------------------------------"
+    puts "DEBUG: #{@idea_build.to_s}"
   end
 end
