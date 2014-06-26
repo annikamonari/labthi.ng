@@ -12,10 +12,8 @@
 	<% end %>
 <% end %>
 
-	<% if @ideas then %>
-			<% @ideas.each do |idea| %>
-				<%= render 'print_idea_for_create', :idea => idea %>
-			<% end %>
-		<% else %>
-				<%= render 'print_idea', :idea => @idea %>
+<% if @ideas then %>
+	<% @ideas.each do |idea| %>
+		<%= render 'print_idea_for_create', :idea => idea %>
+	<% end %>
 <% end %>

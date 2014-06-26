@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140418141717) do
+ActiveRecord::Schema.define(version: 20140622044509) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -94,6 +94,24 @@ ActiveRecord::Schema.define(version: 20140418141717) do
     t.string   "commentable_type"
   end
 
+  create_table "components", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "type"
+    t.integer  "idea_build_id"
+  end
+
+  add_index "components", ["idea_build_id"], name: "index_components_on_idea_build_id", using: :btree
+
+  create_table "idea_builds", force: true do |t|
+    t.integer  "idea_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "idea_builds", ["idea_id"], name: "index_idea_builds_on_idea_id", using: :btree
+
   create_table "idea_relationships", force: true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -129,6 +147,18 @@ ActiveRecord::Schema.define(version: 20140418141717) do
   add_index "lab_evaluations", ["content_creator_id"], name: "index_lab_evaluations_on_content_creator_id", using: :btree
   add_index "lab_evaluations", ["content_id", "content_type"], name: "index_lab_evaluations_on_content_id_and_content_type", using: :btree
   add_index "lab_evaluations", ["evaluator_id"], name: "index_lab_evaluations_on_evaluator_id", using: :btree
+
+  create_table "parts", force: true do |t|
+    t.string   "name"
+    t.text     "value"
+    t.integer  "user_id"
+    t.integer  "component_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "parts", ["component_id"], name: "index_parts_on_component_id", using: :btree
+  add_index "parts", ["user_id"], name: "index_parts_on_user_id", using: :btree
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"

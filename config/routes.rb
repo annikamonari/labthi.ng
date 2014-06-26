@@ -1,5 +1,5 @@
 StartIt::Application.routes.draw do
-  
+
   #match "/evaluations/vote", via:[:post], as: "vote"
   match "/comments/vote", via:[:post], as: "comment_vote"
   match "/questions/vote", via:[:post], as: "question_vote"
@@ -31,14 +31,24 @@ StartIt::Application.routes.draw do
   get '/profiles/:id/labs', to: 'profiles#labs'
   resources :profiles, except: [:index]
 
+
+
+  get "/ideas/:idea_id/parts/:id/edit", to: "parts#edit", as: "edit_part"
+  delete "/ideas/:idea_id/parts/:id/clear", to: "parts#clear", as: "clear_part"
+  put "/ideas/:idea_id/parts/:id/update", to: "parts#update", as: "update_part"
+
+  get "/ideas/:idea_id/build", to: "idea_builds#overview", as: 'idea_build'
+  get "/ideas/:idea_id/build/components", to: "idea_builds#components", as: 'idea_build_components'
   get '/ideas/:id/define', to: 'ideas#define'
   get '/ideas/:id/reputation', to: 'ideas#reputation'
   get '/ideas/:id/activity', to: 'ideas#activity'
+  get '/ideas/:id/build', to: 'ideas#build'
   resources :ideas do
     member do
       post :vote 
       get :followers
     end
+    resources :idea_build, only: [:edit, :clear, :update]
   end
 
   resources :idea_relationships, only: [:create, :destroy]

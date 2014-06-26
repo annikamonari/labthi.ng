@@ -10,7 +10,7 @@
   </p>
 
   <p>
-    <%= link_to "Followers", '/ideas/' + @idea.id.to_s + '/followers',
+    <%= link_to "Followers", followers_idea_path(@idea),
       class: 'followers' %>
   </p>
 

@@ -20,6 +20,8 @@ class Idea < ActiveRecord::Base
 
   has_many :followers, through: :reverse_idea_relationships
 
+  has_one :idea_build
+
   acts_as_taggable_on :categories, :component
 
   def image_aspect
@@ -84,6 +86,15 @@ class Idea < ActiveRecord::Base
       "Good",
       "Service"
     ]
+  end
+
+  def promote!
+    self.phase += 1
+    self.save
+
+    idea_build = IdeaBuild.new
+    idea_build.idea_id = self.id
+    idea_build.save
   end
 
 end
