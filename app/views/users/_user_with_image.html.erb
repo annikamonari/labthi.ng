@@ -1,14 +1,16 @@
 <% profile = user.profile %>
-<div class="media">
-  <%= link_to profile, class: "pull-left" do %>
-    <%= image_tag(profile.photo.thumb, class:'media-object') %>
-  <% end %>
-  <div class="pull-left">
-    <%= render 'users/user', user: user %>
-    <br>
-    <% if profile.profession %>
-      <strong>Profession:</strong>
-      <%= profile.profession %>
+<li class="white-bg">
+  <div class="media">
+    <%= link_to profile, class: "pull-left" do %>
+      <%= image_tag(profile.photo.thumb, class:'media-object') %>
     <% end %>
+    <div class="pull-left">
+      <%= render 'users/user', user: user %>
+      <br>
+      <% if profile.profession %>
+        <strong>Profession:</strong>
+        <%= profile.profession %>
+      <% end %>
+    </div>
   </div>
-</div>
+</li>

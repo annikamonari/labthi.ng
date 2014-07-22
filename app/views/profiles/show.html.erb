@@ -3,5 +3,7 @@
 <%= render 'secondary_nav' %>
 <%= render 'sidebar' %>
 
-<h3>My recent activity</h3>
-<%= render partial: "activities/activities", :locals => {activities: @activities} %>
+<h4>My recent activity</h4>
+<div class="content-bg">
+  <%= render partial: "activities/activities", :locals => {activities: @activities} %>
+</div>
