@@ -1,6 +1,7 @@
 <% activities.each do |activity| %>
-  <div class="activity">
+  <li class="white-bg">
     <%= render activity.owner if activity.owner %>
     <%= render_activity activity %>
-  </div>
+  </li>
 <% end %>
+

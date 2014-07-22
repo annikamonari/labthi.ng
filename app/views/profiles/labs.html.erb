@@ -3,6 +3,7 @@
 <%= render 'secondary_nav' %>
 <%= render 'sidebar' %>
 
-<%= render 'users/followed_ideas', user: @user %>
-
-<%= link_to "Edit", edit_profile_path(@profile) if current_user == @user %>
+<h4>My Labs</h4>
+<div class="content-bg">
+  <%= render 'users/followed_ideas', user: @user %>
+</div>
