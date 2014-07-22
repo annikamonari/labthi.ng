@@ -4,6 +4,4 @@
 <%= render 'sidebar' %>
 
 <h4>My recent activity</h4>
-<div class="content-bg">
-  <%= render partial: "activities/activities", :locals => {activities: @activities} %>
-</div>
+<%= render partial: "activities/activities", :locals => {activities: @activities} %>

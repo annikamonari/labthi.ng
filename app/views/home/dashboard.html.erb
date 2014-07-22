@@ -1,11 +1,11 @@
 <h1>Dashboard</h1>
 <p>Welcome, <%= current_user.first_name %>
 </p>
-
+<br>
 <h3>My recent activity</h3>
 <%= render partial: "activities/activities", :locals => {activities: @activities} %>
 
 <% content_for :sidebar_right do %>
-	<h3>My labs</h3>
+  <h3>My labs</h3>
   <%= render 'users/followed_ideas', user: current_user %>
 <% end %>
