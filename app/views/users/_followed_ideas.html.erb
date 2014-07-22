@@ -1,15 +1,24 @@
 <% followed_ideas = user.followed_ideas %>
-  <% followed_ideas.each do |idea| %>
-    <li class="white-bg">
-      <div class="media">
-        <%= link_to idea, class: "pull-left" do %>
-          <%= image_tag idea.top_image_thumb, class: 'img-rounded' %>
-        <% end %>
-        <div class="idea-render pull-left">
-          <%= render idea %>
+<div class="content-bg">
+  <div class="followed-ideas">
+    <% followed_ideas.each do |idea| %>
+      <li class="white-bg">
+        <div class="media">
+          <% if user == current_user then %>
+            <div class="unfollow-button-in-list pull-right">
+              <%= render 'ideas/unfollow', idea: idea %>
+            </div>
+          <% end %>
+          <%= link_to idea, class: "pull-left" do %>
+            <%= image_tag idea.top_image_thumb, class: 'img-rounded' %>
+          <% end %>
+          <div class="idea-render pull-left">
+            <%= render idea %>
+          </div>
+          <br>
+          <%= truncate(idea.brief, length: 70) %>
         </div>
-        <br>
-        <%= truncate(idea.brief, length: 120) %>
-      </div>
-    </li>
-  <% end %>
+      </li>
+    <% end %>
+  </div>
+</div>

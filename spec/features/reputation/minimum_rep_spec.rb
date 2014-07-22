@@ -11,6 +11,6 @@ feature 'Visitor maintains minimum reputation' do
     visit question_path @question
     click_link "vote-down-question-#{@question.id}"
     find('.show-user-profile a').click
-    find(".sidebar .rep-points").should have_content '0'
+    find(".badge-rep").should have_content '0'
   end
 end

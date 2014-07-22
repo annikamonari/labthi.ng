@@ -11,6 +11,5 @@ feature 'User visits dashboard page' do
   	submit_idea title, brief
   	click_link 'Labthi.ng'
   	page.should have_content title
-  	page.should_not have_content brief
   end
 end
