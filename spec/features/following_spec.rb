@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'User can', js: true do
+feature 'User can' do
 
   before(:each) do
     @user = sign_in
