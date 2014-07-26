@@ -1,27 +1,27 @@
 <% content_for :page_title do %>
-	<div class="clearfix">
-		<div class="col-sm-6">
-			 <h2>
-				<%= @user.name %>
-				<span class="rep-points badge-rep">
-					<%= @user.lab_rep_points %>
-				</span>
-    		</h2>
-		</div><!-- .pull-left -->
-	</div>
+  <div class="clearfix">
+    <div class="col-sm-6">
+       <h2>
+        <%= @user.name %>
+        <span class="rep-points badge-rep">
+          <%= @user.lab_rep_points %>
+        </span>
+        </h2>
+    </div><!-- .pull-left -->
+  </div>
 <% end %>
 
 <% content_for :secondary_nav do %>
   <div class="secondary-nav">
-		<%= link_to "Activity", {
-		  controller: "profiles",
-		  action: "show" },
-		  class: 'btn btn-default ' + active_when(@profile)
-		%>
-		<%= link_to "Labs", {
-		  controller: "profiles",
-		  action: "labs" },
-		  class: 'btn btn-default ' + active_when(:controller => 'profiles', :action => 'labs')
-		%>
+    <%= link_to "Activity", {
+      controller: "profiles",
+      action: "show" },
+      class: 'btn btn-default ' + active_when(@profile)
+    %>
+    <%= link_to "Labs", {
+      controller: "profiles",
+      action: "labs" },
+      class: 'btn btn-default ' + active_when(:controller => 'profiles', :action => 'labs')
+    %>
   </div>
 <% end %>
