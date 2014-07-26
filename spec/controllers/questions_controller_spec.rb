@@ -50,7 +50,7 @@ describe QuestionsController do
 
   describe "GET new" do
     it "assigns a new question as @question" do
-      get :new, :idea_id => valid_attributes[:idea].id
+      get :new, {:idea_id => valid_attributes[:idea].id}, valid_session
       assigns(:question).should be_a_new(Question)
     end
   end

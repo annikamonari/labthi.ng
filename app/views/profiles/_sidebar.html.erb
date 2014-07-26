@@ -1,13 +1,9 @@
 <% content_for :sidebar_left do %>
-  <h3><%= @user.name %>
-    <span class="rep-points label label-default">
-      <%= @user.lab_rep_points %>
-    </span>
-  </h3>
+<br>
   <p>
     <%= image_tag @profile.photo.display %>
   </p>
-
+  <br>
   <p>
     <strong>Profession:</strong>
     <%= @profile.profession %>
