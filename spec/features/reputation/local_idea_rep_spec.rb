@@ -1,6 +1,5 @@
 require 'spec_helper'
 feature 'Visitor votes' do
-=begin
   before(:each) do
   	@idea = FactoryGirl.create(:idea)
   	sign_in
@@ -27,5 +26,4 @@ feature 'Visitor votes' do
     click_link "vote-undo-idea-#{@idea.id}"
     check_idea_rep(@idea,1)
   end
-=end
 end

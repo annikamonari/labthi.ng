@@ -6,8 +6,7 @@ module Features
 
   		visit url_for(@idea)
 	    click_link "Reputation"
-	    save_and_open_page
-	    selector.should have_content("#{val}")
+	    find(selector).should have_content(val)
   	end
   end
 end
