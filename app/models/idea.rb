@@ -89,12 +89,16 @@ class Idea < ActiveRecord::Base
   end
 
   def promote!
-    self.phase += 1
-    self.save
+    if phase < 3
+      self.phase += 1
+      self.save
+    end
 
-    idea_build = IdeaBuild.new
-    idea_build.idea_id = self.id
-    idea_build.save
+    if phase == 2
+      idea_build = IdeaBuild.new
+      idea_build.idea_id = self.id
+      idea_build.save
+    end
   end
 
 end

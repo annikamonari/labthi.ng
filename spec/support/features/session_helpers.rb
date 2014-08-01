@@ -10,8 +10,8 @@ module Features
       click_button 'Register'
     end
 
-    def sign_in()
-      user = create(:user)
+    def sign_in(user)
+      user = create(:user) if user == nil
       visit '/login'
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password

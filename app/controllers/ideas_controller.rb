@@ -85,6 +85,16 @@ class IdeasController < ApplicationController
     end
   end
 
+  def promote
+    puts "DEBUG:-------------------- "
+    puts @idea.phase
+    @idea.promote!
+    puts @idea.phase
+    respond_to do |format|
+      format.html {redirect_to @idea, notice: "Promoted idea."}
+    end
+  end
+
   def define
     @aspects = Aspect.all
     render layout: 'sidebar_left'
