@@ -89,6 +89,7 @@ class Idea < ActiveRecord::Base
   end
 
   def promote!
+    puts "DEBUG: promoting idea #{id} from #{phase}"
     if phase < 3
       self.phase += 1
       self.save

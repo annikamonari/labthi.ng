@@ -86,12 +86,9 @@ class IdeasController < ApplicationController
   end
 
   def promote
-    puts "DEBUG:-------------------- "
-    puts @idea.phase
     @idea.promote!
-    puts @idea.phase
     respond_to do |format|
-      format.html {redirect_to @idea, notice: "Promoted idea."}
+      format.html {redirect_to :back, notice: "Promoted idea."}
     end
   end
 
