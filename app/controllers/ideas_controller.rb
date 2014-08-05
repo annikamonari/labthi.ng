@@ -88,7 +88,7 @@ class IdeasController < ApplicationController
   def promote
     @idea.promote!
     respond_to do |format|
-      format.html {redirect_to :back, notice: "Promoted idea."}
+      format.html {redirect_to @idea, notice: "Promoted idea."}
     end
   end
 

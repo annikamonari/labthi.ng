@@ -3,8 +3,8 @@ require 'spec_helper'
 feature 'promote an idea' do
 	before (:each) do
 		@idea = FactoryGirl.create(:idea)
-		@user = FactoryGirl.create(:admin_user)
-		sign_in @user
+		@user = FactoryGirl.create(:user)
+		sign_in @user 
 	end
 
 	it "promotes an idea" do
