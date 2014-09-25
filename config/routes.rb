@@ -1,5 +1,6 @@
 StartIt::Application.routes.draw do
 
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   #match "/evaluations/vote", via:[:post], as: "vote"
   match "/comments/vote", via:[:post], as: "comment_vote"
   match "/questions/vote", via:[:post], as: "question_vote"

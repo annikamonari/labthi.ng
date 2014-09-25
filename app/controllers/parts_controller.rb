@@ -29,7 +29,7 @@ class PartsController < ApplicationController
   end
 
   def part_params
-    params.require(:part).permit(:value)
+    params.require(:part).permit(:value, :bootsy_image_gallery_id)
   end
 
 end

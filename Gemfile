@@ -8,7 +8,7 @@ ruby '2.0.0'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 
-gem 'mini_magick'
+gem 'mini_magick', '>= 3.7.0'
 # Suggested for heroku, enables logging
 gem 'rails_12factor', group: :production
 
@@ -62,7 +62,7 @@ gem 'thin'
 gem 'acts-as-taggable-on'
 
 # file upload management
-gem 'carrierwave'
+gem 'carrierwave', '>= 0.10.0'
 
 # Activity Stream
 gem 'public_activity', github: 'pokonski/public_activity'
@@ -72,6 +72,9 @@ gem "fog"
 
 # Library used by fog gem
 gem 'unf'
+
+# Used for WYSIWYG editor (Phase 2)
+gem 'bootsy', '~> 2.0.10'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

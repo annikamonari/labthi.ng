@@ -1,4 +1,7 @@
 class Part < ActiveRecord::Base
+  # Used to associate image galaries from bootsy to this model
+  include Bootsy::Container
+
   belongs_to :user
   belongs_to :component
 
