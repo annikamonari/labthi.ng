@@ -12,15 +12,13 @@
   <% end %>
   <br>
   <div class="col-md-8 no-gutter">
-  <div class="field">
-    <%= f.bootsy_area :value, class: "form-control", :rows => 20%>
+    <div class="field">
+      <%= f.bootsy_area :value, class: "form-control", :rows => 20%>
+    </div>
+    <br>
+    <div class="actions">
+      <%= f.submit 'Save part', :class => "btn btn-primary" %>
+    </div>
   </div>
-
-
-  <br>
-  <div class="actions">
-    <%= f.submit 'Save part', :class => "btn btn-primary" %>
-  </div>
-   </div>
 
 <% end %>
