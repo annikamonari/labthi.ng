@@ -13,12 +13,9 @@ feature 'User visits a parts page' do
     page.html =~ /wysihtml5-toolbar/
   end
 
-  scenario 'and saves work once finished'
-    # Do not know enough about rspec to get this working will come back
-    # I have tested it manually and it currently works just need to figure
-    # what to reference the bootsy text_area as
-
-    # fill_in '???', :with => 'some text'
-    # click_button "Save part"
-    # @part.value == 'some_text'
+  scenario 'and saves work once finished' do
+    fill_in 'part_value', :with => 'some text'
+    click_button "Save part"
+    @part.value == 'some_text'
+  end
 end
