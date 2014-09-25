@@ -12,8 +12,6 @@ class IdeaBuild < ActiveRecord::Base
 
     create_plan_component
 
-    create_ip_component
-
     create_business_plan_component
 
     create_prototype_component

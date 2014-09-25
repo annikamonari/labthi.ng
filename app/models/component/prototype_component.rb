@@ -2,9 +2,8 @@ class PrototypeComponent < Component
   
   def create_required_parts
     names = [
-      "CAD/Flowchart",
-      "Prototype Draft",
-      "Prototype Final"
+      "Flowchart and Schema",
+      "Prototype"
     ]
 
     names.each do |name|

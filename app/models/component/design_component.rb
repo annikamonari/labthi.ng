@@ -2,12 +2,9 @@ class DesignComponent < Component
   
   def create_required_parts
     names = [
-      "Style Tile",
       "Logo",
-      "Wireframes Draft",
-      "Wireframes Final",
-      "Mockups Draft",
-      "Mockups Final"
+      "Wireframes",
+      "Mockups"
     ]
 
     names.each do |name|

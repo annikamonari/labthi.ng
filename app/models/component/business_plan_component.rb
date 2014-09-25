@@ -2,9 +2,6 @@ class BusinessPlanComponent < Component
   
   def create_required_parts
     names = [
-      "Advisory",
-      "Cover Sheet",
-      "Table of Contents",
       "Executive Summary",
       "Summary of Business",
       "Products or Services",
@@ -13,16 +10,7 @@ class BusinessPlanComponent < Component
       "Market Analysis",
       "Customer Service",
       "Marketing Strategy Implementation",
-      "Assessment of Market Effectiveness",
-      "Summary of Financial Needs",
-      "Dispersal of Loan Funds Statement",
-      "Cash Flow Statement",
-      "3 Year Income Projection",
-      "Break Even Analysis",
-      "Balance Sheet",
-      "Profit & Loss Statement",
-      "Loan Application/Financial History (Optional)",
-      "Financial Statement Analysis"
+      "Assessment of Market Effectiveness"
     ]
 
     names.each do |name|
