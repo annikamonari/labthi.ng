@@ -5,7 +5,6 @@ class BusinessPlanComponent < Component
       "Executive Summary",
       "Summary of Business",
       "Products or Services",
-      "Administrative Plan",
       "Marketing Strategy",
       "Market Analysis",
       "Customer Service",

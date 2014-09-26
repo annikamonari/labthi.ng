@@ -5,7 +5,7 @@ describe PrototypeComponent do
   it "creates its required parts" do
     expect{
       prototype_component = create(:prototype_component)
-      }.to change(Part, :count).by(3)
+      }.to change(Part, :count).by(2)
   end
 
   context "method implementations" do

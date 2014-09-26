@@ -4,7 +4,7 @@ describe PlanComponent do
 
   it "creates its required parts" do
       plan_component = create(:plan_component)
-      expect(plan_component.parts.count).to eq(8) 
+      expect(plan_component.parts.count).to eq(1) 
   end
 
   context "method implementations" do

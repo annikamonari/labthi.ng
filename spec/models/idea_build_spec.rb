@@ -10,10 +10,6 @@ describe IdeaBuild do
       expect(@idea_build).to respond_to :plan_component
     end
 
-    it "responds_to ip_component" do
-      expect(@idea_build).to respond_to :ip_component
-    end
-
     it "respond_to business_plan_component" do
       expect(@idea_build).to respond_to :business_plan_component
     end
@@ -33,12 +29,6 @@ describe IdeaBuild do
       expect {
         create(:idea_build)
       }.to change(PlanComponent, :count).by(1)
-    end
-    
-    it "creates an ip component" do
-      expect {
-        create(:idea_build)
-      }.to change(IpComponent, :count).by(1)
     end
 
     it "creates a business plan component" do
