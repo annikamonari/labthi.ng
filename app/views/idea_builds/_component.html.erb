@@ -1,14 +1,17 @@
 <% (component.parts.sort_by {|p| p.created_at}).each do |part| %>
+  <div class='content-bg'>
+  <div class='row'>
+    <div class='col-md-8'>
+      <%= link_to part.name, edit_part_path(id: part) %><br>
+      <%= "Status: #{part.status}"%><br>
+    </div>
 
-  <table>
-    <tr>
-      <td><%= link_to part.name, edit_part_path(id: part) %></td>
+    <div class='col-md-4 col-md-push-3'>
       <%if part.status != 'Accepted' %>
-        <td><%= button_to "#{part.button_status}", update_status_path(id: part), 
-            :class => "btn btn-primary", id: "#{part.id}"%></td>
+        <%= button_to "#{part.button_status}", update_status_path(id: part), 
+            :class => "btn btn-primary", id: "#{part.id}"%>
       <%end%>
-    <tr>
-  </table>
-  
-  <%= "Status: #{part.status}"%><br>
+    </div>
+  </div>
+  </div>
 <% end %>
