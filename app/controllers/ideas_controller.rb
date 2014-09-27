@@ -86,9 +86,11 @@ class IdeasController < ApplicationController
   end
 
   def promote
-    @idea.promote!
-    respond_to do |format|
-      format.html {redirect_to @idea, notice: "Promoted idea."}
+    if current_user.admin 
+      @idea.promote!
+      respond_to do |format|
+        format.html {redirect_to @idea, notice: "Promoted idea."}
+      end
     end
   end
 
