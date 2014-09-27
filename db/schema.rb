@@ -172,6 +172,8 @@ ActiveRecord::Schema.define(version: 20140927162133) do
     t.integer  "component_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
+    t.string   "button_status"
   end
 
   add_index "parts", ["component_id"], name: "index_parts_on_component_id", using: :btree

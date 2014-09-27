@@ -1,0 +1,1 @@
+$("#<%= j params[:id] %>").text("uviyvitv");
