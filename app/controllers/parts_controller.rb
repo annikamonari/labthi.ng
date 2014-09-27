@@ -28,13 +28,11 @@ class PartsController < ApplicationController
     case @part.status
     when 'Unstarted'
       @part.status = 'Started'
-      @part.button_status = 'Finish'
+      @part.user   = current_user
     when 'Started'
       @part.status = 'Finished'
-      @part.button_status = 'Review'
     when 'Finished' 
       @part.status = 'Pending Review'
-      @part.button_status = 'Accept'
     when 'Pending Review'
       @part.status = 'Accepted'
     end

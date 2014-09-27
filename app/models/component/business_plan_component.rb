@@ -13,7 +13,7 @@ class BusinessPlanComponent < Component
     ]
 
     names.each do |name|
-      self.parts.create(name:name, status:'Unstarted', button_status:'Start')
+      self.parts.create(name:name, status:'Unstarted')
     end
   end
 end
