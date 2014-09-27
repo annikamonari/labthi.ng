@@ -1,14 +1,6 @@
 class PlanComponent < Component
   
   def create_required_parts
-    names = [
-      "Idea Scope Summary",
-      "Business Scope Summary", 
-      "Prototype & Design Specification"
-    ]
-
-    names.each do |name|
-      self.parts.create(name:name)
-    end
+    self.parts.create(name:"Idea Description", status:'Unstarted')
   end
 end

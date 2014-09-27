@@ -24,6 +24,22 @@ class PartsController < ApplicationController
     end
   end
 
+  def update_status
+    case @part.status
+    when 'Unstarted'
+      @part.status = 'Started'
+      @part.user   = current_user
+    when 'Started'
+      @part.status = 'Finished'
+    when 'Finished' 
+      @part.status = 'Pending Review'
+    when 'Pending Review'
+      @part.status = 'Accepted'
+    end
+    @part.save
+    redirect_to idea_build_path(@part.idea)
+  end
+
   def set_part
     @part = Part.find(params[:id])
   end

@@ -8,7 +8,7 @@ class DesignComponent < Component
     ]
 
     names.each do |name|
-      self.parts.create(name:name)
+      self.parts.create(name:name, status:'Unstarted')
     end
   end
 end

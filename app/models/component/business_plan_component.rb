@@ -5,7 +5,6 @@ class BusinessPlanComponent < Component
       "Executive Summary",
       "Summary of Business",
       "Products or Services",
-      "Administrative Plan",
       "Marketing Strategy",
       "Market Analysis",
       "Customer Service",
@@ -14,7 +13,7 @@ class BusinessPlanComponent < Component
     ]
 
     names.each do |name|
-      self.parts.create(name:name)
+      self.parts.create(name:name, status:'Unstarted')
     end
   end
 end

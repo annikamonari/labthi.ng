@@ -32,6 +32,7 @@ StartIt::Application.routes.draw do
   get '/profiles/:id/labs', to: 'profiles#labs'
   resources :profiles, except: [:index]
 
+  post "/ideas/:idea_id/parts/:id/update_status", to: "parts#update_status", as: "update_status"
 
 
   get "/ideas/:idea_id/parts/:id/edit", to: "parts#edit", as: "edit_part"

@@ -15,4 +15,5 @@ class IdeaBuildsController < ApplicationController
   def set_idea_build
     @idea_build = @idea.idea_build
   end
+
 end
