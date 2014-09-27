@@ -4,7 +4,7 @@ describe DesignComponent do
   it "creates its required parts" do
     expect{
       design_component = create(:design_component)
-      }.to change(Part, :count).by(6)
+      }.to change(Part, :count).by(3)
   end
 
   context "method implementations" do
