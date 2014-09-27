@@ -2,7 +2,8 @@ require 'spec_helper'
 
 feature 'User visits the build page' do
   before(:each) do
-    sign_in
+    @user = FactoryGirl.create(:user, admin: true)
+    sign_in @user
     @part = FactoryGirl.create(:part)
     @idea = @part.component.idea_build.idea
     visit "/ideas/#{@idea.id}/build"
