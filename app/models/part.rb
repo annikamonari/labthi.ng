@@ -24,7 +24,7 @@ class Part < ActiveRecord::Base
     (review.include?(self.status) and user.admin)
   end
 
-  def disabled_status?
+  def disabled_button?
     self.status != 'Accepted'
   end
 
