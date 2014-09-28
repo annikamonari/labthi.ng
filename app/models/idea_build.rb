@@ -1,7 +1,6 @@
 class IdeaBuild < ActiveRecord::Base
   belongs_to :idea
   has_one :plan_component
-  has_one :ip_component
   has_one :business_plan_component
   has_one :prototype_component
   has_one :design_component
