@@ -32,8 +32,8 @@ class PartsController < ApplicationController
     when 'Started'
       @part.status = 'Finished'
     when 'Finished' 
-      @part.status = 'Pending Review'
-    when 'Pending Review'
+      @part.status = 'In Review'
+    when 'In Review'
       @part.status = 'Accepted'
     end
     @part.save

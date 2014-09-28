@@ -14,21 +14,29 @@ class Part < ActiveRecord::Base
   end
 
   def display_button?(user)
-    review = ['Finished', 'Pending Review']
+    self.status == 'Unstarted' or display_link?(user)
+  end
 
-    self.status == 'Unstarted' or 
+  def display_link?(user)
+    review = ['Finished', 'In Review']
+
     (self.status == 'Started' and self.user == user) or
     (review.include?(self.status) and user.admin)
   end
 
+  def disabled_status?
+    self.status != 'Accepted'
+  end
+
   def button_status
-    if self.status == 'Unstarted'
+    case self.status
+    when 'Unstarted'
       'Start'  
-    elsif self.status == 'Started'
+    when 'Started'
       'Finish'
-    elsif self.status == 'Finished'
+    when 'Finished'
       'Revew'
-    elsif self.status == 'Pending Review'  
+    when 'In Review'  
       'Accept' 
     end
   end
