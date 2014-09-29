@@ -1,4 +1,5 @@
 <%= form_for @part, url: update_part_path(id: @part), method: "PUT" do |f| %>
+  
   <% if @part.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@part.errors.count, "error") %> prohibited this part from being saved:</h2>
@@ -9,13 +10,13 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
-  <br>
+  <% end %><br>
+
   <div class="col-md-8 no-gutter">
     <div class="field">
       <%= f.bootsy_area :value, class: "form-control", :rows => 20%>
-    </div>
-    <br>
+    </div><br>
+    
     <div class="actions">
       <%= f.submit 'Save part', :class => "btn btn-primary" %>
     </div>

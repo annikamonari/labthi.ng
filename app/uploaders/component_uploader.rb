@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class DesignComponentUploader < CarrierWave::Uploader::Base
+class ComponentUploader < CarrierWave::Uploader::Base
 
 # Include RMagick or MiniMagick support:
   #include CarrierWave::RMagick
@@ -20,7 +20,7 @@ class DesignComponentUploader < CarrierWave::Uploader::Base
     storage :fog
   end
 
-  
+
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir

@@ -1,9 +1,11 @@
 <h1>Editing <%= @part.name %></h1>
 
-<% if @part.component.instance_of?(DesignComponent) %>
-  <%=  render 'design_form' %>
+<% if @part.is_design? %>   
+  <%=  render 'parts/design/design_display' %>
+  <%=  render 'parts/design/design_form' %>
 <% elsif @part.component.instance_of?(PrototypeComponent) %>
   Add functionality for both prototype parts
 <% else %>
   <%= render 'form' %>
 <% end %>
+

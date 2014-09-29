@@ -1,4 +1,5 @@
 <%= form_for @part, url: update_part_path(id: @part), method: "PUT" do |f| %>
+  
   <% if @part.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@part.errors.count, "error") %> prohibited this part from being saved:</h2>
@@ -9,18 +10,14 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
-  <br>
-  
-  <%if false%>
-    <div><%= image_tag @part.photo.display %></div>
-  <% end %>
+  <% end %><br>
 
   <div class="col-md-8 no-gutter">
     <div class="field">
-      <%= f.file_field :photo%>
-    </div>
-    <br>
+      <%= f.file_field :image, name: "part_uploads[image]"%>
+      <%= f.text_area :value, style: "display:none;" %>
+    </div><br>
+
     <div class="actions">
       <%= f.submit 'Save part', :class => "btn btn-primary" %>
     </div>

@@ -1,6 +1,7 @@
 class Part < ActiveRecord::Base
   # Used to associate image galaries from bootsy to this model
   include Bootsy::Container
+  has_many :part_uploads
 
   belongs_to :user
   belongs_to :component
@@ -13,6 +14,13 @@ class Part < ActiveRecord::Base
     @idea_build ||= component.idea_build
   end
 
+  # Used for part edit views
+  def is_design?
+    self.component.instance_of?(DesignComponent)
+  end
+
+
+  # Used for idea_build overview views
   def display_button?(user)
     self.status == 'Unstarted' or display_link?(user)
   end

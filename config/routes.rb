@@ -34,8 +34,8 @@ StartIt::Application.routes.draw do
 
   post "/ideas/:idea_id/parts/:id/update_status", to: "parts#update_status", as: "update_status"
 
-
   get "/ideas/:idea_id/parts/:id/edit", to: "parts#edit", as: "edit_part"
+  delete "/ideas/:idea_id/parts/:id/edit/remove_upload/:upload_id", to:"part_upload#destroy", as: "destroy_upload"
   delete "/ideas/:idea_id/parts/:id/clear", to: "parts#clear", as: "clear_part"
   put "/ideas/:idea_id/parts/:id/update", to: "parts#update", as: "update_part"
 

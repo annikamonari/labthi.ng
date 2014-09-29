@@ -8,18 +8,25 @@ class PartsController < ApplicationController
   def clear
     @part.value = nil
     @part.user = nil
+    @part.part_uploads.each { |u| u.delete }
     @part.save
 
     redirect_to @part.idea_build
   end
 
   def update
-    @part.user = current_user
+    @upload = nil
+    if params[:part_uploads]
+      @upload = PartUpload.new
+      @upload.image = params[:part_uploads]['image']
+      @upload.part = @part
+    end
+
     respond_to do |format|
-      if @part.update(part_params)
-        format.html {redirect_to idea_build_path(@part.idea)}
+      if @part.update(part_params) and (@upload == nil ? true : @upload.save)
+        format.html {redirect_to :back, notice: 'Part was successfully updated.'}
       else
-        format.html {redirect_to idea_build_path(@part.idea)}
+        format.html {redirect_to :back, notice: 'Part was not updated due to an error.'}
       end
     end
   end
@@ -45,7 +52,7 @@ class PartsController < ApplicationController
   end
 
   def part_params
-    params.require(:part).permit(:value, :bootsy_image_gallery_id)
+    params.require(:part).permit(:value, :bootsy_image_gallery_id, part_uploads_attributes: [:image])
   end
 
 end
