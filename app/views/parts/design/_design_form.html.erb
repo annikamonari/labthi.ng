@@ -1,4 +1,4 @@
-<%= form_for @part, url: update_part_path(id: @part), method: "PUT" do |f| %>
+<%= form_for @part, url: update_image_part_path(id: @part), method: "PUT" do |f| %>
   
   <% if @part.errors.any? %>
     <div id="error_explanation">
@@ -15,7 +15,6 @@
   <div class="col-md-8 no-gutter">
     <div class="field">
       <%= f.file_field :image, name: "part_uploads[image]"%>
-      <%= f.text_area :value, style: "display:none;" %>
     </div><br>
 
     <div class="actions">

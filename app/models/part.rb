@@ -19,6 +19,14 @@ class Part < ActiveRecord::Base
     self.component.instance_of?(DesignComponent)
   end
 
+  def is_prototype?
+    self.component.instance_of?(PrototypeComponent)
+  end
+
+  def is_plan?
+    self.component.instance_of?(PlanComponent)
+  end
+
 
   # Used for idea_build overview views
   def display_button?(user)

@@ -11,10 +11,10 @@ class PartsController < ApplicationController
     @part.part_uploads.each { |u| u.delete }
     @part.save
 
-    redirect_to @part.idea_build
+    redirect_to idea_build_path(@part.idea)
   end
 
-  def update
+  def update_image
     @upload = nil
     if params[:part_uploads]
       @upload = PartUpload.new
@@ -23,7 +23,17 @@ class PartsController < ApplicationController
     end
 
     respond_to do |format|
-      if @part.update(part_params) and (@upload == nil ? true : @upload.save)
+      if (@upload ? @upload.save : true)
+        format.html {redirect_to :back, notice: 'Part was successfully updated.'}
+      else
+        format.html {redirect_to :back, notice: 'Part was not updated due to an error.'}
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @part.update(part_params)
         format.html {redirect_to :back, notice: 'Part was successfully updated.'}
       else
         format.html {redirect_to :back, notice: 'Part was not updated due to an error.'}
