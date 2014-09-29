@@ -32,9 +32,11 @@
         </div>
       <% end %>
       </ul>
-    <p>
-      <%= link_to "Add comment", new_question_comment_path(@question), id: "question-#{@question.id}", remote: true %>
-    </p>
+    <% if @question.idea.phase == 1 %>
+      <p><%= link_to "Add comment", new_question_comment_path(@question), id: "question-#{@question.id}", remote: true %></p>
+    <% else %>
+      <p class="link-dis"> Add Comment </p>
+    <% end %>
   </div>
 </div><!-- .question -->
 
@@ -48,10 +50,11 @@
   <% end %>
 </ul>
 
-<p>
-  <%= link_to "Add answer", new_answer_path(question_id: @question.id), id: 'newanswer', remote:true %>
-</p>
-
+<% if @question.idea.phase == 1 %>
+  <p><%= link_to "Add answer", new_answer_path(question_id: @question.id), id: 'newanswer', remote:true %></p>
+<% else %>
+  <p class="link-dis"> Add Answer </p>
+<% end %>
 
 
 

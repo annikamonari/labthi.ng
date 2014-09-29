@@ -13,6 +13,7 @@ else if ($(y).attr('id') == 'newsolution' ) {
 	$(y).text("Add solution")
 	$("p.no.solution").show()
 }
+
 else {
 	$(y).text("Add comment")
 	$("div.no.comments").show()
@@ -29,7 +30,7 @@ if (!$(selector).children().hasClass("js-inline-form")) {
 else {
 	$(" li.js-inline-form").remove()
 	$("div.no.comments").show()
-	if($("#comment-<%= j @commentable.id.to_s %>").length > 0) {
+	if($(selector + "#comment-<%= j @commentable.id.to_s %>").length > 0) {
 		$("#<%= j @commentable.class.to_s.downcase + '-' + @commentable.id.to_s %>").text("Reply to comment")
 	}
 	else {

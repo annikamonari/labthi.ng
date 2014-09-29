@@ -7,8 +7,7 @@
 	  controller: "questions",
 	  action: "new",
 	  idea_id: @idea.id},
-	  class: 'btn btn-info pull-right'
-	%>
+	  class: (@idea.phase == 1 ? "btn btn-info pull-right" : "btn disabled btn-info pull-right") %>
 </div>
   <ul class="media-list questions">
 		<% if @idea.questions.count > 0 %>
@@ -23,5 +22,9 @@
 	  ?  
 		<% end %>
   </ul>
-<%= link_to 'Edit', edit_idea_path(@idea) %> |
-<%= link_to 'Back', ideas_path %>
+
+<%=
+   link_to_if(@idea.phase == 1, "Back", ideas_path) do
+     link_to("Back", idea_build_path(@idea))
+   end
+%>
