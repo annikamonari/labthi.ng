@@ -19,10 +19,13 @@
     </div>
 
     <div class='col-md-4 col-md-push-3'>
-      <% if part.display_button?(current_user) %>
+      <% if part.locked? %>
+        <%= button_to 'Locked', '', 
+            :class => 'btn disabled btn-status', id: "#{part.id}"%>
+      <% elsif part.display_button?(current_user) %>
         <%= button_to part.button_status, update_status_path(id: part), 
             :class => 'btn btn-inverse', id: "#{part.id}"%>
-      <%elsif part.disabled_button? %>
+      <% elsif part.disabled_button? %>
         <%= button_to part.status, '', 
             :class => 'btn disabled btn-status', id: "#{part.id}"%>
       <%end%>

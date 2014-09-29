@@ -47,6 +47,10 @@ class Part < ActiveRecord::Base
     self.status != 'Accepted'
   end
 
+  def locked?
+    idea_build.plan_component.parts[0].status != 'Accepted' and (not self.is_plan?)
+  end
+
   def button_status
     case self.status
     when 'Unstarted'
