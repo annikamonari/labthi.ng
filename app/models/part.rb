@@ -33,22 +33,22 @@ class Part < ActiveRecord::Base
 
   # Used for idea_build overview views
   def display_button?(user)
-    self.status == 'Unstarted' or display_link?(user)
+    self.status != 'Accepted' and (self.status == 'Unstarted' or display_link?(user))
   end
 
   def display_link?(user)
-    review = ['Finished', 'In Review']
-
-    (self.status == 'Started' and self.user == user) or
-    (review.include?(self.status) and user.admin)
+    (self.status == 'Started' and self.user == user) or user.admin
   end
 
-  def disabled_button?
-    self.status != 'Accepted'
+  def disabled_button?(user)
+    self.status != 'Accepted' and not user.admin
   end
 
   def locked?
-    idea_build.plan_component.parts[0].status != 'Accepted' and (not self.is_plan?)
+    ib = component.idea_build
+    (ib.plan_component.parts[0].status != 'Accepted' and (not self.is_plan?)) or
+    (self.name == 'Prototype' and ib.prototype_component.parts.find_by(name: 'Flowchart and Schema').status != 'Accepted') or
+    (self.name == 'Mockups' and ib.design_component.parts.find_by(name: 'Wireframes').status != 'Accepted')
   end
 
   def button_status
