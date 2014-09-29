@@ -41,6 +41,7 @@ class PartsController < ApplicationController
     end
   end
 
+  # Used for status setting
   def update_status
     case @part.status
     when 'Unstarted'
@@ -54,7 +55,15 @@ class PartsController < ApplicationController
       @part.status = 'Accepted'
     end
     @part.save
-    redirect_to idea_build_path(@part.idea)
+    redirect_to :back
+  end
+  
+  # Used for status setting
+  def unstart_part
+    @part.status = 'Unstarted'
+    @part.user   = nil
+    @part.save
+    redirect_to idea_build_path(@part.idea), notice: 'You successfully unstarted the part.'
   end
 
   def set_part

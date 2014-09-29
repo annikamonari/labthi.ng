@@ -27,6 +27,9 @@ class Part < ActiveRecord::Base
     self.component.instance_of?(PlanComponent)
   end
 
+  def is_started?
+    self.status == 'Started'
+  end
 
   # Used for idea_build overview views
   def display_button?(user)

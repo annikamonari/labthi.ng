@@ -9,4 +9,8 @@
   <%= render 'form' %>
 <% end %>
 
-<%= link_to 'Back', idea_build_path(@part.idea) %>
+<%= link_to 'Back', idea_build_path(@part.idea) %><br>
+
+<% if @part.is_started? %>
+  <%= link_to "Can't manage? Unstart", unstart_part_path, method: 'PUT' %>
+<% end %>
