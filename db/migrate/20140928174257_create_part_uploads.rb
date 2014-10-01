@@ -1,4 +1,4 @@
-class CreatePartUpload < ActiveRecord::Migration
+class CreatePartUploads < ActiveRecord::Migration
   def change
     create_table :part_uploads do |t|
       t.integer :part_id
