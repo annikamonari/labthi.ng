@@ -68,6 +68,19 @@ feature 'User visits the build page' do
     expect(page).to have_content('Accepted')
   end
 
+  scenario 'and a prototype is locked until the flowchart is complete' do
+    expect(page).to have_selector(:link_or_button, 'Locked', count: 11)
+    click_button "1"
+    click_button "1"
+    click_button "1"
+    expect(page).to have_selector(:link_or_button, 'Locked', count: 3)
+    click_button "8"
+    click_button "8"
+    click_button "8"
+    click_button "8"
+    expect(page).to have_selector(:link_or_button, 'Locked', count: 2)
+  end
+
   scenario 'and an admin can only see the review button; for other users its in review' do
     click_button "1"
     click_button "1"
