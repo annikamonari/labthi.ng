@@ -165,7 +165,7 @@ ActiveRecord::Schema.define(version: 20140928174257) do
   add_index "lab_evaluations", ["content_id", "content_type"], name: "index_lab_evaluations_on_content_id_and_content_type", using: :btree
   add_index "lab_evaluations", ["evaluator_id"], name: "index_lab_evaluations_on_evaluator_id", using: :btree
 
-  create_table "part_uploads", force: true do |t|
+  create_table "part_upload", force: true do |t|
     t.integer  "part_id"
     t.string   "image"
     t.datetime "created_at"
