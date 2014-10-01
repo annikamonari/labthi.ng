@@ -55,7 +55,7 @@ class Part < ActiveRecord::Base
     when 'Started'
       'Finish'
     when 'Finished'
-      'Revew'
+      'Review'
     when 'In Review'  
       'Accept' 
     end
