@@ -25,14 +25,6 @@ feature 'User visits the build page' do
     end
   end
 
-  scenario 'and finds image uploads for design parts and flowchart & schema part' do
-    links = ['Logo', 'Wireframes', 'Mockups', 'Flowchart and Schema']
-    links.each do |link|
-      click_link link
-    
-    end
-  end
-
   scenario 'and an admin but not a non admin user can click on any link they have not started' do
     expect(page).to have_selector(:link_or_button, 'Summary of Business')
     sign_out

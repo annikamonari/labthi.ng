@@ -4,6 +4,8 @@ describe IdeaBuildsController do
 
   before(:each) do
     @idea_build = create(:idea_build)
+    @user = FactoryGirl.create(:user)
+    sign_in @user
   end
 
   describe "GET 'overview'" do
