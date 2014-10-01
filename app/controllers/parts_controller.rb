@@ -16,9 +16,9 @@ class PartsController < ApplicationController
 
   def update_image
     @upload = nil
-    if params[:part_uploads]
+    if params[:part_upload]
       @upload = PartUpload.new
-      @upload.image = params[:part_uploads]['image']
+      @upload.image = params[:part_upload]['image']
       @upload.part = @part
     end
 
@@ -71,7 +71,7 @@ class PartsController < ApplicationController
   end
 
   def part_params
-    params.require(:part).permit(:value, :bootsy_image_gallery_id, part_uploads_attributes: [:image])
+    params.require(:part).permit(:value, :bootsy_image_gallery_id, part_upload_attributes: [:image])
   end
 
 end
