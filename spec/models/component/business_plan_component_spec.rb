@@ -5,7 +5,7 @@ describe BusinessPlanComponent do
   it "creates its required parts" do
     expect{
       business_plan_component = create(:business_plan_component)
-      }.to change(Part, :count).by(8)
+      }.to change(Part, :count).by(6)
   end
 
   context "method implementations" do
