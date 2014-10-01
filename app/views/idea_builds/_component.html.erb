@@ -25,6 +25,8 @@
       <% elsif part.display_button?(current_user) %>
         <%= button_to part.button_status, update_status_path(id: part), 
             :class => 'btn btn-inverse', id: "#{part.id}"%>
+      <% else %>
+        <%= link_to (image_tag part.user.profile.photo_url, :size => "32x32"), profile_path(part.user.profile)%>
       <%end%>
     </div>
 

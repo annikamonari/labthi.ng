@@ -65,10 +65,26 @@ class Part < ActiveRecord::Base
   private
 
     def locked?
-      ib = component.idea_build
-      (ib.plan_component.parts[0].status != 'Accepted' and (not is_plan?)) or
-      (self.name == 'Prototype' and ib.prototype_component.parts.find_by(name: 'Flowchart and Schema').status != 'Accepted') or
-      (self.name == 'Mockups' and ib.design_component.parts.find_by(name: 'Wireframes').status != 'Accepted')
+      plan_done? or schema_done? or wireframes_done? or business_plan_parts_done?
+    end
+
+    def business_plan_parts_done?
+      self.name == 'Executive Summary' and 
+      idea_build.business_plan_component.parts.any? { |p| p.name != 'Executive Summary' and p.status != 'Accepted' }
+    end
+
+    def schema_done?
+      self.name == 'Prototype' and 
+      idea_build.prototype_component.parts.find_by(name: 'Flowchart and Schema').status != 'Accepted'
+    end
+
+    def wireframes_done?
+      self.name == 'Mockups' and 
+      idea_build.design_component.parts.find_by(name: 'Wireframes').status != 'Accepted'
+    end
+
+    def plan_done?
+      idea_build.plan_component.parts[0].status != 'Accepted' and (not is_plan?)
     end
 
     def disabled?(user)

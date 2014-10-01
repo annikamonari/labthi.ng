@@ -3,7 +3,7 @@ class PrototypeComponent < Component
   def create_required_parts
     names = [
       ["Flowchart and Schema", "6%"],
-      ["Prototype", "20%"]
+      ["Prototype", "30%"]
     ]
 
     names.each do |name, equity|
