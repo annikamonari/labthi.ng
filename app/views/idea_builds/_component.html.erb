@@ -19,11 +19,8 @@
     </div>
 
     <div class='col-md-4 col-md-push-3'>
-      <% if part.locked? %>
-        <%= button_to 'Locked', '', 
-            :class => 'btn disabled btn-status', id: "#{part.id}"%>
-      <% elsif part.disabled_button?(current_user) %>
-        <%= button_to part.status, '', 
+      <% if part.locked_or_disabled?(current_user) %>
+        <%= button_to part.disabled_status, '', 
             :class => 'btn disabled btn-status', id: "#{part.id}"%>
       <% elsif part.display_button?(current_user) %>
         <%= button_to part.button_status, update_status_path(id: part), 

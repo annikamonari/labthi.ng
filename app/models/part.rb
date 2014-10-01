@@ -32,23 +32,20 @@ class Part < ActiveRecord::Base
   end
 
   # Used for idea_build overview views
+  def display_link?(user)
+    is_started? and self.user == user
+  end
+
+  def locked_or_disabled?(user)
+    locked? or disabled?(user)
+  end
+
   def display_button?(user)
     self.status != 'Accepted' and (self.status == 'Unstarted' or display_link?(user))
   end
 
-  def display_link?(user)
-    (self.status == 'Started' and self.user == user) or user.admin
-  end
-
-  def disabled_button?(user)
-    self.status != 'Accepted' and not user.admin
-  end
-
-  def locked?
-    ib = component.idea_build
-    (ib.plan_component.parts[0].status != 'Accepted' and (not self.is_plan?)) or
-    (self.name == 'Prototype' and ib.prototype_component.parts.find_by(name: 'Flowchart and Schema').status != 'Accepted') or
-    (self.name == 'Mockups' and ib.design_component.parts.find_by(name: 'Wireframes').status != 'Accepted')
+  def disabled_status
+    locked? ? 'Locked' : self.status
   end
 
   def button_status
@@ -63,5 +60,19 @@ class Part < ActiveRecord::Base
       'Accept' 
     end
   end
+
+
+  private
+
+    def locked?
+      ib = component.idea_build
+      (ib.plan_component.parts[0].status != 'Accepted' and (not is_plan?)) or
+      (self.name == 'Prototype' and ib.prototype_component.parts.find_by(name: 'Flowchart and Schema').status != 'Accepted') or
+      (self.name == 'Mockups' and ib.design_component.parts.find_by(name: 'Wireframes').status != 'Accepted')
+    end
+
+    def disabled?(user)
+      !(['Unstarted', 'Accepted'].include?(self.status)) and !display_link?(user)
+    end
 
 end
