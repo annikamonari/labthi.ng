@@ -19,7 +19,6 @@
 $lab-light-grey: #ecf0f1;
 $lab-med-grey: #bdc3c7;
 $lab-near-black: #333333;
-$lab-turquoise: #1ABC9C;
 
 /************************************/
 /******** Bootstrap Overrides *******/
@@ -210,8 +209,4 @@ li.followed-idea .idea-render{
 }
 .unfollow-button-in-list{
   margin-left:8px;
-}
-
-h0.statustext {
-  color: $lab-turquoise;
 }

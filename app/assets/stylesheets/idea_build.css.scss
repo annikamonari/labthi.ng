@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$lab-turquoise: #1ABC9C;
+
+.statustext {
+  color: $lab-turquoise;
+}
+
+.btn-equity {
+  color: #fff;
+  background-color: $lab-turquoise;
+}
+
 .btn-status {
   color: #fff;
   background-color: #95A5A6;
