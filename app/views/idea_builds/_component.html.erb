@@ -18,7 +18,7 @@
       <br>
     </div>
 
-    <div class='col-md-4 col-md-push-3'>
+    <div class='col-md-3 col-md-push-2'>
       <% if part.locked_or_disabled?(current_user) %>
         <%= button_to part.disabled_status, '', 
             :class => 'btn disabled btn-status', id: "#{part.id}"%>
@@ -26,6 +26,10 @@
         <%= button_to part.button_status, update_status_path(id: part), 
             :class => 'btn btn-inverse', id: "#{part.id}"%>
       <%end%>
+    </div>
+
+    <div class='col-md-1'>
+      <%= button_to part.equity, '', :class => 'btn disabled btn-equity'%> 
     </div>
 
   </div>
