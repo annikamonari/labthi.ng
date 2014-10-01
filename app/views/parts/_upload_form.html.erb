@@ -1,3 +1,8 @@
+<% @part.part_uploads.each do |upload| %>
+  <%= image_tag upload.image_url, :size => "150x150"%><br>
+  <%= link_to 'Remove', destroy_upload_path(upload_id: upload.id), method: :delete %><br>
+<% end %>
+
 <%= form_for @part, url: update_image_part_path(id: @part), method: "PUT" do |f| %>
   
   <% if @part.errors.any? %>

@@ -14,12 +14,15 @@
 
   <div class="col-md-8 no-gutter">
     <div class="field">
-      <%= f.bootsy_area :value, class: "form-control", :rows => 20%>
+      <%= f.bootsy_area :value, class: "form-control", :rows => 20, 
+          readonly: @part.restricted_access_to_plan?(current_user)%>
     </div><br>
     
-    <div class="actions">
-      <%= f.submit 'Save part', :class => "btn btn-primary"%>
-    </div>
+    <%if not @part.restricted_access_to_plan?(current_user) %>
+      <div class="actions">
+        <%= f.submit 'Save part', :class => "btn btn-primary"%>
+      </div>
+    <% end %>
   </div>
 
 <% end %>

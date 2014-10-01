@@ -1,12 +1,11 @@
 <h1>Editing <%= @part.name %></h1>
 
 <% if @part.is_design? %>   
-  <%=  render 'parts/design/design_display' %>
-  <%=  render 'parts/design/design_form' %>
+  <%=  render 'upload_form' %>
 <% elsif @part.is_prototype? %>
-  Add functionality for both prototype parts
+  <%=  render 'prototype_form' %>
 <% else %>
-  <%= render 'form' %>
+  <%= render 'editor_form' %>
 <% end %>
 
 <%= link_to 'Back', idea_build_path(@part.idea) %><br>

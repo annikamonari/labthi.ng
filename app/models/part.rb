@@ -16,7 +16,8 @@ class Part < ActiveRecord::Base
 
   # Used for part edit views
   def is_design?
-    self.component.instance_of?(DesignComponent)
+    self.component.instance_of?(DesignComponent) or 
+    self.name == 'Flowchart and Schema'
   end
 
   def is_prototype?
@@ -32,6 +33,13 @@ class Part < ActiveRecord::Base
   end
 
   # Used for idea_build overview views
+  def restricted_access_to_plan?(user)
+    is_plan? and self.user != user and
+    (idea_build.business_plan_component.parts.any? { |p| p.user == user } or 
+     idea_build.prototype_component.parts.any?     { |p| p.user == user } or
+     idea_build.design_component.parts.any?        { |p| p.user == user } )
+  end
+
   def display_link?(user)
     (is_started? and self.user == user) or user.admin
   end
