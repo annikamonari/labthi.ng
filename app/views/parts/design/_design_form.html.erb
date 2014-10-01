@@ -1,4 +1,4 @@
-<%= form_for @part, url: update_part_path(id: @part), method: "PUT" do |f| %>
+<%= form_for @part, url: update_image_part_path(id: @part), method: "PUT" do |f| %>
   
   <% if @part.errors.any? %>
     <div id="error_explanation">
@@ -14,11 +14,11 @@
 
   <div class="col-md-8 no-gutter">
     <div class="field">
-      <%= f.bootsy_area :value, class: "form-control", :rows => 20%>
+      <%= f.file_field :image, name: "part_upload[image]"%>
     </div><br>
-    
+
     <div class="actions">
-      <%= f.submit 'Save part', :class => "btn btn-primary"%>
+      <%= f.submit 'Save part', :class => "btn btn-primary", data: {disable_with: "Uploading..."} %>
     </div>
   </div>
 

@@ -1,6 +1,7 @@
 class IdeaBuildsController < ApplicationController
   before_action :set_idea
   before_action :set_idea_build
+  before_action :auth_user!
 
   def overview
   end

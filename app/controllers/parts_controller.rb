@@ -8,22 +8,40 @@ class PartsController < ApplicationController
   def clear
     @part.value = nil
     @part.user = nil
+    @part.part_uploads.each { |u| u.delete }
     @part.save
 
-    redirect_to @part.idea_build
+    redirect_to idea_build_path(@part.idea)
   end
 
-  def update
-    @part.user = current_user
+  def update_image
+    @upload = nil
+    if params[:part_upload]
+      @upload = PartUpload.new
+      @upload.image = params[:part_upload]['image']
+      @upload.part = @part
+    end
+
     respond_to do |format|
-      if @part.update(part_params)
-        format.html {redirect_to idea_build_path(@part.idea)}
+      if (@upload ? @upload.save : true)
+        format.html {redirect_to :back, notice: 'Part was successfully updated.'}
       else
-        format.html {redirect_to idea_build_path(@part.idea)}
+        format.html {redirect_to :back, notice: 'Part was not updated due to an error.'}
       end
     end
   end
 
+  def update
+    respond_to do |format|
+      if @part.update(part_params)
+        format.html {redirect_to :back, notice: 'Part was successfully updated.'}
+      else
+        format.html {redirect_to :back, notice: 'Part was not updated due to an error.'}
+      end
+    end
+  end
+
+  # Used for status setting
   def update_status
     case @part.status
     when 'Unstarted'
@@ -32,12 +50,20 @@ class PartsController < ApplicationController
     when 'Started'
       @part.status = 'Finished'
     when 'Finished' 
-      @part.status = 'Pending Review'
-    when 'Pending Review'
+      @part.status = 'In Review'
+    when 'In Review'
       @part.status = 'Accepted'
     end
     @part.save
-    redirect_to idea_build_path(@part.idea)
+    redirect_to :back
+  end
+  
+  # Used for status setting
+  def unstart_part
+    @part.status = 'Unstarted'
+    @part.user   = nil
+    @part.save
+    redirect_to idea_build_path(@part.idea), notice: 'You successfully unstarted the part.'
   end
 
   def set_part
@@ -45,7 +71,7 @@ class PartsController < ApplicationController
   end
 
   def part_params
-    params.require(:part).permit(:value, :bootsy_image_gallery_id)
+    params.require(:part).permit(:value, :bootsy_image_gallery_id, part_upload_attributes: [:image])
   end
 
 end
