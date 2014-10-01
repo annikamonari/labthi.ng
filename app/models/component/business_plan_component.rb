@@ -2,14 +2,12 @@ class BusinessPlanComponent < Component
   
   def create_required_parts
     names = [
-      "Executive Summary",
       "Summary of Business",
-      "Products or Services",
-      "Marketing Strategy",
+      "Summary of Product",
+      "Marketing Strategy Plan",
       "Market Analysis",
-      "Customer Service",
       "Marketing Strategy Implementation",
-      "Assessment of Market Effectiveness"
+      "Executive Summary"
     ]
 
     names.each do |name|

@@ -5,8 +5,9 @@ feature 'User visits the build page' do
     @user = FactoryGirl.create(:user, admin: true)
     sign_in @user
     @part = FactoryGirl.create(:part)
-    @idea = @part.component.idea_build.idea
+    @idea = @part.idea
     visit "/ideas/#{@idea.id}/build"
+    click_button "1"
   end
 
   scenario 'and finds a bootsy area to type in' do
@@ -23,13 +24,11 @@ feature 'User visits the build page' do
   end
 
   scenario 'and click start on a part' do
-    click_button "1"
     expect(page).to have_selector(:link_or_button, 'Finish')
     expect(page).to have_content('Started')
   end
 
   scenario 'and button vanishes when status is accepted' do
-    click_button "1"
     click_button "1"
     click_button "1"
     click_button "1"

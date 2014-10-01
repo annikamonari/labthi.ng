@@ -33,7 +33,7 @@ class Part < ActiveRecord::Base
 
   # Used for idea_build overview views
   def display_link?(user)
-    is_started? and self.user == user
+    (is_started? and self.user == user) or user.admin
   end
 
   def locked_or_disabled?(user)
