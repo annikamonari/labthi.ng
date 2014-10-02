@@ -2,7 +2,7 @@
   <div class='row content-bg'>
     
     <div class='col-md-8'>
-      <% if part.display_link?(current_user) or part.restricted_access_to_plan?(current_user)%>
+      <% if part.display_link?(current_user)%>
         <%= link_to part.name, edit_part_path(id: part) %>
       <% else %>
         <h0 class='link-dis'>

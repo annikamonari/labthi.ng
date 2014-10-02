@@ -1,6 +1,8 @@
 <% @part.part_uploads.each do |upload| %>
   <%= image_tag upload.image_url, :size => "150x150"%><br>
-  <%= link_to 'Remove', destroy_upload_path(upload_id: upload.id), method: :delete %><br>
+  <% if !@part.restrict_access_to_design?(current_user) %>
+    <%= link_to 'Remove', destroy_upload_path(upload_id: upload.id), method: :delete %><br>
+  <% end %>
 <% end %>
 
 <%= form_for @part, url: update_image_part_path(id: @part), method: "PUT" do |f| %>
@@ -17,14 +19,16 @@
     </div>
   <% end %><br>
 
-  <div class="col-md-8 no-gutter">
-    <div class="field">
-      <%= f.file_field :image, name: "part_upload[image]"%>
-    </div><br>
+  <% if !@part.restrict_access_to_design?(current_user) %>
+    <div class="col-md-8 no-gutter">
+      <div class="field">
+        <%= f.file_field :image, name: "part_upload[image]"%>
+      </div><br>
 
-    <div class="actions">
-      <%= f.submit 'Save part', :class => "btn btn-primary", data: {disable_with: "Uploading..."} %>
+      <div class="actions">
+        <%= f.submit 'Save part', :class => "btn btn-primary", data: {disable_with: "Uploading..."} %>
+      </div>
     </div>
-  </div>
+  <% end %>
 
 <% end %>
