@@ -34,6 +34,27 @@ class Part < ActiveRecord::Base
 
   # Used for idea_build overview views
   def restricted_access_to_plan?(user)
+    is_plan? and !(self.status == 'Started' and self.user == user) and
+    (idea_build.business_plan_component.parts.any? { |p| p.user == user } or 
+     idea_build.prototype_component.parts.any?     { |p| p.user == user } or
+     idea_build.design_component.parts.any?        { |p| p.user == user } )
+  end
+
+  def business_plan_parts_done?
+    self.name == 'Executive Summary' and 
+    (idea_build.business_plan_component.parts.any? do |p| 
+      p.name != 'Executive Summary' and p.status != 'Accepted' 
+    end)
+  end
+
+  def restricted_access_to_design?(user)
+    is_plan? and self.user != user and
+    (idea_build.business_plan_component.parts.any? { |p| p.user == user } or 
+     idea_build.prototype_component.parts.any?     { |p| p.user == user } or
+     idea_build.design_component.parts.any?        { |p| p.user == user } )
+  end
+
+  def restricted_access_to_prototype?(user)
     is_plan? and self.user != user and
     (idea_build.business_plan_component.parts.any? { |p| p.user == user } or 
      idea_build.prototype_component.parts.any?     { |p| p.user == user } or
@@ -74,11 +95,6 @@ class Part < ActiveRecord::Base
 
     def locked?
       plan_done? or schema_done? or wireframes_done? or business_plan_parts_done?
-    end
-
-    def business_plan_parts_done?
-      self.name == 'Executive Summary' and 
-      idea_build.business_plan_component.parts.any? { |p| p.name != 'Executive Summary' and p.status != 'Accepted' }
     end
 
     def schema_done?
