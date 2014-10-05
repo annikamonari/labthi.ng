@@ -10,6 +10,7 @@
 	</head>
 	<body>
 		<%= render 'layouts/navbar' %>
+		<%= render 'layouts/navbar_doc' if content_for :navbar_doc %>
 		<div class="container container-main">
 
 		<%= render partial: "shared/flash_messages", flash: flash %>
