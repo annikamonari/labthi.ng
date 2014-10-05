@@ -3,7 +3,7 @@ class PartsController < ApplicationController
   before_action :auth_user!
 
   def edit
-    @users = get_repo_users if @part.name == 'Prototype'
+    @users = (get_repo_users.reverse + get_repo_invites) if @part.name == 'Prototype'
   end
 
   def clear
@@ -92,7 +92,7 @@ class PartsController < ApplicationController
 
     if @part.name == 'Prototype'
       delete_repo_users 
-      delete_repo_invites
+      get_repo_invites.each { |i| delete_repo_invites(i) }
     end
     redirect_to idea_build_path(@part.idea), notice: 'You successfully unstarted the part.'
   end
@@ -137,18 +137,18 @@ class PartsController < ApplicationController
       users
     end
 
-    def delete_repo_invites
+    def get_repo_invites
       emails = Array.new
       uri    = "https://bitbucket.org/api/1.0/invitations/LabthingPrototypes/#{get_repo_name}/"
       c      = initialise_curl(uri)
       
       c.perform
 
-      c.body.scan(/(email\": \")([\w-@]+\.[a-z]{2,3})/).each {|email| emails << email[1] }
-      emails.each { |email| delete_repo_invite(email)}
+      c.body.scan(/(email\": \")([\w-@]+\.[a-z]{2,3})/).each { |e| emails << e[1] }
+      emails
     end
 
-    def delete_repo_invite(email = nil)
+    def delete_repo_invites(email)
       uri = "https://bitbucket.org/api/1.0/invitations/LabthingPrototypes/#{get_repo_name}/#{email}"
       c   = initialise_curl(uri)
 

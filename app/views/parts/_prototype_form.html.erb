@@ -1,6 +1,10 @@
 <% @users.each do |user| %>
   <br><%= user %>
-  <%= link_to 'Remove', remove_user_from_repo_path(user: user), method: "DELETE" %>
+  <% if not (user =~ /@/) %>
+    <% if @users.index(user) != 0 %>
+      <%= link_to 'Remove', remove_user_from_repo_path(user: user), method: "DELETE" %>
+    <% end %>
+  <% end %>
 <% end %>
 
 <%= form_for @part, url: add_user_to_repo_path(id: @part), method: "PUT" do |f| %>
