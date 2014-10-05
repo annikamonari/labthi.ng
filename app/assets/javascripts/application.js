@@ -20,6 +20,7 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require ajax401
+//= require documentation
 
 $(document).ready(function() {
   /* Activating Best In Place */
