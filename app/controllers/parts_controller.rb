@@ -9,8 +9,16 @@ class PartsController < ApplicationController
   def clear
     @part.value = nil
     @part.user = nil
-    @part.part_uploads.each { |u| u.delete }
     @part.save
+
+    if @part.is_business_plan or @part.is_plan?
+      @part.part_uploads.each { |u| u.delete }
+    end
+
+    if @part.name == 'Prototype'
+      delete_repo_users
+      delete_repo_invites
+    end
 
     redirect_to idea_build_path(@part.idea)
   end
