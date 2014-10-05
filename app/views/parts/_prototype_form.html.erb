@@ -1,9 +1,7 @@
 <% @users.each do |user| %>
   <br><%= user %>
-  <% if not (user =~ /@/) %>
-    <% if @users.index(user) != 0 %>
-      <%= link_to 'Remove', remove_user_from_repo_path(user: user), method: "DELETE" %>
-    <% end %>
+  <% if not (user =~ /@/) and @users.index(user) != 0 %>
+    <%= link_to 'Remove', remove_user_from_repo_path(user: user), method: "DELETE" %>
   <% end %>
 <% end %>
 
