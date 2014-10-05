@@ -1,0 +1,34 @@
+<% @users.each do |user| %>
+  <br><%= user %>
+  <%= link_to 'Remove', remove_user_from_repo_path(user: user), method: "DELETE" %>
+<% end %>
+
+<%= form_for @part, url: add_user_to_repo_path(id: @part), method: "PUT" do |f| %>
+  
+  <% if @part.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@part.errors.count, "error") %> prohibited this part from being saved:
+      </h2>
+
+      <ul>
+      <% @part.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %><br>
+
+  <div class="col-md-4 no-gutter">
+    <div class="field">
+      Invite collaborators to your bitbucket repository for the project<br>
+      <%= f.label :email %>
+      <%= f.email_field :value, class: "form-control" %>
+    </div><br>
+    
+    <div class="actions">
+      <%= f.submit 'Invite', :class => "btn btn-primary", data: {disable_with: "Sending Invitation..."}%>
+    </div>
+  </div>
+
+<% end %>

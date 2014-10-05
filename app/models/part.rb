@@ -75,7 +75,6 @@ class Part < ActiveRecord::Base
     end
   end
 
-
   private
 
     def restricted_access_to_mockups?(user)
