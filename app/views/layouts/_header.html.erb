@@ -10,6 +10,7 @@
 	</head>
 	<body>
 		<%= render 'layouts/navbar' %>
+		<%= render 'layouts/doc-head' if content_for :doc_head %>
 		<%= render 'layouts/navbar_doc' if current_page?('/documentation') %>
 		<div class="container container-main">
 

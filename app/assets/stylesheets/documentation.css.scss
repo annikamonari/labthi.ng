@@ -3,7 +3,6 @@ body {
   height: 100%;
   /* The html and body elements cannot have any padding or margin. */
   -webkit-font-smoothing: antialiased;
-  font: normal 14px arial,sans-serif;
 }
 
 .row {
@@ -51,7 +50,6 @@ body {
 }
 
 h1,h2,h3,h4 {
-  font-family: 'Kreon', serif;
   vertical-align:middle;
 }
 
@@ -63,16 +61,12 @@ header {
 
 header h1,header h2,header h3 a,header a,header a:hover {
   color:#101010;
-  font-weight:800;
-  text-decoration:none;
 }
 
 header h3 {
-  font-family: 'Kreon', serif;
   background: #ffcc33;
   padding:10px;
   border-radius:3px;
-  font-size:34px;
   padding:12px 10px 6px 10px;
 }
 
@@ -82,14 +76,13 @@ header .dropdown-menu {
   border-width:0;
 }
 
-h1 {
-  font-size:50px;
-}
-
 #nav-doc {
   width: 100%;
   position:static;
   top:-32px;
+  background-color: #fff;
+  opacity:0.95;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.2);
 }
 
 #nav-doc.affix {
@@ -111,27 +104,6 @@ h1 {
   margin: 1px 1px; 
 }  
   
-/* customize nav style */
-.navbar-custom {
-    background-color: #2e2e2e;
-  font-weight:700;
-    text-transform:uppercase;
-    border-width:0;
-}
-.navbar-custom  .navbar-nav>li>a {
-  color: #ddd;
-}
-.navbar-custom  .navbar-nav li>a:hover, .navbar-nav li .open, .navbar-custom .navbar-nav .active a  {
-  background-color: #000;
-}
-.navbar-custom .dropdown-menu{
-  right:0;
-}
-.navbar-custom .navbar-nav>.dropdown>a .caret {
-  border-top-color: #999;
-  border-bottom-color: #999;
-}
-
 .navbar-collapse.in { /*3.0.2 bug workaround*/
     overflow-y: visible;
 }
@@ -198,4 +170,9 @@ section {
 .bg-4 {
   padding-top:30px;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(20,20,20,0.2)),to(rgba(255,255,255,0)), color-stop(1,#000));
+}
+
+.icon {
+  height:50px;
+  padding-right:20px;
 }
