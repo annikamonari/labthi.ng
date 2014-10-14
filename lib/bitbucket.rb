@@ -65,7 +65,7 @@ class Bitbucket
       c           = initialise_curl("#{INVITATIONS}/#{@name}")
 
       c.perform
-      c.body.scan(/(email\": \")([\w-@]+\.[a-z]{2,3})/).each { |e| emails << e[1] }
+      c.body.scan(/(email\": \")([-\w@]+\.[a-z]{2,3})/).each { |e| emails << e[1] }
 
       emails
     end
