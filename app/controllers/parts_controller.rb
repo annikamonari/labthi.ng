@@ -3,15 +3,37 @@ class PartsController < ApplicationController
   before_action :auth_user!
 
   def edit
+    @users = @part.bitbucket.get_users if @part.name == 'Prototype'
   end
 
   def clear
     @part.value = nil
     @part.user = nil
-    @part.part_uploads.each { |u| u.delete }
     @part.save
 
+    if @part.is_business_plan or @part.is_plan?
+      @part.part_uploads.each { |u| u.delete }
+    elsif @part.name == 'Prototype'
+      @part.bitbucket.delete_users
+    end
+
     redirect_to idea_build_path(@part.idea)
+  end
+
+  def add_user_to_repo
+    if @part.bitbucket.post_user(params[:part][:value]) == 200
+      redirect_to :back, notice: "The email invitation was successfully sent."
+    else
+      redirect_to :back, notice: "An error occured adding the user."
+    end
+  end
+
+  def remove_user_from_repo
+    user = params[:user]
+
+    @part.bitbucket.delete_users(user)
+
+    redirect_to :back, notice: "The user was successfully removed."
   end
 
   def update_image
@@ -47,6 +69,7 @@ class PartsController < ApplicationController
     when 'Unstarted'
       @part.status = 'Started'
       @part.user   = current_user
+      @part.bitbucket.post_user(current_user.email) if @part.name == 'Prototype'
     when 'Started'
       @part.status = 'Finished'
     when 'Finished' 
@@ -63,6 +86,9 @@ class PartsController < ApplicationController
     @part.status = 'Unstarted'
     @part.user   = nil
     @part.save
+
+    @part.bitbucket.delete_users if @part.name == 'Prototype'
+
     redirect_to idea_build_path(@part.idea), notice: 'You successfully unstarted the part.'
   end
 
@@ -71,7 +97,7 @@ class PartsController < ApplicationController
   end
 
   def part_params
-    params.require(:part).permit(:value, :bootsy_image_gallery_id, part_upload_attributes: [:image])
+    params.require(:part).permit(:value, :email, :user, :bootsy_image_gallery_id, part_upload_attributes: [:image])
   end
 
 end

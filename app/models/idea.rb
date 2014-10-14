@@ -99,6 +99,8 @@ class Idea < ActiveRecord::Base
       idea_build.idea_id = self.id
       idea_build.save
     end
+
+    Bitbucket.new(self.title, self.id).create
   end
 
 end

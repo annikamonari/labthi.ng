@@ -76,6 +76,9 @@ gem 'unf'
 # Used for WYSIWYG editor (Phase 2)
 gem 'bootsy', '~> 2.0.10'
 
+# Used for creating bitbucket account for prototype in the phase 2
+gem "curb"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
