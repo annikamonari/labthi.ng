@@ -100,24 +100,7 @@ class Idea < ActiveRecord::Base
       idea_build.save
     end
 
-    create_prototype_repo
-  end
-
-  def create_prototype_repo
-    uri  = "https://bitbucket.org/api/1.0/repositories"
-
-    c                 = Curl::Easy.new(uri)
-    c.http_auth_types = :basic
-    c.username        = 'LabthingPrototypes'
-    c.password        = 'banana123'
-    form1             = Curl::PostField.content("name", gen_repo_name)
-    form2             = Curl::PostField.content("is_private", 'true')
-
-    c.http_post(uri, form1, form2)
-  end
-
-  def gen_repo_name
-    "#{self.title.downcase}-#{self.id.to_s}".sub(' ', '-')
+    Bitbucket.new(self.title, self.id).create
   end
 
 end

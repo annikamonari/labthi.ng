@@ -75,6 +75,10 @@ class Part < ActiveRecord::Base
     end
   end
 
+  def bitbucket
+    Bitbucket.new(self.idea.title, self.idea.id)
+  end
+
   private
 
     def restricted_access_to_mockups?(user)
@@ -107,6 +111,10 @@ class Part < ActiveRecord::Base
       end
     end
 
+    def plan_done?
+      idea_build.plan_component.parts[0].status != 'Accepted' and (not is_plan?)
+    end
+
     def business_plan_parts_done?
       self.name == 'Executive Summary' and 
       (idea_build.business_plan_component.parts.any? do |p| 
@@ -126,10 +134,6 @@ class Part < ActiveRecord::Base
 
     def locked?
       plan_done? or schema_done? or wireframes_done? or business_plan_parts_done?
-    end
-
-    def plan_done?
-      idea_build.plan_component.parts[0].status != 'Accepted' and (not is_plan?)
     end
 
     def disabled?(user)
