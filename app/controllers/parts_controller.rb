@@ -13,9 +13,7 @@ class PartsController < ApplicationController
 
     if @part.is_business_plan or @part.is_plan?
       @part.part_uploads.each { |u| u.delete }
-    end
-
-    if @part.name == 'Prototype'
+    elsif @part.name == 'Prototype'
       @part.bitbucket.delete_users
     end
 
