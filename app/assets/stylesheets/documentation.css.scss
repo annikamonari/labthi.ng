@@ -181,3 +181,10 @@ section {
   text-align: justify;
   text-justify: inter-word;
 }
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu {
+    margin-top: 0px;
+}
