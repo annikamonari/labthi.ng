@@ -142,7 +142,7 @@ class Part < ActiveRecord::Base
     end
 
     def disabled?(user)
-      !(['Unstarted', 'Accepted'].include?(self.status)) and !show_link?(user)
+      (!(['Unstarted', 'Accepted'].include?(self.status)) and !show_link?(user)) or working_on_another_part?(user)
     end
 
     def show_link?(user)
@@ -153,4 +153,16 @@ class Part < ActiveRecord::Base
       user == self.user and self.status == 'In Review'
     end
 
+    def working_on_another_part?(user)
+      part  = Array.new
+      part += idea_build.business_plan_component.parts.where(user_id: user.id)
+      part += idea_build.prototype_component.parts.where(user_id: user.id)
+      part += idea_build.design_component.parts.where(user_id: user.id) 
+
+      if part.nil?
+        false
+      else
+        part.any? { |p| p.status == 'Started' } and self.status != 'Started' 
+      end
+    end
 end
