@@ -4,6 +4,7 @@ class PartsController < ApplicationController
 
   def edit
     @users = @part.bitbucket.get_users if @part.name == 'Prototype'
+    @admin_tasks = AdminTask.get(@part.id)
   end
 
   def clear

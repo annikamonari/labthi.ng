@@ -32,16 +32,20 @@ StartIt::Application.routes.draw do
   get '/profiles/:id/labs', to: 'profiles#labs'
   resources :profiles, except: [:index]
 
+  # TODO: Nest under idea
   get "/ideas/:idea_id/parts/:id/edit", to: "parts#edit", as: "edit_part"
-  delete "/ideas/:idea_id/parts/:id/clear", to: "parts#clear", as: "clear_part"
   put "/ideas/:idea_id/parts/:id/update", to: "parts#update", as: "update_part"
-
   put "/ideas/:idea_id/parts/:id/update_image", to: "parts#update_image", as: "update_image_part"
   put "/ideas/:idea_id/parts/:id/add_user_to_repo", to: "parts#add_user_to_repo", as: "add_user_to_repo"
   put "/ideas/:idea_id/parts/:id/unstart_part", to: "parts#unstart_part", as: "unstart_part"
   post "/ideas/:idea_id/parts/:id/update_status", to: "parts#update_status", as: "update_status"
+  delete "/ideas/:idea_id/parts/:id/clear", to: "parts#clear", as: "clear_part"
   delete "/ideas/:idea_id/parts/:id/edit/remove_upload/:upload_id", to:"part_upload#destroy", as: "destroy_upload"
   delete "/ideas/:idea_id/parts/:id/remove_user", to: "parts#remove_user_from_repo", as: "remove_user_from_repo"
+  
+  get '/ideas/:idea_id/parts/:id/admin_tasks/new', to: 'admin_tasks#new', as: 'new_admin_task'
+  post '/ideas/:idea_id/parts/:part_id/admin_tasks/:id/update_status', to: 'admin_tasks#update_status', as: 'update_admin_task'
+  post '/ideas/:idea_id/parts/:id/admin_tasks/new', to: 'admin_tasks#create', as: 'create_admin_task'
 
   get "/ideas/:idea_id/build", to: "idea_builds#overview", as: 'idea_build'
   get "/ideas/:idea_id/build/components", to: "idea_builds#components", as: 'idea_build_components'
@@ -59,7 +63,6 @@ StartIt::Application.routes.draw do
   end
 
   resources :idea_relationships, only: [:create, :destroy]
-  
 
   # Users and Admins
   devise_for :users

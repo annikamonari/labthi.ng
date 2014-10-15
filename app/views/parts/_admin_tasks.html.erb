@@ -1,0 +1,31 @@
+<h1>Listing Tasks from admins</h1> 
+
+<% @admin_tasks.each do |task| %>
+  <div class='row content-bg'>
+    
+    <div class='col-md-8'>
+      <strong>Task:</strong> <%= task.title %><br>
+      <%= task.description %><br>   
+      <%= "Status: " %>
+      <h0 class='statustext'>
+        <%= "#{task.status}"%>
+      </h0>
+      <br>
+    </div>
+
+    <div class='col-md-3 col-md-push-2'>
+      <% if task.disable_button?(current_user) %>
+        <%= button_to task.button_status, '', 
+            :class => 'btn disabled btn-status', id: "#{task.id}"%>
+      <% else %>
+        <%= button_to task.button_status, update_admin_task_path(part_id:@part.id, id:task.id), 
+            :class => 'btn btn-inverse', id: "#{task.id}"%>
+      <%end%>
+    </div>
+
+  </div>
+<% end %>
+
+<% if current_user.admin %>
+  <%= link_to 'New Admin task', new_admin_task_path %>
+<% end %>

@@ -1,3 +1,4 @@
+<div class='row'>
 <h1>Editing <%= @part.name %></h1>
 
 <% if @part.is_design? %>   
@@ -12,4 +13,7 @@
 
 <% if @part.is_started? %>
   <%= link_to "Can't manage? Unstart", unstart_part_path, method: 'PUT' %>
-<% end %>
+<% end %><br>
+</div>
+
+<%= render 'admin_tasks' %>

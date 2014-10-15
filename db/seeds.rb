@@ -81,11 +81,19 @@ admin_user_data = [
 		password: "banana123",
 		password_confirmation: "banana123",
 		admin: true
+	},
+  { 
+		email: "alan.vey@gmail.com",
+		first_name: "Alan",
+		last_name: "vey",
+		password: "1234567890",
+		password_confirmation: "1234567890",
+		admin: true
 	}
 ]
 
 admin_user_data.each do |d|
-	if AdminUser.count < 3 then
+	if AdminUser.count < 4 then
 		User.create(d)
 
 		d.delete(:first_name)
