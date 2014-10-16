@@ -1,9 +1,11 @@
+var y = $("<%= j @commentable.class.to_s.downcase %>")
+
 $(".js-inline-form").replaceWith("<%= j render @comment %>");
-if($("#comment-<%= j @commentable.id.to_s %>").length > 0) {
-		$("#<%= j @commentable.class.to_s.downcase + '-' + @commentable.id.to_s %>").text("Reply to comment")
+if($(y).selector == 'comment') {
+		$("#<%= j @commentable.class.to_s.downcase + '-' + @commentable.id.to_s %>").text("Reply to comment");
 }
 else {
-		$("#<%= j @commentable.class.to_s.downcase + '-' + @commentable.id.to_s %>").text("Add comment")
+		$("#<%= j @commentable.class.to_s.downcase + '-' + @commentable.id.to_s %>").text("Add comment");
 }
 if($("div.no.comments").length > 0) {
 	$("div.no.comments").remove()

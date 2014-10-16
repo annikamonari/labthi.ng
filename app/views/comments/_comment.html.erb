@@ -16,8 +16,12 @@
         <% if comment.comments.count > 0 %>
     	  	<%= render vote_order(comment.comments.includes(:user)) %>
         <% end %>
-      </ul>
-      <%= link_to "Reply to comment", new_comment_comment_path(comment), id: "comment-#{comment.id}", remote: true %>
+      </ul>            
+        <% if (@idea and @idea.phase != 1) %>
+          <p class="link-dis"> Reply to comment </p>
+        <% else %>
+          <%= link_to "Reply to comment", new_comment_comment_path(comment), id: "comment-#{comment.id}", remote: true %>
+        <% end %>
     <% end %>
   </div>
 </li>

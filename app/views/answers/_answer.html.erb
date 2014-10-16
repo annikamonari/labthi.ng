@@ -16,8 +16,12 @@
           <%= render vote_order(answer.comments.includes(:user)) || "No comments found" %>
         <% end %>
       </ul>
-      <p>
-        <%= link_to "Add comment", new_answer_comment_path(answer), id: "answer-#{answer.id}", remote: true %>
-      </p>
+      <% if answer.question.idea.is_phase_1? %>
+        <p>
+          <%= link_to "Add comment", new_answer_comment_path(answer), id: "answer-#{answer.id}", remote: true %>
+        </p>
+      <% else %>
+        <p class="link-dis"> Add comment </p>
+      <% end %>
     </div>
 </li>
