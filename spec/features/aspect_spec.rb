@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Visit an idea Define tab ' do
   before(:each) do
-    @idea = FactoryGirl.create(:idea)
+    @idea = FactoryGirl.create(:idea, phase: 1)
 		@aspect = FactoryGirl.create(:aspect, title: "Problems & Solutions")
     @photo_aspect = FactoryGirl.create(:aspect, title: "Image")
     sign_in
@@ -38,7 +38,7 @@ feature 'Visit an idea Define tab ' do
   scenario 'and submits a comment', js: true do
     click_link @aspect.title
     submit_solution "Valid solution"
-      submit_comment "My comment", ".solutions li:first-child"
+    submit_comment "My comment", ".solutions li:first-child"
     page.should have_content "Valid solution"
     page.should have_content "My comment"
   end
@@ -46,6 +46,7 @@ feature 'Visit an idea Define tab ' do
   scenario 'and submits a comment', js: true do
     click_link @aspect.title
     submit_solution "Valid solution"
+    print page.html
     submit_comment "My comment", ".solutions li:first-child"
     submit_comment "Reply to my comment", ".comments li:first-child", 'Reply to comment'
     page.should have_content "Valid solution"

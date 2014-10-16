@@ -92,6 +92,4 @@ feature 'User visits the build page' do
     visit "/ideas/#{@part.idea.id}/build"
     expect(page).to have_selector(:link_or_button, 'In Review')
   end
-
-
 end
