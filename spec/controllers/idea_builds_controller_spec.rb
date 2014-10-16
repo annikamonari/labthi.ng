@@ -15,11 +15,4 @@ describe IdeaBuildsController do
     end
   end
 
-  describe "GET 'components'" do
-    it "returns http success" do
-      get :components, idea_id: @idea_build.idea.id
-      response.should render_template :components
-    end
-  end
-
 end

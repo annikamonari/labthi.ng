@@ -2,6 +2,7 @@ class Part < ActiveRecord::Base
   # Used to associate image galaries from bootsy to this model
   include Bootsy::Container
   has_many :part_uploads
+  has_many :admin_tasks
 
   belongs_to :user, -> { includes(:profile) }
   belongs_to :component
@@ -36,10 +37,14 @@ class Part < ActiveRecord::Base
     self.status == 'Started'
   end
 
+  def is_in_review?
+    self.status == 'In Review'
+  end
+
   # Used for idea_build overview views
   def display_link?(user)
     show_link?(user) or restrict_access_to_editor?(user) or 
-    restrict_access_to_design?(user)
+    restrict_access_to_design?(user) or users_work_is_reviewd?(user)
   end
 
   def restrict_access_to_editor?(user)
@@ -137,11 +142,27 @@ class Part < ActiveRecord::Base
     end
 
     def disabled?(user)
-      !(['Unstarted', 'Accepted'].include?(self.status)) and !show_link?(user)
+      (!(['Unstarted', 'Accepted'].include?(self.status)) and !show_link?(user)) or working_on_another_part?(user)
     end
 
     def show_link?(user)
       (is_started? and self.user == user) or user.admin
     end
 
+    def users_work_is_reviewd?(user)
+      user == self.user and self.status == 'In Review'
+    end
+
+    def working_on_another_part?(user)
+      part  = Array.new
+      part += idea_build.business_plan_component.parts.where(user_id: user.id)
+      part += idea_build.prototype_component.parts.where(user_id: user.id)
+      part += idea_build.design_component.parts.where(user_id: user.id) 
+
+      if part.nil?
+        false
+      else
+        part.any? { |p| p.status == 'Started' } and self.status != 'Started' 
+      end
+    end
 end
