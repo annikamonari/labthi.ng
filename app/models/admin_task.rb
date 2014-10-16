@@ -1,5 +1,6 @@
 class AdminTask < ActiveRecord::Base
   belongs_to :part
+  has_many :task_comments
 
   def AdminTask.get(part)
     AdminTask.where(part_id: part)

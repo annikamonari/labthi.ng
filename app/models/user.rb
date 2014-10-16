@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   has_many :answers, inverse_of: :user
   has_many :solutions, inverse_of: :user
   has_many :comments, inverse_of: :user
+  has_many :task_comments
   has_one :profile, dependent: :destroy
 
   has_many :idea_relationships, foreign_key: "follower_id", dependent: :destroy

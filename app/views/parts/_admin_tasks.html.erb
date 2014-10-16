@@ -24,6 +24,18 @@
     </div>
 
   </div>
+
+  <div class='row'> 
+  <div class='col-md-8'>
+    <% TaskComment.where(admin_task_id: task.id).includes(:user).each do |comment| %>
+      <strong><%= comment.user.name %></strong>
+      <%= comment.comment %> 
+      <br>
+    <% end %>
+  </div>
+</div>
+
+  <%= link_to 'Comment', new_task_comment_path(admin_task_id: task.id) %><br>
 <% end %>
 
 <% if current_user.admin %>
