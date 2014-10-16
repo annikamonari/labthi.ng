@@ -25,4 +25,8 @@
   </ul><!-- .solutions -->
 <% end %>
 
+<% if @idea.phase == 1 %>
   <%= link_to "Add solution", new_aspect_solution_path(aspect_id: @aspect.id, idea_id: @idea.id), id: 'newsolution', remote:true %>
+<% else %>
+  <p class="link-dis"> Add solution </p>
+<% end %>

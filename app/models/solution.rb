@@ -8,7 +8,7 @@ class Solution < ActiveRecord::Base
   validates :idea, presence: true
   belongs_to :aspect
   belongs_to :idea
-  belongs_to :user
+  belongs_to :user, -> { includes(:profile) }
   has_many :comments, as: :commentable, :dependent => :destroy
   
   mount_uploader :image, ImageUploader

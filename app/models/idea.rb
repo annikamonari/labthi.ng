@@ -101,4 +101,8 @@ class Idea < ActiveRecord::Base
     end
   end
 
+  def is_phase_1?
+    self.phase == 1
+  end
+
 end
