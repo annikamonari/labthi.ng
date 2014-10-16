@@ -21,15 +21,6 @@ body {
   padding: 0 0 60px;
 }
 
-/* Set the fixed height of the footer here */
-#footer {
-  height: 60px;
-  background-color: #f5f5f5;
-  margin-top:50px;
-  padding-top:20px;
-  padding-bottom:20px;
-}
-
 
 /* Custom page CSS
 -------------------------------------------------- */
@@ -39,14 +30,6 @@ body {
 }
 .container .credit {
   margin: 20px 0;
-}
-
-#footer {
-  background-color:#414141;
-}
-
-#footer a {
-  color:#efefef;
 }
 
 h1,h2,h3,h4 {
@@ -125,7 +108,8 @@ header .dropdown-menu {
    bottom:0;
    right:6%;
    z-index:100;
-   background: #ffcc33;
+   background: #bdc3c7;
+   color: #333333;
    font-size:24px;
    border-top-left-radius:3px;
    border-top-right-radius:3px;
@@ -143,35 +127,6 @@ section {
   padding-top:100px;
 }
 
-.bg-1 {
-  background: url('http://www.bootply.com/assets/example/bg_4.jpg') no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.bg-2 {
-  background: url('http://www.bootply.com/assets/example/bg_5.jpg') no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.bg-3 {
-  background: url('http://www.bootply.com/assets/example/bg_6.jpg') no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.bg-4 {
-  padding-top:30px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(20,20,20,0.2)),to(rgba(255,255,255,0)), color-stop(1,#000));
-}
-
 .icon {
   height:50px;
   padding-right:20px;
@@ -182,9 +137,28 @@ section {
   text-justify: inter-word;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
+
+.nav .caret {
+  border-top-color: #333333;
+  border-bottom-color: #333333;
 }
-.dropdown-menu {
-    margin-top: 0px;
+
+.nav a:hover .caret {
+  border-top-color: #333333;
+  border-bottom-color: #333333;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus .doclink {
+  background-color:transparent;
+}
+
+.anchor {
+  display: block; 
+  position: relative; 
+  top: -100px; 
+  visibility: hidden;
+}
+
+.docbg {
+  background: #ecf0f1;
 }
