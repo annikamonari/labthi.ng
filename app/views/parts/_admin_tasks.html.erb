@@ -1,6 +1,6 @@
 <h1>Listing Tasks from admins</h1> 
 
-<% @admin_tasks.each do |task| %>
+<% (@admin_tasks.sort_by {|t| t.created_at}).each do |task| %>
   <div class='row content-bg'>
     
     <div class='col-md-8'>
