@@ -7,9 +7,9 @@
     <div class="media-item-body">
       <p>
       	<%= best_in_place_if current_user == solution.user, solution, :brief, activator: '.edit-solution-' + solution.id.to_s %>
-      	<%= link_to "Edit", "",
-          class: "edit-solution-#{solution.id.to_s}" if current_user == solution.user %>
       </p>
+      <%= link_to "Edit", "",
+          class: "edit-solution-#{solution.id.to_s}" if current_user == solution.user and @idea.is_phase_1? %>
       <div class="pull-right">
         <%= render solution.user %>
       </div>
@@ -24,8 +24,12 @@
           <%= render vote_order(solution.comments.includes(:user)) || "No comments found" %>
       <% end%>
     </ul>
-    <p>
-      <%= link_to "Add comment", new_solution_comment_path(solution), id: "solution-#{solution.id}", remote: true %>
-    </p>
+    <% if @idea.is_phase_1? %>
+      <p>
+        <%= link_to "Add comment", new_solution_comment_path(solution), id: "solution-#{solution.id}", remote: true %>
+      </p>
+    <% else %>
+      <p class="link-dis"> Add comment </p>
+    <% end %>
     </div>
 </li>
