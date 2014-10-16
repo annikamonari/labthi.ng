@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require bootsy
+ *= require documentation
  *= require_tree .
  */
 
@@ -175,7 +176,7 @@ p.notice {
   }
   
 .aspects{
-  background:#fff;
+  background-color:#fff;
   padding:0;
 }
 
