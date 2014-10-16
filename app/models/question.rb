@@ -7,7 +7,7 @@ class Question < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 100 }
   validates :brief, presence: true, :allow_nil => true, :allow_blank => true, length: {maximum: 500}
   belongs_to :idea
-  belongs_to :user
+  belongs_to :user, -> { includes :profile }
   has_many :answers, -> { includes :user }, inverse_of: :question, :dependent => :destroy
   has_many :comments, as: :commentable, :dependent => :destroy
 

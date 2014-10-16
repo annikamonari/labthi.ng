@@ -9,7 +9,7 @@ class Idea < ActiveRecord::Base
   validate :instance_validations
   validates_presence_of :category_list
   validates_presence_of :component_list
-  belongs_to :user, inverse_of: :ideas
+  belongs_to :user, -> { includes :profile }, inverse_of: :ideas
   has_many :questions, inverse_of: :idea, :dependent => :destroy
   has_many :solutions, inverse_of: :idea, :dependent => :destroy
 
@@ -98,9 +98,12 @@ class Idea < ActiveRecord::Base
       idea_build = IdeaBuild.new
       idea_build.idea_id = self.id
       idea_build.save
+      Bitbucket.new(self.title, self.id).create
     end
+  end
 
-    Bitbucket.new(self.title, self.id).create
+  def is_phase_1?
+    self.phase == 1
   end
 
 end
