@@ -24,7 +24,7 @@
       </div>
       <ul class="media-list comments answer-comments">
         <% if answer.comments.count > 0 %>
-          <%= render vote_order(answer.comments.includes(:user)) || "No comments found" %>
+          <%= render vote_order(answer.comments.includes(:user)) %>
         <% end %>
       </ul>
       <% if answer.question.idea.is_phase_1? %>
