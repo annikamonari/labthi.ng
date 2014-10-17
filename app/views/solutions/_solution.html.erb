@@ -28,11 +28,19 @@
         <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
       </div>
     </div>
+
+  <% if solution.comments.count > 0 %>
+    <a href='javascript:void(0);' class='showsolcomments'>Hide Solution Comments</a>
+    <br><br>
+  <% end %>
+
+  <div class="media-body solutioncomments">
     <ul class="media-list comments solution-comments">
       <% if solution.comments.count > 0 %>
           <%= render vote_order(solution.comments.includes(:user)) %>
       <% end%>
     </ul>
+  
     <% if (@idea and @idea.phase != 1) %>
       <p class="link-dis"> Add comment </p>
     <% else %>
@@ -40,6 +48,6 @@
         <%= link_to "Add comment", new_solution_comment_path(solution), id: "solution-#{solution.id}", remote: true %>
       </p>    
     <% end %>
-
+    </div>
   </div>
 </li>
