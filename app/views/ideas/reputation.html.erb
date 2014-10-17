@@ -3,10 +3,12 @@
 <%= render 'secondary_nav' %>
 <%= render 'sidebar' %>
 
-<h4>See a list of contributors and their reputation earnings!</h4>
+<h3>See a list of the top 5 contributors!</h3>
 
-<strong>Local idea reputation:</strong>
-<div class="idea-<%= @idea.id %>-local-rep">
-	<%= @idea.local_reputation %>
-</div>
-<br />
+  <div class="content-bg">
+    <div class="idea-followers">
+      <% @users_points.each do |user, points| %>
+          <%= render 'users/user_with_points', user: user, points: points %>
+      <% end %>
+    </div>
+  </div>

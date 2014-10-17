@@ -33,13 +33,13 @@ module LabReputable
   end
 
   def local_reputation
-    evals = LabEvaluation.where(content:self)
+    evals       = LabEvaluation.where(content:self)
+    user_points = Array.new
 
-    points = 0
     evals.each do |e|
-      points += e.weighted_value_for_content_creator
+      user_points << [User.find(e.content_creator_id), e.weighted_value_for_content_creator]
     end
 
-    return points
+    return user_points
   end
 end
