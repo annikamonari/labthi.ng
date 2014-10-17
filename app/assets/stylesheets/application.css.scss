@@ -61,6 +61,9 @@ $badge-bg: $lab-med-grey;
   border-radius: 10px;
   margin-bottom: 3px;
 }
+.badge-rep > a {
+    color:#fff;
+  }
 
 /* Secondary Nav */
 .secondary-nav .btn {
@@ -245,4 +248,28 @@ li.followed-idea .idea-render{
 .userwrap {
   overflow:hidden;
   margin-top:10px;
+}
+
+.unclickable {
+  color: #F1C40F;
+  font-size: 1.5em;
+}
+
+.up {
+  margin-top:-6px;
+}
+
+.ideaphoto {
+  float:left;
+}
+
+.ideainfo {
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
+.ideaside {
+  position:relative;
+  overflow:hidden;
 }

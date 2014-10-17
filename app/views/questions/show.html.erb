@@ -30,12 +30,11 @@
   </div><!-- .show-question-wrapper -->
 
   <% if @question.comments.count > 0 %>
-    <a href='javascript:void(0);' id='hidecomments' style='display:none;'>Hide Comments (<%= @question.comments.count %>) </a>
-    <a href='javascript:void(0);' id='showcomments'>Show Comments (<%= @question.comments.count %>) </a>
+    <a href='javascript:void(0);' id='hidecomments' style='display:none;'>Hide Question Comments (<%= @question.comments.count %>) </a>
+    <a href='javascript:void(0);' id='showcomments'>Show Question Comments (<%= @question.comments.count %>) </a>
     <br><br>
   <% end %>
   <div class="media-body" id='questioncomments' style='display:none;'>
-    Comments:
     <ul class="media-list comments question-comments">
       <% if @question.comments.count > 0 %>
         <%= render vote_order(@question.comments.includes(:user)) %>

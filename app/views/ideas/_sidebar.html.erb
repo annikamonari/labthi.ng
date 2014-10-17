@@ -1,26 +1,29 @@
 
 <% content_for :sidebar_left do %>
-  
-  <p>
+
+<div class='ideaside'>  
+  <div class='ideaphoto'>
     <%= link_to idea_aspect_path(
         idea_id:@idea.id,
         id: @idea.image_aspect) do %>
       <%= image_tag @idea.top_image, class: 'img-rounded'  %>
     <% end %>
-  </p>
+  </div>
 
-  <p>
-    <%= link_to "Followers", followers_idea_path(@idea),
-      class: 'followers' %>
-  </p>
-
-  <p>
-    <strong>
+  <div class='ideainfo'>
+    <p><%= link_to '', followers_idea_path(@idea),
+      class: 'glyphicon glyphicon-star unclickable' %>
+    <span class='badge-rep up'><%=@idea.followers.count%></span></p>
+    <p><strong>
       Phase <%= @idea.phase %>
-    </strong>
-  </p>
-
-  <p>
+    </strong></p>
+    <p>By <%= render @idea.user %></p>
+    <i><%= time_ago_in_words(@idea.created_at) %> ago </i>
+  </div>
+</div>
+<br>
+  <p class='doc'>
+    <b>Brief:</b>
     <%= @idea.brief %>
   </p>
 
@@ -29,11 +32,8 @@
     <%= print_categories %>
   </p>
 
-  <p>
-    <%= render @idea.user %>
-  </p>
-
  <% if current_user != nil and current_user.admin %>
+ <br>
   <%= link_to "Promote", promote_idea_path(@idea), class: 'btn btn-danger' %>
  <% end %>
 <% end %>
