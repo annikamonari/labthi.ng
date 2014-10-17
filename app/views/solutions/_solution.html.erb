@@ -4,24 +4,33 @@
   <%= render partial: "evaluations/vote_wrapper", locals: {voteable: solution} %>
 
   <div class="media-body">
-    <div class="media-item-body">
-      <p>
-      	<%= best_in_place_if current_user == solution.user, solution, :brief, activator: '.edit-solution-' + solution.id.to_s %>
-      </p>
-      <%= link_to "Edit", "",
-          class: "edit-solution-#{solution.id.to_s}" if current_user == solution.user and (@idea and @idea.is_phase_1?) %>
-      <div class="pull-right">
-        <%= render solution.user %>
-      </div>
-      <% if solution.aspect.title == "Image" %>
+    <div class="media-body">
+      <div class="media-item-body">
         <p>
-          <%= image_tag solution.image.display %>
+        	<%= best_in_place_if current_user == solution.user, solution, :brief, activator: '.edit-solution-' + solution.id.to_s %>
         </p>
-      <% end %>
+        <div class='userwrap'>
+        <p class="pull-right">      
+          <div class='photoquest'>
+            <%= link_to (image_tag solution.user.profile.photo_url, :size => "36x36"), profile_path(solution.user.profile)%>
+          </div>
+          <div class='usernamequest'>
+          <%= render solution.user %><br>
+          <i>Posted <%= time_ago_in_words(solution.created_at) %> ago</i>
+          </div>
+          </p>
+        </div>
+        <% if solution.aspect.title == "Image" %>
+          <p>
+            <%= image_tag solution.image.display %>
+          </p>
+        <% end %>
+        <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
+      </div>
     </div>
     <ul class="media-list comments solution-comments">
       <% if solution.comments.count > 0 %>
-          <%= render vote_order(solution.comments.includes(:user)) || "No comments found" %>
+          <%= render vote_order(solution.comments.includes(:user)) %>
       <% end%>
     </ul>
     <% if (@idea and @idea.phase != 1) %>
@@ -31,5 +40,6 @@
         <%= link_to "Add comment", new_solution_comment_path(solution), id: "solution-#{solution.id}", remote: true %>
       </p>    
     <% end %>
-    </div>
+
+  </div>
 </li>

@@ -21,6 +21,7 @@
 //= require_tree .
 //= require ajax401
 //= require documentation
+//= require solutions
 
 $(document).ready(function() {
   /* Activating Best In Place */

@@ -2,7 +2,7 @@ class Solution < ActiveRecord::Base
   include PublicActivity::Model
   include LabReputable
   after_create :add_first_vote
-  validates :brief, presence: true, length: { maximum: 1000 }
+  validates :brief, presence: true, length: { maximum: 1250 }
   validates :user, presence: true
   validates :aspect, presence: true
   validates :idea, presence: true
