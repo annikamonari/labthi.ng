@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'User visits the build page' do
   before(:each) do
+    FactoryGirl.create(:user, email: 'alan.vey@gmail.com')
     @admin = FactoryGirl.create(:user, admin: true)
     @user = FactoryGirl.create(:user, admin: false)
     sign_in @admin

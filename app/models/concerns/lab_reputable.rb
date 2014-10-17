@@ -18,7 +18,7 @@ module LabReputable
     evaluator.update_lab_rep_points unless self.user == evaluator
   end
 
-	def lab_rep
+  def lab_rep
     evaluations = LabEvaluation.where(content: self, content_type: self.class.to_s)
     rep = 0
     evaluations.each do |e|

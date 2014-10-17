@@ -3,6 +3,7 @@ require 'spec_helper'
 feature 'User visits the edit path for a idea build part' do
 
   before(:each) do
+    FactoryGirl.create(:user, email: 'alan.vey@gmail.com')
     @admin = FactoryGirl.create(:user, admin: true)
     @user  = FactoryGirl.create(:user, admin: false)
     @part  = FactoryGirl.create(:part)
