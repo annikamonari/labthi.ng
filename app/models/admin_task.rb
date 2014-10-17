@@ -1,6 +1,10 @@
 class AdminTask < ActiveRecord::Base
   belongs_to :part
+  belongs_to :user
   has_many :task_comments
+
+  include PublicActivity::Model
+  include LabReputable
 
   def AdminTask.get(part)
     AdminTask.where(part_id: part)
@@ -23,6 +27,16 @@ class AdminTask < ActiveRecord::Base
     when 'Accepted'
       'Accepted' 
     end
+  end
+
+  def start_rep_points
+    self.update_lab_evaluation(1, User.find_by(email: 'alan.vey@gmail.com'))
+    self.user.update_lab_rep_points
+  end
+
+  def accepted_rep_points 
+    self.update_lab_evaluation(5, User.find_by(email: 'alan.vey@gmail.com'))
+    self.user.update_lab_rep_points
   end
 
 end

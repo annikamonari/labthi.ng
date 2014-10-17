@@ -25,12 +25,15 @@ class AdminTasksController < ApplicationController
     case @admin_task.status
     when 'Unstarted'
       @admin_task.status = 'Started'
+      @admin_task.user = current_user
+      @admin_task.start_rep_points
     when 'Started'
       @admin_task.status = 'Finished'
     when 'Finished' 
       @admin_task.status = 'In Review'
     when 'In Review'
       @admin_task.status = 'Accepted'
+      @admin_task.accepted_rep_points
     end
     @admin_task.save
     redirect_to :back, notice: "Status updated to #{@admin_task.status}"

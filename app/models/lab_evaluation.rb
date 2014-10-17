@@ -10,14 +10,15 @@ class LabEvaluation < ActiveRecord::Base
       "Question" => 0,
       "Answer" => 0,
       "Solution"=> 0,
-      "Comment" => 0
+      "Comment" => 0,
+      "AdminTask" => 0
     }
     down_weight = {
-      "Idea" => 10,
-      "Question" => 3,
-      "Answer" => 5,
-      "Solution"=> 5,
-      "Comment" => 1
+      "Idea" => 2,
+      "Question" => 1,
+      "Answer" => 1,
+      "Solution"=> 1,
+      "Comment" => 0
     }
 
     type = self.content_type
@@ -36,17 +37,18 @@ class LabEvaluation < ActiveRecord::Base
 
   def weighted_value_for_content_creator
     up_weight = {
-      "Idea" => 10,
-      "Question" => 5,
-      "Answer" => 10,
-      "Solution"=> 10,
-      "Comment" => 1
+      "Idea" => 5,
+      "Question" => 2,
+      "Answer" => 3,
+      "Solution"=> 4,
+      "Comment" => 1,
+      "AdminTask" => 1
     }
     down_weight = {
-      "Idea" => 10,
-      "Question" => 3,
-      "Answer" => 5,
-      "Solution"=> 5,
+      "Idea" => 4,
+      "Question" => 1,
+      "Answer" => 2,
+      "Solution"=> 2,
       "Comment" => 1
     }
 
@@ -56,7 +58,9 @@ class LabEvaluation < ActiveRecord::Base
     	weight = down_weight[type]
     elsif self.value == 1
     	weight = up_weight[type]
-    else
+    elsif User.find(self.evaluator_id).admin
+      weight = 1
+    else  
     	weight = 0
     end
 

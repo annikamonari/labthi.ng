@@ -71,12 +71,14 @@ class PartsController < ApplicationController
       @part.status = 'Started'
       @part.user   = current_user
       @part.bitbucket.post_user(current_user.email) if @part.name == 'Prototype'
+      @part.start_rep_points
     when 'Started'
       @part.status = 'Finished'
     when 'Finished' 
       @part.status = 'In Review'
     when 'In Review'
       @part.status = 'Accepted'
+      @part.accepted_rep_points
     end
     @part.save
     redirect_to :back
@@ -84,6 +86,7 @@ class PartsController < ApplicationController
   
   # Used for status setting
   def unstart_part
+    @part.unstart_rep_points
     @part.status = 'Unstarted'
     @part.user   = nil
     @part.save
