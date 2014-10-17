@@ -1,6 +1,9 @@
 class Part < ActiveRecord::Base
   # Used to associate image galaries from bootsy to this model
   include Bootsy::Container
+  include PublicActivity::Model
+  include LabReputable
+  
   has_many :part_uploads
   has_many :admin_tasks
 
@@ -82,6 +85,22 @@ class Part < ActiveRecord::Base
 
   def bitbucket
     Bitbucket.new(self.idea.title, self.idea.id)
+  end
+
+  def start_rep_points
+    self.update_lab_evaluation(10, User.find_by(email: 'alan.vey@gmail.com'))
+    self.user.update_lab_rep_points
+  end
+
+  def unstart_rep_points
+    self.update_lab_evaluation(-10, User.find_by(email: 'alan.vey@gmail.com'))
+    self.user.update_lab_rep_points
+  end
+
+  def accepted_rep_points 
+    self.update_lab_evaluation(10 + ((self.equity.to_i / 100.0) * 1000.0).to_i, 
+                                 User.find_by(email: 'alan.vey@gmail.com'))
+    self.user.update_lab_rep_points
   end
 
   private

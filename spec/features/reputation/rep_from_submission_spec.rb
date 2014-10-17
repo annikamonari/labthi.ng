@@ -9,21 +9,21 @@ feature 'Visitor gets reputation from' do
   	sign_out
     submit_idea
     find('.show-user-profile a').click
-    find(".badge-rep").should have_content '10'
+    find(".badge-rep").should have_content '5'
   end
   scenario 'writing a question' do
   	@idea = FactoryGirl.create(:idea)
   	visit idea_path @idea
   	submit_question
     find('.show-user-profile a').click
-    find(".badge-rep").should have_content '5'
+    find(".badge-rep").should have_content '2'
   end
   scenario 'writing an answer' do
   	@question = FactoryGirl.create(:question)
   	visit question_path @question
   	submit_answer("valid answer")
     find('.show-user-profile a').click
-    find(".badge-rep").should have_content '10'
+    find(".badge-rep").should have_content '3'
   end
   scenario 'writing a solution' do
   	@idea = FactoryGirl.create(:idea)
@@ -31,7 +31,7 @@ feature 'Visitor gets reputation from' do
   	visit idea_aspect_path @idea, @aspect
   	submit_solution("valid answer")
     find('.show-user-profile a').click
-    find(".badge-rep").should have_content '10'
+    find(".badge-rep").should have_content '4'
   end
   scenario 'writing a comment' do
   	@question = FactoryGirl.create(:question)

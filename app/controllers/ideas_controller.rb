@@ -100,6 +100,7 @@ class IdeasController < ApplicationController
   end
 
   def reputation
+    @users_points = get_reputation 
     render layout: 'sidebar_left'
   end
 
@@ -143,5 +144,56 @@ class IdeasController < ApplicationController
       current_user = :auth_user!
       user = Idea.find(params[:id]).user if params[:id]
       redirect_to @idea, notice: "You do not have permission to edit this idea." unless current_user == user
+    end
+
+    def get_reputation
+      users_points = @idea.local_reputation
+      
+      @idea.questions.each do |q|
+        users_points += q.local_reputation
+        q.answers.each do |a|
+          users_points += a.local_reputation
+          a.comments.each do |c|
+            users_points += c.local_reputation
+            c.comments do |cc|
+              users_points += cc.local_reputation
+            end 
+          end
+        end
+        q.comments.each do |c|
+          users_points += c.local_reputation
+          c.comments.each do |cc|
+            users_points += cc.local_reputation
+          end
+        end
+      end
+
+      @idea.solutions do |s|
+        users_points += s.local_reputation
+        s.comments.each do |c|
+          users_points += c.local_reputation
+          c.comments.each do |cc|
+            users_points += cc.local_reputation
+          end
+        end
+      end
+      sum_points(users_points)    
+    end
+
+    def sum_points(users_points)
+      sorted             = users_points.sort_by { |u| u[0] }
+      points             = 0
+      summed_users_points = Array.new
+
+      (0..sorted.length - 1).each do |i|
+        user    = sorted[i][0]
+        points += sorted[i][1]
+
+        if sorted[i + 1].nil? or sorted[i + 1][0] != user
+          summed_users_points << [user, points]
+          points = 0
+        end
+      end
+      (summed_users_points.sort_by {|u| -u[1]})[0..5]  
     end
 end
