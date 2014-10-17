@@ -16,7 +16,7 @@ feature 'User visits an idea page' do
     page.should have_content(greeting)
   end
   scenario 'and clicks "Reputation"' do
-    greeting = 'See a list of contributors and their reputation earnings!'
+    greeting = 'See a list of the top 5 contributors!'
   	click_link 'Reputation'
     page.should have_content(greeting)
   end
