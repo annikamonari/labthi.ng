@@ -7,16 +7,23 @@
     <div class="media-item-body">
       <strong>
         <%= render comment.user %>
-      </strong>
+      </strong>     
       <br />
       <%= comment.brief %>
+      <br>
+      <div class='pull-right'>
+        <small><i> Posted <%= time_ago_in_words(comment.created_at) %> ago</i></small><br>
+      </div>
     </div>
+    <br><hr style="color:#fff;background-color:#fff;border-color:#fff;" />
     <% unless comment.commentable_type == 'Comment' then %>
       <ul class="media-list comments comment-comments">
         <% if comment.comments.count > 0 %>
     	  	<%= render vote_order(comment.comments.includes(:user)) %>
+        <% else %>
+          <br> 
         <% end %>
-      </ul>            
+      </ul>           
         <% if (@idea and @idea.phase != 1) %>
           <p class="link-dis"> Reply to comment </p>
         <% else %>
