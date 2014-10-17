@@ -149,13 +149,13 @@ p.notice {
   &:first-letter { text-transform: uppercase; }
 }
 
-.questions, .answers, .aspects, .aspect, .question-comments, .solutions, .content-bg{
+.questions, #noanswer, .aspects, .aspect, .question-comments, .solutions, .content-bg{
   background: #ecf0f1;
   border-radius: 8px;
   padding: 11px 13px;
   margin-bottom: 8px;
   list-style:none;
-  ul{
+  ul > li {
     border-radius: 8px;
     background:#fff;
     padding: 8px;
@@ -214,4 +214,17 @@ li.followed-idea .idea-render{
 
 .link-dis {
   color: #2980B9;
+}
+
+.photo {
+  width:36px;
+  float:left;
+}
+.username {
+  float:left;
+}
+
+.userwrap {
+  overflow:hidden;
+  margin-top:10px;
 }

@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <%= javascript_include_tag 'ajax401' %>
 
 <%= render 'ideas/sidebar' %>
@@ -10,15 +9,23 @@
     <%= render partial: "evaluations/vote_wrapper", locals: {voteable: @question} %>
 
     <p>
-      <strong>
+      <h4><strong>
         <%= @question.title %>
-      </strong>
+      </strong></h4>
     </p>
-    <p>
+    <p class='voteindent'>
       <%= @question.brief %>
     </p>
     <p class="pull-right">
-      <%= render @question.user %>
+      <div class='userwrap'>
+        <div class='photoquest'>
+          <%= link_to (image_tag @question.user.profile.photo_url, :size => "36x36"), profile_path(@question.user.profile)%>
+        </div>
+        <div class='usernamequest'>
+        <%= render @question.user %><br>
+        <i>Posted <%= @time %> ago</i>
+        </div>
+      </div>
     </p>
   </div><!-- .show-question-wrapper -->
 
@@ -42,11 +49,12 @@
   </div>
 </div><!-- .question -->
 
+<h4> Answers: </h4>
 <ul class="answers media-list">
   <% if @answers.count > 0 %>
     <%= render vote_order(@answers) %>
   <% else %>
-    <div class='no answers'>
+    <div class='no answers' id='noanswer'>
       No answers yet. Why don't you add one?
     </div>
   <% end %>

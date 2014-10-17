@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  include ActionView::Helpers::DateHelper
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   before_action :auth_user!, except: [:show]
   before_action :set_vote_value, only: [:vote]
@@ -9,6 +10,7 @@ class QuestionsController < ApplicationController
   def show
     @idea = @question.idea
     @answers = @question.answers.includes(:user)
+    @time = time_ago_in_words(@question.created_at)
     render layout: 'sidebar_left'
   end
 
