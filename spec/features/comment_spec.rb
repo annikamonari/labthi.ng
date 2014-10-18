@@ -22,7 +22,7 @@ feature 'Visitor submits a comment' do
         expect(page).to have_content(@comment_brief)
   end
 
-  scenario 'on a question', js: true do
+  scenario 'on a question' do
         submit_comment @comment_brief, '.question'
         expect(page).to have_content(@question_brief)
         expect(page).to have_content(@comment_brief)
