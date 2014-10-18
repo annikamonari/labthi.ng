@@ -22,17 +22,23 @@
           <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
         </div>
       </div>
-      <ul class="media-list comments answer-comments">
-        <% if answer.comments.count > 0 %>
-          <%= render vote_order(answer.comments.includes(:user)) %>
-        <% end %>
-      </ul>
-      <% if answer.question.idea.is_phase_1? %>
-        <p>
-          <%= link_to "Add comment", new_answer_comment_path(answer), id: "answer-#{answer.id}", remote: true %>
-        </p>
-      <% else %>
-        <p class="link-dis"> Add comment </p>
+      <% if answer.comments.count > 0 %>
+        <a href='javascript:void(0);' class='showanscomments'>Hide Answer Comments</a>
+        <br><br>
       <% end %>
+      <div class="media-body answercomments">
+        <ul class="media-list comments answer-comments">
+          <% if answer.comments.count > 0 %>
+            <%= render vote_order(answer.comments.includes(:user)) %>
+          <% end %>
+        </ul>
+        <% if answer.question.idea.is_phase_1? %>
+          <p>
+            <%= link_to "Add comment", new_answer_comment_path(answer), id: "answer-#{answer.id}", remote: true %>
+          </p>
+        <% else %>
+          <p class="link-dis"> Add comment </p>
+        <% end %>
+      </div>
     </div>
 </li>
