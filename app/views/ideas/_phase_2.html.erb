@@ -1,0 +1,24 @@
+<div class='row'>  
+  <div class='col-xs-10'>
+    <div class='col-md-1 phase2image'>
+      <%= image_tag @idea.phase_2_image, class: 'img-rounded' %>
+    </div>
+    <div class='col-md-9'>
+      <h2>
+          <%= @idea.title %>
+        </h2>
+      <strong>
+        Phase <%= @idea.phase %>
+      </strong> |
+      <i>Promoted <%= time_ago_in_words(@idea.created_at) %> ago</i> |
+      <%= print_categories %>
+    </div>
+  </div>
+  <div class='col-xs-2 archive'>
+    <p class='pull-right'>
+      <span class='glyphicon glyphicon-star unclickable'></span>
+      <%= link_to "#{@idea.followers.count}", followers_idea_path(@idea),
+        class: 'badge-rep up' %></p><br><br>
+    <p class='pull-right'><%= link_to "Phase 1 Archive", @idea %></p>
+  </div>
+</div>

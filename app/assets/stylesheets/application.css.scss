@@ -251,12 +251,16 @@ li.followed-idea .idea-render{
 }
 
 .unclickable {
-  color: #F1C40F;
+  color: #1ABC9C;
   font-size: 1.5em;
 }
 
 .up {
   margin-top:-6px;
+}
+
+.phase2info {
+  
 }
 
 .ideaphoto {
@@ -272,6 +276,15 @@ li.followed-idea .idea-render{
 .ideaside {
   position:relative;
   overflow:hidden;
+}
+
+.phase2image {
+  margin-left:-14px;
+  margin-right:30px;
+}
+ 
+.archive {
+  margin-top:20px;
 }
 
 .aspsol {

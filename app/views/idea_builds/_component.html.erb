@@ -1,6 +1,5 @@
 <% (component.parts.sort_by {|p| p.created_at}).each do |part| %>
-  <div class='row content-bg'>
-    
+  <div class='row content-bg'>   
     <div class='col-md-8'>
       <% if part.display_link?(current_user)%>
         <%= link_to part.name, edit_part_path(id: part) %>
@@ -17,22 +16,21 @@
       </h0>
       <br>
     </div>
-
-    <div class='col-md-3 col-md-push-2'>
-      <% if part.locked_or_disabled?(current_user) %>
-        <%= button_to part.disabled_status, '', 
-            :class => 'btn disabled btn-status', id: "#{part.id}"%>
-      <% elsif part.display_button?(current_user) %>
-        <%= button_to part.button_status, update_status_path(id: part), 
-            :class => 'btn btn-inverse', id: "#{part.id}"%>
-      <% else %>
-        <%= link_to (image_tag part.user.profile.photo_url, :size => "32x32"), profile_path(part.user.profile)%>
-      <%end%>
+    <div class='col-md-4'>
+      <div class='partstyle pull-right'>
+        <div class='left'>
+          <% if part.locked_or_disabled?(current_user) %>
+            <%= button_to part.disabled_status, '', 
+                :class => 'btn disabled btn-status', id: "#{part.id}"%>
+          <% elsif part.display_button?(current_user) %>
+            <%= button_to part.button_status, update_status_path(id: part), 
+                :class => 'btn btn-inverse', id: "#{part.id}"%>
+          <% else %>
+            <%= link_to (image_tag part.user.profile.photo_url, :size => "32x32"), profile_path(part.user.profile)%>
+          <% end %>     
+        </div>
+        <div class='right'><%= button_to part.equity, '', :class => 'btn disabled btn-equity'%></div>
+      </div>
     </div>
-
-    <div class='col-md-1'>
-      <%= button_to part.equity, '', :class => 'btn disabled btn-equity'%> 
-    </div>
-
   </div>
 <% end %>

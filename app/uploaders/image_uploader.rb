@@ -38,6 +38,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :display do
     process :resize_to_fill => [180, 180]
   end
+
+  version :phase2 do
+    process :resize_to_fill => [80, 80]
+  end
   #
   # def scale(width, height)
   #   # do something
