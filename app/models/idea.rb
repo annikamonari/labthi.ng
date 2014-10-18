@@ -117,6 +117,7 @@ class Idea < ActiveRecord::Base
   def get_idea_activities
     activities = Array.new
     get(:ids).each do |type, id|
+      next if type == 'AdminTask'
       activities += PublicActivity::Activity.includes(:trackable, { :owner => :profile }).where(
        trackable_id: id, trackable_type: type)
 
@@ -157,19 +158,33 @@ class Idea < ActiveRecord::Base
       end
     end
 
-    id_build = self.idea_build
+    if self.phase >= 2
+      id_build = self.idea_build
 
-    id_build.plan_component.parts.each do |part|
-      users_points += part.send(method)
-    end
-    id_build.business_plan_component.parts.each do |part|
-      users_points += part.send(method)
-    end
-    id_build.prototype_component.parts.each do |part|
-      users_points += part.send(method)
-    end
-    id_build.design_component.parts.each do |part|
-      users_points += part.send(method)
+      id_build.plan_component.parts.includes(:admin_tasks).each do |part|
+        users_points += part.send(method)
+        part.admin_tasks.each do |ac|
+          users_points += ac.send(method)
+        end
+      end
+      id_build.business_plan_component.parts.includes(:admin_tasks).each do |part|
+        users_points += part.send(method)
+        part.admin_tasks.each do |ac|
+          users_points += ac.send(method)
+        end
+      end
+      id_build.prototype_component.parts.includes(:admin_tasks).each do |part|
+        users_points += part.send(method)
+        part.admin_tasks.each do |ac|
+          users_points += ac.send(method)
+        end
+      end
+      id_build.design_component.parts.includes(:admin_tasks).each do |part|
+        users_points += part.send(method)
+        part.admin_tasks.each do |ac|
+          users_points += ac.send(method)
+        end
+      end
     end
 
     users_points 

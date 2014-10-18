@@ -39,4 +39,8 @@ class AdminTask < ActiveRecord::Base
     self.user.update_lab_rep_points
   end
 
+  def ids
+    [['AdminTask', self.id]]
+  end
+
 end

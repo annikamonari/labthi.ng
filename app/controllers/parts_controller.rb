@@ -1,6 +1,7 @@
 class PartsController < ApplicationController
   before_action :set_part
   before_action :auth_user!
+  before_action :check_user, only: [:edit]
 
   def edit
     @users = @part.bitbucket.get_users if @part.name == 'Prototype'
@@ -107,6 +108,12 @@ class PartsController < ApplicationController
 
   def part_params
     params.require(:part).permit(:value, :email, :user, :bootsy_image_gallery_id, part_upload_attributes: [:image])
+  end
+
+  def check_user
+    if not (@part.user == current_user or current_user.admin)
+      redirect_to :back, notice: 'You are not allowed to view that page'
+    end
   end
 
 end
