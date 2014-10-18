@@ -1,0 +1,8 @@
+started a part
+
+<% if activity.trackable %>
+  <%= link_to activity.trackable.name, idea_build_path(activity.trackable.idea) %>
+<% else %>
+  which has since been removed
+<% end %>
+<br />

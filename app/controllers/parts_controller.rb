@@ -71,14 +71,18 @@ class PartsController < ApplicationController
       @part.status = 'Started'
       @part.user   = current_user
       @part.bitbucket.post_user(current_user.email) if @part.name == 'Prototype'
+      @part.create_activity key: 'part.started', owner: current_user
       @part.start_rep_points
     when 'Started'
       @part.status = 'Finished'
+      @part.create_activity key: 'part.finished', owner: current_user
     when 'Finished' 
       @part.status = 'In Review'
+      @part.create_activity key: 'part.in_review', owner: current_user
     when 'In Review'
       @part.status = 'Accepted'
       @part.accepted_rep_points
+      @part.create_activity key: 'part.accepted', owner: current_user
     end
     @part.save
     redirect_to :back
@@ -91,6 +95,7 @@ class PartsController < ApplicationController
     @part.user   = nil
     @part.save
 
+    @part.create_activity key: 'part.unstarted', owner: current_user
     @part.bitbucket.delete_users if @part.name == 'Prototype'
 
     redirect_to idea_build_path(@part.idea), notice: 'You successfully unstarted the part.'
