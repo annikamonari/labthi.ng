@@ -33,7 +33,7 @@
   </p>
 
  <% if current_user != nil and current_user.admin %>
- <br>
+  <br>
   <%= link_to "Promote", promote_idea_path(@idea), class: 'btn btn-danger' %>
  <% end %>
 <% end %>
