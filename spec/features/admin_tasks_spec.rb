@@ -6,7 +6,7 @@ feature 'User visits the edit path for a idea build part' do
     FactoryGirl.create(:user, email: 'alan.vey@gmail.com')
     @admin = FactoryGirl.create(:user, admin: true)
     @user  = FactoryGirl.create(:user, admin: false)
-    @part  = FactoryGirl.create(:part)
+    @part  = FactoryGirl.create(:part, user: @user)
 
     sign_in @admin
     visit "/ideas/#{@part.idea.id}/parts/#{@part.id}/edit"
