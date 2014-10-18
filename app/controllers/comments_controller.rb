@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
   # GET /comments/1.json
   def show
     @comment = Comment.find(params[:id])
+    redirect_to get_redirect_path(@comment)
   end
 
   # GET /comments/new

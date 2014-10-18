@@ -194,6 +194,6 @@ class IdeasController < ApplicationController
           points = 0
         end
       end
-      (summed_users_points.sort_by {|u| -u[1]})[0..5]  
+      (summed_users_points.sort_by {|u| -u[1]})[0..4]  
     end
 end
