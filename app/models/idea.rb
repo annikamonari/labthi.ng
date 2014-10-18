@@ -21,7 +21,10 @@ class Idea < ActiveRecord::Base
 
   has_many :followers, through: :reverse_idea_relationships
 
-  has_one :idea_build
+  has_one :idea_build, -> { includes( :plan_component => :parts, 
+                                      :business_plan_component => :parts, 
+                                      :design_component => :parts, 
+                                      :prototype_component => :parts ) }
 
   acts_as_taggable_on :categories, :component
 
@@ -153,6 +156,22 @@ class Idea < ActiveRecord::Base
         end
       end
     end
+
+    id_build = self.idea_build
+
+    id_build.plan_component.parts.each do |part|
+      users_points += part.send(method)
+    end
+    id_build.business_plan_component.parts.each do |part|
+      users_points += part.send(method)
+    end
+    id_build.prototype_component.parts.each do |part|
+      users_points += part.send(method)
+    end
+    id_build.design_component.parts.each do |part|
+      users_points += part.send(method)
+    end
+
     users_points 
   end
 
