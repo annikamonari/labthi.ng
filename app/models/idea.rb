@@ -111,4 +111,49 @@ class Idea < ActiveRecord::Base
     [['Idea', self.id]]
   end
 
+  def get_idea_activities
+    activities = Array.new
+    get(:ids).each do |type, id|
+      activities += PublicActivity::Activity.includes(:trackable, { :owner => :profile }).where(
+       trackable_id: id, trackable_type: type)
+
+    end
+    activities.sort_by { |a| Time.now - a.created_at }
+  end
+
+  def get(method)
+    users_points = Array.new
+    users_points += self.send(method)
+
+    self.questions.includes(:answers).each do |q|
+      users_points += q.send(method)
+      q.answers.includes(:comments).each do |a|
+        users_points += a.send(method)
+        a.comments.includes(:comments).each do |c|
+          users_points += c.send(method)
+          c.comments do |cc|
+            users_points += cc.send(method)
+          end 
+        end
+      end
+      q.comments.includes(:comments).each do |c|
+        users_points += c.send(method)
+        c.comments.each do |cc|
+          users_points += cc.send(method)
+        end
+      end
+    end
+
+    self.solutions do |s|
+      users_points += s.send(method)
+      s.comments.includes(:comments).each do |c|
+        users_points += c.send(method)
+        c.comments.each do |cc|
+          users_points += cc.send(method)
+        end
+      end
+    end
+    users_points 
+  end
+
 end
