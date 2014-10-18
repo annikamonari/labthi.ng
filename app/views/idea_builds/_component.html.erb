@@ -26,7 +26,8 @@
             <%= button_to part.button_status, update_status_path(id: part), 
                 :class => 'btn btn-inverse', id: "#{part.id}"%>
           <% else %>
-            Completed by: <%= link_to (part.user.name), profile_path(part.user.profile) %> <%= link_to (image_tag part.user.profile.photo_url, :size => "32x32"), profile_path(part.user.profile)%>
+            Completed by: <br><%= link_to (part.user.name), profile_path(part.user.profile) %> 
+            <%= link_to (image_tag part.user.profile.photo_url, :size => "32x32"), profile_path(part.user.profile)%>
           <% end %>     
         </div>
         <div class='right'><%= button_to part.equity, '', :class => 'btn disabled btn-equity'%></div>

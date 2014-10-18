@@ -2,12 +2,11 @@ require 'spec_helper'
 
 feature 'Visitor submits a comment' do
     before(:each) do
-        @idea_brief = 'Social network based on premise of only disliking posts'
+        @idea_brief = 'Social network based on premise of onl'
         @question_title ='Target demographic'
         @question_brief = 'This social network should target a speific audience'
         @answer_brief = 'This product could target upper middle class males in NYC'
         @comment_brief = 'That is kind of a silly idea. NYC is too important.'
-
         submit_idea @idea_brief
         submit_question @question_title, @question_brief
     end
