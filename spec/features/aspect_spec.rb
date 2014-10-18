@@ -46,7 +46,6 @@ feature 'Visit an idea Define tab ' do
   scenario 'and submits a comment', js: true do
     click_link @aspect.title
     submit_solution "Valid solution"
-    print page.html
     submit_comment "My comment", ".solutions li:first-child"
     submit_comment "Reply to my comment", ".comments li:first-child", 'Reply to comment'
     page.should have_content "Valid solution"

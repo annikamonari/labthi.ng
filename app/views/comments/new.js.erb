@@ -29,7 +29,7 @@ if (!$(selector).children().hasClass("js-inline-form")) {
 else {
 	$(" li.js-inline-form").remove()
 	$("div.no.comments").show()
-	if($(selector + "#comment-<%= j @commentable.id.to_s %>").length > 0) {
+	if($("#comment-<%= j @commentable.id.to_s %>").length > 0) {
 		$("#<%= j @commentable.class.to_s.downcase + '-' + @commentable.id.to_s %>").text("Reply to comment")
 	}
 	else {
