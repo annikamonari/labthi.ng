@@ -8,7 +8,7 @@ feature 'User visits the build page' do
     sign_in @admin
     @part = FactoryGirl.create(:part)
     visit "/ideas/#{@part.idea.id}/build"
-    click_button "1"
+    click_button "Start"
   end
 
   scenario 'and finds a bootsy area to type in for plan and business plan parts, saves work when finished' do
