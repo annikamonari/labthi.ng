@@ -9,11 +9,11 @@ feature 'User wants to submit a startup idea' do
   scenario 'with valid input' do
     valid_brief = 'A web based platform for people to be honest about their opinions'
     submit_idea valid_brief
-    page.should have_content "Critique, expand, and improve this idea!"
+    page.should have_content "What business needs to exist?"
     page.should have_content valid_brief
   end
   scenario 'with valid input' do
-    valid_title = "Social network based on premise of only disliking posts"
+    valid_title = "Social network based on premise of only"
     submit_idea valid_title
     page.should have_content "Critique, expand, and improve this idea!"
     page.should have_content valid_title
