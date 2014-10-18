@@ -100,11 +100,18 @@ class IdeasController < ApplicationController
   end
 
   def reputation
-    @users_points = get_reputation 
+    @users_points = sum_points(get(:local_reputation))
     render layout: 'sidebar_left'
   end
 
   def activity
+    @activities = Array.new
+    get(:ids).each do |type, id|
+      @activities += PublicActivity::Activity.includes(:trackable, { :owner => :profile }).where(
+                     trackable_id: id, trackable_type: type)
+
+    end
+    @activities.sort_by! { |a| Time.now - a.created_at }
     render layout: 'sidebar_left'
   end
 
@@ -146,38 +153,39 @@ class IdeasController < ApplicationController
       redirect_to @idea, notice: "You do not have permission to edit this idea." unless current_user == user
     end
 
-    def get_reputation
-      users_points = @idea.local_reputation
-      
+    def get(method)
+      users_points = Array.new
+      users_points += @idea.send(method)
+
       @idea.questions.each do |q|
-        users_points += q.local_reputation
+        users_points += q.send(method)
         q.answers.each do |a|
-          users_points += a.local_reputation
-          a.comments.each do |c|
-            users_points += c.local_reputation
+          users_points += a.send(method)
+          a.comments.includes(:comments).each do |c|
+            users_points += c.send(method)
             c.comments do |cc|
-              users_points += cc.local_reputation
+              users_points += cc.send(method)
             end 
           end
         end
-        q.comments.each do |c|
-          users_points += c.local_reputation
+        q.comments.includes(:comments).each do |c|
+          users_points += c.send(method)
           c.comments.each do |cc|
-            users_points += cc.local_reputation
+            users_points += cc.send(method)
           end
         end
       end
 
       @idea.solutions do |s|
-        users_points += s.local_reputation
-        s.comments.each do |c|
-          users_points += c.local_reputation
+        users_points += s.send(method)
+        s.comments.includes(:comments).each do |c|
+          users_points += c.send(method)
           c.comments.each do |cc|
-            users_points += cc.local_reputation
+            users_points += cc.send(method)
           end
         end
       end
-      sum_points(users_points)    
+      users_points 
     end
 
     def sum_points(users_points)

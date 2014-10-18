@@ -4,3 +4,4 @@
 <%= render 'sidebar' %>
 
 <h4>Recent activity</h4>
+<%= render partial: "activities/activities", :locals => {activities: @activities} %>

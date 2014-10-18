@@ -1,6 +1,6 @@
 class AdminTask < ActiveRecord::Base
   belongs_to :part
-  belongs_to :user
+  belongs_to :user, -> { includes :profile }
   has_many :task_comments
 
   include PublicActivity::Model

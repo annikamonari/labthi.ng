@@ -1,5 +1,6 @@
 class Idea < ActiveRecord::Base
   include PublicActivity::Model
+
   include ActiveModel::Validations
   include LabReputable
   after_create :add_first_vote
@@ -104,6 +105,10 @@ class Idea < ActiveRecord::Base
 
   def is_phase_1?
     self.phase == 1
+  end
+
+  def ids
+    [['Idea', self.id]]
   end
 
 end
