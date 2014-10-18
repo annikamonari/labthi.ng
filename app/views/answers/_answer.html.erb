@@ -1,27 +1,44 @@
 <% # This template is called from Idea#show %>
-<li class="media answer answer-<%= answer.id %>">
+
+<li class="media answer answer-<%= answer.id %> content-bg">
 
     <%= render partial: "evaluations/vote_wrapper", locals: {voteable: answer} %>
 
 
     <div class="media-body">
-      <div class="media-item-body">
-        <%= answer.brief %>
-      <div class="pull-right">
-        <%= render answer.user %>
+      <div class="media-body">
+        <div class="media-item-body">
+            <div class='userwrap'>
+              <div class='photo'>
+              <%= link_to (image_tag answer.user.profile.photo_url, :size => "36x36"), profile_path(answer.user.profile)%>
+              </div>
+              <div class='username'>
+              <%= render answer.user %><br>
+              <small><i> Posted <%= time_ago_in_words(answer.created_at) %> ago</i></small>
+              </div>
+            </div>
+          <br>
+          <p><%= answer.brief %></p>
+          <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
+        </div>
       </div>
-      </div>
-      <ul class="media-list comments answer-comments">
-        <% if answer.comments.count > 0 %>
-          <%= render vote_order(answer.comments.includes(:user)) || "No comments found" %>
-        <% end %>
-      </ul>
-      <% if answer.question.idea.is_phase_1? %>
-        <p>
-          <%= link_to "Add comment", new_answer_comment_path(answer), id: "answer-#{answer.id}", remote: true %>
-        </p>
-      <% else %>
-        <p class="link-dis"> Add comment </p>
+      <% if answer.comments.count > 0 %>
+        <a href='javascript:void(0);' class='showanscomments'>Hide Answer Comments</a>
+        <br><br>
       <% end %>
+      <div class="media-body answercomments">
+        <ul class="media-list comments answer-comments">
+          <% if answer.comments.count > 0 %>
+            <%= render vote_order(answer.comments.includes(:user)) %>
+          <% end %>
+        </ul>
+        <% if answer.question.idea.is_phase_1? %>
+          <p>
+            <%= link_to "Add comment", new_answer_comment_path(answer), id: "answer-#{answer.id}", remote: true %>
+          </p>
+        <% else %>
+          <p class="link-dis"> Add comment </p>
+        <% end %>
+      </div>
     </div>
 </li>

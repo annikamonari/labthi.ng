@@ -6,12 +6,11 @@
 
 <p>
   <h1><%= @aspect.title %></h1>
-  <%= @aspect.brief %>
+  <%= @aspect.brief %><hr>
 </p>
 
   <% if @solutions.count > 0 %>
     <h4>Solutions:</h4>
-    <p>Number of solutions: <%= @solutions.count %></p>
       <ul class="media-list solutions">
       <% vote_order(@solutions).each do |solution| %>
             <%= render solution || "No solutions found" %>
@@ -25,8 +24,8 @@
   </ul><!-- .solutions -->
 <% end %>
 
-<% if @idea.is_phase_1? %>
-  <%= link_to "Add solution", new_aspect_solution_path(aspect_id: @aspect.id, idea_id: @idea.id), id: 'newsolution', remote:true %>
-<% else %>
+<% if @idea.phase != 1 %>
   <p class="link-dis"> Add solution </p>
+<% else %>
+  <%= link_to "Add solution", new_aspect_solution_path(aspect_id: @aspect.id, idea_id: @idea.id), id: 'newsolution', remote:true %>
 <% end %>

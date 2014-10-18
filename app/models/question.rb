@@ -4,7 +4,7 @@ class Question < ActiveRecord::Base
   after_create :add_first_vote
   validates :idea, presence: true
   validates :user, presence: true
-  validates :title, presence: true, length: { maximum: 100 }
+  validates :title, presence: true, length: { maximum: 200 }
   validates :brief, presence: true, :allow_nil => true, :allow_blank => true, length: {maximum: 500}
   belongs_to :idea
   belongs_to :user, -> { includes :profile }

@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <%= javascript_include_tag 'ajax401' %>
 
 <%= render 'ideas/sidebar' %>
@@ -10,19 +9,32 @@
     <%= render partial: "evaluations/vote_wrapper", locals: {voteable: @question} %>
 
     <p>
-      <strong>
+      <h4><strong>
         <%= @question.title %>
-      </strong>
+      </strong></h4>
     </p>
-    <p>
+    <p class='voteindent'>
       <%= @question.brief %>
     </p>
     <p class="pull-right">
-      <%= render @question.user %>
+      <div class='userwrap'>
+        <div class='photoquest'>
+          <%= link_to (image_tag @question.user.profile.photo_url, :size => "36x36"), profile_path(@question.user.profile)%>
+        </div>
+        <div class='usernamequest'>
+        <%= render @question.user %><br>
+        <i>Posted <%= @time %> ago</i>
+        </div>
+      </div>
     </p>
   </div><!-- .show-question-wrapper -->
 
-  <div class="media-body">
+  <% if @question.comments.count > 0 %>
+    <a href='javascript:void(0);' id='hidecomments'>Hide Question Comments (<%= @question.comments.count %>) </a>
+    <a href='javascript:void(0);' id='showcomments' style='display:none;'>Show Question Comments (<%= @question.comments.count %>) </a>
+    <br><br>
+  <% end %>
+  <div class="media-body" id='questioncomments'>
     <ul class="media-list comments question-comments">
       <% if @question.comments.count > 0 %>
         <%= render vote_order(@question.comments.includes(:user)) %>
@@ -42,15 +54,20 @@
   </div>
 </div><!-- .question -->
 
-<ul class="answers media-list">
-  <% if @answers.count > 0 %>
-    <%= render vote_order(@answers) %>
-  <% else %>
-    <div class='no answers'>
-      No answers yet. Why don't you add one?
-    </div>
-  <% end %>
-</ul>
+<h4> Answers: </h4>
+
+
+<div id='answers'>
+  <ul class="answers media-list">
+    <% if @answers.count > 0 %>
+      <%= render vote_order(@answers) %>
+    <% else %>
+      <div class='no answers' id='noanswer'>
+        No answers yet. Why don't you add one?
+      </div>
+    <% end %>
+  </ul>
+</div>
 
 <% if @question.idea.is_phase_1? %>
   <p>
@@ -64,6 +81,6 @@
 
 
 <% if @question.idea.is_phase_1? %>
-  <%= link_to 'Edit', edit_question_path(@question) %> |
+  <%= link_to 'Edit Question', edit_question_path(@question) %> |
 <% end %>
 <%= link_to 'Back', @question.idea %>

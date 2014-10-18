@@ -61,6 +61,9 @@ $badge-bg: $lab-med-grey;
   border-radius: 10px;
   margin-bottom: 3px;
 }
+.badge-rep > a {
+    color:#fff;
+  }
 
 /* Secondary Nav */
 .secondary-nav .btn {
@@ -149,13 +152,31 @@ p.notice {
   &:first-letter { text-transform: uppercase; }
 }
 
-.questions, .answers, .aspects, .aspect, .question-comments, .solutions, .content-bg{
+.questions, #noanswer, .aspects, .aspect, .solutions, .content-bg{
   background: #ecf0f1;
   border-radius: 8px;
   padding: 11px 13px;
   margin-bottom: 8px;
   list-style:none;
-  ul{
+  ul > li {
+    border-radius: 8px;
+    background:#fff;
+    padding: 8px;
+    list-style:none;
+    margin:8px 0;
+  }
+  ul ul {
+
+  }
+}
+
+.question-comments > li {
+  background: #ecf0f1;
+  border-radius: 8px;
+  padding: 11px 13px;
+  margin-bottom: 8px;
+  list-style:none;
+  ul > li {
     border-radius: 8px;
     background:#fff;
     padding: 8px;
@@ -214,4 +235,45 @@ li.followed-idea .idea-render{
 
 .link-dis {
   color: #2980B9;
+}
+
+.photo {
+  width:36px;
+  float:left;
+}
+.username {
+  float:left;
+}
+
+.userwrap {
+  overflow:hidden;
+  margin-top:10px;
+}
+
+.unclickable {
+  color: #F1C40F;
+  font-size: 1.5em;
+}
+
+.up {
+  margin-top:-6px;
+}
+
+.ideaphoto {
+  float:left;
+}
+
+.ideainfo {
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
+.ideaside {
+  position:relative;
+  overflow:hidden;
+}
+
+.aspsol {
+  margin-left:-40px;
 }

@@ -18,7 +18,7 @@ describe Solution do
     solution.should_not be_valid
   end
   it "is not valid when brief is too long" do
-  	solution = FactoryGirl.build(:solution, brief: "a" * 1001)
+  	solution = FactoryGirl.build(:solution, brief: "a" * 1251)
   	solution.should_not be_valid
   end
 
