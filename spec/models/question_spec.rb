@@ -28,7 +28,7 @@ describe Question do
   end
   it "is not valid when title is too long" do
     question = FactoryGirl.create(:question)
-    question.title = "a" * 101
+    question.title = "a" * 201
     question.should_not be_valid 
   end
   it "is not valid when brief is too long" do

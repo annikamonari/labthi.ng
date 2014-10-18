@@ -23,7 +23,6 @@ feature 'Visitor submits a comment' do
   end
 
   scenario 'on a question', js: true do
-        #print page.html
         submit_comment @comment_brief, '.question'
         expect(page).to have_content(@question_brief)
         expect(page).to have_content(@comment_brief)
