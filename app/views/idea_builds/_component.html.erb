@@ -1,4 +1,4 @@
-<% (component.parts.sort_by {|p| p.created_at}).each do |part| %>
+<% (component.parts.sort_by {|p| p.name}).each do |part| %>
   <div class='row content-bg'>   
     <div class='col-md-8'>
       <% if part.display_link?(current_user)%>
