@@ -34,6 +34,8 @@ StartIt::Application.routes.draw do
 
   # TODO: Nest under idea
   get "/ideas/:idea_id/parts/:id/edit", to: "parts#edit", as: "edit_part"
+  get "/ideas/:idea_id/parts/:id/help_content", to: "parts#help_content", as: "part_help_content"
+  get "/ideas/:idea_id/parts/:id/admin_tasks", to: "parts#admin_tasks", as: "part_admin_tasks"
   put "/ideas/:idea_id/parts/:id/update", to: "parts#update", as: "update_part"
   put "/ideas/:idea_id/parts/:id/update_image", to: "parts#update_image", as: "update_image_part"
   put "/ideas/:idea_id/parts/:id/add_user_to_repo", to: "parts#add_user_to_repo", as: "add_user_to_repo"

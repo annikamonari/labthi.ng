@@ -2,7 +2,7 @@
   <div class='row content-bg'>   
     <div class='col-md-8'>
       <% if part.display_link?(current_user)%>
-        <%= link_to part.name, edit_part_path(id: part) %>
+        <%= link_to part.name, part_help_content_path(id: part) %>
       <% else %>
         <h0 class='link-dis'>
           <%= part.name %>
@@ -26,8 +26,12 @@
             <%= button_to part.button_status, update_status_path(id: part), 
                 :class => 'btn btn-inverse', id: "#{part.id}"%>
           <% else %>
-            <p class='left'>Completed by: <br><%= link_to (part.user.name), profile_path(part.user.profile) %> </p>
-            <p class='right'><%= link_to (image_tag part.user.profile.photo_url, :size => "32x32"), profile_path(part.user.profile)%></p>
+            <p class='pull-left left' align='right'>
+               Author:<br>
+              <%= link_to (part.user.name), profile_path(part.user.profile) %>             
+            </p>
+            <p class='pull-right'>
+            <%= link_to (image_tag part.user.profile.photo_url, :size => "32x32"), profile_path(part.user.profile)%></p>
           <% end %>     
         </div>
         <div class='right'><%= button_to part.equity, '', :class => 'btn disabled btn-equity'%></div>

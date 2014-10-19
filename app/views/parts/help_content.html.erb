@@ -1,0 +1,7 @@
+<%= render 'secondary_nav' %>
+<br>
+<h4 class='partname'>Find Help About How to Build this Content</h4>
+<div class='col-md-10 helpcontentbg'>
+  <%= render "parts/help_content/#{@part.name.downcase.sub(' ', '_')}" %>
+</div>
+<br>

@@ -1,19 +1,11 @@
-<div class='row'>
-<h1>Editing <%= @part.name %></h1>
-
-<% if @part.is_design? %>   
-  <%=  render 'upload_form' %>
-<% elsif @part.is_prototype? %>
-  <%=  render 'prototype_form' %>
-<% else %>
-  <%= render 'editor_form' %>
-<% end %>
-
-<%= link_to 'Back', idea_build_path(@part.idea) %><br>
-
-<% if @part.is_started? or @part.is_in_review? %>
-  <%= link_to "Can't manage? Unstart", unstart_part_path, method: 'PUT' %>
-<% end %><br>
+<%= render 'secondary_nav' %><br>
+<h4 class='partname'>Submit Content Here</h4>
+<div class='col-md-10 helpcontentbg partname'>
+  <% if @part.is_design? %>   
+    <%=  render 'upload_form' %>
+  <% elsif @part.is_prototype? %>
+    <%=  render 'prototype_form' %>
+  <% else %>
+    <%= render 'editor_form' %>
+  <% end %>
 </div>
-
-<%= render 'admin_tasks' %>
