@@ -1,0 +1,32 @@
+<li class="content-bg">
+    <div class="media-body">
+      <div class="media-body">
+        <div class="media-item-body">
+          <strong>Task:</strong> <%= task.title %><br>
+          <%= task.description %><br>   
+          <%= "Status: " %>
+          <h0 class='statustext'>
+            <%= "#{task.status}"%>
+          </h0>
+          <div class='pull-right'>
+            <small><i> Posted <%= time_ago_in_words(task.created_at) %> ago</i></small>
+          </div>
+          <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
+        </div>
+      </div>
+      <% if task.task_comments.count > 0 %>
+        <a href='javascript:void(0);' class='showanscomments'>Hide Task Comments</a>
+        <br><br>
+      <% end %>
+      <div class="media-body answercomments">
+        <ul class="media-list comments task-comments">
+          <% if task.task_comments.count > 0 %>
+            <%= render task.task_comments.includes(:user) %>
+          <% end %>
+        </ul>
+          <p>
+            <%= link_to 'Add Comment', new_task_comment_path(admin_task_id: task.id), remote: true %>
+          </p>
+      </div>
+    </div>
+</li>

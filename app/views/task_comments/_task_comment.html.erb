@@ -1,0 +1,21 @@
+<li class="media comment comment">
+  
+  <div class="media-body">
+    <div class="media-item-body">
+      <div class='userwrap'>
+        <div class='photo'>
+          <%= link_to (image_tag task_comment.user.profile.photo_url, :size => "36x36"), profile_path(task_comment.user.profile)%>
+        </div>
+        <div class='username'>
+          <%= render task_comment.user %><br>
+          <small><i> Posted <%= time_ago_in_words(task_comment.created_at) %> ago</i></small>
+        </div>
+      </div>   
+      <br>
+      <%= task_comment.comment %>
+      <br>
+    </div>
+    <hr>    
+  </div>
+</li>
+

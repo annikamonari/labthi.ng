@@ -1,41 +1,6 @@
 <% (@admin_tasks.sort_by {|t| t.created_at}).each do |task| %>
-  <div class='row content-bg'>
-    
-    <div class='col-md-8'>
-      <strong>Task:</strong> <%= task.title %><br>
-      <%= task.description %><br>   
-      <%= "Status: " %>
-      <h0 class='statustext'>
-        <%= "#{task.status}"%>
-      </h0>
-      <br>
-    </div>
-
-    <div class='col-md-3 col-md-push-2'>
-      <% if task.disable_button?(current_user) %>
-        <%= button_to task.button_status, '', 
-            :class => 'btn disabled btn-status', id: "#{task.id}"%>
-      <% else %>
-        <%= button_to task.button_status, update_admin_task_path(part_id:@part.id, id:task.id), 
-            :class => 'btn btn-inverse', id: "#{task.id}"%>
-      <%end%>
-    </div>
-
-  </div>
-
-  <div class='row'> 
-  <div class='col-md-8'>
-    <% TaskComment.where(admin_task_id: task.id).includes(:user).each do |comment| %>
-      <strong><%= comment.user.name %></strong>
-      <%= comment.comment %> 
-      <br>
-    <% end %>
-  </div>
-</div>
-
-  <%= link_to 'Comment', new_task_comment_path(admin_task_id: task.id) %><br>
-<% end %>
-
+<%= render 'task', task: task %>
 <% if current_user.admin %>
   <%= link_to 'New Admin task', new_admin_task_path %>
+<% end %>
 <% end %>
