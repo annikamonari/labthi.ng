@@ -1,5 +1,9 @@
 <%= render 'secondary_nav' %>
 <br>
 <h4 class='partname'>Tasks Written by Admins to Improve Your Work</h4>
+<div class='col-md-10'> 
   <%= render 'admin_tasks' %>
-
+  <% if current_user.admin %>
+  <%= link_to 'New Admin task', new_admin_task_path %>
+<% end %>
+</div>

@@ -1,25 +1,42 @@
 <li class="content-bg">
+  <div class="media-body">
     <div class="media-body">
-      <div class="media-body">
-        <div class="media-item-body">
-          <strong>Task:</strong> <%= task.title %><br>
-          <%= task.description %><br>   
-          <%= "Status: " %>
-          <h0 class='statustext'>
-            <%= "#{task.status}"%>
-          </h0>
-          <div class='pull-right'>
-            <small><i> Posted <%= time_ago_in_words(task.created_at) %> ago</i></small>
+        <div class="media-item-body">          
+          <h4><strong> <%= task.title %></strong></h4>
+          <div class=''>
+            <div class=''><%= task.description %></div><br><br>
+            <div class='pull-right'>  
+            <% if task.disable_button?(current_user) %>
+              <%= button_to task.button_status, '', 
+              :class => 'btn disabled btn-status', id: "#{task.id}"%>
+            <% else %>
+              <%= button_to task.button_status, update_admin_task_path(part_id:@part.id, id:task.id), 
+              :class => 'btn btn-inverse', id: "#{task.id}"%>
+            <% end %>
+            </div>
+          </div>
+          <div class=''>
+            <div class=''>
+              <%= "Status: " %>
+              <h0 class='statustext'>
+                <%= "#{task.status}"%>
+              </h0>
+            </div>
+            <div class='pull-right'>
+              <%= render User.find_by_id(task.admin_id) %><br>
+              <small><i> Posted <%= time_ago_in_words(task.created_at) %> ago</i></small>
+            </div>
           </div>
           <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
         </div>
       </div>
       <% if task.task_comments.count > 0 %>
-        <a href='javascript:void(0);' class='showanscomments'>Hide Task Comments</a>
-        <br><br>
+        <a href='javascript:void(0);' id='hidecomments'>Hide Task Comments (<%= task.task_comments.count %>) </a>
+        <a href='javascript:void(0);' id='showcomments' style='display:none;'>Show Task Comments (<%= task.task_comments.count %>) </a>
+        <br>
       <% end %>
-      <div class="media-body answercomments">
-        <ul class="media-list comments task-comments">
+      <div class="media-body taskcomments" id='taskcomments'>
+        <ul class="media-list comments answer-comments">
           <% if task.task_comments.count > 0 %>
             <%= render task.task_comments.includes(:user) %>
           <% end %>

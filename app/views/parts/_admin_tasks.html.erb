@@ -1,6 +1,3 @@
 <% (@admin_tasks.sort_by {|t| t.created_at}).each do |task| %>
 <%= render 'task', task: task %>
-<% if current_user.admin %>
-  <%= link_to 'New Admin task', new_admin_task_path %>
-<% end %>
 <% end %>
