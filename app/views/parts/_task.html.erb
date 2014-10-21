@@ -4,8 +4,8 @@
         <div class="media-item-body">          
           <h4><strong> <%= task.title %></strong></h4>
           <div class='row '>
-            <div class='col-md-11 no-gutter'><p class='doc'><%= task.description %></p></div><br><br>
-            <div class='col-md-1 pull-right taskbtn'>  
+            <div class='col-md-10 no-gutter'><p class='doc'><%= task.description %></p></div><br><br>
+            <div class='col-md-2 pull-right taskbtn' align='right'>  
             <% if task.disable_button?(current_user) %>
               <%= button_to task.button_status, '', 
               :class => 'btn disabled btn-status', id: "#{task.id}"%>
