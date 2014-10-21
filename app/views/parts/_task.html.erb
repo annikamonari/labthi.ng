@@ -1,11 +1,11 @@
-<li class="content-bg">
+<li class="<%= task.id %> content-bg">
   <div class="media-body">
-    <div class="media-body">
+      <div class="media-body">
         <div class="media-item-body">          
           <h4><strong> <%= task.title %></strong></h4>
-          <div class=''>
-            <div class=''><%= task.description %></div><br><br>
-            <div class='pull-right'>  
+          <div class='row '>
+            <div class='col-md-11 no-gutter'><p class='doc'><%= task.description %></p></div><br><br>
+            <div class='col-md-1 pull-right taskbtn'>  
             <% if task.disable_button?(current_user) %>
               <%= button_to task.button_status, '', 
               :class => 'btn disabled btn-status', id: "#{task.id}"%>
@@ -14,24 +14,24 @@
               :class => 'btn btn-inverse', id: "#{task.id}"%>
             <% end %>
             </div>
-          </div>
-          <div class=''>
-            <div class=''>
-              <%= "Status: " %>
+          </div><br>
+          <div class='row'>
+            <div class='col-md-10 no-gutter taskstatus'>
+              <strong><%= "Status: " %></strong>
               <h0 class='statustext'>
                 <%= "#{task.status}"%>
               </h0>
             </div>
-            <div class='pull-right'>
-              <%= render User.find_by_id(task.admin_id) %><br>
-              <small><i> Posted <%= time_ago_in_words(task.created_at) %> ago</i></small>
+            <div class='col-md-2 admin' align='right'>
+              <p class='admintask'><%= render User.find_by_id(task.admin_id) %><br>
+              <small><i> Posted <%= time_ago_in_words(task.created_at) %> ago</i></small></p>
             </div>
-          </div>
-          <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
+          </div>          
         </div>
       </div>
+      <hr class='taskhr' style="color:#fff;background-color:#fff;border-color:#fff;" />
       <% if task.task_comments.count > 0 %>
-        <a href='javascript:void(0);' id='hidecomments'>Hide Task Comments (<%= task.task_comments.count %>) </a>
+        <a href='javascript:void(0);' id='hidecomments'>Hide Task Comments (<%= task.task_comments.count %>) <br></a>
         <a href='javascript:void(0);' id='showcomments' style='display:none;'>Show Task Comments (<%= task.task_comments.count %>) </a>
         <br>
       <% end %>
@@ -42,7 +42,7 @@
           <% end %>
         </ul>
           <p>
-            <%= link_to 'Add Comment', new_task_comment_path(admin_task_id: task.id), remote: true %>
+            <%= link_to 'Add Comment', new_task_comment_path(admin_task_id: task.id), id: "task-#{task.id}", remote: true %>
           </p>
       </div>
     </div>

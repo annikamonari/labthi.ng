@@ -13,7 +13,7 @@ class AdminTasksController < ApplicationController
 
     respond_to do |format|
       if @admin_task.save
-        format.html { redirect_to part_task_comments_path, notice: 'Admin task was successfully created.' }
+        format.html { redirect_to part_admin_tasks_path, notice: 'Admin task was successfully created.' }
       else
         format.html { redirect_to :back, notice: 'Saving admin task failed' }
       end

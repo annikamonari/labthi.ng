@@ -1,0 +1,13 @@
+var selector = "li.<%= j @task.id.to_s %>.content-bg"
+selector = $(selector).find("ul.media-list.comments.answer-comments")
+
+if (!$(selector).children().hasClass("js-inline-form")) {
+  $(" .js-inline-form").remove()
+  $(selector)
+    .append("<li class='js-inline-form'><%= j render 'task_comments/form' %></li>")
+  $("#task-<%= j @task.id.to_s %>").text("Cancel")
+}
+else {
+  $(" .js-inline-form").remove()
+  $("#task-<%= j @task.id.to_s %>").text("Add Comment")
+}

@@ -21,7 +21,7 @@
         <div class='photoquest'>
           <%= link_to (image_tag @question.user.profile.photo_url, :size => "36x36"), profile_path(@question.user.profile)%>
         </div>
-        <div class='usernamequest'>
+        <div class='usernamequest' align='right'>
         <%= render @question.user %><br>
         <i>Posted <%= @time %> ago</i>
         </div>
