@@ -9,6 +9,8 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @activities = PublicActivity::Activity.includes(:owner, :trackable).where(owner: @user).order("created_at desc")
+    render layout: 'sidebar_left'
     redirect_to @profile unless current_user == @profile.user
   end
 
