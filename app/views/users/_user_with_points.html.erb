@@ -2,16 +2,22 @@
 <li class="white-bg">
   <div class="media">
     <%= link_to profile, class: "pull-left" do %>
-      <%= image_tag(profile.photo.thumb, class:'media-object') %>
+      <%= image_tag(profile.photo.thumb, size: '60x60', class: 'img-rounded') %>
     <% end %>
-    <div class="pull-left">
+    <div class="pull-left" style='margin-top:5px;'>
       <%= render 'users/user', user: user %>
       <br>
       <% if profile.profession %>
         <strong>Profession:</strong>
-        <%= profile.profession %>
+        <%= profile.profession %><br>
       <% end %>
-      <strong>Points: </strong><%= points %>
+      <% if profile.country %>
+        <strong>Country:</strong>
+        <%= profile.country %><br>
+      <% end %>
+    </div>
+    <div class='pull-right' style='margin-top:5px;'>
+      local reputation: <span align='right'><%= button_to points, '', class: 'btn disabled btn-localrep' %></span>
     </div>
   </div>
 </li>
