@@ -5,7 +5,7 @@ class Idea < ActiveRecord::Base
   include LabReputable
   after_create :add_first_vote
   validates :phase, presence: true
-  validates :title, presence: true, length: { maximum: 100 }
+  validates :title, presence: true, length: { maximum: 42 }
   validates :brief, presence: true, length: { maximum: 1000 }
   validate :instance_validations
   validates_presence_of :category_list
@@ -43,12 +43,16 @@ class Idea < ActiveRecord::Base
     if solution then
       if thumbnail
         top_image = solution.image.thumb.to_s
-      elsif solution
+      elsif solution and thumbnail == nil
+        top_image = solution.image.phase2.to_s
+      else
         top_image = solution.image.display.to_s
       end
     else
       if thumbnail
         top_image = 'thumb_default.png'
+      elsif thumbnail == nil
+        top_image = 'phase2_default.png'
       else
         top_image = 'display_default.png'
       end
@@ -59,6 +63,10 @@ class Idea < ActiveRecord::Base
 
   def top_image_thumb
     top_image(true)
+  end
+
+  def phase_2_image
+    top_image(nil)
   end
 
   def instance_validations

@@ -1,27 +1,35 @@
+<%= render 'ideas/phase_2' %>
+<br>
 <div class='row'>
-  <h1>Idea Overview</h1><br>
-</div>
+  <div class='col-md-12'>
+    <div class='col-md-12 componentstyle'>
+      <h4><strong>Plan Component</strong></h4>
+      <%= render 'component', 
+          component: @idea_build.plan_component %>
+    </div>
+  </div><br>
 
-<div class='row'>
-  <h4><strong>Plan Component</strong></h4>
-  <%= render 'component', 
-      component: @idea_build.plan_component %>
-</div>
+  <div class='col-md-12'>
+    <div class='col-md-12 componentstyle'>
+      <h4><strong>Business Plan Component</strong></h4>
+      <%= render 'component', 
+          component: @idea_build.business_plan_component %>
+    </div>
+  </div><br>
 
-<div class='row'>
-  <h4><strong>Business Plan Component</strong></h4>
-  <%= render 'component', 
-      component: @idea_build.business_plan_component %>
-</div>
+  <div class='col-md-12'>
+    <div class='col-md-12 componentstyle'>
+      <h4><strong>Prototype Component</strong></h4>
+      <%= render 'component', 
+          component: @idea_build.prototype_component %>
+    </div>
+  </div><br>
 
-<div class='row'>
-  <h4><strong>Prototype Component</strong></h4>
-  <%= render 'component', 
-      component: @idea_build.prototype_component %>
-</div>
-
-<div class='row'>
-  <h4><strong>Design Component</strong></h4>
-  <%= render 'component', 
-      component: @idea_build.design_component %>
+  <div class='col-md-12'>
+    <div class='col-md-12 componentstyle'>
+      <h4><strong>Design Component</strong></h4>
+      <%= render 'component', 
+          component: @idea_build.design_component %>
+    </div>
+  </div><br>
 </div>

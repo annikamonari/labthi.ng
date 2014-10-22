@@ -1,0 +1,13 @@
+<%= render 'secondary_nav' %>
+<br>
+<div class='col-md-10'>
+  <div class='col-md-10 admintitle'><h4 class='partname'>Tasks Written by Admins to Improve Your Work</h4></div>
+  <div class='pull-right'>
+    <% if current_user.admin %>
+      <%= button_to 'New Admin Task', new_admin_task_path, class: 'btn btn-info', method: :get %>
+    <% end %>
+  </div>
+</div>
+<div class='col-md-10'> 
+  <%= render 'admin_tasks' %>  
+</div>

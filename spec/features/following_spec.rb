@@ -18,7 +18,7 @@ feature 'User can' do
   end
 
   scenario 'see followers by clicking link on idea sidebar' do
-    page.find(".glyphicon-star").click
+    page.find(".badge-rep.up").click
     find(".idea-followers").should have_content @user.name
   end
 

@@ -4,9 +4,9 @@
 <div class="welcome-block clearfix">
 	<h4 class="pull-left">Critique, expand, and improve this idea!</h4>
 	<%= link_to "Create a question", {
-	  controller: "questions",
-	  action: "new",
-	  idea_id: @idea.id},
+	  controller: "ideas",
+	  action: "new_question",
+	  id: @idea.id},
 	  class: (@idea.is_phase_1? ? "btn btn-info pull-right" : "btn disabled btn-info pull-right")
 	%>
 </div>

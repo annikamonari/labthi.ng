@@ -1,0 +1,11 @@
+<%= render 'layouts/header' %>
+
+<%= yield :page_title %>
+<br>
+<%= render 'layouts/secondary_navpart' if content_for :secondary_nav %>
+<div class="col content col-sm-12">
+  <%= yield %>
+</div>
+
+<%= render 'layouts/links' %>
+<%= render 'layouts/footer' %>

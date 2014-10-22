@@ -1,0 +1,39 @@
+<% content_for :page_title do %>
+  <div class="clearfix">
+    <div class="col-sm-12">
+       <h2 class='partname'>
+         <%= @part.name %>
+        </h2>
+    </div>
+  </div>
+<% end %>
+
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav">
+    <%= link_to "Help Content", {
+      controller: "parts",
+      action: "help_content" },
+      class: 'btn btn-default ' + active_when(:controller => 'parts', :action => 'help_content')
+    %>
+    <%= link_to "Edit", {
+      controller: "parts",
+      action: "edit" },
+      class: 'btn btn-default ' + active_when(:controller => 'parts', :action => 'edit')
+    %>
+    <% if @part.status == 'In Review' or current_user.admin %>
+      <%= link_to "Admin Tasks", {
+        controller: "parts",
+        action: "admin_tasks" },
+        class: 'btn btn-default ' + active_when(:controller => 'parts', :action => 'admin_tasks')
+      %>
+    <% end %>
+  </div>
+<% end %>
+
+<% content_for :links do %>
+  <% if @part.is_started? or @part.is_in_review? %>
+    <br>Can't manage? Unhappy?
+    <%= button_to "Unstart", unstart_part_path, class: 'btn btn-danger', method: 'PUT' %>
+  <% end %><br>
+  <%= link_to 'Back to Idea Build', idea_build_path(@part.idea) %>
+<% end %>

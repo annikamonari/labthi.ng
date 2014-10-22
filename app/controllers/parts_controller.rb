@@ -6,6 +6,16 @@ class PartsController < ApplicationController
   def edit
     @users = @part.bitbucket.get_users if @part.name == 'Prototype'
     @admin_tasks   = AdminTask.get(@part.id)
+    render layout: 'sidebar_part'
+  end
+
+  def help_content
+    render layout: 'sidebar_part'
+  end
+
+  def admin_tasks
+    @admin_tasks   = AdminTask.get(@part.id)
+    render layout: 'sidebar_part'
   end
 
   def clear
@@ -115,5 +125,4 @@ class PartsController < ApplicationController
       redirect_to :back, notice: 'You are not allowed to view that page'
     end
   end
-
 end

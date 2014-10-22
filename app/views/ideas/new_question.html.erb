@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'secondary_nav' %>
+<%= render 'sidebar' %>
+
+
+<h4>New question</h4>
+
+<div class="content-bg">
+  <%= render template: 'questions/new' %>
+</div>
+
+<%= link_to 'Back', @idea %>
