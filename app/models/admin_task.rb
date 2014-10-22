@@ -1,6 +1,6 @@
 class AdminTask < ActiveRecord::Base
   belongs_to :part
-  belongs_to :user
+  belongs_to :user, -> { includes :profile }
   has_many :task_comments
 
   include PublicActivity::Model
@@ -37,6 +37,10 @@ class AdminTask < ActiveRecord::Base
   def accepted_rep_points 
     self.update_lab_evaluation(5, User.find_by(email: 'alan.vey@gmail.com'))
     self.user.update_lab_rep_points
+  end
+
+  def ids
+    [['AdminTask', self.id]]
   end
 
 end

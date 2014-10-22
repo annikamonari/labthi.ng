@@ -1,5 +1,6 @@
 class Idea < ActiveRecord::Base
   include PublicActivity::Model
+
   include ActiveModel::Validations
   include LabReputable
   after_create :add_first_vote
@@ -20,7 +21,10 @@ class Idea < ActiveRecord::Base
 
   has_many :followers, through: :reverse_idea_relationships
 
-  has_one :idea_build
+  has_one :idea_build, -> { includes( :plan_component => :parts, 
+                                      :business_plan_component => :parts, 
+                                      :design_component => :parts, 
+                                      :prototype_component => :parts ) }
 
   acts_as_taggable_on :categories, :component
 
@@ -104,6 +108,86 @@ class Idea < ActiveRecord::Base
 
   def is_phase_1?
     self.phase == 1
+  end
+
+  def ids
+    [['Idea', self.id]]
+  end
+
+  def get_idea_activities
+    activities = Array.new
+    get(:ids).each do |type, id|
+      next if type == 'AdminTask'
+      activities += PublicActivity::Activity.includes(:trackable, { :owner => :profile }).where(
+       trackable_id: id, trackable_type: type)
+
+    end
+    activities.sort_by { |a| Time.now - a.created_at }
+  end
+
+  def get(method)
+    users_points = Array.new
+    users_points += self.send(method)
+
+    self.questions.includes(:answers).each do |q|
+      users_points += q.send(method)
+      q.answers.includes(:comments).each do |a|
+        users_points += a.send(method)
+        a.comments.includes(:comments).each do |c|
+          users_points += c.send(method)
+          c.comments do |cc|
+            users_points += cc.send(method)
+          end 
+        end
+      end
+      q.comments.includes(:comments).each do |c|
+        users_points += c.send(method)
+        c.comments.each do |cc|
+          users_points += cc.send(method)
+        end
+      end
+    end
+
+    self.solutions do |s|
+      users_points += s.send(method)
+      s.comments.includes(:comments).each do |c|
+        users_points += c.send(method)
+        c.comments.each do |cc|
+          users_points += cc.send(method)
+        end
+      end
+    end
+
+    if self.phase >= 2
+      id_build = self.idea_build
+
+      id_build.plan_component.parts.includes(:admin_tasks).each do |part|
+        users_points += part.send(method)
+        part.admin_tasks.each do |ac|
+          users_points += ac.send(method)
+        end
+      end
+      id_build.business_plan_component.parts.includes(:admin_tasks).each do |part|
+        users_points += part.send(method)
+        part.admin_tasks.each do |ac|
+          users_points += ac.send(method)
+        end
+      end
+      id_build.prototype_component.parts.includes(:admin_tasks).each do |part|
+        users_points += part.send(method)
+        part.admin_tasks.each do |ac|
+          users_points += ac.send(method)
+        end
+      end
+      id_build.design_component.parts.includes(:admin_tasks).each do |part|
+        users_points += part.send(method)
+        part.admin_tasks.each do |ac|
+          users_points += ac.send(method)
+        end
+      end
+    end
+
+    users_points 
   end
 
 end

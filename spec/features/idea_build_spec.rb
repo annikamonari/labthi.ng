@@ -8,7 +8,7 @@ feature 'User visits the build page' do
     sign_in @admin
     @part = FactoryGirl.create(:part)
     visit "/ideas/#{@part.idea.id}/build"
-    click_button "1"
+    click_button "Start"
   end
 
   scenario 'and finds a bootsy area to type in for plan and business plan parts, saves work when finished' do
@@ -52,45 +52,4 @@ feature 'User visits the build page' do
     expect(page).to have_selector(:link_or_button, 'Started')
   end
 
-  scenario 'and button vanishes when status is accepted' do
-    click_button "1"
-    click_button "1"
-    click_button "1"
-
-    expect(page).not_to have_selector(:link_or_button, 'Accept')
-    expect(page).to have_content('Accepted')
-  end
-
-  scenario 'and a prototype is locked until the flowchart is complete' do
-    expect(page).to have_selector(:link_or_button, 'Locked', count: 11)
-    click_button "1"
-    click_button "1"
-    click_button "1"
-    expect(page).to have_selector(:link_or_button, 'Locked', count: 3)
-    click_button "8"
-    click_button "8"
-    click_button "8"
-    click_button "8"
-    expect(page).to have_selector(:link_or_button, 'Locked', count: 2)
-  end
-
-  scenario 'and an admin can only see the review button; for other users its in review' do
-    click_button "1"
-    click_button "1"
-    click_button "1"
-    sign_out
-    sign_in @user
-    visit "/ideas/#{@part.idea.id}/build"
-    click_button "2"
-    click_button "2"
-    sign_out
-    sign_in @admin
-    visit "/ideas/#{@part.idea.id}/build"
-    expect(page).to have_selector(:link_or_button, 'Review')
-    click_button "2"
-    sign_out
-    sign_in @user
-    visit "/ideas/#{@part.idea.id}/build"
-    expect(page).to have_selector(:link_or_button, 'In Review')
-  end
 end

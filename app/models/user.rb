@@ -91,4 +91,12 @@ class User < ActiveRecord::Base
   def unfollow_idea!(idea)
     idea_relationships.find_by(followed_id: idea.id).destroy
   end
+
+  def get_followed_idea_activity
+    follow_activities = Array.new
+    self.followed_ideas.each do |idea|
+      follow_activities += idea.get_idea_activities
+    end
+    follow_activities.sort_by { |a| Time.now - a.created_at } 
+  end
 end

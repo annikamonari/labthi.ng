@@ -8,4 +8,8 @@ class Answer < ActiveRecord::Base
   belongs_to :question, inverse_of: :answers
   belongs_to :user, -> { includes :profile }, inverse_of: :answers
   has_many :comments, as: :commentable, :dependent => :destroy
+
+  def ids
+    [['Answer', self.id]]
+  end
 end

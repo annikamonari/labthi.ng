@@ -11,4 +11,8 @@ class Question < ActiveRecord::Base
   has_many :answers, -> { includes :user, :question }, inverse_of: :question, :dependent => :destroy
   has_many :comments, as: :commentable, :dependent => :destroy
 
+  def ids
+    [['Question', self.id]]
+  end
+
 end

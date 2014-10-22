@@ -27,13 +27,17 @@ class AdminTasksController < ApplicationController
       @admin_task.status = 'Started'
       @admin_task.user = current_user
       @admin_task.start_rep_points
+      @admin_task.create_activity key: 'admin_task.started', owner: current_user
     when 'Started'
       @admin_task.status = 'Finished'
+      @admin_task.create_activity key: 'admin_task.finished', owner: current_user
     when 'Finished' 
       @admin_task.status = 'In Review'
+      @admin_task.create_activity key: 'admin_task.in_review', owner: current_user
     when 'In Review'
       @admin_task.status = 'Accepted'
       @admin_task.accepted_rep_points
+      @admin_task.create_activity key: 'admin_task.accepted', owner: current_user
     end
     @admin_task.save
     redirect_to :back, notice: "Status updated to #{@admin_task.status}"

@@ -8,7 +8,7 @@ class Part < ActiveRecord::Base
   has_many :admin_tasks
 
   belongs_to :user, -> { includes(:profile) }
-  belongs_to :component
+  belongs_to :component, -> { includes(:idea_build) }
 
   def idea
     @idea ||= idea_build.idea
@@ -101,6 +101,10 @@ class Part < ActiveRecord::Base
     self.update_lab_evaluation(10 + ((self.equity.to_i / 100.0) * 1000.0).to_i, 
                                  User.find_by(email: 'alan.vey@gmail.com'))
     self.user.update_lab_rep_points
+  end
+
+  def ids
+    [['Part', self.id]]
   end
 
   private

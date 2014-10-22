@@ -100,11 +100,12 @@ class IdeasController < ApplicationController
   end
 
   def reputation
-    @users_points = get_reputation 
+    @users_points = sum_points(@idea.get(:local_reputation))
     render layout: 'sidebar_left'
   end
 
   def activity
+    @activities = @idea.get_idea_activities
     render layout: 'sidebar_left'
   end
 
@@ -146,40 +147,6 @@ class IdeasController < ApplicationController
       redirect_to @idea, notice: "You do not have permission to edit this idea." unless current_user == user
     end
 
-    def get_reputation
-      users_points = @idea.local_reputation
-      
-      @idea.questions.each do |q|
-        users_points += q.local_reputation
-        q.answers.each do |a|
-          users_points += a.local_reputation
-          a.comments.each do |c|
-            users_points += c.local_reputation
-            c.comments do |cc|
-              users_points += cc.local_reputation
-            end 
-          end
-        end
-        q.comments.each do |c|
-          users_points += c.local_reputation
-          c.comments.each do |cc|
-            users_points += cc.local_reputation
-          end
-        end
-      end
-
-      @idea.solutions do |s|
-        users_points += s.local_reputation
-        s.comments.each do |c|
-          users_points += c.local_reputation
-          c.comments.each do |cc|
-            users_points += cc.local_reputation
-          end
-        end
-      end
-      sum_points(users_points)    
-    end
-
     def sum_points(users_points)
       sorted             = users_points.sort_by { |u| u[0] }
       points             = 0
@@ -194,6 +161,6 @@ class IdeasController < ApplicationController
           points = 0
         end
       end
-      (summed_users_points.sort_by {|u| -u[1]})[0..5]  
+      (summed_users_points.sort_by {|u| -u[1]})[0..4]  
     end
 end

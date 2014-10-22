@@ -11,6 +11,7 @@ describe PartsController do
     before(:each) do
       @part = create(:part)
       @idea = @part.idea
+      sign_in create(:user, admin: true)
     end
 
     it "returns http success" do
