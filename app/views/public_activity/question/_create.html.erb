@@ -1,7 +1,7 @@
 added a question
 
 <% if activity.trackable %>
-  <%= link_to activity.trackable.title, activity.trackable %>
+  <%= link_to truncate(activity.trackable.title, length: 70), activity.trackable %>
 <% else %>
   which has since been removed
 <% end %>

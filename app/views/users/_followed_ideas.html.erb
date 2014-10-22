@@ -16,7 +16,12 @@
             <%= render idea %>
           </div>
           <br>
-          <%= truncate(idea.brief, length: 50) %>
+          <% if controller.controller_name == 'home' %>
+            <%= truncate(idea.brief, length: 50) %>
+          <% else %>
+            <%= truncate(idea.brief, length: 185) %>
+          <% end %>
+          
           <br>
           <strong>Phase:</strong> <%= idea.phase %>
         </div>

@@ -11,6 +11,13 @@ class HomeController < ApplicationController
     render layout: 'sidebar_right'
   end
 
+  def followed_ideas
+    @user_activities   = PublicActivity::Activity.includes(:owner, :trackable).where(owner: current_user).order("created_at desc")
+    @follow_activities = current_user.get_followed_idea_activity
+
+    render layout: 'sidebar_right'
+  end
+  
   def documentation
   end
 end

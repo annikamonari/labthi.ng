@@ -167,7 +167,7 @@ class Idea < ActiveRecord::Base
     end
 
     if self.phase >= 2
-      id_build = self.idea_build
+      id_build = IdeaBuild.find_by(idea_id: self.id)
 
       id_build.plan_component.parts.includes(:admin_tasks).each do |part|
         users_points += part.send(method)
