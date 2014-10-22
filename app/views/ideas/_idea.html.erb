@@ -1,3 +1,7 @@
 <%= link_to idea do %>
+  <% if current_page?('/') %>
+    <%= truncate(idea.title, length: 25) %>
+  <% else %>
     <%= idea.title %>
+  <% end %>
 <% end %>

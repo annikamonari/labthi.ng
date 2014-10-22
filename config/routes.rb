@@ -13,10 +13,11 @@ StartIt::Application.routes.draw do
   resources :comments, except: [:index] do
     resources :comments
   end
-  resources :questions, except: [:index] do
+  resources :questions, except: [:index, :create] do
     resources :comments
   end
   get '/ideas/:id/questions/new', to: 'ideas#new_question', as: 'idea_new_question'
+  post '/ideas/:id/questions/', to: 'questions#create', as: 'create_question'
   resources :answers, except: [:index] do                     
     resources :comments
   end

@@ -16,7 +16,8 @@ class QuestionsController < ApplicationController
 
   # GET /questions/new
   def new
-    redirect_to idea_new_question_path(params[:idea_id])
+    @question = Question.new
+    @idea = Idea.find(params[:id])
   end
 
   # GET /questions/1/edit
@@ -28,7 +29,7 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
-    @question.idea_id = params[:idea_id]
+    @question.idea_id = params[:id]
     @question.user = current_user
 
     respond_to do |format|
