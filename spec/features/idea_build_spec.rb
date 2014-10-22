@@ -17,6 +17,7 @@ feature 'User visits the build page' do
               'Market Analysis', 'Marketing Strategy Implementation', 'Executive Summary']
     links.each do |link|
       click_link link
+      click_link 'Edit'
       page.html =~ /wysihtml5-toolbar/
       @part = FactoryGirl.create(:part, name: link)
       fill_in 'part_value', :with => 'some text'
