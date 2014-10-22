@@ -16,13 +16,13 @@
             </div>
           </div><br>
           <div class='row'>
-            <div class='col-md-10 no-gutter taskstatus'>
+            <div class='col-md-9 no-gutter taskstatus'>
               <strong><%= "Status: " %></strong>
               <h0 class='statustext'>
                 <%= "#{task.status}"%>
               </h0>
             </div>
-            <div class='col-md-2 admin' align='right'>
+            <div class='col-md-3 admin' align='right'>
               <p class='admintask'><%= render User.find_by_id(task.admin_id) %><br>
               <small><i> Posted <%= time_ago_in_words(task.created_at) %> ago</i></small></p>
             </div>

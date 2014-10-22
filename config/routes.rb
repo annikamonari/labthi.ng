@@ -16,6 +16,7 @@ StartIt::Application.routes.draw do
   resources :questions, except: [:index] do
     resources :comments
   end
+  get '/ideas/:id/questions/new', to: 'ideas#new_question', as: 'idea_new_question'
   resources :answers, except: [:index] do                     
     resources :comments
   end

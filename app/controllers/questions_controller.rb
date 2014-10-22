@@ -16,9 +16,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions/new
   def new
-    @question = Question.new
-    @idea = Idea.find(params[:idea_id])
-    render layout: 'form_left'
+    redirect_to idea_new_question_path(params[:idea_id])
   end
 
   # GET /questions/1/edit

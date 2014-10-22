@@ -25,6 +25,11 @@ class IdeasController < ApplicationController
     render layout: 'form_left'
   end
 
+  def new_question
+    @question = Question.new
+    render layout: 'sidebar_left'
+  end
+
   # GET /ideas/1/edit
   def edit
     render layout: 'form_left'
