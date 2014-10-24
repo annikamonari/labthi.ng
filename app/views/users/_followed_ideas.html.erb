@@ -4,11 +4,14 @@
     <% followed_ideas.each do |idea| %>
       <li class="white-bg">
         <div class="media">
-          <% if user == current_user then %>
-            <div class="unfollow-button-in-list pull-right">
-              <%= render 'ideas/unfollow', idea: idea %>
-            </div>
-          <% end %>
+          <div class='pull-right'>
+            <% if user == current_user then %>
+              <div class="unfollow-button-in-list">
+                <%= render 'ideas/unfollow', idea: idea %>
+              </div>
+            <% end %>
+            <div style='margin-top:5px;' align='right'><%= button_to idea.user.points, '', class: 'btn disabled btn-localrep' %></div>
+          </div>
           <% if idea.phase == 2 %>
             <%= link_to idea_build_path(idea_id: idea.id), class: "pull-left" do %>
               <%= image_tag idea.top_image_thumb, class: 'img-rounded' %>
@@ -22,14 +25,15 @@
             <%= render idea %>
           </div>
           <br>
+          <p class='doc'>
           <% if controller.controller_name == 'home' %>
             <%= truncate(idea.brief, length: 50) %>
           <% else %>
             <%= truncate(idea.brief, length: 185) %>
           <% end %>
-          
           <br>
           <strong>Phase:</strong> <%= idea.phase %>
+          </p>
         </div>
       </li>
     <% end %>

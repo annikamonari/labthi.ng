@@ -1,4 +1,4 @@
-<% if controller.controller_name == 'profiles' and controller.action_name == 'show' %>
+<% if controller.controller_name == 'profiles' and (controller.action_name == 'show' or controller.action_name == 'labs') %>
   <% content_for :sidebar_left do %>
   <br>
   <div class='row' style='width:300px;'>
