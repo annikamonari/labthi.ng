@@ -1,6 +1,11 @@
-<h1>Labthi.ng</h1>
 
-<% content_for :sidebar_right do %>
-	<% title = "Sign up and Create" %>
+<h1 class='heading' style='font-size:5em; color:#fff;'><strong> Big Ideas. Come Play.</strong></h1><br>
+<h2 class='subheading' style='line-height: 1.1; letter-spacing: -1px; color: #fff;'>
+  Labthi.ng is a collaborative space for innovators and hackers to change the world. Earn equity in a startup by writing a business plan or coding a prototype.<br><br>
+  <%= link_to "How it works", documentation_path %>
+</h2>
+
+<% content_for :sidebar_signup do %>
+	<% title = "" %>
 	<%= render template: 'devise/registrations/new', locals: {title: title} %>
 <% end %>

@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   #before_filter :authenticate_user!
   def index
-    render layout: 'sidebar_right'
+    render layout: 'sidebar_signup'
   end
 
   def dashboard

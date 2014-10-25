@@ -91,6 +91,8 @@ $badge-bg: $lab-med-grey;
 /************ Custom CSS ************/
 /************************************/
 
+
+
 html {overflow-y: scroll;}
 
 label{
@@ -287,4 +289,10 @@ li.followed-idea .idea-render{
 
 .aspsol {
   margin-left:-40px;
+}
+
+.bg {
+  background: url('/assets/images/labthingbg.png'); 
+  background-size: 100%; 
+  margin-top:-18px;
 }
