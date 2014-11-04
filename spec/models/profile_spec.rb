@@ -44,7 +44,7 @@ describe Profile do
 	end
 
 	describe "when website is too long" do
-		before { @profile.website = "a" * 31 }
+		before { @profile.website = "a" * 200 }
 		it { should_not be_valid }
 	end
 
@@ -74,7 +74,7 @@ describe Profile do
 	end
 
 	describe "when profession is too long" do
-		before { @profile.profession = "a" * 41 }
+		before { @profile.profession = "a" * 21 }
 		it { should_not be_valid }
 	end
 

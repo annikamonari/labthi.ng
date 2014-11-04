@@ -52,7 +52,7 @@ StartIt::Application.routes.draw do
     get "login", :to => "devise/sessions#new"
   end
   
-  get "profile", :to => "profiles#show" # We want this to be: get "profile", :to => "profiles#show"
+  get "profile", :to => "profiles#edit" # We want this to be: get "profile", :to => "profiles#show"
 
 
   #Rails Admin interface
