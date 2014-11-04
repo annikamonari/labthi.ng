@@ -1,15 +1,31 @@
 require 'spec_helper'
 
 
-describe 'validate FactoryGirl factories' do
-  FactoryGirl.factories.each do |factory|
-    context "with factory for :#{factory.name}" do
-      subject { FactoryGirl.build(factory.name) }
+RSpec.describe "Factory Girl" do
+  FactoryGirl.factories.map(&:name).each do |factory_name|
+    describe "#{factory_name} factory" do
 
+      # Test each factory
       it "is valid" do
-        is_valid = subject.valid?
-        is_valid.should be_true, subject.errors.full_messages.join(',')
+        factory = FactoryGirl.build(factory_name)
+        if factory.respond_to?(:valid?)
+          # the lamba syntax only works with rspec 2.14 or newer;  for earlier versions, you have to call #valid? before calling the matcher, otherwise the errors will be empty
+          expect(factory).to be_valid, lambda { factory.errors.full_messages.join("\n") }
+        end
       end
+
+      # Test each trait
+      FactoryGirl.factories[factory_name].definition.defined_traits.map(&:name).each do |trait_name|
+        context "with trait #{trait_name}" do
+          it "is valid" do
+            factory = FactoryGirl.build(factory_name, trait_name)
+            if factory.respond_to?(:valid?)
+              expect(factory).to be_valid, lambda { factory.errors.full_messages.join("\n") }
+            end
+          end
+        end
+      end
+
     end
   end
 end
