@@ -37,10 +37,10 @@ feature 'Visitor checks activity stream' do
     click_button 'Review'
     click_link 'Idea Description'
     click_link 'Admin Tasks'
-    click_link 'New Admin Task'
+    click_button 'New Admin Task'
     fill_in 'Title', with: '123'
     fill_in 'Description', with: '123'
-    click_button 'Create Admin task'
+    click_button 'Create Task'
     click_button 'Start'
 
     visit "/ideas/#{@idea.id}/activity"
