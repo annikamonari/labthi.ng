@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'rails_helper'
+
 
 describe 'validate FactoryGirl factories' do
   FactoryGirl.factories.each do |factory|
