@@ -79,7 +79,7 @@ RSpec.configure do |config|
   #Capybara.server_port = 7787
   #Capybara.app_host = "http://127.0.0.1:#{Capybara.server_port}" 
   config.include FactoryGirl::Syntax::Methods
-
+  config.infer_spec_type_from_file_location!
   # Clean up the database
   require 'database_cleaner'
   config.before(:suite) do
