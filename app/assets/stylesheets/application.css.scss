@@ -20,6 +20,7 @@
 $lab-light-grey: #ecf0f1;
 $lab-med-grey: #bdc3c7;
 $lab-near-black: #333333;
+$lab-turquoise: #1ABC9C;
 
 /************************************/
 /******** Bootstrap Overrides *******/
@@ -89,6 +90,8 @@ $badge-bg: $lab-med-grey;
 /************************************/
 /************ Custom CSS ************/
 /************************************/
+
+
 
 html {overflow-y: scroll;}
 
@@ -286,4 +289,18 @@ li.followed-idea .idea-render{
 
 .aspsol {
   margin-left:-40px;
+}
+
+.bg {
+  background: image-url('labthingbg3.png'); 
+  background-size: 100%; 
+  margin-top:-18px;
+}
+
+.panel {
+  font-size:150%;
+}
+
+.testt {
+  width:240px;
 }

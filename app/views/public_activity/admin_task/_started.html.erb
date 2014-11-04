@@ -1,7 +1,7 @@
 started an admin task
 
 <% if activity.trackable %>
-  <%= link_to activity.trackable.title, edit_part_path(id: activity.trackable.part.id, idea_id: activity.trackable.part.idea.id) %>
+  <%= link_to truncate(activity.trackable.title, length: 70), edit_part_path(id: activity.trackable.part.id, idea_id: activity.trackable.part.idea.id) %>
 <% else %>
   which has since been removed
 <% end %>

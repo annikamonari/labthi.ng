@@ -91,9 +91,10 @@ StartIt::Application.routes.draw do
   get 'buy', to: 'explore#buy'
   get 'documentation', to: 'home#documentation'
 
-  get "home/dashboard"
+  #get "home/dashboard"
   get "activities/index"
   get "home/index"
+  get "/followed_ideas", to: 'home#followed_ideas', as: 'followed_ideas'
 
   authenticated :user do
     root :to => 'home#dashboard', as: :dashboard

@@ -11,17 +11,21 @@
     </div>
   <% end %>
 
-  <div class="col-sm-6">
-
+  <div class="col-md-11">
+  <% if @profile.photo? %>
     <p>
-      <strong>Photo:</strong>
-      <%= image_tag @profile.photo.display if @profile.photo? %>
-    </p>
+      <%= image_tag @profile.photo.display  %>
+    </p><br>
+  <% end %>
 
     <div class="field">
       <div class="form-group">
         <%= f.file_field :photo %>
-        <p class="help-block">Upload a profile picture.</p>
+        <% if @profile.photo? %>
+          <p class="help-block">Change your profile picture.</p>
+        <% else %>
+          <p class="help-block">Upload a profile picture.</p>
+        <% end %>
       </div>
       <div class="form-group">
         <%= f.label :profession %>

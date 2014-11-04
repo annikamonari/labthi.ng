@@ -1,7 +1,7 @@
 added a comment
 
 <% if activity.trackable %>
-  <%= link_to activity.trackable.brief, activity.trackable %>
+  <%= link_to truncate(activity.trackable.brief, length: 70), activity.trackable %>
 <% else %>
   which has since been removed
 <% end %>

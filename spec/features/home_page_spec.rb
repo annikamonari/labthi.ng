@@ -9,7 +9,7 @@ feature 'User visits home page' do
 	  fill_in 'First Name', with: 'Example'
 	  fill_in 'Last Name', with: 'Name'
 	  fill_in 'Password', with: 'ThisIsAPassword123$$$'
-	  click_button 'Register'
+	  click_button 'Sign Up'
 
     expect(page).to have_content('Sign out')
   end

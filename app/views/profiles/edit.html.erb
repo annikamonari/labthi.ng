@@ -1,3 +1,8 @@
+<%= render 'secondary_nav' %>
+<%= render 'sidebar' %>
+
+<h4>My recent activity</h4>
+<%= render partial: "activities/activities", :locals => {activities: @activities} %>
+
 <h1>Edit Profile</h1>
 <h4><%= @user.name %></h4>
-<%= render 'form' %>

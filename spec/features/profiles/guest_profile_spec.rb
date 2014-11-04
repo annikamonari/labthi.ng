@@ -15,7 +15,7 @@ feature 'Guest visits a profile page' do
   end
   scenario 'to edit it' do
   	@user2 = sign_in
-    visit url_for(@user.profile) + '/edit/'
+    visit "/profiles/#{@user.profile.id}"
     expect(page).to_not have_content 'Edit Profile'
   end
 end

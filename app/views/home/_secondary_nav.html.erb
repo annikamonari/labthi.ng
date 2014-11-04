@@ -1,0 +1,14 @@
+<% content_for :secondary_nav do %> 
+  <div class="secondary-nav">
+    <%= link_to "My Activity", '/',
+      class: 'btn btn-default ' + active_when(:controller => 'home', :action => 'dashboard')
+    %>
+    <%= link_to "My Followed Ideas Activity", '/followed_ideas',
+      class: 'btn btn-default ' + active_when(:controller => 'home', :action => 'followed_ideas')
+    %>
+<% end %>
+
+<% content_for :sidebar_right do %>
+  <h4>My Followed Ideas</h4>
+  <%= render 'users/followed_ideas', user: current_user %>
+<% end %>

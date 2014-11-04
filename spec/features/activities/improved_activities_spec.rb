@@ -19,7 +19,7 @@ feature 'Visitor checks activity stream' do
     expect(page).to have_content('started a part')
 
     visit "/ideas/#{@idea.id}/reputation"
-    expect(page).to have_content('Points: 10')
+    expect(page).to have_selector(:link_or_button, '10')
 
     visit "/profiles/#{@user.profile.id}"
     expect(page).to have_content('started a part')
@@ -36,17 +36,18 @@ feature 'Visitor checks activity stream' do
     click_button 'Finish'
     click_button 'Review'
     click_link 'Idea Description'
-    click_link 'New Admin task'
+    click_link 'Admin Tasks'
+    click_button 'New Admin Task'
     fill_in 'Title', with: '123'
     fill_in 'Description', with: '123'
-    click_button 'Create Admin task'
+    click_button 'Create Task'
     click_button 'Start'
 
     visit "/ideas/#{@idea.id}/activity"
     expect(page).to_not have_content('started an admin task')
 
     visit "/ideas/#{@idea.id}/reputation"
-    expect(page).to have_content('Points: 11')
+    expect(page).to have_selector(:link_or_button, '11')
 
     visit "/profiles/#{@admin.profile.id}"
     expect(page).to have_content('started an admin task')
@@ -63,7 +64,7 @@ feature 'Visitor checks activity stream' do
     expect(page).to have_content('added a question')
 
     visit "/ideas/#{@idea.id}/reputation"
-    expect(page).to have_content('Points: 2')
+    expect(page).to have_selector(:link_or_button, '2')
 
     visit "/profiles/#{@user.profile.id}"
     expect(page).to have_content('added a question')

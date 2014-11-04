@@ -1,7 +1,17 @@
-<%= link_to idea do %>
-  <% if current_page?('/') %>
-    <%= truncate(idea.title, length: 25) %>
-  <% else %>
-    <%= idea.title %>
+<% if idea.phase == 2 %>
+  <%= link_to idea_build_path(idea) do %>
+    <% if controller.controller_name == 'home' %>
+      <%= truncate(idea.title, length: 22) %>
+    <% else %>
+      <%= idea.title %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= link_to idea do %>
+    <% if controller.controller_name == 'home' %>
+      <%= truncate(idea.title, length: 22) %>
+    <% else %>
+      <%= idea.title %>
+    <% end %>
   <% end %>
 <% end %>
