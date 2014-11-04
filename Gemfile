@@ -8,6 +8,8 @@ ruby '2.0.0'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 
+
+
 gem 'mini_magick'
 # Suggested for heroku, enables logging
 gem 'rails_12factor', group: :production
@@ -101,6 +103,7 @@ group :test, :development do
   gem 'launchy'
   gem 'guard-rspec'
   gem 'foreman'
+  gem 'rspec-activemodel-mocks'
   #gem 'warden', '>= 1.2.2'
   #
   require 'rbconfig'
