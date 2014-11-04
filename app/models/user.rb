@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+  validates :admin, presence: true, :allow_nil => true, allow_blank: true
 
   has_many :ideas, inverse_of: :user
   has_many :questions, inverse_of: :user

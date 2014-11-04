@@ -107,6 +107,7 @@ group :test, :development do
   gem 'launchy'
   gem 'guard-rspec'
   gem 'foreman'
+  gem 'rspec-activemodel-mocks'
   #gem 'warden', '>= 1.2.2'
   #
   require 'rbconfig'
