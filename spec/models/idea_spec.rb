@@ -2,19 +2,19 @@ require 'spec_helper'
 
 describe Idea do
   it "is not valid without a title" do
-    idea = Idea.build(title: nil)
+    idea = Idea.create(title: nil)
     idea.should_not be_valid
   end
   it "is not valid without a phase" do
-    idea = Idea.build(phase: nil)
+    idea = Idea.create(phase: nil)
     idea.should_not be_valid
   end
   it "is not valid without a brief" do
-    idea = Idea.build(brief: nil)
+    idea = Idea.create(brief: nil)
     idea.should_not be_valid
   end
   it "is valid with a title, phase, brief, and category" do
-    idea = FactoryGirl.build(:idea,
+    idea = FactoryGirl.create(:idea,
       phase:1,
       title: "Crowdsourcing Ideas",
       brief: "A website for crowdsourcing startup ideas",
@@ -25,24 +25,24 @@ describe Idea do
   end
 
   it "should accept a category" do
-    idea = FactoryGirl.build(:idea)
+    idea = FactoryGirl.create(:idea)
     idea.category_list = "retail, other"
     idea.category_list.should eq(["retail", "other"])
   end
   describe "when title is too long" do
-    idea = FactoryGirl.build(:idea)
+    idea = FactoryGirl.create(:idea)
     before {idea.title = "a" * 101 }
     it { should_not be_valid }
   end
   describe "when brief is too long" do
-    idea = FactoryGirl.build(:idea)
+    idea = FactoryGirl.create(:idea)
     before {idea.brief = "a" * 501 }
     it { should_not be_valid }
   end
 
   describe "idea promotion" do
     before(:each) do
-      @idea = FactoryGirl.build(:idea)
+      @idea = FactoryGirl.create(:idea)
     end
 
     it "creates a new IdeaBuild object" do

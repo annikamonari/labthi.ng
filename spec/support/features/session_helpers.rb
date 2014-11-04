@@ -2,12 +2,12 @@
 module Features
   module SessionHelpers
     def sign_up_with(email, first_name, last_name, password)
-      visit '/register'
+      visit '/'
       fill_in 'Email', with: email
       fill_in 'First Name', with: first_name
       fill_in 'Last Name', with: last_name
       fill_in 'Password', with: password
-      click_button 'Register'
+      click_button 'Sign Up'
     end
 
     def sign_in(user = nil)
