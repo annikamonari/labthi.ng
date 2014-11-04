@@ -292,7 +292,15 @@ li.followed-idea .idea-render{
 }
 
 .bg {
-  background: url('/assets/images/labthingbg.png'); 
+  background: image-url('labthingbg3.png'); 
   background-size: 100%; 
   margin-top:-18px;
+}
+
+.panel {
+  font-size:150%;
+}
+
+.testt {
+  width:240px;
 }
