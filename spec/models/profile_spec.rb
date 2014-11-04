@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Profile do
 
-	let(:user) { FactoryGirl.create(:user) }
-	before { @profile = FactoryGirl.create(:profile) }
+	let(:user) { FactoryGirl.build(:user) }
+	before { @profile = FactoryGirl.build(:profile) }
 
 	subject { @profile }
 
