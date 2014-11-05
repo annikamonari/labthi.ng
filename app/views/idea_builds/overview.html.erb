@@ -3,33 +3,41 @@
 <div class='row'>
   <div class='col-md-12'>
     <div class='col-md-12 componentstyle'>
-      <h4><strong>Plan Component</strong></h4>
-      <%= render 'component', 
-          component: @idea_build.plan_component %>
+      <a href='javascript:void(0);' id='planlink'>
+        <h4><strong>Plan Component</strong></h4>
+      </a>
+      <div id='plan'><%= render 'component', 
+          component: @idea_build.plan_component %></div>
     </div>
   </div><br>
 
   <div class='col-md-12'>
     <div class='col-md-12 componentstyle'>
-      <h4><strong>Business Plan Component</strong></h4>
-      <%= render 'component', 
-          component: @idea_build.business_plan_component %>
+      <a href='javascript:void(0);' id='bplink'>
+        <h4><strong>Business Plan Component</strong></h4>
+      </a>
+      <div id='bp'><%= render 'component', 
+          component: @idea_build.business_plan_component %></div>
     </div>
   </div><br>
 
   <div class='col-md-12'>
     <div class='col-md-12 componentstyle'>
-      <h4><strong>Prototype Component</strong></h4>
-      <%= render 'component', 
-          component: @idea_build.prototype_component %>
+      <a href='javascript:void(0);' id='prototypelink'>
+        <h4><strong>Prototype Component</strong></h4>
+      </a>
+      <div id='prototype'><%= render 'component', 
+          component: @idea_build.prototype_component %></div>
     </div>
   </div><br>
 
   <div class='col-md-12'>
     <div class='col-md-12 componentstyle'>
-      <h4><strong>Design Component</strong></h4>
-      <%= render 'component', 
-          component: @idea_build.design_component %>
+      <a href='javascript:void(0);' id='designlink'>
+        <h4><strong>Design Component</strong></h4>
+      </a>
+      <div id='design'><%= render 'component', 
+          component: @idea_build.design_component %></div>
     </div>
   </div><br>
 </div>
