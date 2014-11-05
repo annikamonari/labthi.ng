@@ -11,17 +11,17 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootsy
-//= require best_in_place.purr
-//= require best_in_place
-//= require jquery.turbolinks
 //= require turbolinks
 //= require twitter/bootstrap
 //= require_tree .
 //= require ajax401
 //= require documentation
 //= require solutions
+//= require questions
+//= require answers
 
 $(document).ready(function() {
   /* Activating Best In Place */

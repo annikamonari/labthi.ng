@@ -13,7 +13,7 @@
       <br>
       <div class='pull-right'>(<small><%= time_ago_in_words(comment.created_at) %> ago</small>)</div><br>
     </div>
-    <% if comment.commentable_type == 'Comment' or comment.commentable_type == 'Answer' %>
+    <% if comment.commentable_type == 'Comment' or comment.commentable_type == 'Answer' or comment.commentable_type == 'Solution' %>
       <hr>
     <% else %>
       <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
