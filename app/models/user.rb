@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
 
   has_many :idea_relationships, foreign_key: "follower_id", dependent: :destroy
-  has_many :followed_ideas, through: :idea_relationships, source: :followed
+  has_many :followed_ideas, -> { includes :user }, through: :idea_relationships, source: :followed
   
   after_create :create_user_profile
 

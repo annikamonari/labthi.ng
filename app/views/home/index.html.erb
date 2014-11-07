@@ -6,6 +6,12 @@
 </h2>
 
 <% content_for :sidebar_signup do %>
-	<% title = "" %>
-	<%= render template: 'devise/registrations/new', locals: {title: title} %>
+  <div id='register' >
+	 <% title = "" %>
+	 <%= render template: 'devise/registrations/new', locals: {title: title} %>
+  </div>
+  <div id='login' style='display:none; margin-top:-5px;'>
+   <%= render template: 'devise/sessions/new' %>
+  </div>
+    <a href='javascript:void(0);' id='deviseform'>Sign in</a>
 <% end %>
