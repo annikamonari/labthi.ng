@@ -19,6 +19,18 @@
 <% end %>
 
 <% content_for :secondary_nav do %>	
+	<div style='float:left; height:40px; display:none;' id='navhelp'>
+		<a id="popnav" 
+		     href="#" 
+		     data-toggle="popover"
+		     data-html="true" 
+		     data-content="Click <b>Define</b> to discuss the idea's business model; fill out aspects, such as 'revenue streams' or 'unique value proposition' of the <b>lean start-up business canvas</b> for the idea. Click on <b>Reputation</b> to view the top reputation earners of the idea.">
+		  <%= image_tag 'labthinghelp.png', size: '36x36', id: 'helpnav' %>
+		  <span id='closenav' class='pull-left' style='display:none; position:absolute; top:0; margin-left:-5px; color:#34495E;'>
+		   <b>x</b>
+		  </span>
+		</a>	    
+	</div>
 	<div class="secondary-nav">
 		<%= link_to "Direct", '/ideas/' + @idea.id.to_s,
 		  class: 'btn btn-default ' + active_when(@idea)

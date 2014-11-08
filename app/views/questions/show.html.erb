@@ -9,6 +9,17 @@
     <%= render partial: "evaluations/vote_wrapper", locals: {voteable: @question} %>
 
     <p>
+      <div style='float:left; height:40px; margin-right:5px;'>
+        <a id="popquest" 
+            href="#" 
+            data-toggle="popover" 
+            data-content="Vote the question up or down depending on if you think it is a good addition to the discussion. Comment on it if there is something you would like to clarify, or if you have additional thoughts to add to the question.">
+          <%= image_tag 'labthinghelp.png', size: '36x36', id: 'questhelp' %>
+          <span id='closequest' class='pull-left' style='display:none; position:absolute; top:20px; margin-left:-5px; color:#34495E;'>
+            <b>x</b>
+          </span>
+        </a>      
+      </div>
       <h4><strong>
         <%= @question.title %>
       </strong></h4>
@@ -54,8 +65,20 @@
   </div>
 </div><!-- .question -->
 
-<h4> Answers: </h4>
-
+<div>
+  <div style='display:inline-block;'><h4> Answers: </h4></div>
+  <div style='float:left; margin-right:5px; display:none;' id='helpans'>
+    <a id="popans" 
+        href="#" 
+        data-toggle="popover" 
+        data-content="To add an answer, scroll to the bottom of the page and click <b>Add Answer</b>. Try to be as descriptive as possible and answer the question with the objective of developing and improving the idea conceptually. You can comment on others' answers for clarification purposes or if you have a contribution to it. You can also up and downvote answers based on how helpful they are. For more information, visit the <b>Documentation</b> page.">
+      <%= image_tag 'labthinghelp.png', size: '36x36', id: 'anshelp' %>
+      <span id='closeans' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
+        <b>x</b>
+      </span>
+    </a>      
+  </div>
+</div>
 
 <div id='answers'>
   <ul class="answers media-list">
