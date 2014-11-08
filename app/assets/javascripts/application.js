@@ -23,10 +23,6 @@
 //= require questions
 //= require answers
 
-$(document).ready(function() {
-  /* Activating Best In Place */
-  jQuery(".best_in_place").best_in_place();
-});
 
 $(document).on('page:fetch', function(){
 	$(".container-main").fadeTo(40, 0.6);
@@ -36,3 +32,40 @@ $(document).on('page:change', function(){
 	$(".container-main").css("opacity","1");
 });
 
+
+$(document).ready(function () {
+    doBounce($('#help'), 10, '10px', 300);
+    $('#help').on({
+      mouseenter:
+          function() {
+            $('#help').stop(true, true).removeAttr('style');
+            $('#close').show();
+          },
+
+      mouseleave:
+          function() {
+            window.nomouse = true;
+            doBounce($(this), 10, '10px', 300);
+            $('#close').hide();
+          }
+
+    });
+    function doBounce(element, times, distance, speed) {
+      for(var i = 0; i < times; i++) {
+        element.animate({marginTop: '-='+distance}, speed)
+            .animate({marginTop: '+='+distance}, speed);
+      }        
+    }
+    $('#help').click(function() {
+      $('#pop').hide()
+    });
+    
+});
+
+$(document).ready(function () { 
+  $('[data-toggle="popover"]').popover({
+    trigger: 'hover',
+        'placement': 'right',
+        'container': "body"
+  });
+});

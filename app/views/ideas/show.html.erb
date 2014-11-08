@@ -3,12 +3,26 @@
 
 <div class="welcome-block clearfix">
 	<h4 class="pull-left">Critique, expand, and improve this idea!</h4>
-	<%= link_to "Create a question", {
-	  controller: "ideas",
-	  action: "new_question",
-	  id: @idea.id},
-	  class: (@idea.is_phase_1? ? "btn btn-info pull-right" : "btn disabled btn-info pull-right")
-	%>
+	<div>
+		<div style='float:right;'>
+			<div style='float:left;'>
+				<a id="pop" 
+		        href="#" 
+		        data-toggle="popover" 
+		        data-content="Submit your idea for you and others to brainstorm here. Alternatively, click on an idea you find interesting to join the discussion and help improve it.">
+		    	<%= image_tag 'labthinghelp.png', size: '36x36', id: 'help' %>
+		    	<span id='close' class='pull-left' style='display:none; position:absolute; top:0; margin-left:-5px; color:#34495E;'>
+		    		<b>x</b>
+		    	</span>
+		    </a>	    
+			</div>
+		<%= link_to "Create a question", {
+		  controller: "ideas",
+		  action: "new_question",
+		  id: @idea.id},
+		  class: (@idea.is_phase_1? ? "btn btn-info pull-right" : "btn disabled btn-info pull-right")
+		%></div>
+	</div>
 </div>
   <ul class="media-list questions">
 		<% if @idea.questions.count > 0 %>

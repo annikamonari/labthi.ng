@@ -1,9 +1,21 @@
 <% ### explore#create ### %>
 
 <% content_for :sidebar_left_small do %>
-	<p>
+	<div>
 		<%= link_to "Submit Idea", '/ideas/new', class: 'btn btn-primary' %>
-	</p>
+		<div style='float:right;'>
+			<a id="pop" 
+	        href="#" 
+	        data-toggle="popover" 
+	        data-content="Submit your idea for you and others to brainstorm here. Alternatively, click on an idea you find interesting to join the discussion and help improve it.">
+	    	<%= image_tag 'labthinghelp.png', size: '36x36', id: 'help' %>
+	    	<span id='close' class='pull-left' style='display:none; position:absolute; top:0; margin-left:-5px; color:#34495E;'>
+	    		<b>x</b>
+	    	</span>
+	    </a>
+	    
+		</div>
+	</div>
 	<hr>
 	<% @categories.each do |category| %>
 	<p>

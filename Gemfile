@@ -50,6 +50,8 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 
 gem 'jquery-turbolinks'
 
+# environment files
+gem "figaro"
 # Generate migrations for associations, uses foreigner gem :)
 gem 'immigrant'
 # Used for testing associations
