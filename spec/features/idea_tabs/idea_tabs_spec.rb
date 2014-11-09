@@ -3,10 +3,10 @@ require 'spec_helper'
 feature 'User visits an idea page' do
 	before(:each) do
 		submit_idea
-
-	end
+ 	end
+  
   scenario 'and clicks "Define"' do
-    greeting = 'Fill in aspects of the Startup Business Canvas'
+    greeting = 'Fill in aspects of the Lean Startup Business Canvas'
   	click_link 'Define'
     page.should have_content(greeting)
   end
