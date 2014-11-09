@@ -10,7 +10,7 @@ class ExploreController < ApplicationController
     get_ideas(2)
   end
   def buy
-    
+    get_ideas(3)
   end
 
   private

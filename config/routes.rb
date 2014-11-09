@@ -91,6 +91,9 @@ StartIt::Application.routes.draw do
   get 'buy', to: 'explore#buy'
   get 'documentation', to: 'home#documentation'
 
+  post '/buy/:id/buy', to: 'buy_phase_vote#buy_vote', as: 'buy_vote'
+  post '/buy/:id/use', to: 'buy_phase_vote#use_vote', as: 'use_vote'
+
   #get "home/dashboard"
   get "activities/index"
   get "home/index"

@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
 
   has_many :idea_relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_ideas, -> { includes :user }, through: :idea_relationships, source: :followed
+  has_many :buy_phase_votes
   
   after_create :create_user_profile
 
@@ -99,5 +100,10 @@ class User < ActiveRecord::Base
       follow_activities += idea.get_idea_activities
     end
     follow_activities.sort_by { |a| Time.now - a.created_at } 
+  end
+
+  # Phase 3 ===================================================================
+  def buy_phase_vote?(idea)
+    BuyPhaseVote.where(idea_id: idea.id, user_id: self.id).count == 1
   end
 end

@@ -25,6 +25,7 @@ class Idea < ActiveRecord::Base
                                       :business_plan_component => :parts, 
                                       :design_component => :parts, 
                                       :prototype_component => :parts ) }
+  has_many :buy_phase_votes
 
   acts_as_taggable_on :categories, :component
 
@@ -196,6 +197,16 @@ class Idea < ActiveRecord::Base
     end
 
     users_points 
+  end
+
+  # Phase 3 ===================================================================
+
+  def get_buy_votes
+    BuyPhaseVote.where(idea_id: self.id, buy: true).count
+  end
+
+  def get_use_votes
+    BuyPhaseVote.where(idea_id: self.id, buy: false).count
   end
 
 end

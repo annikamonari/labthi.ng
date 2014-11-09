@@ -4,12 +4,12 @@ class ProfilesController < ApplicationController
   before_action :get_user, only: [:show, :edit, :update, :labs]
 
   def show
-    @activities = PublicActivity::Activity.includes(:owner, :trackable).where(owner: @user).order("created_at desc")
+    @activities = PublicActivity::Activity.includes(:owner, :trackable).where(owner: @user).order("created_at desc")[0..19]
     render layout: 'sidebar_left'
   end
 
   def edit
-    @activities = PublicActivity::Activity.includes(:owner, :trackable).where(owner: @user).order("created_at desc")
+    @activities = PublicActivity::Activity.includes(:owner, :trackable).where(owner: @user).order("created_at desc")[0..19]
     render layout: 'sidebar_left'
     redirect_to @profile unless current_user == @profile.user
   end

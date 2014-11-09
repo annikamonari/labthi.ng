@@ -5,7 +5,7 @@ class Part < ActiveRecord::Base
   include LabReputable
   
   has_many :part_uploads
-  has_many :admin_tasks
+  has_many :admin_tasks, -> { includes(:part) }
 
   belongs_to :user, -> { includes(:profile) }
   belongs_to :component, -> { includes(:idea_build) }
