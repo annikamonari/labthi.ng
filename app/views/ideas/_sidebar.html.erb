@@ -1,6 +1,7 @@
 
 <% content_for :sidebar_left do %>
 <div class='ideaside'>  
+<br>
   <div class='ideaphoto'>
     <%= link_to idea_aspect_path(
         idea_id:@idea.id,
@@ -17,6 +18,16 @@
     <p><strong>
       Phase <%= @idea.phase %>
     </strong></p>
+    <% if @idea.phase == 3 %>
+      <p>
+        <strong style='color:#1ABC9C;'>User votes:</strong> 
+        <span class='badge-rep' style='background-color:#1ABC9C;margin-right:5px;'><%= @idea.get_use_votes %></span><br>
+      </p>
+      <p style='margin-top:-5px;'>
+        <strong style='color:#34495E;'>Buyer votes:</strong> 
+        <span class='badge-rep' style='background-color:#34495E;'><%= @idea.get_buy_votes %></span><br>
+      </p>
+    <% end %>
     <p>By <%= render @idea.user %></p>
     <i><%= time_ago_in_words(@idea.created_at) %> ago </i>
   </div>

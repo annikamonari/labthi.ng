@@ -29,13 +29,17 @@
 		<% if @idea.questions.count > 0 %>
     	<%= render vote_order(@idea.questions) %>
   	<% else %>
-		No questions found. Why don't you 
-		<%= link_to "ask one", {
-		  controller: "questions",
-		  action: "new",
-		  idea_id: @idea.id}
-		%>
-	  ?  
+			No questions found. Why don't you 
+			<% if @idea.is_phase_1? %>
+				<%= link_to "ask one", {
+				  controller: "ideas",
+		  		action: "new_question",
+		  		id: @idea.id}
+				%>
+			<% else %>
+				<span class='link-dis'>ask one</span>
+			<% end %>
+		  ?  
 		<% end %>
   </ul>
 <%= 
