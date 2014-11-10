@@ -1,35 +1,37 @@
 <div class="idea-block col-sm-12 col-md-6 col-lg-6">
   <%= link_to idea, class: "idea-block-link list-group-item #{idea.title} clearfix" do %>
     <div classs="clearfix">
-      <div><strong classs=""><%= idea.title %></strong></div>
-      <div class="pull-right">
-        <%= image_tag idea.top_image_thumb, class: 'img-rounded' %>
+      <div><strong><%= idea.title %></strong></div>
+      <div class="pull-right" style='margin-top:-17px;'>
+        <%= image_tag idea.top_image_thumb, class: 'img-rounded imgpad' %>
       </div>
-      <p>
+      <div style='margin-right:5px;'>
         <%= truncate(idea.brief, length: 120) %>
-      </p>
+      </div>
+      
     </div>
     <div class="clearfix pull-right full-width">
-      <%= render 'users/user_without_link', user: idea.user %>
-      <div class="pull-right">
-        Phase <%= idea.phase %>
-      </div>
-    </div>
-    <div class="hidden idea-categories">
-      <% idea.category_list.each do |c| %>
-        <%= c %>
-      <% end %>
-    </div>
-  <div>
-    use votes: <%= idea.get_use_votes %> -- 
-    buy votes: <%= idea.get_buy_votes %>
-  </div>
-  <% end %>
+      <div class='pull-left'>
+        <div style=''>
+        <br>
+          <strong style='color:#1ABC9C;'>User votes:</strong> 
+          <span class='badge-rep' style='background-color:#1ABC9C;margin-right:5px;'><%= idea.get_use_votes %></span>
+              <strong style='color:#34495E;'>Buyer votes:</strong> 
+          <span class='badge-rep' style='background-color:#34495E;'><%= idea.get_buy_votes %></span><br>
+        </div>
 
-  <% unless current_user.buy_phase_vote?(idea) %>
-    <div>
-      <%= button_to "I'd buy it!", buy_vote_path(id: idea.id), class: 'btn btn-primary' %>
-      <%= button_to "I'd use it!", use_vote_path(id: idea.id), class: 'btn btn-primary' %>
+      </div>
+      <div class="pull-right" style=''>
+        <div style='float:right;'><i>Phase <%= idea.phase %></i></div><br>
+        <div class="idea-categories" style='float:right;'>
+          <% idea.category_list.each do |c| %>
+            <%= c %>
+        <% end %>
+        </div>
+      </div>
+      <div class='pull-left' style='margin-top:8px; margin-bottom:8px;'>
+        <b><%= render 'users/user_without_link', user: idea.user %></b><i> <%=time_ago_in_words(idea.created_at)%> ago</i><br>
+      </div>
     </div>
   <% end %>
 </div>
