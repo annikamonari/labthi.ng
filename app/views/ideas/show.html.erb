@@ -44,6 +44,8 @@
   </ul>
 <%= 
 	link_to_if(@idea.phase == 1, "Back", ideas_path) do
-		link_to("Back", idea_build_path(@idea))
+		link_to_if(@idea.phase == 2, "Back", idea_build_path(@idea)) do
+			link_to('Back', buy_path)
+		end
 	end
 %>

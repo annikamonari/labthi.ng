@@ -20,8 +20,8 @@
     </strong></p>
     <% if @idea.phase == 3 %>
       <p>
-        <strong style='color:#1ABC9C;'>User votes:</strong> 
-        <span class='badge-rep' style='background-color:#1ABC9C;margin-right:5px;'><%= @idea.get_use_votes %></span><br>
+        <strong style='color:#5cb85c;'>User votes:</strong> 
+        <span class='badge-rep' style='background-color:#5cb85c;margin-right:5px;'><%= @idea.get_use_votes %></span><br>
       </p>
       <p style='margin-top:-5px;'>
         <strong style='color:#34495E;'>Buyer votes:</strong> 
@@ -43,8 +43,17 @@
     <%= print_categories %>
   </p>
 
+<% if @idea.phase == 3 %>
+  <% unless current_user.buy_phase_vote?(@idea) %>
+    <div><hr>
+      <span style='float:left; margin-right:10px;'><%= button_to "I'd buy it!", buy_vote_path(id: @idea.id), class: 'btn btn-success' %></span>
+      <span style='float:left;'><%= button_to "I'd use it!", use_vote_path(id: @idea.id), class: 'btn btn-inverse' %></span>
+    </div><br><br>
+  <% end %>
+<% end %>
+
  <% if current_user != nil and current_user.admin %>
-  <br>
+  <hr>
   <%= link_to "Promote", promote_idea_path(@idea), class: 'btn btn-danger' %>
  <% end %>
 <% end %>
