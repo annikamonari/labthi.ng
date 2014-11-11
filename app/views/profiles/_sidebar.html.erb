@@ -1,9 +1,9 @@
 <% if controller.controller_name == 'profiles' and (controller.action_name == 'show' or controller.action_name == 'labs') %>
   <% content_for :sidebar_left do %>
   <br>
-  <div class='row' style='width:300px;'>
+  <div class='row' style='width:250px;'>
       <p>
-        <%= image_tag @profile.photo.display, class: 'img-rounded' %>
+        <%= image_tag @profile.photo.display, class: 'img-rounded', size: '250x250' %>
       </p>
     <br>
       <% if @profile.profession %>
@@ -42,7 +42,7 @@
       <%= time_ago_in_words(@profile.user.created_at) %> ago
     </p>
     </div>
-    <%= link_to "Edit", edit_profile_path(@profile) if current_user == @user %>
+    <%= link_to "Edit Profile", edit_profile_path(@profile) if current_user == @user %>
   <% end %>
 <% else %>
   <% content_for :sidebar_left do %>
