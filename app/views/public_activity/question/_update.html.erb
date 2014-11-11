@@ -1,7 +1,7 @@
 updated a question
 
 <% if activity.trackable %>
-  <%= link_to truncate(activity.trackable.title, length: 70), activity.trackable %>
+  <%= link_to truncate(activity.trackable.title, length: 70), activity.trackable %> <%= time_ago_in_words(activity.updated_at) %> ago
 <% else %>
   which has since been removed
 <% end %>

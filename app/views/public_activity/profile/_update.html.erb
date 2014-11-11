@@ -1,7 +1,7 @@
 updated 
 
 <% if activity.trackable %>
-  <%= link_to "profile information", activity.trackable %>
+  <%= link_to "profile information", activity.trackable %> <%= time_ago_in_words(activity.updated_at) %> ago
 <% else %>
   which has since been removed
 <% end %>
