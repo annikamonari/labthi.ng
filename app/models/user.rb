@@ -102,6 +102,20 @@ class User < ActiveRecord::Base
     follow_activities.sort_by { |a| Time.now - a.created_at } 
   end
 
+  def get_equity(idea)
+    equities = Array.new
+    idea.idea_build.plan_component.parts.where(user_id: self.id, status: 'Accepted').each { |part| equities << part.equity.to_i }
+    idea.idea_build.business_plan_component.parts.where(user_id: self.id, status: 'Accepted').each { |part| equities << part.equity.to_i }
+    idea.idea_build.prototype_component.parts.where(user_id: self.id, status: 'Accepted').each { |part| equities << part.equity.to_i }
+    idea.idea_build.design_component.parts.where(user_id: self.id, status: 'Accepted').each { |part| equities << part.equity.to_i }
+    
+    if equities.empty?
+      '0%'
+    else
+      equities.inject{ |sum, e| sum + e }.to_s + '%' 
+    end
+  end
+
   # Phase 3 ===================================================================
   def buy_phase_vote?(idea)
     BuyPhaseVote.where(idea_id: idea.id, user_id: self.id).count == 1
