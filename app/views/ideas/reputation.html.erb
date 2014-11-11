@@ -3,8 +3,25 @@
 <%= render 'secondary_nav' %>
 <%= render 'sidebar' %>
 
-<h4>See a list of the top 5 contributors!</h4>
-
+<div class="welcome-block clearfix">
+  <h4 class="pull-left">See a list of the top 5 contributors!</h4>
+  <div>
+    <div style='float:right;'>
+      <div style='float:left;'>
+        <a id="pop" 
+            href="#" 
+            data-toggle="popover" 
+            data-html='true'
+            data-content="If you submit any type of content in any phase (e.g. a question or answer in phase 1, or a part of the business plan in phase 2), you get reputation points local to the idea. Here, the top reputation earners for a given idea are listed, along with their <b>local reputation</b> in the idea. If the idea is in phase 2 or 3, the users' <b>local equity</b> is also listed (e.g. the equity they have obtained from building parts in phase 2). If you would like to learn more about the reputation point distribution for the content types or the equity allocation for each part, please visit the <b>documentation</b> page.">
+          <%= image_tag 'labthinghelp.png', size: '36x36', id: 'help' %>
+          <span id='close' class='pull-left' style='display:none; position:absolute; top:0; margin-left:-5px; color:#34495E;'>
+            <b>x</b>
+          </span>
+        </a>      
+      </div>
+    </div>
+  </div>
+</div>
   <div class="content-bg">
     <div class="idea-followers">
       <% @users_points.each do |user, points| %>

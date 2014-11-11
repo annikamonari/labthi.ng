@@ -9,7 +9,6 @@ $(document).ready(function () {
 
       mouseleave:
           function() {
-            window.nomouse = true;
             doBounce($(this), 20, '10px', 300);
             $('#close').hide();
           }
@@ -17,7 +16,7 @@ $(document).ready(function () {
     });
 
     $('#help').click(function() {
-      $('#pop').hide()
+      $('#helpcontent').hide();
       $('#navhelp').show();
     });
     
@@ -41,6 +40,74 @@ $(document).ready(function () {
     });
     $('#helpnav').click(function() {
       $('#navhelp').hide()
+      $('#imghelp').show()      
+    });
+    
+});
+
+$(document).ready(function () {
+    doBounce($('#helpimg'), 20, '10px', 300);
+    $('#helpimg').on({
+      mouseenter:
+          function() {
+            $('#helpimg').stop(true, true).removeAttr('style');
+            $('#closeimg').show();
+          },
+
+      mouseleave:
+          function() {
+            doBounce($(this), 20, '10px', 300);
+            $('#closeimg').hide();
+          }
+
+    });
+    $('#helpimg').click(function() {
+      $('#imghelp').hide()
+    });
+    
+});
+
+$(document).ready(function () {
+    doBounce($('#helparchive'), 20, '10px', 300);
+    $('#helparchive').on({
+      mouseenter:
+          function() {
+            $('#helparchive').stop(true, true).removeAttr('style');
+            $('#closearchive').show();
+          },
+
+      mouseleave:
+          function() {
+            doBounce($(this), 20, '10px', 300);
+            $('#closearchive').hide();
+          }
+
+    });
+    $('#helparchive').click(function() {
+      $('#archivehelp').hide();
+      $('#buyhelp').show();
+    });
+    
+});
+
+$(document).ready(function () {
+    doBounce($('#helpbuy'), 20, '10px', 300);
+    $('#helpbuy').on({
+      mouseenter:
+          function() {
+            $('#helpbuy').stop(true, true).removeAttr('style');
+            $('#closebuy').show();
+          },
+
+      mouseleave:
+          function() {
+            doBounce($(this), 20, '10px', 300);
+            $('#closebuy').hide();
+          }
+
+    });
+    $('#helpbuy').click(function() {
+      $('#buyhelp').hide();
     });
     
 });

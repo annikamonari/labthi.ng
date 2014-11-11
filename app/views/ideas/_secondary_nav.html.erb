@@ -2,9 +2,22 @@
 	<div class="clearfix">
 		<div class="col-sm-6">
 			<%= render partial: "evaluations/vote_wrapper", locals: {voteable: @idea} %>
-			<h2>
+			<div style='float:left;'><h2>
 			  <%= @idea.title %>
-			</h2>
+			</h2></div>
+			<% if @idea.phase == 3 %>
+				<div style='float:left; margin-left:20px; height:40px; margin-top:10px; display:none;' id='buyhelp'>
+	        <a id="pop" 
+	            href="#" 
+	            data-toggle="popover" 
+	            data-content="If, when this concept is launched at a start-up, you think you would be a user of the product, please click 'I'd use it' to give us an idea of how much demand there would be for this idea as a product. Alternatively, if you would be interested in buying the idea and launching it yourself, please click 'I'd buy it' to give us a feel for how much demand there is for the idea itself from an entrepreneurial point of view. By pressing either of these buttons, you are not committing to anything; you are merely providing us with useful data as to how to improve the website! <b>However, if you are really interested in buying an idea please contact us directly at contact@labthi.ng.</b>">
+	          <%= image_tag 'labthinghelp.png', size: '36x36', id: 'helpbuy' %>
+	          <span id='closebuy' class='pull-left' style='display:none; position:absolute; top:10px; margin-left:-5px; color:#34495E;'>
+	            <b>x</b>
+	          </span>
+	        </a>      
+	      </div>
+	    <% end %>
 		</div><!-- .pull-left -->
 	  <div class="col-sm-5 pull-right">
 	  	<div class="pull-right" id="follow_idea_form">
@@ -19,7 +32,7 @@
 <% end %>
 
 <% content_for :secondary_nav do %>	
-	<% if current_page?("/ideas/#{@idea.id}") %>
+	<% if current_page?("/ideas/#{@idea.id}") and @idea.phase == 1 %>
 		<div style='float:left; height:40px; display:none;' id='navhelp'>
 			<a id="popnav" 
 			     href="#" 

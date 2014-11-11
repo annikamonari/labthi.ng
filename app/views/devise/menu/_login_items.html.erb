@@ -1,6 +1,19 @@
 <% if user_signed_in? %>
   <li class="show-user-profile">
-    <%= render current_user %>
+    <span class='userlink' style='float:right; display:inline; margin-top:-6px;'><br><%= render current_user %></span>
+    <% if current_page?('/') %>
+      <div style='float:left; display:inline; margin-top:5px; margin-right:5px;' id='helpcontent'>
+        <a id="pop" 
+            href="#" 
+            data-toggle="popover" 
+            data-content="Add information to your profile! This will help other users reach out to you for help and to work together on projects. It will also provide us with data as to the demographics of people that work well together on this site!">
+          <%= image_tag 'labthinghelp.png', size: '30x30', id: 'help' %>
+          <span id='close' class='pull-left' style='display:none; position:absolute; top:5px; margin-left:-5px; color:#34495E;'>
+            <b>x</b>
+          </span>
+        </a>      
+      </div>
+    <% end %>
   </li>
   <li>
     <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>

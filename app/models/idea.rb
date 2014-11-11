@@ -93,11 +93,8 @@ class Idea < ActiveRecord::Base
   def self.components
     [
       "Website",
-      "App",
+      "Mobile App",
       "Software",
-      "Hardware",
-      "Good",
-      "Service"
     ]
   end
 

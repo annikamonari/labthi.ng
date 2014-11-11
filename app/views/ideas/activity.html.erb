@@ -3,5 +3,24 @@
 <%= render 'secondary_nav' %>
 <%= render 'sidebar' %>
 
-<h4>Recent activity</h4>
+<div class="welcome-block clearfix">
+  <h4 class="pull-left">Recent activity</h4>
+  <div>
+    <div style='float:right;'>
+      <div style='float:left;'>
+        <a id="pop" 
+            href="#" 
+            data-toggle="popover" 
+            data-html='true'
+            data-content="Here is a list of all of the most recent contributions to the idea in all of its phases. You can see the type of content, when it was created, and by whom it was created. This is the same activity that is displayed on your dashboard's <b>My Followed Ideas Activity</b> feed if you have decided to follow the idea.">
+          <%= image_tag 'labthinghelp.png', size: '36x36', id: 'help' %>
+          <span id='close' class='pull-left' style='display:none; position:absolute; top:0; margin-left:-5px; color:#34495E;'>
+            <b>x</b>
+          </span>
+        </a>      
+      </div>
+    </div>
+  </div>
+</div>
+
 <%= render partial: "activities/activities", :locals => {activities: @activities} %>

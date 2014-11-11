@@ -6,9 +6,22 @@
     <%= link_to idea_aspect_path(
         idea_id:@idea.id,
         id: @idea.image_aspect) do %>
-      <%= image_tag @idea.top_image, class: 'img-rounded'  %>
+      <%= image_tag @idea.top_image, class: 'img-rounded', size:'180x180'  %>
     <% end %>
   </div>
+    <% if @idea.phase == 1 and current_page?("/ideas/#{@idea.id}") %>
+      <div style='float:left; margin-left:20px; height:40px; display:none;' id='imghelp'>
+        <a id="popimg" 
+            href="#" 
+            data-toggle="popover" 
+            data-content="Think you have a better idea for an image that best describes the idea than what is displayed here? Click on the image and upload one of your choice, along with an explanation as to why that image is the best representation of the idea.">
+          <%= image_tag 'labthinghelp.png', size: '36x36', id: 'helpimg' %>
+          <span id='closeimg' class='pull-left' style='display:none; position:absolute; top:10px; margin-left:-5px; color:#34495E;'>
+            <b>x</b>
+          </span>
+        </a>      
+      </div>
+    <% end %>
   <div style="float:left;  width:150px; height: 120px;">&nbsp;</div>
   <div class='ideainfo'>
     <p>
@@ -46,8 +59,8 @@
 <% if @idea.phase == 3 %>
   <% unless current_user.buy_phase_vote?(@idea) %>
     <div><hr>
-      <span style='float:left; margin-right:10px;'><%= button_to "I'd buy it!", buy_vote_path(id: @idea.id), class: 'btn btn-success' %></span>
-      <span style='float:left;'><%= button_to "I'd use it!", use_vote_path(id: @idea.id), class: 'btn btn-inverse' %></span>
+      <span style='float:left; margin-right:10px;'><%= button_to "I'd buy it!", buy_vote_path(id: @idea.id), class: 'btn btn-inverse' %></span>
+      <span style='float:left;'><%= button_to "I'd use it!", use_vote_path(id: @idea.id), class: 'btn btn-success' %></span>
     </div><br><br>
   <% end %>
 <% end %>
