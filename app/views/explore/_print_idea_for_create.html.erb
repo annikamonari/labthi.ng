@@ -13,6 +13,11 @@
     <div class="clearfix pull-right full-width">
       <div class="pull-right" style=''>
         <div style='float:right;'><i>Phase <%= idea.phase %></i></div><br>
+        <div class="hidden idea-categories">
+        <% idea.category_list.each do |c| %>
+          <%= c %>
+        <% end %>
+      </div>
       </div>
       <div class='pull-left'>
         <b><%= render 'users/user_without_link', user: idea.user %></b><i> <%=time_ago_in_words(idea.created_at)%> ago</i><br>
