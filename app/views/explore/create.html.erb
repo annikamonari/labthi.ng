@@ -17,6 +17,7 @@
 		</div>
 	</div>
 	<hr>
+	<p><%= link_to 'All Categories', create_path %></p>
 	<% @categories.each do |category| %>
 	<p>
 		<%= link_to category, { controller: 'explore', action: 'create', category: category }, class: 'category-tag' %>

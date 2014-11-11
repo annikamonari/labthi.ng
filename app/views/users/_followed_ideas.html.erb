@@ -8,9 +8,9 @@
             <% if user == current_user then %>
               <div class="unfollow-button-in-list">
                 <%= render 'ideas/unfollow', idea: idea %>
-              </div>
+              </div><br>
             <% end %>
-            <div style='margin-top:5px;' align='right'><%= button_to idea.user.points, '', class: 'btn disabled btn-localrep' %></div>
+            <div class='pull-right'><strong>Phase:</strong> <%= idea.phase %></div><br>
           </div>
           <% if idea.phase == 2 %>
             <%= link_to idea_build_path(idea_id: idea.id), class: "pull-left" do %>
@@ -26,14 +26,19 @@
           </div>
           <br>
           <p class='doc'>
-          <% if controller.controller_name == 'home' %>
-            <%= truncate(idea.brief, length: 50) %>
-          <% else %>
-            <%= truncate(idea.brief, length: 185) %>
-          <% end %>
-          <br>
-          <strong>Phase:</strong> <%= idea.phase %>
-          </p>
+            <% if controller.controller_name == 'home' %>
+              <%= truncate(idea.brief, length: 50) %>
+            <% else %>
+              <%= truncate(idea.brief, length: 185) %>
+            <% end %>
+            <br>
+            <div style='margin-left:70px; color:#5cb85c;'>
+              <b>local reputation:</b> 
+                <span class='badge-rep' style='background-color:#5cb85c;'>
+              <%= idea.user.points %>
+              </span>
+            </div>
+          </p>  
         </div>
       </li>
     <% end %>

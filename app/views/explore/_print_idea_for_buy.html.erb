@@ -6,32 +6,17 @@
         <%= image_tag idea.top_image_thumb, class: 'img-rounded imgpad' %>
       </div>
       <div style='margin-right:5px;'>
-        <%= truncate(idea.brief, length: 120) %>
-      </div>
-      
+        <%= truncate(idea.brief, length: 120) %><br><br><br>
+      </div>      
     </div>
     <div class="clearfix pull-right full-width">
-      <div class='pull-left'>
-        <div style=''>
-        <br>
+        <div style='float:left;'>
           <strong style='color:#5cb85c;'>User votes:</strong> 
           <span class='badge-rep' style='background-color:#5cb85c;margin-right:5px;'><%= idea.get_use_votes %></span>
               <strong style='color:#34495E;'>Buyer votes:</strong> 
-          <span class='badge-rep' style='background-color:#34495E;'><%= idea.get_buy_votes %></span><br>
+          <span class='badge-rep' style='background-color:#34495E;'><%= idea.get_buy_votes %></span>
         </div>
-
-      </div>
-      <div class="pull-right" style=''>
         <div style='float:right;'><i>Phase <%= idea.phase %></i></div><br>
-        <div class="idea-categories" style='float:right;'>
-          <% idea.category_list.each do |c| %>
-            <%= c %>
-        <% end %>
-        </div>
-      </div>
-      <div class='pull-left' style='margin-top:8px; margin-bottom:8px;'>
-        <b><%= render 'users/user_without_link', user: idea.user %></b><i> <%=time_ago_in_words(idea.created_at)%> ago</i><br>
-      </div>
     </div>
   <% end %>
 </div>

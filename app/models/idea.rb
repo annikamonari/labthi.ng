@@ -5,7 +5,7 @@ class Idea < ActiveRecord::Base
   include LabReputable
   after_create :add_first_vote
   validates :phase, presence: true
-  validates :title, presence: true, length: { maximum: 42 }
+  validates :title, presence: true, length: { maximum: 50 }
   validates :brief, presence: true, length: { maximum: 1000 }
   validate :instance_validations
   validates_presence_of :category_list

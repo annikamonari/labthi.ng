@@ -1,26 +1,21 @@
 <div class="idea-blockcreate col-sm-12 col-md-6 col-lg-6">
   <%= link_to idea, class: "idea-blockcreate-link list-group-item #{idea.title} clearfix" do %>
-    <div classs="clearfix" style='margin-bottom:13px;'>
+    <div classs="clearfix" style='margin-bottom:10px;'>
       <div><strong><%= idea.title %></strong></div>
       <div class="pull-right" style='margin-top:-17px;'>
         <%= image_tag idea.top_image_thumb, class: 'img-rounded imgpad' %>
       </div>
       <div style='margin-right:5px;'>
-        <%= truncate(idea.brief, length: 120) %><br>
+        <%= truncate(idea.brief, length: 120) %><br><br>
       </div>
       
     </div>
     <div class="clearfix pull-right full-width">
       <div class="pull-right" style=''>
         <div style='float:right;'><i>Phase <%= idea.phase %></i></div><br>
-        <div class="idea-categories" style='float:right;'>
-          <% idea.category_list.each do |c| %>
-            <%= c %>
-        <% end %>
-        </div>
       </div>
       <div class='pull-left'>
-        <b><%= render 'users/user_without_link', user: idea.user %></b><i><br><%=time_ago_in_words(idea.created_at)%> ago</i><br>
+        <b><%= render 'users/user_without_link', user: idea.user %></b><i> <%=time_ago_in_words(idea.created_at)%> ago</i><br>
       </div>
     </div>
   <% end %>

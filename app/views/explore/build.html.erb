@@ -5,6 +5,7 @@
     <%= link_to "Submit Idea", '/ideas/new', class: 'btn btn-primary' %>
   </p>
   <hr>
+  <p><%= link_to 'All Categories', build_path %></p>
   <% @categories.each do |category| %>
   <p>
     <%= link_to category, { controller: 'explore', action: 'build', category: category }, class: 'category-tag' %>
