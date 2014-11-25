@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'User can' do
 
@@ -18,7 +18,7 @@ feature 'User can' do
   end
 
   scenario 'see followers by clicking link on idea sidebar' do
-    page.find(".badge-rep.up").click
+    page.find(".badge-rep").click
     find(".idea-followers").should have_content @user.name
   end
 

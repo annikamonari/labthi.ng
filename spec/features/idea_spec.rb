@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'User wants to submit a startup idea' do
   scenario 'From submit page' do

@@ -6,21 +6,22 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-if User.count == 0
-	6.times do |i|
-	  u = User.new(
-	      :email => "email#{Time.new.usec}@domain.com",
-	      :password => '12341234',
-	      :first_name => "Robot",
-	      :last_name => "R2D#{i}"
-	  )
-	  u.save!
-	  FactoryGirl.create(:comment)
-	end
+brief_data = ["CC uses the definition of free cultural works at Freedom Defined to 
+							categorize the CC licenses. (Freedom Defined is an open organization 
+							of free culture advocates and researchers; the definition was developed 
+							by its community as a parallel to efforts such as the Free Software 
+							Definition, to have a standard for defining Free Culture.) Using that 
+							definition.",
+							"To help show more clearly what the different CC licenses let people do, 
+							CC marks the most permissive of its licenses as Approved for Free Cultural 
+							Works.” When you apply these licenses to material you create, it meets the 
+							Freedom Defined definition of a “Free Cultural Work.",
+							"Freedom to use the work itself. This is the most basic thing a free content 
+							license allows: when you get a copy of a work under one of these licenses, 
+							you can use it however you want. This means without restrictions based on the 
+							kind of use."]
+title_data = ["Pizza Machine for Disabled People", "This is an Example Idea", "A Silent Hairdryer"]
 
-	Idea.last.promote!
-	Idea.first.promote!
-end
 
 aspect_data = [
 	{
@@ -99,8 +100,8 @@ admin_user_data = [
 		email: "annikamonari@gmail.com",
 		first_name: "Annika",
 		last_name: "Monari",
-		password: "banana123",
-		password_confirmation: "banana123",
+		password: "1234567890",
+		password_confirmation: "1234567890",
 		admin: true
 	},
   { 
@@ -110,6 +111,13 @@ admin_user_data = [
 		password: "1234567890",
 		password_confirmation: "1234567890",
 		admin: true
+	},
+	{ 
+		email: "poo@gmail.com",
+		first_name: "Elon",
+		last_name: "Musk",
+		password: "1234567890",
+		password_confirmation: "1234567890",
 	}
 ]
 
@@ -123,6 +131,16 @@ admin_user_data.each do |d|
 	AdminUser.create(d)
 end
 
+(0..brief_data.length-1).each do |b|
+	(0..title_data.length-1).each do |t|
+		User.all.each do |u|
+			Idea.create!(title: title_data[t], brief: brief_data[b], create_days: Date.today + 7.days, user_id: u.id, phase: 1,
+									category_list: 'Education', component_list: 'Website')
+		end
+	end
+end
+
+Idea.first.promote!
 
 
 

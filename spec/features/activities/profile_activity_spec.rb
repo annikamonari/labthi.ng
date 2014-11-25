@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Visitor checks activity stream' do
   scenario 'for a recently updated profile' do

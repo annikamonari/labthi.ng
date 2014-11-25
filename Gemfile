@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.4'
+gem 'rails'
 
 ruby '2.0.0'
 
@@ -108,6 +108,7 @@ group :test, :development do
   gem 'guard-rspec'
   gem 'foreman'
   gem 'rspec-activemodel-mocks'
+  gem 'selenium-webdriver'
   #gem 'warden', '>= 1.2.2'
   #
   require 'rbconfig'

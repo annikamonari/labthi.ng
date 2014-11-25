@@ -11,7 +11,7 @@ module Features
     end
 
     def sign_in(user = nil)
-      user = create(:user) if user == nil
+      user = FactoryGirl.create(:user) if user == nil
       visit '/login'
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password

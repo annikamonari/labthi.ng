@@ -1,15 +1,15 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'promote an idea' do
 	before (:each) do
 		@user  = FactoryGirl.create(:user)
-		@idea  = FactoryGirl.create(:idea, user_id: @user.id, create_days: Date.today, phase: 1)
+		@idea  = FactoryGirl.create(:idea, user_id: @user.id, create_days: Date.today)
 	end
 
-	scenario 'automatically' do
+	scenario 'automatically when create phase ends' do
 		sign_in @user
-		visit "/ideas/#{@idea.id}"
-		@idea.phase.should eq(2)
+		visit idea_path(@idea)
+		expect(@idea.phase).to eq(2)
 	end
 	
 end
