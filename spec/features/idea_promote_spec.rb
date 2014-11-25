@@ -2,22 +2,14 @@ require 'spec_helper'
 
 feature 'promote an idea' do
 	before (:each) do
-		@idea  = FactoryGirl.create(:idea)
 		@user  = FactoryGirl.create(:user)
-		@user1 = FactoryGirl.create(:user, :admin => true)
+		@idea  = FactoryGirl.create(:idea, user_id: @user.id, create_days: Date.today, phase: 1)
 	end
 
-	scenario "only an admin can promote an idea" do
-		sign_in @user1
-		visit url_for(@idea)
-		click_link "Promote"
-		@idea.reload
-		expect(@idea.phase).to be 2
+	scenario 'automatically' do
+		sign_in @user
+		visit "/ideas/#{@idea.id}"
+		@idea.phase.should eq(2)
 	end
-
-	scenario "and a user cannot" do
-		sign_in @user 
-		visit url_for(@idea)
-		expect(page).not_to have_selector(:link_or_button, 'Promote')
-	end
+	
 end
