@@ -45,7 +45,6 @@ class IdeasController < ApplicationController
     respond_to do |format|
       if @idea.save
         @idea.create_activity :create, owner: (current_user)
-        #Aspect.find_or_create_by(title: "Image")
         format.html { redirect_to @idea }
         format.json { render action: 'show', status: :created, location: @idea }
         current_user.follow_idea!(@idea)
@@ -94,7 +93,7 @@ class IdeasController < ApplicationController
     if current_user.admin 
       @idea.promote!
       respond_to do |format|
-        format.html {redirect_to @idea, notice: "Promoted idea."}
+        format.html { redirect_to @idea, notice: "Promoted idea." }
       end
     end
   end

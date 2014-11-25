@@ -60,6 +60,7 @@ StartIt::Application.routes.draw do
   get '/ideas/:id/reputation', to: 'ideas#reputation'
   get '/ideas/:id/activity', to: 'ideas#activity'
   get '/ideas/:id/build', to: 'ideas#build'
+  post '/ideas/:idea_build_id/team/:user_id', to: 'team_memberships#create', as: 'create_team_member'
   resources :ideas do
     member do
       post :vote 

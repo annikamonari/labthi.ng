@@ -109,6 +109,7 @@ class Idea < ActiveRecord::Base
       idea_build.idea_id = self.id
       idea_build.save
       Bitbucket.new(self.title, self.id).create
+      TeamMembership.create(self.user.id, idea_build.id)
     end
   end
 

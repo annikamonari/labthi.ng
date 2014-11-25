@@ -4,7 +4,7 @@ class IdeaBuild < ActiveRecord::Base
   has_one :business_plan_component
   has_one :prototype_component
   has_one :design_component
-  has_one :team_membership
+  has_many :team_memberships
 
   before_create :create_required_components
 
