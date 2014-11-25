@@ -41,8 +41,6 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 # user authentication
 gem 'devise' #, '3.0.0.rc'
 
-gem 'best_in_place', github: 'bernat/best_in_place'
-
 #bootstrap
 #gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',

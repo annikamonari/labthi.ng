@@ -7,14 +7,6 @@ GIT
       sass (>= 3.2)
 
 GIT
-  remote: git://github.com/bernat/best_in_place.git
-  revision: 85ea66c06a960f45d48fe36add81e1d01310b1d1
-  specs:
-    best_in_place (3.0.0)
-      actionpack (>= 3.2)
-      railties (>= 3.2)
-
-GIT
   remote: git://github.com/gregbell/active_admin.git
   revision: c93f6f49c6d4a7f35c98466fc1bc1cd0e1c826c5
   specs:
@@ -425,7 +417,6 @@ DEPENDENCIES
   acts-as-taggable-on
   anjlab-bootstrap-rails!
   bcrypt-ruby (~> 3.0.0)
-  best_in_place!
   bootsy (~> 2.0.10)
   bullet
   capybara-webkit

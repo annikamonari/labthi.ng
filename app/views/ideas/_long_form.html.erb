@@ -28,6 +28,11 @@
       <% end %>
     </div>
     <div class="field form-group">
+      <%= f.label :image %><br>
+      <p><i>Please upload an image that best describes your idea or a logo, if you have already designed one.</i></p>
+      <%= f.file_field :image %>
+    </div>
+    <div class="field form-group">
       <%= f.label :category_list, "Categories" %>
       <%= f.select :category_list, @categories, {selected:@idea.category_list}, {:multiple => true, :style => "height:180px;", class:"form-control"} %>
     </div>
