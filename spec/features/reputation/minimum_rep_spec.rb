@@ -6,7 +6,6 @@ feature 'Visitor maintains minimum reputation' do
   end
 
   scenario 'after downvoting a question' do
-    find('.show-user-profile a').click
   	@question = FactoryGirl.create(:question)
     visit question_path @question
     click_link "vote-down-question-#{@question.id}"
