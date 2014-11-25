@@ -1,5 +1,7 @@
 StartIt::Application.routes.draw do
 
+  resources :posts
+
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   #match "/evaluations/vote", via:[:post], as: "vote"
   match "/comments/vote", via:[:post], as: "comment_vote"
@@ -66,7 +68,6 @@ StartIt::Application.routes.draw do
       get :followers
       get :promote
     end
-    resources :idea_build, only: [:edit, :clear, :update]
   end
 
   resources :idea_relationships, only: [:create, :destroy]
