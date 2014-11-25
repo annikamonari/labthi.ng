@@ -36,7 +36,12 @@
       <%= f.label :category_list, "Categories" %>
       <%= f.select :category_list, @categories, {selected:@idea.category_list}, {:multiple => true, :style => "height:180px;", class:"form-control"} %>
     </div>
+    <div class="field form-group">
+      <%= f.label 'Number of Days for Idea to be in Create Phase' %><br>
+      <%= f.collection_select :create_days, Idea::NO_CREATE_DAYS, :to_s, :to_s, include_blank: 'Select' %>
+    </div><br>
     <div class="actions">
       <%= f.submit :class => "btn btn-primary" %>
     </div>
+    <br><br>
 <% end %>

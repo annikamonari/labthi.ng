@@ -5,6 +5,7 @@ class IdeasController < ApplicationController
   before_action :set_tags, except: [:index, :vote]
   before_action :set_vote_value, only: [:vote]
   before_action :correct_user, only: [:edit]
+  before_action :promote, except: [:create, :new, :index, :vote]
 
   # GET /ideas
   # GET /ideas.json
@@ -42,6 +43,7 @@ class IdeasController < ApplicationController
     @idea.phase = 1
     @idea.active = 'true'
     @idea.user = current_user
+    @idea.create_days = Date.today + params[:idea][:create_days].to_i.days
     respond_to do |format|
       if @idea.save
         @idea.create_activity :create, owner: (current_user)
@@ -76,7 +78,6 @@ class IdeasController < ApplicationController
     @idea.destroy
     respond_to do |format|
       format.html { redirect_to ideas_url }
-      format.json { head :no_content }
     end
   end
 
@@ -89,11 +90,12 @@ class IdeasController < ApplicationController
     end
   end
 
-  def promote
-    if current_user.admin 
-      @idea.promote!
-      respond_to do |format|
-        format.html { redirect_to @idea, notice: "Promoted idea." }
+  def increase_create_length
+    if @idea.user == current_user
+      if @idea.increase_create_days
+        redirect_to @idea, notice: "You have increased the idea's create phase length by 1 day."
+      else
+        redirect_to :back, notice: "There has been an error processing your request. Please try again."
       end
     end
   end
@@ -134,6 +136,7 @@ class IdeasController < ApplicationController
     def idea_params
       params.require(:idea).permit(
         :phase,
+        :create_days,
         :title,
         :brief,
         :image,
@@ -166,5 +169,11 @@ class IdeasController < ApplicationController
         end
       end
       (summed_users_points.sort_by {|u| -u[1]})[0..4]  
+    end
+
+    def promote
+      if (Date.today >= @idea.create_days) and @idea.phase == 1
+        @idea.promote!
+      end
     end
 end

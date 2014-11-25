@@ -61,11 +61,13 @@ StartIt::Application.routes.draw do
   get '/ideas/:id/activity', to: 'ideas#activity'
   get '/ideas/:id/build', to: 'ideas#build'
   post '/ideas/:idea_build_id/team/:user_id', to: 'team_memberships#create', as: 'create_team_member'
+
+  post 'ideas/:id/increase_create_length', to: 'ideas#increase_create_length', as: 'increase_create_length'
   resources :ideas do
     member do
       post :vote 
       get :followers
-      get :promote
+
     end
     resources :idea_build, only: [:edit, :clear, :update]
   end

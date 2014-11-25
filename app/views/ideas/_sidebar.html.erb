@@ -21,12 +21,18 @@
       </div><br>
     <% end %>
     <p>
-    <span class='glyphicon glyphicon-star unclickable'></span>
+    <span class='glyphicon glyphicon-star unclickable' style='display:inline; margin-top:5px;'></span>
+    <span style=''>Followers:
     <%= link_to "#{@idea.followers.count}", followers_idea_path(@idea),
-      class: 'badge-rep up' %></p>
+      class: 'badge-rep' %></span></p>
     <p><strong>
       Phase <%= @idea.phase %>
     </strong></p>
+    <% if @idea.is_phase_1? %>
+      <p>
+        <%= (@idea.create_days - Date.today).to_i %> days left
+      </p>
+    <% end %>
     <% if @idea.phase == 3 %>
       <p>
         <strong style='color:#5cb85c;'>User votes:</strong> 
@@ -51,18 +57,18 @@
     <strong>Categories:</strong>
     <%= print_categories %>
   </p>
-
-<% if @idea.phase == 3 %>
-  <% unless current_user.buy_phase_vote?(@idea) %>
-    <div><hr>
-      <span style='float:left; margin-right:10px;'><%= button_to "I'd buy it!", buy_vote_path(id: @idea.id), class: 'btn btn-inverse' %></span>
-      <span style='float:left;'><%= button_to "I'd use it!", use_vote_path(id: @idea.id), class: 'btn btn-success' %></span>
-    </div><br><br>
-  <% end %>
-<% end %>
- <% if current_user != nil and current_user.admin %>
   <hr>
-  <%= link_to "Promote", promote_idea_path(@idea), class: 'btn btn-danger' %>
- <% end %>
+  
+  <% if @idea.user == current_user %>
+    <%= button_to 'Increase Number of Days in Create Phase by 1', increase_create_length_path, class: 'btn btn-danger' %><br>
+  <% end %>
+  <% if @idea.phase == 3 %>
+    <% unless current_user.buy_phase_vote?(@idea) %>
+      <div><hr>
+        <span style='float:left; margin-right:10px;'><%= button_to "I'd buy it!", buy_vote_path(id: @idea.id), class: 'btn btn-inverse' %></span>
+        <span style='float:left;'><%= button_to "I'd use it!", use_vote_path(id: @idea.id), class: 'btn btn-success' %></span>
+      </div><br><br>
+    <% end %>
+  <% end %>
 <% end %>
 

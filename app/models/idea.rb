@@ -10,6 +10,7 @@ class Idea < ActiveRecord::Base
   validate :instance_validations
   validates_presence_of :category_list
   validates_presence_of :component_list
+  validates_presence_of :create_days
   belongs_to :user, -> { includes :profile }, inverse_of: :ideas
   has_many :questions, inverse_of: :idea, :dependent => :destroy
   has_many :solutions, inverse_of: :idea, :dependent => :destroy
@@ -30,6 +31,7 @@ class Idea < ActiveRecord::Base
   acts_as_taggable_on :categories, :component
   mount_uploader :image, ImageUploader
 
+  NO_CREATE_DAYS = [1, 5, 10, 15, 20, 25, 30]
 
   def image_aspect
     Aspect.find_or_create_by(title: "Image")
@@ -179,6 +181,11 @@ class Idea < ActiveRecord::Base
     end
 
     users_points 
+  end
+
+  def increase_create_days
+    self.create_days += 1.day
+    self.save
   end
 
   # Phase 3 ===================================================================
