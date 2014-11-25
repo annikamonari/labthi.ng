@@ -6,6 +6,7 @@ FactoryGirl.define do
     active true
     category_list 'Other'
     component_list 'App'
+    create_days Date.today + 10.days
     user
   end
 end
