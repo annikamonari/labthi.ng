@@ -15,7 +15,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function () {
-    doBounce($('#questhelp'), 20, '10px', 300);
+    doBounce($('#questhelp'), '10px', 300);
     $('#questhelp').on({
       mouseenter:
           function() {
@@ -26,7 +26,7 @@ $(document).ready(function () {
       mouseleave:
           function() {
             window.nomouse = true;
-            doBounce($(this), 20, '10px', 300);
+            doBounce($(this), '10px', 300);
             $('#closequest').hide();
           }
 
@@ -40,7 +40,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    doBounce($('#anshelp'), 20, '10px', 300);
+    doBounce($('#anshelp'),'10px', 300);
     $('#anshelp').on({
       mouseenter:
           function() {
@@ -50,7 +50,7 @@ $(document).ready(function () {
 
       mouseleave:
           function() {
-            doBounce($(this), 20, '10px', 300);
+            doBounce($(this), '10px', 300);
             $('#closeans').hide();
           }
 

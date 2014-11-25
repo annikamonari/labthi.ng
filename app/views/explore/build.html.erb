@@ -1,9 +1,24 @@
 <% ### explore#build ### %>
 
 <% content_for :sidebar_left_small do %>
-  <p>
+  <div>
     <%= link_to "Submit Idea", '/ideas/new', class: 'btn btn-primary' %>
-  </p>
+    <div style='float:right;'>
+      <a id="pop" 
+          href="#" 
+          data-toggle="popover" 
+          data-content="The build phase involves the idea’s prototype and business plan engineering. Here, we invite you to help develop the idea into a minimum viable product (the core features of the product allowing it to be deployed, and no more). Users can write the idea’s description (its business model and specification for the prototype construction), write part of the business plan, design the frontend, or code the prototype. Your contributions are rewarded with equity in the idea and an increase in your reputation points. 
+          <br><br>
+          If you do not have prior experience writing business plans or building prototypes, it does not matter; for each part, we explain what its for, what is required, and how to structure it. We thus help you develop your skills in each of these 4 areas, and give you experience directly applying them to building up and coming technology-related start-ups. 
+          <br><br>
+          Click on an idea to be directed to its build page, and click <b>start</b> on a part if you would like to start contributing!">
+        <%= image_tag 'labthinghelp.png', size: '36x36', id: 'help' %>
+        <span id='close' class='pull-left' style='display:none; position:absolute; top:0; margin-left:-5px; color:#34495E;'>
+          <b>x</b>
+        </span>
+      </a>
+    </div>
+  </div>
   <hr>
   <p><%= link_to 'All Categories', build_path %></p>
   <% @categories.each do |category| %>

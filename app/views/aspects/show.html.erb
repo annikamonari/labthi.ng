@@ -6,18 +6,20 @@
 
 <p>
   <h1><%= @aspect.title %></h1>
-  <div style='float:right;' id='helpcontent'>
-    <a id="pop" 
-        href="#" 
-        data-html='true'
-        data-toggle="popover" 
-        data-content="For more information about what these aspects mean and what they are for, visit the <b>Documentation</b> page.<br><br>Once you understand the aspects and how the business canvas works, you can submit a solution for one of the aspects of the idea's business model in as many as 1250 characters using the guide above. Do not be afraid to have a differing opinion from others in your solution; a discussion with differing viewpoints causes the idea to pivot and its business model to flesh out more effectively.">
-      <%= image_tag 'labthinghelp.png', size: '36x36', id: 'help' %>
-      <span id='close' class='pull-left' style='display:none; color:#34495E;'>
-        <b>x</b>
-      </span>
-    </a>      
-  </div>
+  <% unless @aspect.title == 'Image' %>
+    <div style='float:right;' id='helpcontent'>
+      <a id="pop" 
+          href="#" 
+          data-html='true'
+          data-toggle="popover" 
+          data-content="For more information about what these aspects mean and what they are for, visit the <b>Documentation</b> page.<br><br>Once you understand the aspects and how the business canvas works, you can submit a solution for one of the aspects of the idea's business model in as many as 1250 characters using the guide above. Do not be afraid to have a differing opinion from others in your solution; a discussion with differing viewpoints causes the idea to pivot and its business model to flesh out more effectively.">
+        <%= image_tag 'labthinghelp.png', size: '36x36', id: 'help' %>
+        <span id='close' class='pull-left' style='display:none; color:#34495E;'>
+          <b>x</b>
+        </span>
+      </a>      
+    </div>
+  <% end %>
   <hr>
   <div><%= @aspect.brief %></div>
   <hr>

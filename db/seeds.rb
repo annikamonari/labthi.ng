@@ -99,14 +99,6 @@ end
 
 
 admin_user_data = [
-  { 
-		email: "mpgarate@gmail.com",
-		first_name: "Michael",
-		last_name: "Garate",
-		password: "banana123",
-		password_confirmation: "banana123",
-		admin: true
-	},
 	{
 		email: "annikamonari@gmail.com",
 		first_name: "Annika",
@@ -126,15 +118,16 @@ admin_user_data = [
 ]
 
 admin_user_data.each do |d|
-	if AdminUser.count < 4 then
-		User.create(d)
+	User.create(d)
 
-		d.delete(:first_name)
-		d.delete(:last_name)
-		d.delete(:admin)
+	d.delete(:first_name)
+	d.delete(:last_name)
+	d.delete(:admin)
 
-		AdminUser.create(d)
-	end
-
-
+	AdminUser.create(d)
 end
+
+
+
+
+

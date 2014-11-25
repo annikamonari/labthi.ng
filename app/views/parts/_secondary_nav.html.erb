@@ -9,6 +9,19 @@
 <% end %>
 
 <% content_for :secondary_nav do %>
+  <% if current_page?(controller: 'parts', action: 'help_content') %>
+      <div style='float:left; height:40px; margin-right:5px; display:none;' id='navhelp'>
+        <a id="pop" 
+            href="#" 
+            data-toggle="popover" 
+            data-content="Click on <b>Edit</b> to submit content for your part. You can come back and edit your content as much as you want before pressing the <b>finish</b> button. When you finish the part, administrators will review it and leave you tasks to help you improve areas of weakness under the <b>Admin Tasks</b> tab.">
+          <%= image_tag 'labthinghelp.png', size: '36x36', id: 'helpnav' %>
+          <span id='closenav' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
+            <b>x</b>
+          </span>
+        </a>      
+      </div>
+    <% end %>
   <div class="secondary-nav">
     <%= link_to "Help Content", {
       controller: "parts",

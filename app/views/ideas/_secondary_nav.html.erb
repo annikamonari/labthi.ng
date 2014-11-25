@@ -5,7 +5,7 @@
 			<div style='float:left;'><h2>
 			  <%= @idea.title %>
 			</h2></div>
-			<% if @idea.phase == 3 %>
+			<% if @idea.phase == 3 and current_page?("/ideas/#{@idea.id}") %>
 				<div style='float:left; margin-left:20px; height:40px; margin-top:10px; display:none;' id='buyhelp'>
 	        <a id="pop" 
 	            href="#" 

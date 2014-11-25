@@ -9,6 +9,7 @@ class Part < ActiveRecord::Base
 
   belongs_to :user, -> { includes(:profile) }
   belongs_to :component, -> { includes(:idea_build) }
+  #after_create :create_example_task
 
   def idea
     @idea ||= idea_build.idea
@@ -187,5 +188,21 @@ class Part < ActiveRecord::Base
       else
         part.any? { |p| p.status == 'Started' } and self.status != 'Started' 
       end
+    end
+
+    def create_example_task
+      AdminTask.create(title: 'This is an Example Administrator Task', description: "Here is an example of what a task we 
+                                                                              leave you will look like. It will have a 
+                                                                              title explaining what it is about, and a 
+                                                                              description that will tell you what lines 
+                                                                              need fixing or what paragraphs can be improved.
+                                                                              After you finish the part, we will start leaving tasks. When we 
+                                                                              change the part's status to In Review, you can start attempting the tasks. 
+                                                                              Press the start button when you begin your edits for this task. 
+                                                                              Press the finish button when your edit is complete, and we will 
+                                                                              review it. Obviously, this task is just to show tasks will look like, 
+                                                                              so there is no work for you to do.", 
+                                                                              part_id: self.id, admin_id: User.where(email: 'annikamonari@gmail.com').first.id,
+                                                                              status: 'Unstarted')
     end
 end

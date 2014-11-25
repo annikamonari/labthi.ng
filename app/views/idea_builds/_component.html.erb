@@ -1,30 +1,72 @@
 <% (component.parts.sort_by {|p| p.name}).each do |part| %>
   <div class='row content-bg'>   
     <div class='col-md-8'>
-      <% if part.display_link?(current_user)%>
-        <%= link_to part.name, part_help_content_path(id: part) %>
-      <% else %>
-        <h0 class='link-dis'>
-          <%= part.name %>
-        </h0>
+      <% if part.name == 'Idea Description' %>
+        <div style='float:left; height:40px; margin-right:5px; margin-left:-15px; display:none;' id='navhelp'>
+          <a id="popimg" 
+              href="#" 
+              data-toggle="popover" 
+              data-content="Each row is a part of a component. If a part's status is <b>unstarted</b> you may start it and submit the required content in exchange for <b>equity</b> in the idea and reputation points proportional to this equity. Each part carries a unique equity value, present on rightmost side of the row in green. You do not need to have experience writing business plans or building prototypes; each part's edit page containers help content that tells you exactly what should be included in your contribution, including a structure you can follow. You can also find this information in the documentation section.<br><br>After the <b>build</b> phase is complete, the top 5 reputation earners in the idea are offered the opportunity to be the team behind the idea. This team will turn the product into a start-up and launch it. Thus, if you would like to be part of this team, start and finish as many parts as possible! <i>But remember, you can only start one part at once.</i><br><br>Visit the <b>Documentation</b> section to read more about how the <build> phase works, what each part is, and what type of content is required for each part.">
+            <%= image_tag 'labthinghelp.png', size: '36x36', id: 'helpnav' %>
+            <span id='closenav' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
+              <b>x</b>
+            </span>
+          </a>      
+        </div>
+      <% elsif part.name == 'Prototype' %>
+        <div style='float:left; height:40px; margin-right:5px; margin-left:-15px; display:none;' id='buyhelp'>
+          <a id="popimg" 
+              href="#" 
+              data-toggle="popover" 
+              data-content="The prototype component is the only component that requires a specific skill: programming. Since this part's content submission is purely code, if you do not know how to programme you should not start it.<br><br>When you click <b>start</b> you are added to a private BitBucket repository on our Labthi.ng account. Using Git as your version control, you should continually push your content to this repository. If you would like to work with others on the code, you can enter their emails on the <b>prototype edit page</b> and they will be automatically added to the repository. If for whatever reason you no longer want them to contribute, you can also remove them from this page.">
+            <%= image_tag 'labthinghelp.png', size: '36x36', id: 'helpbuy' %>
+            <span id='closebuy' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
+              <b>x</b>
+            </span>
+          </a>      
+        </div>
       <% end %>
+      <div style='float:left;'>
+        <% if part.display_link?(current_user)%>
+          <%= link_to part.name, part_help_content_path(id: part) %>
+        <% else %>
+          <h0 class='link-dis'>
+            <%= part.name %>
+          </h0>
+        <% end %>
 
-      <br>   
-      <%= "Status: " %>
-      <h0 class='statustext'>
-        <%= "#{part.status}"%>
-      </h0>
+        <br>   
+        <%= "Status: " %>
+        <h0 class='statustext'>
+          <%= "#{part.status}"%>
+        </h0>
+      </div>
       <br>
     </div>
     <div class='col-md-4'>
       <div class='partstyle pull-right'>
         <div class='left'>
+          <% if (part.name == 'Executive Summary' or 'Idea Description') and part.status != 'Accepted' %>
+          <div style='float:left; margin-left:20px; height:35px; margin-top:6px;margin-right:4px;display:none;' id='archivehelp'>
+            <a id="pop" 
+                href="#" 
+                data-toggle="popover" 
+                data-content="The button I'm standing next to indicates whether or not you can take action, and what sort of action you can take. In general, blue buttons mean you can click on them and take action; grey buttons mean you cannot take action. If the button is blue and says <b>start</b>, it means you can start the part. After you do this, you will be the only user that can see click on the part and edit it. When you are finished, you can click the blue <b>finish</b> button. The button will then become grey and will say <b>finished</b>; now, you cannot click on the part to edit it because administrators are reviewing your work and adding tasks for you to complete to improve it. When the button's text changes to <b>In Review</b> but stays grey, you can edit the part and complete the administrators' tasks to improve your work. The administrators will <b>accept</b> your part once they think the quality is of appropriate standard. <br><br>
+
+                If the button is grey and says <b>locked</b> it means other parts must be completed before this part can be started (e.g. the <b>Executive Summary</b> part can only be started once all of the other business plan parts are completed). If it is grey and says <b>Unstarted</b>, you have already started a part and hence cannot start any others because you can only be in control of 1 part at once. Read more about how this works in the <b>documentation</b> section.">
+              <%= image_tag 'labthinghelp.png', size: '36x36', id: 'helparchive' %>
+              <span id='closearchive' class='pull-left' style='display:none; position:absolute; top:5px; margin-left:-5px; color:#34495E;'>
+                <b>x</b>
+              </span>
+            </a>      
+          </div>
+          <% end %>
           <% if part.locked_or_disabled?(current_user) %>
-            <%= button_to part.disabled_status, '', 
-                :class => 'btn disabled btn-status', id: "#{part.id}"%>
+            <div style='float:right;'><%= button_to part.disabled_status, '', 
+                :class => 'btn disabled btn-status', id: "#{part.id}"%></div>
           <% elsif part.display_button?(current_user) %>
-            <%= button_to part.button_status, update_status_path(id: part), 
-                :class => 'btn btn-inverse', id: "#{part.id}"%>
+            <div style='float:right;'><%= button_to part.button_status, update_status_path(id: part), 
+                :class => 'btn btn-inverse', id: "#{part.id}"%></div>
           <% else %>
             <p class='pull-left left' align='right'>
                Author:<br>

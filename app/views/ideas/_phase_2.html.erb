@@ -19,6 +19,19 @@
       <span class='glyphicon glyphicon-star unclickable'></span>
       <%= link_to "#{@idea.followers.count}", followers_idea_path(@idea),
         class: 'badge-rep up' %></p><br><br>
-    <p class='pull-right'><%= link_to "Phase 1 Archive", @idea %></p>
+    <p class='pull-right'>
+    <div style='float:left; height:40px; margin-top:-15px;' id='helpcontent'>
+        <a id="pop" 
+            href="#" 
+            data-toggle="popover" 
+            data-content="You are now on the idea's <b>build</b> page, demonstrating the current status of all of the different component parts that need to be completed for the idea to graduate from this phase. This page will be the landing page for the idea until it reaches the <b>buy</b> phase. To re-visit its <b>create</b> page, click on <b>Phase 1 Archive</b>. There, you will find an updated list of the idea's top reputation earners. However, you will not be able to submit any new create phase content (e.g. questions, comments, answers, solutions).">
+          <%= image_tag 'labthinghelp.png', size: '36x36', id: 'help' %>
+          <span id='close' class='pull-left' style='display:none; position:absolute; top:14px; margin-left:-5px; color:#34495E;'>
+            <b>x</b>
+          </span>
+        </a>      
+      </div>
+    <div style='float:right;'><%= link_to "Phase 1 Archive", @idea %></div>
+    </p>
   </div>
 </div>

@@ -1,5 +1,19 @@
 <% content_for :secondary_nav do %> 
   <div class="secondary-nav">
+    <% if current_page?("/") %>
+      <div style='float:left; height:40px; display:none;' id='navhelp'>
+        <a id="popnav" 
+             href="#" 
+             data-toggle="popover"
+             data-html="true" 
+             data-content="<b>My Activity</b> shows you all of your most recent contributions to ideas in all phases. For example, it will list questions you've contributed to ideas in the <b>create</b> phase, or parts that you've started in the <b>build</b> phase. <b>My Followed Ideas Activity</b> shows you the most recent contributions submitted by all users to the ideas that you follow in all phases. It is akin to the <b>Activity</b> tab on an idea's create page.">
+          <%= image_tag 'labthinghelp.png', size: '36x36', id: 'helpnav' %>
+          <span id='closenav' class='pull-left' style='display:none; position:absolute; top:0; margin-left:-5px; color:#34495E;'>
+           <b>x</b>
+          </span>
+        </a>      
+      </div>
+    <% end %>
     <%= link_to "My Activity", '/',
       class: 'btn btn-default ' + active_when(:controller => 'home', :action => 'dashboard')
     %>

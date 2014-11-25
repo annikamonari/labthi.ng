@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    doBounce($('#help'), 20, '10px', 300);
+    doBounce($('#help'), '10px', 300);
     $('#help').on({
       mouseenter:
           function() {
@@ -9,7 +9,7 @@ $(document).ready(function () {
 
       mouseleave:
           function() {
-            doBounce($(this), 20, '10px', 300);
+            doBounce($(this), '10px', 300);
             $('#close').hide();
           }
 
@@ -23,7 +23,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    doBounce($('#helpnav'), 20, '10px', 300);
+    doBounce($('#helpnav'), '10px', 300);
     $('#helpnav').on({
       mouseenter:
           function() {
@@ -33,20 +33,20 @@ $(document).ready(function () {
 
       mouseleave:
           function() {
-            doBounce($(this), 20, '10px', 300);
+            doBounce($(this), '10px', 300);
             $('#closenav').hide();
           }
 
     });
     $('#helpnav').click(function() {
-      $('#navhelp').hide()
-      $('#imghelp').show()      
+      $('#navhelp').hide();
+      $('#archivehelp').show();      
     });
     
 });
 
 $(document).ready(function () {
-    doBounce($('#helpimg'), 20, '10px', 300);
+    doBounce($('#helpimg'), '10px', 300);
     $('#helpimg').on({
       mouseenter:
           function() {
@@ -56,19 +56,19 @@ $(document).ready(function () {
 
       mouseleave:
           function() {
-            doBounce($(this), 20, '10px', 300);
+            doBounce($(this), '10px', 300);
             $('#closeimg').hide();
           }
 
     });
     $('#helpimg').click(function() {
-      $('#imghelp').hide()
+      $('#imghelp').hide();
+      $('#buyhelp').show();
     });
-    
 });
 
 $(document).ready(function () {
-    doBounce($('#helparchive'), 20, '10px', 300);
+    doBounce($('#helparchive'), '10px', 300);
     $('#helparchive').on({
       mouseenter:
           function() {
@@ -78,7 +78,7 @@ $(document).ready(function () {
 
       mouseleave:
           function() {
-            doBounce($(this), 20, '10px', 300);
+            doBounce($(this), '10px', 300);
             $('#closearchive').hide();
           }
 
@@ -91,7 +91,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    doBounce($('#helpbuy'), 20, '10px', 300);
+    doBounce($('#helpbuy'), '10px', 300);
     $('#helpbuy').on({
       mouseenter:
           function() {
@@ -101,7 +101,7 @@ $(document).ready(function () {
 
       mouseleave:
           function() {
-            doBounce($(this), 20, '10px', 300);
+            doBounce($(this), '10px', 300);
             $('#closebuy').hide();
           }
 
@@ -113,16 +113,32 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () { 
-  $('[data-toggle="popover"]').popover({
-    trigger: 'hover',
-        'placement': 'bottom',
-        'container': "body",
-    html: true
-  });
+  $('[data-toggle="popover"]').popover(options);
 });
 
-function doBounce(element, times, distance, speed) {
-  for(var i = 0; i < times; i++) {
+var options = {
+    placement: function (context, source) {
+        var position = $(source).parent().offset();
+        if (position.top < 110){
+            return "bottom";
+        }
+        if (position.left > 515) {
+            return "left";
+        }
+        if (position.left < 515) {
+            return "right";
+        }
+
+        return "top";
+    }, 
+    trigger: "hover",
+    html: true,
+    container: 'body'
+};
+
+
+function doBounce(element, distance, speed) {
+  for(var i = 0; i < 40; i++) {
      element.animate({marginTop: '-='+distance}, speed)
         .animate({marginTop: '+='+distance}, speed);
   }        
