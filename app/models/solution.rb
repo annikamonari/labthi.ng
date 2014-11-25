@@ -11,8 +11,6 @@ class Solution < ActiveRecord::Base
   belongs_to :user, -> { includes :profile }
   has_many :comments, as: :commentable, :dependent => :destroy
   
-  mount_uploader :image, ImageUploader
-
   def ids
     [['Solution', self.id]]
   end

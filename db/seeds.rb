@@ -81,10 +81,6 @@ aspect_data = [
 	{
 		title: "Prototype Elements", brief: 'What aspects of the product do you think are most important to be realised in the first prototype and why? 
 																				If possible, explain how they should be built. '	
-	},
-	{
-		title: "Image", brief: 'Here you can upload the image that fits the idea best; preferably one that does not infringe on any copyright laws. 
-														The highest voted image will be displayed on the idea’s sidebar, and will be used as inspiration for designing the logo.'		
 	}
 ]
 

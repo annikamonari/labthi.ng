@@ -15,12 +15,6 @@
     <%= f.label :brief %><br>
     <%= f.text_area :brief, class: "form-control" %><br>
   </div>
-  <% if is_image_submission? %>
-    <div class="field form-group">
-      <%= f.label :image %><br>
-      <%= f.file_field :image %>
-    </div>
-  <% end %>
 
     <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
     <%= hidden_field_tag :aspect_id, params[:aspect_id] %>

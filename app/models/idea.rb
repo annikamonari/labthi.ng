@@ -28,6 +28,8 @@ class Idea < ActiveRecord::Base
   has_many :buy_phase_votes
 
   acts_as_taggable_on :categories, :component
+  mount_uploader :image, ImageUploader
+
 
   def image_aspect
     Aspect.find_or_create_by(title: "Image")
@@ -35,31 +37,13 @@ class Idea < ActiveRecord::Base
 
 
   def top_image(thumbnail=false)
-    top_image = nil
-    image_aspect = Aspect.where(title:"Image").take
-    if (image_aspect)
-      solution = Solution.where(aspect_id: image_aspect.id, idea_id: self.id).sort_by {|a| a.lab_rep}.last
-    end
-
-    if solution then
-      if thumbnail
-        top_image = solution.image.thumb.to_s
-      elsif solution and thumbnail == nil
-        top_image = solution.image.phase2.to_s
-      else
-        top_image = solution.image.display.to_s
-      end
+    if thumbnail
+      self.image.thumb.to_s
+    elsif thumbnail == nil
+      self.image.phase2.to_s
     else
-      if thumbnail
-        top_image = 'thumb_default.png'
-      elsif thumbnail == nil
-        top_image = 'phase2_default.png'
-      else
-        top_image = 'display_default.png'
-      end
+      self.image.display.to_s
     end
-
-    return top_image
   end
 
   def top_image_thumb

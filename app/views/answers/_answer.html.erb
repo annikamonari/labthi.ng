@@ -10,7 +10,7 @@
         <div class="media-item-body">
             <div class='userwrap'>
               <div class='photo'>
-              <%= link_to (image_tag answer.user.profile.photo_url, :size => "36x36"), profile_path(answer.user.profile)%>
+              <%= link_to (image_tag answer.user.profile.photo.thumb, :size => "36x36"), profile_path(answer.user.profile)%>
               </div>
               <div class='username'>
               <%= render answer.user %><br>
