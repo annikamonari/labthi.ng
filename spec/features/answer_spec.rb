@@ -8,6 +8,7 @@ feature 'Visitor submits a answer' do
     @answer_brief = 'This product could target upper middle class males in NYC'
     submit_idea @idea_brief
     submit_question @question_title, @question_brief
+    puts page.html
     submit_answer @answer_brief
   end
 

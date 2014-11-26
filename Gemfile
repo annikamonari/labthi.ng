@@ -86,7 +86,7 @@ end
 
 group :test do
   gem 'cucumber-rails', require: false
-  gem "capybara-webkit"
+  gem "capybara"
   #gem "selenium-webdriver"
   gem "database_cleaner", ">= 0.8.0"
   gem 'simplecov', require: false
@@ -108,7 +108,6 @@ group :test, :development do
   gem 'guard-rspec'
   gem 'foreman'
   gem 'rspec-activemodel-mocks'
-  gem 'selenium-webdriver'
   #gem 'warden', '>= 1.2.2'
   #
   require 'rbconfig'

@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: a2cd9604c2d949f5193791045385756cee0c6865
+  revision: bd3380e8df3aec665981737f11f98b3582d64a24
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0, >= 1.0.2)
@@ -91,9 +91,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-webkit (1.3.1)
-      capybara (>= 2.0.2, < 2.5.0)
-      json
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -101,8 +98,6 @@ GEM
       mime-types (>= 1.16)
     celluloid (0.16.0)
       timers (~> 4.0.0)
-    childprocess (0.5.5)
-      ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -135,9 +130,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    dotenv (0.11.1)
-      dotenv-deployment (~> 0.0.2)
-    dotenv-deployment (0.0.2)
+    dotenv (1.0.2)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -218,8 +211,8 @@ GEM
       activerecord (>= 3.0.0)
     foreigner-matcher (0.2.3)
       foreigner (>= 1.0.0)
-    foreman (0.75.0)
-      dotenv (~> 0.11.1)
+    foreman (0.76.0)
+      dotenv (~> 1.0.2)
       thor (~> 0.19.1)
     formatador (0.2.5)
     formtastic (3.1.2)
@@ -229,7 +222,7 @@ GEM
       multi_json (~> 1.3)
     gherkin (2.12.2-x86-mingw32)
       multi_json (~> 1.3)
-    guard (2.8.2)
+    guard (2.9.0)
       formatador (>= 0.2.4)
       listen (~> 2.7)
       lumberjack (~> 1.0)
@@ -277,7 +270,7 @@ GEM
     launchy (2.4.3)
       addressable (~> 2.3)
     libv8 (3.16.14.7)
-    listen (2.8.1)
+    listen (2.8.2)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -384,7 +377,6 @@ GEM
       rspec-mocks (~> 3.1.0)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
-    rubyzip (1.1.6)
     sass (3.2.19)
     sass-rails (4.0.5)
       railties (>= 4.0.0, < 5.0)
@@ -394,11 +386,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    selenium-webdriver (2.44.0)
-      childprocess (~> 0.5)
-      multi_json (~> 1.0)
-      rubyzip (~> 1.0)
-      websocket (~> 1.0)
     simplecov (0.9.1)
       docile (~> 1.1.0)
       multi_json (~> 1.0)
@@ -443,7 +430,6 @@ GEM
     uniform_notifier (1.6.2)
     warden (1.2.3)
       rack (>= 1.0)
-    websocket (1.2.1)
     win32console (1.3.2-x86-mingw32)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -459,7 +445,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   bootsy (~> 2.0.10)
   bullet
-  capybara-webkit
+  capybara
   carrierwave (>= 0.10.0)
   coffee-rails (~> 4.0.0)
   cucumber-rails
@@ -490,7 +476,6 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
-  selenium-webdriver
   simplecov
   spork
   therubyracer

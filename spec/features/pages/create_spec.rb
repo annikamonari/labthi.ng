@@ -25,7 +25,6 @@ feature 'User visits create page' do
     FactoryGirl.create(:idea, category_list: 'Science & Technology')
     FactoryGirl.create(:idea, category_list: 'Retail')
     click_link "Other"
-    puts page.html
     page.should have_selector(".idea-categories", :text => "Other")
     page.should have_no_selector(".idea-categories", :text => "Retail")
     click_link "Retail"
