@@ -1,0 +1,24 @@
+<div class="col-sm-12">
+  <%= render 'ideas/phase_2' %>
+</div>
+<hr>
+<div class="secondary_nav">
+  <div class="secondary-nav">
+    <%= link_to "Overview", {
+      controller: "idea_builds",
+      action: "news_feed" },
+      class: 'btn btn-default text ' + active_when(:controller => 'idea_builds', :action => 'news_feed')
+    %>
+    <%= link_to "Build", {
+      controller: "idea_builds",
+      action: "overview" },
+      class: 'btn btn-default text ' + active_when(:controller => 'idea_builds', :action => 'overview')
+    %>
+    <%= link_to "Discussion", {
+      controller: "idea_builds",
+      action: "discussion" },
+      class: 'btn btn-default text ' + active_when(:controller => 'idea_builds', :action => 'discussion')
+    %>
+  </div>
+</div>
+<br><br>

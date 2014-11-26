@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125192703) do
+ActiveRecord::Schema.define(version: 20141126151724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -205,6 +205,19 @@ ActiveRecord::Schema.define(version: 20141125192703) do
 
   add_index "parts", ["component_id"], name: "index_parts_on_component_id", using: :btree
   add_index "parts", ["user_id"], name: "index_parts_on_user_id", using: :btree
+
+  create_table "posts", force: true do |t|
+    t.integer  "idea_build_id"
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "kind"
+    t.text     "content"
+    t.string   "image"
+    t.string   "status"
+    t.integer  "likes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"

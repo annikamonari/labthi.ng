@@ -1,5 +1,4 @@
 class ProfilesController < ApplicationController
-	before_action :auth_user!, except: [:show]
   before_action :set_profile, only: [:show, :edit, :update, :labs]
   before_action :get_user, only: [:show, :edit, :update, :labs]
 

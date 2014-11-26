@@ -73,7 +73,7 @@
               <%= link_to (part.user.name), profile_path(part.user.profile) %>             
             </p>
             <p class='pull-right'>
-            <%= link_to (image_tag part.user.profile.photo_url, :size => "32x32"), profile_path(part.user.profile)%></p>
+            <%= link_to (image_tag part.user.profile.photo.thumb, :size => "32x32"), profile_path(part.user.profile)%></p>
           <% end %>     
         </div>
         <div class='right'><%= button_to part.equity, '', :class => 'btn disabled btn-equity'%></div>

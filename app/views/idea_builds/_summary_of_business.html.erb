@@ -1,0 +1,43 @@
+<%= render 'secondary_nav' %>
+
+<div class='row'>
+<div class='col-md-8 no-gutter'>
+  <div class='content-bg'>
+    <h4>The Idea</h4>
+    <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
+    <p><%= @brief %></p>
+  </div>
+  <div class='content-bg'>
+    <h4>The Team</h4>
+    <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
+    <div class="idea-followers">
+      <% @users_points.each do |user, points| %>
+        <%= render 'users/user_with_points', user: user, points: points %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class='col-md-4 content-bg'>
+  <h4>Progress</h4>
+  <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
+  <p>Skill bars and statistics and that crap go here.</p>
+</div>
+</div>
+<hr>
+<div class='row no-gutter'>
+  <div class="secondary_nav">
+    <div class="secondary-nav">
+      <%= link_to "News Feed", {
+        controller: "idea_builds",
+        action: "news_feed" },
+        class: 'btn btn-default text ' + active_when(:controller => 'idea_builds', :action => 'news_feed')
+      %>
+      <%= link_to "Team Building", {
+        controller: "idea_builds",
+        action: "team_build" },
+        class: 'btn btn-default text ' + active_when(:controller => 'idea_builds', :action => 'team_build')
+      %>
+    </div>
+  </div>
+</div>
+<br><br>

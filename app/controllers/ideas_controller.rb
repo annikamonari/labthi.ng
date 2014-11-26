@@ -91,7 +91,7 @@ class IdeasController < ApplicationController
   end
 
   def increase_create_length
-    if @idea.user == current_user
+    if @idea.user == current_user and @idea.phase == 1
       if @idea.increase_create_days
         redirect_to @idea, notice: "You have increased the idea's create phase length by 1 day."
       else
@@ -152,23 +152,6 @@ class IdeasController < ApplicationController
       current_user = :auth_user!
       user = Idea.find(params[:id]).user if params[:id]
       redirect_to @idea, notice: "You do not have permission to edit this idea." unless current_user == user
-    end
-
-    def sum_points(users_points)
-      sorted             = users_points.sort_by { |u| u[0] }
-      points             = 0
-      summed_users_points = Array.new
-
-      (0..sorted.length - 1).each do |i|
-        user    = sorted[i][0]
-        points += sorted[i][1]
-
-        if sorted[i + 1].nil? or sorted[i + 1][0] != user
-          summed_users_points << [user, points]
-          points = 0
-        end
-      end
-      (summed_users_points.sort_by {|u| -u[1]})[0..4]  
     end
 
     def promote

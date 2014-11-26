@@ -47,3 +47,20 @@ module ApplicationHelper
     end
   end
 end
+
+def sum_points(users_points)
+  sorted             = users_points.sort_by { |u| u[0] }
+  points             = 0
+  summed_users_points = Array.new
+
+  (0..sorted.length - 1).each do |i|
+    user    = sorted[i][0]
+    points += sorted[i][1]
+
+    if sorted[i + 1].nil? or sorted[i + 1][0] != user
+      summed_users_points << [user, points]
+      points = 0
+    end
+  end
+  (summed_users_points.sort_by {|u| -u[1]})[0..4]  
+end

@@ -59,7 +59,7 @@
   </p>
   <hr>
   
-  <% if @idea.user == current_user %>
+  <% if @idea.user == current_user and @idea.is_phase_1? %>
     <%= button_to 'Increase Number of Days in Create Phase by 1', increase_create_length_path, class: 'btn btn-danger' %><br>
   <% end %>
   <% if @idea.phase == 3 %>

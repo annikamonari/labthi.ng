@@ -1,0 +1,13 @@
+<%= render 'layouts/header' %>
+
+<%= render 'ideas/phase_2' %>
+
+
+
+<div class="col content col-sm-12">
+<%= render 'layouts/secondary_nav_build' if content_for :secondary_nav %>
+<br><br>
+  <%= yield %>
+</div>
+
+<%= render 'layouts/footer' %>
