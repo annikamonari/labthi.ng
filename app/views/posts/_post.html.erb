@@ -1,0 +1,35 @@
+<li class="media post post-<%= post.id %> content-bg">
+    <div class="media-body">
+      <div class="media-body">
+        <div class="media-item-body">
+          <p><h4><strong><%= post.title %></strong></h4></p>
+          <br>
+          <p><%= post.content %></p>
+          <p class="pull-right">
+            <div class='userwrap'>
+              <div class='photoquest'>
+                <%= link_to (image_tag post.user.profile.photo.thumb, :size => "36x36"), profile_path(post.user.profile)%>
+              </div>
+              <div class='usernamequest' align='right'>
+                <%= render post.user %><br>
+                <i>Posted <%= time_ago_in_words(post.created_at) %> ago</i>
+              </div>
+            </div>
+          </p>
+          <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
+        </div>
+      </div>
+      <% if post.nil? %>
+        <a href='javascript:void(0);' class='showanscomments'>Hide Post Comments</a>
+        <br><br>
+      <% end %>
+      <div class="media-body answercomments">
+        <ul class="media-list comments answer-comments">
+          <% if post.nil? %>
+            <%= render post.comments.includes(:user) %>
+          <% end %>
+        </ul>
+        <p class="link-dis"> Add comment </p>
+      </div>
+    </div>
+</li>

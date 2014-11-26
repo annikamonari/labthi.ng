@@ -1,5 +1,6 @@
-<h1>New post</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', posts_path %>
+<%= render 'idea_builds/summary_of_business' %>
+<h3>New Post</h3>
+<div class='content-bg'>
+  <%= render 'form' %>
+</div>
+<%= link_to 'Back', idea_build_feed_path(@idea) %>

@@ -5,6 +5,7 @@ class IdeaBuild < ActiveRecord::Base
   has_one :prototype_component
   has_one :design_component
   has_many :team_memberships
+  has_many :posts, -> { includes(:user) }
 
   before_create :create_required_components
 

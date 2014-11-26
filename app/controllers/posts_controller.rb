@@ -1,33 +1,44 @@
 class PostsController < ApplicationController
+  before_action :set_idea
+  before_action :set_idea_build
+  before_action :summary_of_business, only: [:new]
 
-  def show
+  def new
+    @post = Post.new
   end
 
   def create
-    @answer = Answer.new(answer_params)
-    @answer.question_id = params[:question_id]
-    @answer.user = current_user
+    @post = Post.new(post_params)
+    @post.idea_build_id = @idea_build.id
+    @post.user_id = current_user.id
 
     respond_to do |format|
-      if @answer.save
-        @answer.create_activity :create, owner: (current_user)
-        format.html { redirect_to @answer.question, notice: 'Answer was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @answer }
-        format.js {render template: 'answers/create'}
-        if not current_user.following_idea?(@answer.question.idea)
-          current_user.follow_idea!(@answer.question.idea)
-        end
+      if @post.save
+        @post.create_activity :create, owner: (current_user)
+        format.html { redirect_to idea_build_feed_path(@idea), notice: 'Post was successfully created.' }
       else
         format.html { render action: 'new' }
-        format.json { render json: @answer.errors, status: :unprocessable_entity }
       end
     end
   end
 
+  def destroy
+    @post.destroy
+    redirect_to idea_build_feed_path(@idea)
+  end
+
   private
 
+    def set_idea
+      @idea = Idea.find(params[:idea_id])
+    end
+
+    def set_idea_build
+      @idea_build = @idea.idea_build
+    end
+
     def post_params
-      params.require(:post).permit(:title, :kind, :content, :image, :status, :likes)
+      params.require(:post).permit(:title, :kind, :content, :image, :status)
     end
 end
 

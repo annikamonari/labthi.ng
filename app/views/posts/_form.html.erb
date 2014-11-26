@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+<%= form_for(@post, url: 'create_post') do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -11,39 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :idea_build_id %><br>
-    <%= f.number_field :idea_build_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :kind %><br>
-    <%= f.text_field :kind %>
-  </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :content %><br>
     <%= f.text_area :content %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :image %><br>
     <%= f.text_field :image %>
   </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :likes %><br>
-    <%= f.number_field :likes %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create Post', :class => "btn btn-primary" %>
   </div>
 <% end %>

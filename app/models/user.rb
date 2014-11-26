@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   has_many :idea_relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_ideas, -> { includes :user }, through: :idea_relationships, source: :followed
   has_many :buy_phase_votes
+  has_many :posts
 
   has_many :team_memberships
   

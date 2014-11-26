@@ -58,6 +58,8 @@ StartIt::Application.routes.draw do
   get "/ideas/:idea_id/overview/news_feed", to: 'idea_builds#news_feed', as: 'idea_build_feed'
   get "/ideas/:idea_id/overview/team_build", to: 'idea_builds#team_build', as: 'idea_build_team_build'
   get "/ideas/:idea_id/discussion", to: 'idea_builds#discussion', as: 'idea_build_discussion'
+  get "/ideas/:idea_id/overview/news_feed/new_post", to: 'posts#new', as: 'new_post'
+  post "/ideas/:idea_id/overview/news_feed/create_post", to: 'posts#create', as: 'create_post'
 
   get "/ideas/:idea_id/build/components", to: "idea_builds#components", as: 'idea_build_components'
   get '/ideas/:id/define', to: 'ideas#define'
