@@ -1,0 +1,8 @@
+created an post
+
+<% if activity.trackable %>
+  <%= link_to truncate(activity.trackable.content, length: 70), activity.trackable %> <%= time_ago_in_words(activity.created_at) %> ago
+<% else %>
+  which has since been removed
+<% end %>
+<br />

@@ -14,10 +14,11 @@ class IdeaBuildsController < ApplicationController
   end
 
   def news_feed
-    @posts = @idea_build.posts
+    @posts = get_posts('news')
   end 
 
   def team_build
+    @posts = get_posts('team')
   end
 
   private 
@@ -27,6 +28,10 @@ class IdeaBuildsController < ApplicationController
 
     def set_idea_build
       @idea_build = @idea.idea_build
+    end
+
+    def get_posts(kind)
+      @idea_build.posts.where(kind: kind)
     end
 
     #TODO: figure out how to remove the html from the @brief. Its ugly

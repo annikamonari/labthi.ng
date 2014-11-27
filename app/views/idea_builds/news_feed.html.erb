@@ -1,15 +1,17 @@
 <%= render 'summary_of_business' %>
-<div class='welcome-block clearfix'>
-  <h3 class='pull-left'>News Feed</h3>
-  <div style='position:relative; margin-top:15px;'><%= link_to "Create a post", new_post_path, class: "btn btn-info pull-right" %></div>
+<div class='col-md-10 no-gutter'>
+  <div class='welcome-block clearfix'>
+    <h3 class='pull-left'>News Feed</h3>
+    <div style='position:relative; margin-top:15px;'><%= link_to "Create a Post", new_post_path, class: "btn btn-info pull-right" %></div>
+  </div>
+  <ul class="posts media-list">
+    <% if @posts.count > 0 %>
+      <%= render (@posts.sort_by {|p| p.created_at}).reverse %>
+    <% else %>
+      <div class='content-bg no posts' id='noposts'>
+        No posts yet. Why don't you add one?
+      </div>
+    <% end %>
+  </ul>
+  <br><br><hr>
 </div>
-<ul class="posts media-list">
-  <% if @posts.count > 0 %>
-    <%= render (@posts.sort_by {|p| p.created_at}).reverse %>
-  <% else %>
-    <div class='content-bg no posts' id='noposts'>
-      No posts yet. Why don't you add one?
-    </div>
-  <% end %>
-</ul>
-<br><br><hr>
