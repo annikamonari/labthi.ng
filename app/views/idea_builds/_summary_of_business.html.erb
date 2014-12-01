@@ -20,7 +20,42 @@
 <div class='col-md-4 content-bg'>
   <h4>Progress</h4>
   <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
-  <p>Skill bars and statistics and that crap go here.</p>
+  <p> 
+    Plan Component: 
+    <div class="progress" style='background-image:none; background-color:white;'>
+      <div class="progress-bar" role="progressbar" aria-valuenow="<%= @idea_build.plan_component.get_progress %>" 
+           aria-valuemin="0" aria-valuemax="100" style="width:<%= @idea_build.plan_component.get_progress %>%;">
+        <%= @idea_build.plan_component.get_progress %>%
+      </div>
+    </div> 
+  </p>
+  <p>
+    Business Plan Component:
+    <div class="progress" style='background-image:none; background-color:white;'>
+      <div class="progress-bar" role="progressbar" aria-valuenow="<%= @idea_build.business_plan_component.get_progress %>" 
+           aria-valuemin="0" aria-valuemax="100" style="width:<%= @idea_build.business_plan_component.get_progress %>%;">
+        <%= @idea_build.business_plan_component.get_progress %>%
+      </div>
+    </div> 
+  </p>
+  <p>
+    Design Component:
+    <div class="progress" style='background-image:none; background-color:white;'>
+      <div class="progress-bar" role="progressbar" aria-valuenow="<%= @idea_build.design_component.get_progress %>" 
+           aria-valuemin="0" aria-valuemax="100" style="width:<%= @idea_build.design_component.get_progress %>%;">
+        <%= @idea_build.design_component.get_progress %>%
+      </div>
+    </div> 
+  </p>
+  <p> 
+    Prototype Component:
+    <div class="progress" style='background-image:none; background-color:white;'>
+      <div class="progress-bar" role="progressbar" aria-valuenow="<%= @idea_build.prototype_component.get_progress %>" 
+           aria-valuemin="0" aria-valuemax="100" style="width:<%= @idea_build.prototype_component.get_progress %>%;">
+        <%= @idea_build.prototype_component.get_progress %>%
+      </div>
+    </div> 
+  </p>
 </div>
 </div>
 <hr><br>
