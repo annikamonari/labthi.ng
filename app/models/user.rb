@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-
+  include Math
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :admin, presence: true, :allow_nil => true, allow_blank: true
 
-  has_many :ideas, inverse_of: :user
+  has_many :ideas, -> { includes :idea_build }, inverse_of: :user
   has_many :questions, inverse_of: :user
   has_many :aspects, inverse_of: :user
   has_many :answers, inverse_of: :user
@@ -105,18 +105,50 @@ class User < ActiveRecord::Base
     follow_activities.sort_by { |a| Time.now - a.created_at } 
   end
 
-  def get_equity(idea)
+  def get_equity(idea_build)
     equities = Array.new
-    idea.idea_build.plan_component.parts.where(user_id: self.id, status: 'Accepted').each { |part| equities << part.equity.to_i }
-    idea.idea_build.business_plan_component.parts.where(user_id: self.id, status: 'Accepted').each { |part| equities << part.equity.to_i }
-    idea.idea_build.prototype_component.parts.where(user_id: self.id, status: 'Accepted').each { |part| equities << part.equity.to_i }
-    idea.idea_build.design_component.parts.where(user_id: self.id, status: 'Accepted').each { |part| equities << part.equity.to_i }
+    idea_build.plan_component.parts.where(user_id: self.id, status: 'Accepted').each { |part| equities << part.equity.to_i }
+    idea_build.business_plan_component.parts.where(user_id: self.id, status: 'Accepted').each { |part| equities << part.equity.to_i }
+    idea_build.prototype_component.parts.where(user_id: self.id, status: 'Accepted').each { |part| equities << part.equity.to_i }
+    idea_build.design_component.parts.where(user_id: self.id, status: 'Accepted').each { |part| equities << part.equity.to_i }
     
     if equities.empty?
       '0%'
     else
       equities.inject{ |sum, e| sum + e }.to_s + '%' 
     end
+  end
+
+  def get_skill_level(component)
+    ('%.0f' % (skill_function(get_skill_points(component)) * 100)).to_i
+  end
+
+  def get_skill_points(component)
+    points = 0
+    get_total_points(:local_reputation, component).each { |p| points += p[1] }
+    points
+  end
+
+  def get_total_points(method, component_type)
+    points = Array.new
+
+    unless TeamMembership.where(user_id: self.id).empty?
+      TeamMembership.where(user_id: self.id).pluck(:idea_build_id).each do |id|
+        IdeaBuild.find(id).send(component_type).parts.includes(:admin_tasks).each do |part|
+          points += part.send(method)
+          unless part.admin_tasks.empty?
+            part.admin_tasks.each do |ac|
+              points += ac.send(method)
+            end
+          end
+        end
+      end
+    end
+    points
+  end
+
+  def skill_function(points)
+    1.to_f / (1 + (Math::E)**(-0.003 * points))
   end
 
   # Phase 3 ===================================================================

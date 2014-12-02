@@ -1,5 +1,6 @@
 <%= render 'secondary_nav' %>
 <%= render 'sidebar' %>
 
-<h4>My recent activity</h4>
-<%= render partial: "activities/activities", :locals => {activities: @activities} %>
+<h4>Idea Contributions</h4>
+
+ <%= render 'users/labs', user: @user %>

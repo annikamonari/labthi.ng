@@ -1,0 +1,51 @@
+<%= render 'secondary_nav' %>
+<%= render 'sidebar' %>
+
+<h4>Skills</h4>
+<div class='content-bg'>
+  <div class='white-bg'>
+    <span style='float:left;margin-right:10px;'>Plan:</span>
+    <span class='slider slider-horizontal' style='width:300px;float:left;margin-right:10px;'>
+      <span class='slider-track'>
+        <span class='slider-selection' style='left:0%; width:<%=@user.get_skill_level('plan_component')%>%; background:#1ABC9C;'></span>
+        <span class='slider-handle round' style='left:<%=@user.get_skill_level('plan_component')%>%;background:#16A085;opacity:1.0;'></span>
+        <span class='slider-handle round hide' style='left:0%;'></span>
+      </span>
+    </span>
+    <%=@user.get_skill_level('plan_component')%>%
+    <br>
+  </div>
+  <div class='white-bg'>
+    <span style='float:left;margin-right:10px;'>Business Plan:</span>
+    <span class='slider slider-horizontal' style='width:300px;float:left;'>
+      <span class='slider-track'>
+        <span class='slider-selection' style='left:0%; width:60%; background:#1ABC9C;'></span>
+        <span class='slider-handle round' style='left:60%;background:#16A085;opacity:1.0;'></span>
+        <span class='slider-handle round hide' style='left:0%;'></span>
+      </span>
+    </span>
+    <br>
+  </div>
+  <div class='white-bg'>
+    <span style='float:left;margin-right:10px;'>Design:</span>
+    <span class='slider slider-horizontal' style='width:300px;float:left;'>
+      <span class='slider-track'>
+        <span class='slider-selection' style='left:0%; width:60%; background:#1ABC9C;'></span>
+        <span class='slider-handle round' style='left:60%;background:#16A085;opacity:1.0;'></span>
+        <span class='slider-handle round hide' style='left:0%;'></span>
+      </span>
+    </span>
+    <br>
+  </div>
+  <div class='white-bg'>
+    <span style='float:left;margin-right:10px;'>Prototype:</span>
+    <span class='slider slider-horizontal' style='width:300px;float:left;'>
+      <span class='slider-track'>
+        <span class='slider-selection' style='left:0%; width:60%; background:#1ABC9C;'></span>
+        <span class='slider-handle round' style='left:60%;background:#16A085;opacity:1.0;'></span>
+        <span class='slider-handle round hide' style='left:0%;'></span>
+      </span>
+    </span>
+    <br>
+  </div>
+</div>

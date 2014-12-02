@@ -1,27 +1,33 @@
 <% content_for :page_title do %>
   <div class="clearfix">
     <div class="col-sm-6">
+      <% if current_page?("/profiles/#{@profile.id}/edit")%>
        <h2>
+        Editing Profile
+        </h2>
+      <% else %>
+        <h2>
         <%= @user.name %>
         <span class="rep-points badge-rep">
           <%= @user.lab_rep_points %>
         </span>
         </h2>
+      <% end %>
     </div>
   </div>
 <% end %>
 
 <% content_for :secondary_nav do %>
   <div class="secondary-nav">
-    <%= link_to "Activity", {
+    <%= link_to "Ideas", {
       controller: "profiles",
       action: "show" },
-      class: 'btn btn-default ' + active_when(@profile)
+      class: 'btn btn-default ' + active_when(:controller => 'profiles', :action => 'show')
     %>
-    <%= link_to "Labs", {
+    <%= link_to "Skills", {
       controller: "profiles",
-      action: "labs" },
-      class: 'btn btn-default ' + active_when(:controller => 'profiles', :action => 'labs')
+      action: "skills" },
+      class: 'btn btn-default ' + active_when(:controller => 'profiles', :action => 'skills')
     %>
   </div>
 <% end %>

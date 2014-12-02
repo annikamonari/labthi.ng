@@ -1,14 +1,12 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :labs]
-  before_action :get_user, only: [:show, :edit, :update, :labs]
+  before_action :set_profile, only: [:show, :edit, :update, :skills]
+  before_action :get_user, only: [:show, :edit, :update, :skills]
 
   def show
-    @activities = PublicActivity::Activity.includes(:owner, :trackable).where(owner: @user).order("created_at desc")[0..19]
     render layout: 'sidebar_left'
   end
 
   def edit
-    @activities = PublicActivity::Activity.includes(:owner, :trackable).where(owner: @user).order("created_at desc")[0..19]
     render layout: 'sidebar_left'
     redirect_to @profile unless current_user == @profile.user
   end
@@ -30,7 +28,7 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def labs
+  def skills
     render layout: 'sidebar_left'
   end
 

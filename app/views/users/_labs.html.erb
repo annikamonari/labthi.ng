@@ -27,16 +27,22 @@
           <br>
           <p class='doc'>
             <%= truncate(idea.brief, length: 185) %>
-            <br>
-            <div style='margin-left:70px; color:#5cb85c;'>
-              <b>local reputation:</b> 
+          </p>
+            <div style='margin-left:70px;'>
+              <span style='color:#5cb85c;margin-right:10px;'>
+                <b>local reputation:</b> 
                 <span class='badge-rep' style='background-color:#5cb85c;'>
-              <%= idea.user.points %>
+                  <%= idea.user.points %>
+                </span>
+              </span>
+              <span style='color:#1ABC9C;'>
+              <% if idea.phase != 1 %>
+                <b>equity:</b> <span class='badge-rep' style='background-color:#1ABC9C;'><%= user.get_equity(idea.idea_build) %></span>
+              <% end %>
               </span>
             </div>
-          </p>
           <span class='col-md-10 no-gutter' style='margin-left:70px; padding-right:30px;margin-top:-10px;'><hr></span>
-        <a href='javascript:void(0);' class='btn btn-xs btn-inverse showactivity pull-left' style='margin-left:70px;'>Show User Activity</a><br><br>
+        <a href='javascript:void(0);' class='btn btn-xs btn-inverse showactivity pull-left' style='margin-left:70px;margin-top:-5px;'>Show User Activity</a><br>
           <div class='activity' style='margin-left:70px; display:none;'>
             <ul class='pull-left col-md-11 no-gutter' style='padding-right:10;'>
               <br>

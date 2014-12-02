@@ -31,8 +31,8 @@ StartIt::Application.routes.draw do
   end
 
 
-  get '/profiles/:id/labs', to: 'profiles#labs'
-  resources :profiles, except: [:index]
+  get '/profiles/:id/skills', to: 'profiles#skills'
+  resources :profiles, except: [:index, :new, :create]
 
   # TODO: Nest under idea
   get "/ideas/:idea_id/parts/:id/edit", to: "parts#edit", as: "edit_part"
