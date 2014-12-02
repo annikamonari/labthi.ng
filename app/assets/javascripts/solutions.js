@@ -2,7 +2,7 @@ $(document).ready(function() {
     $("a.showsolcomments" ).click(function() {
         $(this).text()
         if ($(this).text() == 'Show Solution Comments') {
-            $(this).siblings($( "div.media-body.solutioncomments" )).show();
+            $(this).siblings($( "div.activity.content-bg" )).show();
             $(this).text('Hide Solution Comments');
         }
         else {

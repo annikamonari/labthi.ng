@@ -1,8 +1,15 @@
 <div class="content-bg">  
   <% activities.each do |activity| %>
     <li class="white-bg">
-      <%= render activity.owner if activity.owner %>
-      <%= render_activity activity %>
+      <div class="media">
+        <%= link_to activity.owner.profile, class: "pull-left" do %>
+          <%= image_tag(activity.owner.profile.photo.thumb, size: '40x40', class:'media-object') %>
+        <% end %>
+        <div class="pull-left">
+          <%= render 'users/user', user: activity.owner %><br>
+          <%= render_activity activity %>
+        </div>
+      </div>
     </li>
   <% end %>
 </div>

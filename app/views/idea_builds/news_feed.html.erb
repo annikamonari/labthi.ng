@@ -1,17 +1,25 @@
-<%= render 'summary_of_business' %>
-<div class='col-md-10 no-gutter'>
-  <div class='welcome-block clearfix'>
-    <h4 class='pull-left'>News Feed</h4>
-    <div style='position:relative; margin-top:15px;'><%= link_to "Create a Post", new_post_path, class: "btn btn-info pull-right" %></div>
+<%= render 'idea_builds/secondary_nav' %>
+<div class='col-md-8 no-gutter'>
+  <%= render 'idea_builds/brief' %><br>
+  <%= render 'idea_builds/secondary_sub_nav' %>
+  <br>
+  <div class='row no-gutter'>
+    <div class='welcome-block clearfix'>
+      <h4 class='pull-left'>News Feed</h4>
+      <div style='position:relative; margin-top:15px;'><%= link_to "Create a Post", new_post_path, class: "btn btn-info pull-right" %></div>
+    </div>
+    <ul class="posts media-list">
+      <% if @posts.count > 0 %>
+        <%= render (@posts.sort_by {|p| p.created_at}).reverse %>
+      <% else %>
+        <div class='content-bg no posts' id='noposts'>
+          No posts yet. Why don't you add one?
+        </div>
+      <% end %>
+    </ul>
+    <br><br><hr>
   </div>
-  <ul class="posts media-list">
-    <% if @posts.count > 0 %>
-      <%= render (@posts.sort_by {|p| p.created_at}).reverse %>
-    <% else %>
-      <div class='content-bg no posts' id='noposts'>
-        No posts yet. Why don't you add one?
-      </div>
-    <% end %>
-  </ul>
-  <br><br><hr>
+</div>
+<div class='col-md-4'>
+  <%= render 'idea_builds/sidebar' %>
 </div>

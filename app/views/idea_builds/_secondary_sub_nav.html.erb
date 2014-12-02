@@ -1,0 +1,16 @@
+<div class='col-md-12 no-gutter'>
+  <div class="secondary_nav">
+    <div class="secondary-nav">
+      <%= link_to "News Feed", {
+        controller: "idea_builds",
+        action: "news_feed" },
+        class: 'btn btn-default text ' + active_when(:controller => 'idea_builds', :action => 'news_feed')
+      %>
+      <%= link_to "Team Building", {
+        controller: "idea_builds",
+        action: "team_build" },
+        class: 'btn btn-default text ' + active_when(:controller => 'idea_builds', :action => 'team_build')
+      %>
+    </div>
+  </div>  
+</div>
