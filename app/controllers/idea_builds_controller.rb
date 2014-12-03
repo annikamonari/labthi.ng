@@ -1,7 +1,6 @@
 class IdeaBuildsController < ApplicationController
   before_action :set_idea
   before_action :set_idea_build
-  before_action :auth_user!
   before_action :summary_of_business, only: [:news_feed, :team_build]
 
   def overview

@@ -7,9 +7,9 @@
     <div class="pull-left" style='margin-top:5px;'>
       <%= render 'users/user', user: user %>
       <br>
-      <% if profile.profession %>
-        <strong>Profession:</strong>
-        <%= profile.profession %><br>
+      <% if profile.website %>
+        <strong>Twitter:</strong>
+        <%= profile.website %><br>
       <% end %>
       <% if profile.country %>
         <strong>Country:</strong>
@@ -25,7 +25,7 @@
       </div>
       <div style='color:#1ABC9C; float:right;'>
       <% if @idea and @idea.phase != 1 %>
-        <b>equity:</b> <span class='badge-rep' style='background-color:#1ABC9C;'><%= user.get_equity(@idea) %></span>
+        <b>equity:</b> <span class='badge-rep' style='background-color:#1ABC9C;'><%= user.get_equity(@idea.idea_build) %></span>
       <% end %>
     </div>
   </div>

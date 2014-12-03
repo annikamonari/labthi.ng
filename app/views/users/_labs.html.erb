@@ -35,11 +35,14 @@
                   <%= idea.user.points %>
                 </span>
               </span>
-              <span style='color:#1ABC9C;'>
               <% if idea.phase != 1 %>
+              <span style='color:#1ABC9C;margin-right:10px;'>              
                 <b>equity:</b> <span class='badge-rep' style='background-color:#1ABC9C;'><%= user.get_equity(idea.idea_build) %></span>
-              <% end %>
               </span>
+                <% unless user.team_memberships.find_by(idea_build_id: idea.idea_build.id).nil? %>
+                <span class='btn btn-xs disabled core-team'><b>Core Team Member</b></span>
+                <% end %>
+              <% end %>              
             </div>
           <span class='col-md-10 no-gutter' style='margin-left:70px; padding-right:30px;margin-top:-10px;'><hr></span>
         <a href='javascript:void(0);' class='btn btn-xs btn-inverse showactivity pull-left' style='margin-left:70px;margin-top:-5px;color:#fff!important;'>Show User Activity</a><br>
