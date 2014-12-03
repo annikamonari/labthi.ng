@@ -1,4 +1,4 @@
-<div class="content-bg">  
+<div class="profile-border" style='border-width:2px;'>  
   <% activities.each do |activity| %>
     <li class="white-bg">
       <div class="media">
@@ -10,6 +10,9 @@
           <div style='margin-top:5px;'><%= render_activity activity %></div>
         </div>
       </div>
+      <% unless activities.index(activity) == (activities.length - 1) %>
+        <hr style='height:2px;border-width:2px;'>
+        <% end %>
     </li>
   <% end %>
 </div>

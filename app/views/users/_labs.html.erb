@@ -1,7 +1,7 @@
 <% followed_ideas = user.followed_ideas %>
-<div class="content-bg">
+<div class="profile-border" style='border-width:4px;'>
   <div class="followed-ideas">
-    <% followed_ideas.each do |idea| %>
+    <% followed_ideas.includes(:idea_build).each do |idea| %>
       <li class="white-bg" id='idea-<%= idea.id %>'>
         <div class="media">
           <div class='pull-right'>
@@ -42,7 +42,7 @@
               </span>
             </div>
           <span class='col-md-10 no-gutter' style='margin-left:70px; padding-right:30px;margin-top:-10px;'><hr></span>
-        <a href='javascript:void(0);' class='btn btn-xs btn-inverse showactivity pull-left' style='margin-left:70px;margin-top:-5px;'>Show User Activity</a><br>
+        <a href='javascript:void(0);' class='btn btn-xs btn-inverse showactivity pull-left' style='margin-left:70px;margin-top:-5px;color:#fff!important;'>Show User Activity</a><br>
           <div class='activity' style='margin-left:70px; display:none;'>
             <ul class='pull-left col-md-11 no-gutter' style='padding-right:10;'>
               <br>
@@ -50,6 +50,7 @@
           </div>
         </div>
         <br>
+        <hr style='height:2px;border-width:2px;'>
       </li>
     <% end %>
   </div>

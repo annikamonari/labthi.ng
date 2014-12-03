@@ -3,11 +3,11 @@ class ProfilesController < ApplicationController
   before_action :get_user, only: [:show, :edit, :update, :skills]
 
   def show
-    render layout: 'sidebar_left'
+    render layout: 'sidebar_left_small'
   end
 
   def edit
-    render layout: 'sidebar_left'
+    render layout: 'sidebar_left_small'
     redirect_to @profile unless current_user == @profile.user
   end
 
@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
   end
 
   def skills
-    render layout: 'sidebar_left'
+    render layout: 'sidebar_left_small'
   end
 
 	private

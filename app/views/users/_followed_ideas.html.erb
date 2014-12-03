@@ -1,7 +1,7 @@
 <% followed_ideas = user.followed_ideas %>
-<div class="content-bg">
+<div class="profile-border">
   <div class="followed-ideas">
-    <% followed_ideas.each do |idea| %>
+    <% followed_ideas.includes(:idea_build).each do |idea| %>
       <li class="white-bg">
         <div class="media">
           <div class='pull-right'>
@@ -40,6 +40,9 @@
             </div>
           </p>  
         </div>
+        <% unless followed_ideas.index(idea) == (followed_ideas.length - 1) %>
+        <hr style='height:2px;border-width:2px;'>
+        <% end %>
       </li>
     <% end %>
   </div>

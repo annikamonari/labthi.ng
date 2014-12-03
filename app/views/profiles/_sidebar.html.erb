@@ -1,57 +1,48 @@
 <% if controller.controller_name == 'profiles' and (controller.action_name == 'show' or controller.action_name == 'skills') %>
-  <% content_for :sidebar_left do %>
+  <% content_for :sidebar_left_small do %>
   <br>
-  <div class='row' style='width:250px;'>
-      <p>
-        <%= image_tag @profile.photo.display, class: 'img-rounded', size: '250x250' %>
-      </p>
-    <br>
-      <% if @profile.profession %>
-        <p class='doc'>
-        <strong>Skills:</strong>
-        <%= @profile.profession %></p>
-      <% end %>
-
-      <% if @profile.age %>
-        <p class='doc'>
-        <strong>Age:</strong>
-        <%= @profile.age %></p>
-      <% end %>
-
-      <% if @profile.country %>
-        <p>
-        <strong>Country:</strong>
-        <%= @profile.country %></p>
-      <% end %>
-
-      <% if @profile.website %>
-        <p>
-        <strong>Website:</strong>
-        <%= @profile.website %></p>
-      <% end %>
-    
-
-    <% if @profile.about %>
-      <p class='doc'>
+  <div class='row profile-border' style=''>
+      <div class='' align='center'>
+      <br>
+        <span align='center'><%= image_tag @profile.photo.display, class: 'img-rounded', size: '180x180' %></span>
+      </div>
+      <br>
+      <hr>
+      <% if @profile.about %>
+      <p align='center'>
         <strong>About:</strong>
         <%= @profile.about %>
       </p>
-    <% end %>
-    <p>
+      <% end %>
+      <hr>
+
+      <% if @profile.country %>
+        <p align='center'>
+        <strong>Country:</strong>
+        <%= @profile.country %></p>
+      <% end %>
+      <hr>
+      <% if @profile.website %>
+        <p align='center'>
+        <strong>Twitter:</strong>
+        <a href='http://twitter.com/<%=@profile.website%>' target='_blank'>@<%= @profile.website %></a>
+        </p>
+      <% end %>
+      <hr>
+    <p align='center'>
       <strong>Member Since:</strong>
       <%= time_ago_in_words(@profile.user.created_at) %> ago
     </p>
-    </div>
-    <%= link_to "Edit Profile", edit_profile_path(@profile) if current_user == @user %>
+    </div><br>
+    <p align='center'><%= link_to "Edit Profile", edit_profile_path(@profile) if current_user == @user %></p>
   <% end %>
 <% else %>
-  <% content_for :sidebar_left do %>
+  <% content_for :sidebar_left_small do %>
     <% if @profile.photo.nil? %>
       <div style='padding-right:50px;'><hr></div>
     <% else %>
       <br>
     <% end %>
-    <div class='row profileform'><%= render 'form' %></div><br>
-    <div class='row'><%= link_to 'Back', @profile %></div>
+    <div class='row profile-border'><br><%= render 'form' %></div><br>
   <% end %>
 <% end %>
