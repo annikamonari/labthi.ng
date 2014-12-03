@@ -129,12 +129,12 @@ class User < ActiveRecord::Base
     points
   end
 
-  def get_total_points(method, component_type)
+  def get_total_points(method, component)
     points = Array.new
 
     unless TeamMembership.where(user_id: self.id).empty?
       TeamMembership.where(user_id: self.id).pluck(:idea_build_id).each do |id|
-        IdeaBuild.find(id).send(component_type).parts.includes(:admin_tasks).each do |part|
+        IdeaBuild.find(id).send(component).parts.includes(:admin_tasks).each do |part|
           points += part.send(method)
           unless part.admin_tasks.empty?
             part.admin_tasks.each do |ac|
@@ -151,6 +151,21 @@ class User < ActiveRecord::Base
     1.to_f / (1 + (Math::E)**(-0.003 * points))
   end
 
+  def component_part_breakdown(component, part)
+    count = 0
+    Component.where(type: component).each { |c| count += c.parts.where(name: part, user_id: self.id).count }
+    count
+  end
+
+  def tasks_completed(component)
+    count = 0
+    Component.where(type: component).includes(:parts).each do |c| 
+      c.parts.each do |part|
+        count += part.admin_tasks.count
+      end
+    end
+    count
+  end
   # Phase 3 ===================================================================
   def buy_phase_vote?(idea)
     BuyPhaseVote.where(idea_id: idea.id, user_id: self.id).count == 1

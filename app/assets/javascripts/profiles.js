@@ -1,6 +1,5 @@
 $(document).ready(function() {
     $("a.showactivity" ).click(function() {
-        console.log($(this).text())
         $(this).text();
         if ($(this).text() == 'Show User Activity') {
             $(this).siblings($("div.activity")).show();
@@ -11,5 +10,11 @@ $(document).ready(function() {
             $(this).text('Show User Activity')
         }
   });
+});
+
+$(document).ready(function() {
+    $("a.showskill" ).click(function() {
+      $(this).siblings($("span.skillstats")).children(" .breakdowncomponent").toggle();  
+    });
 });
 
