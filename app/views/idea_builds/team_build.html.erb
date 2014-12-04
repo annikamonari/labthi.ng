@@ -6,15 +6,15 @@
   <div class='row no-gutter'>
     <div class='welcome-block clearfix'>
       <h4 class='pull-left'>Team Build</h4>
-      <div style='position:relative; margin-top:15px;'><%= link_to "Create a Proposal", new_proposal_path, class: "btn btn-info pull-right" %></div>
+      <button href='javascript:void(0);' class='btn btn-info pull-right' style='width:114px;margin-right:13px;padding-left:9px;' align='center' id='newpost'>Create Proposal</button>
+    </div>
+    <div class='content-bg' style='display:none;' id='posts'>
+      <%= render partial: 'posts/form', locals: { url: create_proposal_path, placeholder: 'Write a proposal to gain team members for your start-up. Explain what you hope to achieve with your team members, the skills you have to offer, and the skills you hope they can contribute to the start-up. You should also tell the community a bit about yourself, how you like to work, and in how long you hope to finish building the start-up.', title: 'New Proposal' } %><br>
+      <%= link_to 'Cancel', 'javascript:void(0);', id: 'cancel' %>
     </div>
     <ul class="posts media-list">
       <% if @posts.count > 0 %>
         <%= render (@posts.sort_by {|p| p.created_at}).reverse %>
-      <% else %>
-        <div class='content-bg no posts' id='noposts'>
-          No proposals yet. Why don't you add one?
-        </div>
       <% end %>
     </ul>
     <br><br><hr>

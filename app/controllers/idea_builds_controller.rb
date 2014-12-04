@@ -14,10 +14,12 @@ class IdeaBuildsController < ApplicationController
 
   def news_feed
     @posts = get_posts('news')
+    @post = Post.new
   end 
 
   def team_build
     @posts = get_posts('team')
+    @post = Post.new
   end
 
   private 

@@ -1,4 +1,4 @@
-<%= form_for(@post, url: 'create_post') do |f| %>
+<%= form_for(@post, url: url) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -10,10 +10,9 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field form-group">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+  <h4><%= title %></h4>
+  <div class="field form form-group">
+    <%= f.text_area :content, size: '113x5', placeholder: placeholder %>
   </div>
   <div class="field form-group">
     <%= f.label :image %><br>

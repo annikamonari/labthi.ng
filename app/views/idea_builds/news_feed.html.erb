@@ -6,15 +6,15 @@
   <div class='row no-gutter'>
     <div class='welcome-block clearfix'>
       <h4 class='pull-left'>News Feed</h4>
-      <div style='position:relative; margin-top:15px;'><%= link_to "Create a Post", new_post_path, class: "btn btn-info pull-right" %></div>
+      <button href='javascript:void(0);' class='btn btn-info pull-right' id='newpost'>Create Post</button>
+    </div>
+    <div class='content-bg' style='display:none;' id='posts'>
+      <%= render partial: 'posts/form', locals: { url: create_post_path, placeholder: 'Update the Labthi.ng community on how the process of building your start-up is going!', title: 'New Post' } %><br>
+      <%= link_to 'Cancel', 'javascript:void(0);', id: 'cancel' %>
     </div>
     <ul class="posts media-list">
       <% if @posts.count > 0 %>
         <%= render (@posts.sort_by {|p| p.created_at}).reverse %>
-      <% else %>
-        <div class='content-bg no posts' id='noposts'>
-          No posts yet. Why don't you add one?
-        </div>
       <% end %>
     </ul>
     <br><br><hr>

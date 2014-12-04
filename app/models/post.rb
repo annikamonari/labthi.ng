@@ -4,4 +4,11 @@ class Post < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :content
 
+  def open?
+    self.status == 'open'
+  end
+
+  def proposal?
+    self.kind == 'team'
+  end
 end

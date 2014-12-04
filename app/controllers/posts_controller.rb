@@ -3,17 +3,11 @@ class PostsController < ApplicationController
   before_action :set_idea_build
   before_action :summary_of_business, only: [:new, :new_proposal]
   before_action :set_post_create, only: [:create, :create_proposal]
-  before_action :new_post, only: [:new, :new_proposal]
-
-  def new
-  end
-
-  def new_proposal
-  end
+  before_action :set_post, only: [:close_proposal]
 
   def create
     @post.kind = 'news'
-
+    @post.status = 'open'
     respond_to do |format|
       if @post.save
         #@post.create_activity :create, owner: (current_user)
@@ -26,7 +20,7 @@ class PostsController < ApplicationController
 
   def create_proposal
     @post.kind = 'team'
-
+    @post.status = 'open'
     respond_to do |format|
       if @post.save
         #@post.create_activity :create, owner: (current_user)
@@ -34,6 +28,15 @@ class PostsController < ApplicationController
       else
         format.html { render action: 'new' }
       end
+    end
+  end
+
+  def close_proposal
+    @post.status = 'closed'
+    if @post.save
+      redirect_to idea_build_team_build_path, notice: 'You have succcessfully closed the post. It cannot be reopened.'
+    else
+      redirect_to idea_build_team_build_path, notice: 'There has been an error closing the post. Please try again.'
     end
   end
 
@@ -58,8 +61,8 @@ class PostsController < ApplicationController
       @post.user_id = current_user.id
     end
 
-    def new_post
-      @post = Post.new
+    def set_post
+      @post = Post.find(params[:post_id])
     end
 
     def post_params

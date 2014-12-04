@@ -166,6 +166,10 @@ class User < ActiveRecord::Base
     end
     count
   end
+
+  def team_member?(idea)
+    idea.idea_build.team_memberships.any? { |tm| tm.user_id == self.id }
+  end
   # Phase 3 ===================================================================
   def buy_phase_vote?(idea)
     BuyPhaseVote.where(idea_id: idea.id, user_id: self.id).count == 1
