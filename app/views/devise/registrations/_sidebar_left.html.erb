@@ -1,0 +1,44 @@
+<% @profile = current_user.profile %>
+  <div class='row profile-border' style=''>
+    <div align='center'>
+      <h2 style='font-size:2.2em;'>
+        <%= current_user.name %>
+        <span class="rep-points badge-rep">
+          <%= current_user.lab_rep_points %>
+        </span>
+      </h2>
+    </div>
+    <hr>
+      <div class='' align='center'>
+      <br>
+        <span align='center'><%= image_tag @profile.photo.display, class: 'img-rounded', size: '180x180' %></span>
+      </div>
+      <br>
+      <hr>
+      <% if @profile.about %>
+      <p align='center'>
+        <strong>About:</strong>
+        <%= @profile.about %>
+      </p>
+      <% end %>
+      <hr>
+
+      <% if @profile.country %>
+        <p align='center'>
+        <strong>Country:</strong>
+        <%= @profile.country %></p>
+      <% end %>
+      <hr>
+      <% if @profile.website %>
+        <p align='center'>
+        <strong>Twitter:</strong>
+        <a href='http://twitter.com/<%=@profile.website%>' target='_blank'>@<%= @profile.website %></a>
+        </p>
+      <% end %>
+      <hr>
+    <p align='center'>
+      <strong>Member Since:</strong>
+      <%= time_ago_in_words(current_user.created_at) %> ago
+    </p>
+    <br>
+    </div><br>

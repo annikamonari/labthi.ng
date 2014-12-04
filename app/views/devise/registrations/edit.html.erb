@@ -1,6 +1,6 @@
-<br>
+
 <div class='profile-border'>
-  <h2 align='center'>My Account Settings</h2>
+  <h2 align='center'>Account Settings</h2>
   <hr>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
     <%= devise_error_messages! %>
@@ -32,8 +32,6 @@
 
   <div align='center'>
   <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-danger' %></p>
-
-  <%= link_to "Back", :back %>
   </div>
   <br>
 </div>

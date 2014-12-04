@@ -2,12 +2,14 @@
 
 
 <%= render 'layouts/secondary_nav' if content_for :secondary_nav %>
-
-<div class="content col-sm-4">
+<div class="content col-sm-2">
+</div>
+<div class="sidebar sidebar_left col-sm-4">
+  <%= render 'sidebar_left' %>
 </div>
 <div class="content col-sm-4">
 	<%= yield %>
 </div>
-<div class="content col-sm-4">
+<div class="content col-sm-2">
 </div>
 <%= render 'layouts/footer' %>
