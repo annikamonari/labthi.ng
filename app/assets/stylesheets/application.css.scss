@@ -27,6 +27,12 @@ $lab-turquoise: #1ABC9C;
 /******** Bootstrap Overrides *******/
 /************************************/
 
+.alert {
+    background-color: #d8ecf9;
+    border-color: #2980B9;
+    color: #2980B9;
+    text-align: center; 
+}
 
 /* Typography */
 
@@ -44,6 +50,10 @@ $navbar-default-link-color: $lab-near-black;
 $navbar-default-link-hover-coor: black;
 $navbar-default-link-active-bg: none;
 $navbar-default-link-active-color: black;
+
+.settings {
+  float:right;
+}
 
 /* Badge */
 $badge-bg: $lab-med-grey;

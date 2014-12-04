@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <li class="show-user-profile">
-    <span class='userlink' style='float:right; display:inline; margin-top:-6px;'><br><%= render current_user %></span>
+    <span class='userlink' style='float:right; display:inline; margin-top:-6px;'><br><%= render partial: 'users/user', locals: { user: current_user } %></span>
     <% if current_page?('/') %>
       <div style='float:left; display:inline; margin-top:5px; margin-right:5px;' id='helpcontent'>
         <a id="pop" 
@@ -14,6 +14,10 @@
         </a>      
       </div>
     <% end %>
+  </li>
+  <li>
+    <%= link_to '', edit_user_registration_path(current_user), title: 'Edit your account settings.', rel: 'tooltip', id: 'tooltip', class: ' glyphicon glyphicon-wrench settings' %>
+    </a>
   </li>
   <li>
     <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>

@@ -70,3 +70,12 @@ $(document).ready(function () {
     html: true
   });
 });
+
+$(document).ready(function () { 
+  $('#tooltip').tooltip({
+    trigger: 'hover',
+        'placement': 'bottom',
+        'container': "body",
+    html: true
+  });
+});
