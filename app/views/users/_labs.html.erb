@@ -1,5 +1,5 @@
 <% followed_ideas = user.followed_ideas %>
-<div class="profile-border" style='border-width:4px;'>
+<div class="profile-border">
   <div class="followed-ideas">
     <% followed_ideas.includes(:idea_build).each do |idea| %>
       <li class="white-bg" id='idea-<%= idea.id %>'>
@@ -39,7 +39,7 @@
               <span style='color:#1ABC9C;margin-right:10px;'>              
                 <b>equity:</b> <span class='badge-rep' style='background-color:#1ABC9C;'><%= user.get_equity(idea.idea_build) %></span>
               </span>
-                <% unless user.team_memberships.find_by(idea_build_id: idea.idea_build.id).nil? %>
+              <% unless user.team_memberships.find_by(idea_build_id: idea.idea_build.id).nil? %>
                 <span class='btn btn-xs disabled core-team'><b>Core Team Member</b></span>
                 <% end %>
               <% end %>              
