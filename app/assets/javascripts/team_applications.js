@@ -17,3 +17,12 @@ $(document).ready(function() {
         $("#newapp").show();
   });
 });
+
+$(document).ready(function () { 
+  $('#tooltip2').tooltip({
+    trigger: 'hover',
+        'placement': 'bottom',
+        'container': "body",
+    html: true
+  });
+});

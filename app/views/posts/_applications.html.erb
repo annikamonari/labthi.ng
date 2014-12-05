@@ -1,13 +1,15 @@
 <div class='teamappl'>
   <div class='welcome-block clearfix'>
     <a href='javascript:void(0);' class='showapps' style='color:#333333;'><h4 class='pull-left'>Applications:</h4></a>
-    <% if @post.open? %>
-      <button href='javascript:void(0);' class='btn btn-info pull-right' align='center' id='newapp'>
-    <% else %>
-      <button class="btn disabled btn-info pull-right">
-    <% end %>
-      Apply to be a Team Member
-    </button>
+      <div style='margin-right:13px;'>
+        <% if @post.open? %>
+          <button href='javascript:void(0);' class='btn btn-info pull-right' align='center' id='newapp'>
+        <% else %>
+          <button class="btn btn-info pull-right" data-toggle="tooltip" title="<p style='height:23px !important;width:120px !important;' align='left'>You cannot apply to a closed proposal.</p>" id='tooltip2' style='background-color:#5bc0de;opacity: 0.65;'>
+        <% end %>
+          Apply to be a Team Member
+        </button>
+      </div>
     </div><hr>
   <ul class="applications media-list">
     <div class='content-bg' id='teamapps' style='display:none;'>

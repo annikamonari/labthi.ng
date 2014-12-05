@@ -7,17 +7,26 @@
       <div class="media-body">
         <div class="media-item-body">
             <div class=''>
-              <div class='pull-left col-md-10 no-gutter'>
-                <h4><b><%= post.title %></b></h4>
-              </div>
-              <% if current_user.team_member?(@idea) and post.open? %>
-                <div class='pull-right col-md-2 no-gutter' style='margin-top:10px;'>
+              <% if post.open? %>
+                <% if current_user.team_member?(@idea) %>
+                  <div class='pull-left col-md-10 no-gutter'>
+                    <h4><b><%= post.title %></b></h4>
+                  </div>
+                  <div class='pull-right col-md-2 no-gutter' style='margin-top:10px;'>
                   <%= button_to 'Close Proposal', close_proposal_path(post_id: post.id, idea_id: @idea.id), class: 'btn btn-danger' %>
-                </div><br><br>
+                  </div><br><br>
+                <% else %>
+                  <div class='pull-left col-md-12 no-gutter'>
+                    <h4><b><%= post.title %></b></h4>
+                  </div><br>
+                <% end %>
               <% else %>
+                <div class='pull-left col-md-10 no-gutter'>
+                  <h4><b><%= post.title %></b></h4>
+                </div>
                 <div class='pull-right btn btn-xs disabled btn-danger core-team' style='margin-top:3px;'><b>Closed</b></div><br>
               <% end %>
-            </div><hr style="color:#fff;background-color:#fff;border-color:#fff;margin-top:20px;" />
+            </div><br>
           <div class='doc pull-left'><%= post.content %></div>
           <div class='pull-right'>
             <div class='photo'>

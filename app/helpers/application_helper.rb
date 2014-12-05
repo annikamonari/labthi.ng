@@ -68,5 +68,10 @@ end
 def summary_of_business
   @brief        = @idea_build.plan_component.parts.find_by(name: 'Brief').value
   @team         = @idea_build.team_memberships.map { |t| t.user } 
-  @users_points = sum_points(@idea.get(:local_reputation)).reject { |user| user if not @team.include?(user[0])}
+  @users_points = sum_points(@idea.get(:local_reputation)).reject { |user| user unless @team.include?(user[0])}
+  @team.each do |user| 
+    unless (@users_points.map {|u| u[0]}).include?(user)
+      @users_points << [user, 0] 
+    end
+  end
 end

@@ -1,5 +1,8 @@
-
-<li class="media team_application team_application-<%= team_application.id %> content-bg">
+<% if team_application.accepted?(@idea.idea_build) %>
+  <li class="media team_application team_application-<%= team_application.id %> content-bg" style='background-color:#e0fde0'>
+<% else %>
+  <li class="media team_application team_application-<%= team_application.id %> content-bg">
+<% end %>
     <div class="media-body">
       <div class="media-body">
         <div class="media-item-body">
@@ -13,6 +16,12 @@
                 <small><i> Posted <%= time_ago_in_words(team_application.created_at) %> ago</i></small>
                 </div>
               </div>
+            
+              <% if current_user.team_member?(@idea) and not team_application.accepted?(@idea.idea_build) %>
+                <div class='pull-right'><%= button_to 'Accept as Team Member', create_team_member_path(idea_build_id: @idea.idea_build.id, user_id: team_application.user.id), class: 'btn btn-success' %></div><br><br>
+              <% else %>
+                <div class='pull-right btn btn-xs disabled btn-success core-team' style='margin-top:3px;'><b>Accepted</b></div><br>
+              <% end %>
             </div>
           <br>
           <p class='doc'><%= team_application.pitch %></p>
