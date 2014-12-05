@@ -60,15 +60,9 @@
   <hr>
   
   <% if @idea.user == current_user and @idea.is_phase_1? %>
-    <%= button_to 'Increase Number of Days in Create Phase by 1', increase_create_length_path, class: 'btn btn-danger' %><br>
+    <%= button_to 'Increase Number of Days in Create Phase by 1', increase_create_length_path, class: 'btn btn-danger' %><br><br>
+    <%= link_to 'Edit Image', edit_idea_path(@idea) %>
   <% end %>
-  <% if @idea.phase == 3 %>
-    <% unless current_user.buy_phase_vote?(@idea) %>
-      <div><hr>
-        <span style='float:left; margin-right:10px;'><%= button_to "I'd buy it!", buy_vote_path(id: @idea.id), class: 'btn btn-inverse' %></span>
-        <span style='float:left;'><%= button_to "I'd use it!", use_vote_path(id: @idea.id), class: 'btn btn-success' %></span>
-      </div><br><br>
-    <% end %>
-  <% end %>
+  
 <% end %>
 

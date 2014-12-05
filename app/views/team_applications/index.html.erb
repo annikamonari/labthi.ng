@@ -1,0 +1,29 @@
+<h1>Listing team_applications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pitch</th>
+      <th>Post</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @team_applications.each do |team_application| %>
+      <tr>
+        <td><%= team_application.pitch %></td>
+        <td><%= team_application.post_id %></td>
+        <td><%= team_application.user_id %></td>
+        <td><%= link_to 'Show', team_application %></td>
+        <td><%= link_to 'Edit', edit_team_application_path(team_application) %></td>
+        <td><%= link_to 'Destroy', team_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Team application', new_team_application_path %>

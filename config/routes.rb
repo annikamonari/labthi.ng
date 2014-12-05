@@ -13,11 +13,12 @@ StartIt::Application.routes.draw do
   resources :comments, except: [:index] do
     resources :comments
   end
-  resources :questions, except: [:index, :create] do
+  resources :questions, except: [:index, :create, :update] do
     resources :comments
   end
   get '/ideas/:id/questions/new', to: 'ideas#new_question', as: 'idea_new_question'
   post '/ideas/:id/questions/', to: 'questions#create', as: 'create_question'
+  patch '/questions/:id', to: 'questions#update', as: 'update_question'
   resources :answers, except: [:index] do                     
     resources :comments
   end
@@ -61,6 +62,8 @@ StartIt::Application.routes.draw do
   post "/ideas/:idea_id/overview/news_feed/create_post", to: 'posts#create', as: 'create_post'
   post "/ideas/:idea_id/overview/team_build/create_proposal", to: 'posts#create_proposal', as: 'create_proposal'
   post "/ideas/:idea_id/overview/team_build/:post_id/close_proposal", to: 'posts#close_proposal', as: 'close_proposal'
+  post "/ideas/:idea_id/overview/team_build/:post_id/apply", to: 'team_applications#create', as: 'create_team_application'
+  get "/ideas/:idea_id/overview/team_build/proposals/:post_id/", to: 'posts#show', as: 'post'
 
   get "/ideas/:idea_id/build/components", to: "idea_builds#components", as: 'idea_build_components'
   get '/ideas/:id/define', to: 'ideas#define'

@@ -1,7 +1,7 @@
 <%= render 'idea_builds/secondary_nav' %>
 <div class='col-md-8 no-gutter'>
-  <%= render 'idea_builds/brief' %><br>
-  <%= render 'idea_builds/secondary_sub_nav' %>
+  <%= render 'idea_builds/brief' %>
+  <%= render 'idea_builds/secondary_sub_nav', locals: { url: 'btn btn-default text ' + active_when(idea_build_team_build_path) } %>
   <br>
   <div class='row no-gutter'>
     <div class='welcome-block clearfix'>
@@ -15,6 +15,10 @@
     <ul class="posts media-list">
       <% if @posts.count > 0 %>
         <%= render (@posts.sort_by {|p| p.created_at}).reverse %>
+      <% else %>
+        <div class='content-bg no posts' id='noposts'>
+          There are no proposals yet. Why don't you add one to get your team started?
+        </div>
       <% end %>
     </ul>
     <br><br><hr>

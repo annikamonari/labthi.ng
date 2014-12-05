@@ -1,0 +1,35 @@
+
+<li class="media team_application team_application-<%= team_application.id %> content-bg">
+    <div class="media-body">
+      <div class="media-body">
+        <div class="media-item-body">
+            <div class='userwrap'>
+              <div class='pull-left'>
+                <div class='photo'>
+                <%= link_to (image_tag team_application.user.profile.photo.thumb, :size => "36x36"), profile_path(team_application.user.profile)%>
+                </div>
+                <div class='username'>
+                <%= render team_application.user %><br>
+                <small><i> Posted <%= time_ago_in_words(team_application.created_at) %> ago</i></small>
+                </div>
+              </div>
+            </div>
+          <br>
+          <p class='doc'><%= team_application.pitch %></p>
+          <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
+        </div>
+      </div>
+      <% if team_application.nil? %>
+        <a href='javascript:void(0);' class='showanscomments'>Hide team_application Comments</a>
+        <br><br>
+      <% end %>
+      <div class="media-body postcomments">
+        <ul class="media-list comments answer-comments">
+          <% if team_application.nil? %>
+            <%= render team_application.comments.includes(:user) %>
+          <% end %>
+        </ul>
+        <p class="link-dis"> Add comment </p>
+      </div>
+    </div>
+</li>

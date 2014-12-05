@@ -1,5 +1,5 @@
 <h1>Editing question</h1>
 
-<%= render 'form' %>
+<%= render partial: 'form', locals: { url: update_question_path } %>
 
 <%= link_to 'Back', question_path %>

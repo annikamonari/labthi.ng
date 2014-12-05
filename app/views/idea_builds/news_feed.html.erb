@@ -1,6 +1,6 @@
 <%= render 'idea_builds/secondary_nav' %>
 <div class='col-md-8 no-gutter'>
-  <%= render 'idea_builds/brief' %><br>
+  <%= render 'idea_builds/brief' %>
   <%= render 'idea_builds/secondary_sub_nav' %>
   <br>
   <div class='row no-gutter'>
@@ -15,6 +15,10 @@
     <ul class="posts media-list">
       <% if @posts.count > 0 %>
         <%= render (@posts.sort_by {|p| p.created_at}).reverse %>
+      <% else %>
+      <div class='content-bg no posts' id='noposts'>
+        There are no posts yet. Why don't you add one?
+      </div>
       <% end %>
     </ul>
     <br><br><hr>

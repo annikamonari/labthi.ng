@@ -2,25 +2,20 @@
   <% if @idea.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
-
       <ul>
-      <% @idea.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @idea.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-  <div class="col-sm-4">
-    <div class="field">
-      <%= f.label :title %>
-      <%= f.text_area :title, class: "form-control" %>
-    </div>
-    <div class="field">
-      <%= f.label :brief %>
-      <%= f.text_area :brief, class: "form-control" %>
-    </div>
-    <div class="actions">
-      <%= f.submit 'Create Idea', :class => "btn btn-primary" %>
-    </div>
+  <div class="field form-group">
+    <%= f.label :image %><br>
+    <p><i>Please upload an image that best describes your idea or a logo, if you have already designed one.</i></p>
+    <%= f.file_field :image %>
+  </div><br>
+  <div class="actions">
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
+  <br><br>
 <% end %>

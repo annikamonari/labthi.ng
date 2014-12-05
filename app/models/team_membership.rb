@@ -7,7 +7,7 @@ class TeamMembership < ActiveRecord::Base
     team_membership.idea_build = IdeaBuild.find(idea_build_id)
     team_membership.user       = User.find(user_id)
     
-    team_membership.user.follow_idea!
+    team_membership.user.follow_idea!(team_membership.idea_build.idea)
     team_membership.save
   end
 

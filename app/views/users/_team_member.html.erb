@@ -1,8 +1,8 @@
 <% profile = user.profile %>
 <li class="white-bg">
   <div class="media">
-    <%= link_to profile, class: "pull-left" do %>
-      <%= image_tag(profile.photo.thumb, size: '60x60', class: 'img-rounded') %>
+    <%= link_to profile, class: "pull-left top" do %>
+      <%= image_tag(profile.photo.thumb, size: '65x65', class: 'img-rounded') %>
     <% end %>
     <div>
       <%= render 'users/user', user: user %>
@@ -12,17 +12,19 @@
       <% else %>
         <%= user.name %> does not have an <i>about</i> section on his profile yet.
       <% end %>
-      <br><br>
-      <div style='color:#5cb85c;float:left;margin-right:10px;'>
-        <b>local reputation:</b> 
-        <span class='badge-rep' style='background-color:#5cb85c;'>
-          <%= points %>
-        </span>
-      </div>
-      <div style='color:#1ABC9C;'>
-      <% if @idea and @idea.phase != 1 %>
-        <b>equity:</b> <span class='badge-rep' style='background-color:#1ABC9C;'><%= user.get_equity(@idea.idea_build) %></span>
-      <% end %>
+      <br>
+      <div style='margin-left:70px;'>
+        <div style='color:#5cb85c;float:left;margin-right:10px;'>
+          <b>local reputation:</b> 
+          <span class='badge-rep' style='background-color:#5cb85c;'>
+            <%= points %>
+          </span>
+        </div>
+        <div style='color:#1ABC9C;'>
+        <% if @idea and @idea.phase != 1 %>
+          <b>equity:</b> <span class='badge-rep' style='background-color:#1ABC9C;'><%= user.get_equity(@idea.idea_build) %></span>
+        <% end %>
+        </div>
       </div>
     </div>
   </div>

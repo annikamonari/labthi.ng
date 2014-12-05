@@ -9,7 +9,8 @@ class Part < ActiveRecord::Base
 
   belongs_to :user, -> { includes(:profile) }
   belongs_to :component, -> { includes(:idea_build) }
-  #after_create :create_example_task
+
+  after_create :default_brief
 
   def idea
     @idea ||= idea_build.idea
@@ -204,5 +205,14 @@ class Part < ActiveRecord::Base
                                                                               so there is no work for you to do.", 
                                                                               part_id: self.id, admin_id: User.where(email: 'annikamonari@gmail.com').first.id,
                                                                               status: 'Unstarted')
+    end
+
+    def default_brief
+      if self.name == 'Brief'
+        self.value = 'Please visit the <b>build</b> tab and write your brief so that the community can understand your idea; 
+                      when you write a proposal for obtaining team members they will want to
+                      understand your mission, product features, and future plan.'
+        self.save!
+      end
     end
 end

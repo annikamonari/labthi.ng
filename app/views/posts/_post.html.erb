@@ -1,7 +1,7 @@
 <% if post.open? %>
-  <li class="media post post-<%= post.id %> content-bg">
+  <li class="media post content-bg">
 <% else %>
-  <li class="media post post-<%= post.id %> content-bg" style='background-color:#ffe5e5'>
+  <li class="media post content-bg" style='background-color:#ffe5e5'>
 <% end %>
     <div class="media-body">
       <div class="media-body">
@@ -39,7 +39,9 @@
             <%= render post.comments.includes(:user) %>
           <% end %>
         </ul>
-        <p class="link-dis"> Add comment </p>
+        <span><%= link_to 'View Proposal', post_path(post_id: post.id, idea_id: @idea.id) %></span><span class="link-dis" style='margin-left:10px;'> | </span>
+        <span style='margin-left:10px;'><%= link_to 'Apply to be a Team Member', post_path(post_id: post.id, idea_id: @idea.id) %></span>
       </div>
     </div>
 </li>
+

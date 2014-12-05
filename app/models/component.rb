@@ -13,4 +13,12 @@ class Component < ActiveRecord::Base
     self.parts.where(status: 'Accepted').each { |part| done_equity += part.equity.to_i }
     ('%.0f' % ((done_equity / total_equity.to_f) * 100)).to_i
   end
+
+  def get_color
+    if self.get_progress == 0
+      '#333333;margin-left:10px;'
+    else
+      '#fff'
+    end
+  end
 end

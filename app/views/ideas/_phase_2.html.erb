@@ -4,13 +4,13 @@
       <%= image_tag @idea.phase_2_image, class: 'img-rounded', size: '80x80' %>
     </div>
     <div class='col-md-9'>
-      <h2>
+      <h1>
           <%= @idea.title %>
-        </h2>
+        </h1>
       <strong>
         Phase <%= @idea.phase %>
       </strong> |
-      <i>Promoted <%= time_ago_in_words(@idea.created_at) %> ago</i> |
+      <i>Promoted <%= time_ago_in_words(@idea.create_days) %> ago</i> |
       <%= print_categories %>
     </div>
   </div>

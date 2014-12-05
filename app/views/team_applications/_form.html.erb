@@ -1,0 +1,21 @@
+<%= form_for @team_application, url: create_team_application_path(post_id: post.id) do |f| %>
+  <% if @team_application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@team_application.errors.count, "error") %> prohibited this team_application from being saved:</h2>
+
+      <ul>
+      <% @team_application.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :pitch %><br>
+    <%= f.text_area :pitch, class: 'form-control' %>
+  </div>
+  <div class="field actions">
+    <%= f.submit 'Apply!', class: 'btn btn-primary' %>
+  </div>
+<% end %>

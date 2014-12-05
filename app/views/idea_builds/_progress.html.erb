@@ -2,7 +2,7 @@
   Plan Component: 
   <div class="progress" style='background-image:none; background-color:white;'>
     <div class="progress-bar" role="progressbar" aria-valuenow="<%= @idea_build.plan_component.get_progress %>" 
-             aria-valuemin="0" aria-valuemax="100" style="width:<%= @idea_build.plan_component.get_progress %>%;">
+             aria-valuemin="0" aria-valuemax="100" style="width:<%= @idea_build.plan_component.get_progress %>%;color:<%= @idea_build.plan_component.get_color%>">
       <%= @idea_build.plan_component.get_progress %>%
     </div>
   </div> 
@@ -11,7 +11,7 @@
   Business Plan Component:
   <div class="progress" style='background-image:none; background-color:white;'>
     <div class="progress-bar" role="progressbar" aria-valuenow="<%= @idea_build.business_plan_component.get_progress %>" 
-             aria-valuemin="0" aria-valuemax="100" style="width:<%= @idea_build.business_plan_component.get_progress %>%;">
+             aria-valuemin="0" aria-valuemax="100" style="width:<%= @idea_build.business_plan_component.get_progress %>%;color:<%= @idea_build.business_plan_component.get_color%>">
       <%= @idea_build.business_plan_component.get_progress %>%
     </div>
   </div> 
@@ -20,7 +20,7 @@
   Design Component:
   <div class="progress" style='background-image:none; background-color:white;'>
     <div class="progress-bar" role="progressbar" aria-valuenow="<%= @idea_build.design_component.get_progress %>" 
-             aria-valuemin="0" aria-valuemax="100" style="width:<%= @idea_build.design_component.get_progress %>%;">
+             aria-valuemin="0" aria-valuemax="100" style="width:<%= @idea_build.design_component.get_progress %>%;color:<%= @idea_build.design_component.get_color%>">
       <%= @idea_build.design_component.get_progress %>%
     </div>
   </div> 
@@ -29,7 +29,7 @@
   Prototype Component:
   <div class="progress" style='background-image:none; background-color:white;'>
     <div class="progress-bar" role="progressbar" aria-valuenow="<%= @idea_build.prototype_component.get_progress %>" 
-             aria-valuemin="0" aria-valuemax="100" style="width:<%= @idea_build.prototype_component.get_progress %>%;">
+             aria-valuemin="0" aria-valuemax="100" style="width:<%= @idea_build.prototype_component.get_progress %>%;color:<%= @idea_build.prototype_component.get_color%>">
       <%= @idea_build.prototype_component.get_progress %>%
     </div>
   </div> 

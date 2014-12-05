@@ -4,7 +4,6 @@ class IdeasController < ApplicationController
   before_action :auth_user!, only: [:new, :create, :edit, :update]
   before_action :set_tags, except: [:index, :vote]
   before_action :set_vote_value, only: [:vote]
-  before_action :correct_user, only: [:edit]
   before_action :promote, except: [:create, :new, :index, :vote]
 
   # GET /ideas
@@ -33,7 +32,11 @@ class IdeasController < ApplicationController
 
   # GET /ideas/1/edit
   def edit
-    render layout: 'form_left'
+    if @idea.user == current_user
+      render layout: 'form_left'
+    else
+      redirect_to @idea, notice: "You do not have permission to edit this idea."
+    end
   end
 
   # POST /ideas
@@ -147,11 +150,6 @@ class IdeasController < ApplicationController
         :component_list => [],
         :aspects_attributes => [:id, :brief, :title]
         )
-    end
-    def correct_user
-      current_user = :auth_user!
-      user = Idea.find(params[:id]).user if params[:id]
-      redirect_to @idea, notice: "You do not have permission to edit this idea." unless current_user == user
     end
 
     def promote

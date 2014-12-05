@@ -1,0 +1,25 @@
+<div class='teamappl'>
+  <div class='welcome-block clearfix'>
+    <a href='javascript:void(0);' class='showapps' style='color:#333333;'><h4 class='pull-left'>Applications:</h4></a>
+    <% if @post.open? %>
+      <button href='javascript:void(0);' class='btn btn-info pull-right' align='center' id='newapp'>
+    <% else %>
+      <button class="btn disabled btn-info pull-right">
+    <% end %>
+      Apply to be a Team Member
+    </button>
+    </div><hr>
+  <ul class="applications media-list">
+    <div class='content-bg' id='teamapps' style='display:none;'>
+      <%= render partial: 'team_applications/form', locals: {post: @post} %><br>
+      <%= link_to 'Cancel', 'javascript:void(0);', id: 'cancel' %>
+    </div>
+    <% if @applications.count > 0 %>
+      <div id='apps'><%= render (@applications.sort_by {|p| p.created_at}).reverse %></div>
+    <% else %>
+      <div class='content-bg no posts' id='noposts'>
+        No one has applied yet. Click <b>Apply to be a Team Member</b> to be the first!
+      </div>
+    <% end %>
+  </ul>
+</div>

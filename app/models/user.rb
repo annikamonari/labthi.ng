@@ -26,8 +26,8 @@ class User < ActiveRecord::Base
   has_many :followed_ideas, -> { includes :user }, through: :idea_relationships, source: :followed
   has_many :buy_phase_votes
   has_many :posts
-
   has_many :team_memberships
+  has_many :team_applications
   
   after_create :create_user_profile
 

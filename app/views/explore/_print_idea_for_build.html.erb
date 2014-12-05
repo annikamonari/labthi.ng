@@ -1,14 +1,17 @@
 <div class="idea-blockcreate col-sm-12 col-md-6 col-lg-6">
   <%= link_to idea_build_path(idea), class: "idea-blockcreate-link list-group-item #{idea.title} clearfix" do %>
-    <div classs="clearfix" style='margin-bottom:10px;'>
-      <div><strong><%= idea.title %></strong></div>
+    <div class="clearfix" style='margin-bottom:10px;'>
+      <div><strong><%= truncate(idea.title, length:50) %></strong></div>
+      <% if idea.title.length < 41 %>
       <div class="pull-right" style='margin-top:-17px;'>
+      <% else %>
+      <div class="pull-right" style='margin-left:10px;margin-top:5px;'>
+      <% end %>
         <%= image_tag idea.top_image_thumb, class: 'img-rounded imgpad' %>
       </div>
-      <div style='margin-right:5px;'>
-        <%= truncate(idea.brief, length: 120) %><br><br>
-      </div>
-      
+      <div class='doc' style='margin-right:5px;margin-top:5px;'>
+        <%= truncate(idea.brief, length: 120) %>
+      </div>     
     </div>
     <div class="clearfix pull-right full-width">
       <div class="pull-right" style=''>

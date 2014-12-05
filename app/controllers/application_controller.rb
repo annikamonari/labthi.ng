@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     end
     def layout_by_resource
       if devise_controller?
-        "form_left"
+        "devise_form_left"
       else
         "application"
       end
