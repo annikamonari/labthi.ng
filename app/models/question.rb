@@ -15,4 +15,8 @@ class Question < ActiveRecord::Base
     [['Question', self.id]]
   end
 
+  def Question.user_stats(idea, user)
+    Question.where(idea_id: idea.id, user_id: user.id).length
+  end
+
 end

@@ -39,8 +39,11 @@
             <%= render post.comments.includes(:user) %>
           <% end %>
         </ul>
-        <span><%= link_to 'View Proposal', post_path(post_id: post.id, idea_id: @idea.id) %></span><span class="link-dis" style='margin-left:10px;'> | </span>
-        <span style='margin-left:10px;'><%= link_to 'Apply to be a Team Member', post_path(post_id: post.id, idea_id: @idea.id) %></span>
+        <span><%= link_to 'View Proposal', post_path(post_id: post.id, idea_id: @idea.id) %></span>
+        <% if post.open? %>
+          <span class="link-dis" style='margin-left:10px;'> | </span>
+          <span style='margin-left:10px;'><%= link_to 'Apply to be a Team Member', post_path(post_id: post.id, idea_id: @idea.id) %></span>
+        <% end %>
       </div>
     </div>
 </li>

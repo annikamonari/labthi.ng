@@ -12,4 +12,18 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function() {
+    $("a.showstats" ).click(function() {
+        $(this).text()
+        if ($(this).text() == 'Show User Statistics') {
+            $(this).siblings($( "div.userstats.white-bg" )).show();
+            $(this).text('Hide User Statistics');
+        }
+        else {
+            $(this).siblings(("div.userstats.white-bg")).hide();
+            $(this).text('Show User Statistics')
+        }
+  });
+});
+
 

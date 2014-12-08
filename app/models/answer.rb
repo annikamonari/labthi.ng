@@ -12,4 +12,13 @@ class Answer < ActiveRecord::Base
   def ids
     [['Answer', self.id]]
   end
+
+  def Answer.user_stats(idea, user)
+    questions = Question.where(idea_id: idea.id)
+    count     = 0
+    questions.each do |q|
+      count += Answer.where(question_id: q.id, user_id: user.id).length
+    end
+    count
+  end
 end

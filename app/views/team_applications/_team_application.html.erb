@@ -28,6 +28,12 @@
           <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
         </div>
       </div>
+      <span class="link-dis"> Add comment  |  </span>
+      <a href='javascript:void(0);' class='showstats'>Show User Statistics</a>
+      <div class='userstats white-bg' style=''>
+        <%= render partial: 'users/contribution_stats', locals: { user: team_application.user, idea: @idea } %>
+      </div>
+
       <% if team_application.nil? %>
         <a href='javascript:void(0);' class='showanscomments'>Hide team_application Comments</a>
         <br><br>
@@ -38,7 +44,11 @@
             <%= render team_application.comments.includes(:user) %>
           <% end %>
         </ul>
-        <p class="link-dis"> Add comment </p>
       </div>
     </div>
 </li>
+
+
+
+
+

@@ -14,4 +14,8 @@ class Solution < ActiveRecord::Base
   def ids
     [['Solution', self.id]]
   end
+
+  def Solution.user_stats(idea, user)
+    Solution.where(idea_id: idea.id, user_id: user.id).length
+  end
 end

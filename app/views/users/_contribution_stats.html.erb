@@ -1,0 +1,31 @@
+
+<div align='center'>
+<h5 ><i>Local Reputation: </i><%= user.get_local_rep(idea) %></h5>
+  <table class='table table-condensed' style='width:75%;'> 
+    <tbody align='center'>
+      <tr>
+        <td ><b>Content Type</b></td>
+        <td ><b>Number of Submissions</b></td>
+      </tr>
+
+      <tr>
+        <td >Questions</td>
+        <td ><%= Question.user_stats(idea, user) %></td>
+      </tr>
+
+      <tr>
+        <td >Answers</td>
+        <td ><%= Answer.user_stats(idea, user) %></td>
+      </tr>
+
+      <tr>
+        <td>Solutions</td>
+        <td><%= Solution.user_stats(idea, user) %></td>
+      </tr>
+      <tr>
+      <td ></td>
+      <td ></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

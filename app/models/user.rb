@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   has_many :solutions, inverse_of: :user
   has_many :comments, inverse_of: :user
   has_many :task_comments
-  has_one :profile, dependent: :destroy
+  has_one :profile, -> { includes :user }, dependent: :destroy
 
   has_many :idea_relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_ideas, -> { includes :user }, through: :idea_relationships, source: :followed
@@ -170,6 +170,12 @@ class User < ActiveRecord::Base
   def team_member?(idea)
     idea.idea_build.team_memberships.any? { |tm| tm.user_id == self.id }
   end
+
+  def get_local_rep(idea)
+    total_rep = sum_points(idea.get(:local_reputation))
+    total_rep[(total_rep.map { |u| u[0].id }).index(self.id)][1]
+  end
+
   # Phase 3 ===================================================================
   def buy_phase_vote?(idea)
     BuyPhaseVote.where(idea_id: idea.id, user_id: self.id).count == 1
