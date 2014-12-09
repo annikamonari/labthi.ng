@@ -174,7 +174,11 @@ class User < ActiveRecord::Base
 
   def get_local_rep(idea)
     total_rep = sum_points(idea.get(:local_reputation))
-    total_rep[(total_rep.map { |u| u[0].id }).index(self.id)][1]
+    if (total_rep.map { |u| u[0].id }).index(self.id).nil?
+      '0'
+    else
+      total_rep[(total_rep.map { |u| u[0].id }).index(self.id)][1]
+    end
   end
 
   # Phase 3 ===================================================================

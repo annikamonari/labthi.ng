@@ -18,7 +18,12 @@
               </div>
             
               <% if current_user.team_member?(@idea) and not team_application.accepted?(@idea.idea_build) %>
-                <div class='pull-right'><%= button_to 'Accept as Team Member', create_team_member_path(idea_build_id: @idea.idea_build.id, user_id: team_application.user.id), class: 'btn btn-success' %></div><br><br>
+                <div class='pull-right'>
+                  <%= button_to 'Accept as Team Member', create_team_member_path(idea_build_id: @idea.idea_build.id, team_application_id: team_application.id), class: 'btn btn-success' %>
+                  <% unless get_team_votes(team_application).empty? %>
+                    <%= render partial: 'votes/votes', locals: { object: team_application } %>
+                  <% end %>
+                </div><br><br>
               <% else %>
                 <div class='pull-right btn btn-xs disabled btn-success core-team' style='margin-top:3px;'><b>Accepted</b></div><br>
               <% end %>

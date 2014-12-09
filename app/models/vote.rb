@@ -11,4 +11,5 @@ class Vote < ActiveRecord::Base
     vote.kind_id = object.id
     vote.save
   end
+
 end

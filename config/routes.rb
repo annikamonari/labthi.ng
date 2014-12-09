@@ -72,7 +72,7 @@ StartIt::Application.routes.draw do
   get '/ideas/:id/reputation', to: 'ideas#reputation'
   get '/ideas/:id/activity', to: 'ideas#activity'
   get '/ideas/:id/build', to: 'ideas#build'
-  post '/ideas/:idea_build_id/team/:user_id', to: 'team_memberships#create', as: 'create_team_member'
+  post '/ideas/:idea_build_id/team_applications/:team_application_id', to: 'team_memberships#create', as: 'create_team_member'
 
   post 'ideas/:id/increase_create_length', to: 'ideas#increase_create_length', as: 'increase_create_length'
   resources :ideas do

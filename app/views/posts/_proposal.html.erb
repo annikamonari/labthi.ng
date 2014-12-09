@@ -14,7 +14,12 @@
                   </div>
                   <div class='pull-right col-md-2 no-gutter' style='margin-top:10px;'>
                   <%= button_to 'Close Proposal', close_proposal_path(post_id: post.id, idea_id: @idea.id), class: 'btn btn-danger' %>
-                  </div><br><br>
+                  <% if get_team_votes(post).empty? %>
+                    </div><br><br>
+                  <% else %>
+                    <%= render partial: 'votes/votes', locals: { object: post } %>
+                    </div><br><br><br>
+                  <% end %>
                 <% else %>
                   <div class='pull-left col-md-12 no-gutter'>
                     <h4><b><%= post.title %></b></h4>
@@ -30,7 +35,7 @@
           <div class='doc pull-left'><%= post.content %></div>
           <div class='pull-right'>
             <div class='photo'>
-              <%= link_to (image_tag post.user.profile.photo.thumb, :size => "36x36"), profile_path(post.user.profile)%>
+              <%= link_to (image_tag post.user.profile.photo.thumb, :size => "36x36"), profile_path(post.user.profile) %>
             </div>
             <div class='username'>
               <%= render post.user %><br>

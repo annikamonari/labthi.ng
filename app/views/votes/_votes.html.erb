@@ -1,0 +1,5 @@
+<% get_team_votes(object).each do |u| %>
+  <span>
+    <%= link_to (image_tag u.profile.photo.thumb, :size => "15x15"), profile_path(u.profile), title: "#{u.name}", rel: 'tooltip', class: 'vote-tooltip' %>
+  </span>
+<% end %>

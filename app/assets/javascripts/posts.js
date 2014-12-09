@@ -26,4 +26,13 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function () { 
+  $(' .vote-tooltip').tooltip({
+    trigger: 'hover',
+        'placement': 'bottom',
+        'container': "body",
+    html: true
+  });
+});
+
 

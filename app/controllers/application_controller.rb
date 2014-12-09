@@ -35,4 +35,8 @@ class ApplicationController < ActionController::Base
         @value = 0
     end
   end
+
+  def enough_votes?(object_id, idea_build_id)
+    (Vote.where(kind_id: object_id).length.to_f / TeamMembership.where(idea_build_id: idea_build_id).length) > 0.5
+  end
 end

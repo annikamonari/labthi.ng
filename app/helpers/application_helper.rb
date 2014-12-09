@@ -76,7 +76,10 @@ module ApplicationHelper
     end
   end
 
-  def enough_votes?(object_id, idea_build_id)
-    (Vote.where(kind_id: object_id).count.to_f / TeamMembership.where(idea_build_id: idea_build_id)) > 0.5
+  def get_team_votes(object)
+    Vote.where(kind: object.class.name, kind_id: object.id).includes(:user).map { |vote| vote.user }
   end
 end
+
+
+

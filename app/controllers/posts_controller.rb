@@ -48,8 +48,8 @@ class PostsController < ApplicationController
   end
 
   def close_proposal
-    if current_user.team_memberships.find_by(idea_build_id: @idea_build.id)
-      Vote.create(current_user.id, @post) unless Vote.find_by(user_id: current_user.id, kind_id: @post.id, kind: 'Post')
+    if current_user.team_memberships.find_by(idea_build_id: @idea_build.id) and Vote.find_by(user_id: current_user.id, kind_id: @post.id, kind: 'Post').nil?
+      Vote.create(current_user.id, @post)
       if enough_votes?(@post.id, @idea_build.id)
         @post.status = 'closed'
         if @post.save
@@ -57,9 +57,11 @@ class PostsController < ApplicationController
         else
           redirect_to idea_build_team_build_path, notice: 'There has been an error closing the proposal. Please try again.'
         end
+      else
+        redirect_to :back, notice: "Your vote has been saved."
       end
     else 
-      redirect_to :back, notice: "You do not have permission to close a proposal."
+      redirect_to :back, notice: "You have already voted to close the proposal or you do not have permission to do so."
     end
   end
 
