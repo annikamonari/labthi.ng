@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :idea_build
   belongs_to :user
   has_many :team_applications, -> { includes :user }
+  has_many :votes
   validates_presence_of :content
 
   def open?

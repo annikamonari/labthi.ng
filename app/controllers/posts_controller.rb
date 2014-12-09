@@ -49,11 +49,14 @@ class PostsController < ApplicationController
 
   def close_proposal
     if current_user.team_memberships.find_by(idea_build_id: @idea_build.id)
-      @post.status = 'closed'
-      if @post.save
-        redirect_to idea_build_team_build_path, notice: 'You have succcessfully closed the post. It cannot be reopened.'
-      else
-        redirect_to idea_build_team_build_path, notice: 'There has been an error closing the post. Please try again.'
+      Vote.create(current_user.id, @post) unless Vote.find_by(user_id: current_user.id, kind_id: @post.id, kind: 'Post')
+      if enough_votes?(@post.id, @idea_build.id)
+        @post.status = 'closed'
+        if @post.save
+          redirect_to idea_build_team_build_path, notice: 'The proposal has been successfully closed.'
+        else
+          redirect_to idea_build_team_build_path, notice: 'There has been an error closing the proposal. Please try again.'
+        end
       end
     else 
       redirect_to :back, notice: "You do not have permission to close a proposal."

@@ -6,6 +6,7 @@ class Part < ActiveRecord::Base
   
   has_many :part_uploads
   has_many :admin_tasks, -> { includes(:part) }
+  has_many :votes
 
   belongs_to :user, -> { includes(:profile) }
   belongs_to :component, -> { includes(:idea_build) }

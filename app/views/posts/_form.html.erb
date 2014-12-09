@@ -13,12 +13,6 @@
   <h4><%= title %></h4>
   <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
   <div class='field'>
-  <% if url == create_proposal_path %>
-    <div class="form-group">
-      <%= f.label :title %><br>
-      <%= f.text_field :title, class: 'form-control' %>
-    </div>
-  <% end %>
     <div class="form-group">
       <%= f.label 'Description' %><br>
       <%= f.text_area :content, size: '113x5', placeholder: placeholder, class: 'form-control' %>

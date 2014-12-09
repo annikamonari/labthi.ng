@@ -37,10 +37,12 @@
           <div class="modal-content">
           <div class='modal-header'>
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title" align='center'><b><%=team_application.user.name%>'s Statistics (Local Reputation: <%= team_application.user.get_local_rep(@idea) %>)</b></h4>
+            <h4 class="modal-title" align='center' style='width:75%;margin-left:70px;'><b><%=team_application.user.name%>'s Contributions to <i><%= @idea.title %></i> (Local Reputation: <%= team_application.user.get_local_rep(@idea) %>)</b></h4>
           </div>
             <div class="modal-body">
-              <%= render partial: 'users/contribution_stats', locals: { user: team_application.user, idea: @idea } %>
+              <%= render partial: 'users/contribution_stats', locals: { user: team_application.user, idea: @idea } %><hr>
+              <h4 class='modal-title' align='center'><b><%=team_application.user.name%>'s Overall Skills</b></h4><hr>
+              <div style='padding-left:65px;'><%= render partial: 'profiles/skills', locals: { user: team_application.user } %></div>
             </div>
           </div>
         </div>

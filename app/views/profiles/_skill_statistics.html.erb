@@ -1,8 +1,8 @@
-<div class='breakdowncomponent' style='display:none;'>
-<hr>
-  <b><%= @user.name %> has completed:</b><br>
+<div class='breakdowncomponent' style='display:none;margin-left:96px;width:300px;'>
+  <hr style='width:300px;'>
+  <b><%= user.name %> has completed:</b><br>
   <% Component.find_by(type: component).parts.each do |part| %>
-    <%= @user.component_part_breakdown(component, part.name)%> <%= part.name %>(s)<br>
+    <%= user.component_part_breakdown(component, part.name)%> <%= part.name %>(s)<br>
   <% end %>
-  <%= @user.tasks_completed(component) %> Task(s)
+  <%= user.tasks_completed(component) %> Task(s)
 </div>
