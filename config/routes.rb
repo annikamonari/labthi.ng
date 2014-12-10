@@ -87,7 +87,9 @@ StartIt::Application.routes.draw do
   resources :idea_relationships, only: [:create, :destroy]
 
   # Users and Admins
-  devise_for :users, :controllers => { :passwords => "passwords" }
+  devise_for :users, controllers: { registrations: 'registrations', 
+                                    passwords: 'passwords', 
+                                    sessions: 'sessions' }
   devise_scope :user do
     get "users/sign_in", :to => "devise/sessions#new"
     get "register", :to => "devise/registrations#new"

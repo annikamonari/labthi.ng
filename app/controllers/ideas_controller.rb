@@ -109,7 +109,7 @@ class IdeasController < ApplicationController
   end
 
   def reputation
-    @users_points = sum_points(@idea.get(:local_reputation))
+    @users_points = User.sum_points(@idea.get(:local_reputation))
     render layout: 'sidebar_left'
   end
 

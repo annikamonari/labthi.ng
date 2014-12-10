@@ -58,10 +58,15 @@
     <%= print_categories %>
   </p>
   <hr>
-  
-  <% if @idea.user == current_user and @idea.is_phase_1? %>
-    <%= button_to 'Increase Number of Days in Create Phase by 1', increase_create_length_path, class: 'btn btn-danger' %><br><br>
-    <%= link_to 'Edit Image', edit_idea_path(@idea) %>
+   
+  <% if @idea.is_phase_1? %>
+    <%= button_to 'Increase Number of Days in Create Phase by 1', increase_create_length_path, class: 'btn btn-danger' %> <br><br>   
+  <% else %>
+    <%= button_to 'Visit Idea Build Page', idea_build_path(@idea), class: 'btn btn-primary', method: :get %><br><br>
+  <% end %>
+
+  <% if @idea.user == current_user %>
+    <%= link_to 'Edit Image', edit_idea_path(@idea) %><br><br>
   <% end %>
   
 <% end %>

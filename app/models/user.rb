@@ -172,8 +172,25 @@ class User < ActiveRecord::Base
     idea.idea_build.team_memberships.any? { |tm| tm.user_id == self.id }
   end
 
+  def User.sum_points(users_points)
+    sorted             = users_points.sort_by { |u| u[0] }
+    points             = 0
+    summed_users_points = Array.new
+
+    (0..sorted.length - 1).each do |i|
+      user    = sorted[i][0]
+      points += sorted[i][1]
+
+      if sorted[i + 1].nil? or sorted[i + 1][0] != user
+        summed_users_points << [user, points]
+        points = 0
+      end
+    end
+    (summed_users_points.sort_by {|u| -u[1]})[0..4]  
+  end
+
   def get_local_rep(idea)
-    total_rep = sum_points(idea.get(:local_reputation))
+    total_rep = User.sum_points(idea.get(:local_reputation))
     if (total_rep.map { |u| u[0].id }).index(self.id).nil?
       '0'
     else

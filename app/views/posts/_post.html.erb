@@ -17,9 +17,7 @@
                 </div>
               </div>
               <% if post.proposal? %>
-                <% if current_user.team_member?(@idea) and post.open? %>
-                  <div class='pull-right'><%= button_to 'Close Proposal', close_proposal_path(post_id: post.id, idea_id: @idea.id), class: 'btn btn-danger' %></div><br><br>
-                <% else %>
+                <% unless post.open? %>
                   <div class='pull-right btn btn-xs disabled btn-danger core-team' style='margin-top:3px;'><b>Closed</b></div><br>
                 <% end %>
               <% end %>

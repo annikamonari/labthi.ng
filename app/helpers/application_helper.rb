@@ -47,28 +47,10 @@ module ApplicationHelper
     end
   end
 
-
-  def sum_points(users_points)
-    sorted             = users_points.sort_by { |u| u[0] }
-    points             = 0
-    summed_users_points = Array.new
-
-    (0..sorted.length - 1).each do |i|
-      user    = sorted[i][0]
-      points += sorted[i][1]
-
-      if sorted[i + 1].nil? or sorted[i + 1][0] != user
-        summed_users_points << [user, points]
-        points = 0
-      end
-    end
-    (summed_users_points.sort_by {|u| -u[1]})[0..4]  
-  end
-
   def summary_of_business
     @brief        = @idea_build.plan_component.parts.find_by(name: 'Brief').value
     @team         = @idea_build.team_memberships.map { |t| t.user } 
-    @users_points = sum_points(@idea.get(:local_reputation)).reject { |user| user unless @team.include?(user[0])}
+    @users_points = User.sum_points(@idea.get(:local_reputation)).reject { |user| user unless @team.include?(user[0])}
     @team.each do |user| 
       unless (@users_points.map {|u| u[0]}).include?(user)
         @users_points << [user, 0] 

@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   	protect_from_forgery with: :exception
 
     layout :layout_by_resource
+
+    include ApplicationHelper
     
   	protected
   	def configure_permitted_parameters
@@ -39,4 +41,5 @@ class ApplicationController < ActionController::Base
   def enough_votes?(object_id, idea_build_id)
     (Vote.where(kind_id: object_id).length.to_f / TeamMembership.where(idea_build_id: idea_build_id).length) > 0.5
   end
+
 end
