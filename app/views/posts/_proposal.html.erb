@@ -3,6 +3,7 @@
 <% else %>
   <div class="media post content-bg" style='background-color:#ffe5e5'>
 <% end %>
+  <div>
     <div class="media-body">
       <div class="media-body">
         <div class="media-item-body">
@@ -41,22 +42,32 @@
               <%= render post.user %><br>
               <small><i> Posted <%= time_ago_in_words(post.created_at) %> ago</i></small>
             </div>
-          </div><br><br>
+          </div><br>
         </div>
       </div><hr style="color:#fff;background-color:#fff;border-color:#fff;" />
-      <% if post.nil? %>
-        <a href='javascript:void(0);' class='showanscomments'>Hide Post Comments</a>
-        <br><br>
-      <% end %>
-      <div class="media-body answercomments">
-        <ul class="media-list comments answer-comments">
-          <% if post.nil? %>
-            <%= render post.comments.includes(:user) %>
-          <% end %>
-        </ul>
-      </div>
+      <a href='javascript:void(0);' class='pull-right comment' style='margin-left:10px;' align='center'>Add Comment</a> 
+      <span class='link-dis pull-right' style='margin-left:9px;'> | </span>
+      <a href='javascript:void(0);' class='pull-right showcomments'>Hide Comments</a>
+      <br>
     </div>
+  </div>
 </div>
+<div class="taskcomments taskcomm" style='width:87%;float:right;'>    
+        <hr/>
+          <ul class="media-list comments answer-comments">
+            <div class='content-bg commentform' style='display:none;'>
+              <%= render partial: 'task_comments/form', locals: { url: create_task_comment_path(kind_id: post.id, kind: 'Post') } %><br>
+              <%= link_to 'Cancel', 'javascript:void(0);', class: 'cancel-comment' %>
+            </div>
+            <% if post.get_comments.count > 0 %>
+              <ul class="media-list comments answer-comments"><div class='content-bg' style='padding:10px;'><%= render post.get_comments.includes(:user) %></div></ul>
+            <% else %>
+              <div class='content-bg'>
+                There are no comments on this post yet.
+              </div>
+            <% end %>
+          </ul><br>         
+    </div>
 <br>
 <%= render 'applications' %>
 

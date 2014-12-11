@@ -14,4 +14,8 @@ class Post < ActiveRecord::Base
   def proposal?
     self.kind == 'team'
   end
+
+  def get_comments
+    TaskComment.where(kind: 'Post', kind_id: self.id)
+  end
 end

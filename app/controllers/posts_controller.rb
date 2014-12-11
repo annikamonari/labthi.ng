@@ -11,6 +11,7 @@ class PostsController < ApplicationController
     @team_application = TeamApplication.new
     @applications = @post.team_applications
     @time = time_ago_in_words(@post.created_at)
+    @task_comment = TaskComment.new
   end
 
   def create

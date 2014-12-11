@@ -15,11 +15,13 @@ class IdeaBuildsController < ApplicationController
   def news_feed
     @posts = get_posts('news')
     @post = Post.new
+    @task_comment = TaskComment.new
   end 
 
   def team_build
     @posts = get_posts('team')
     @post = Post.new
+    @task_comment = TaskComment.new
   end
 
   private 
