@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :team_applications, -> { includes :user }
   has_many :votes
+  has_many :task_comments
   validates_presence_of :content
 
   def open?

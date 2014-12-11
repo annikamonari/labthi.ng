@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209172215) do
+ActiveRecord::Schema.define(version: 20141211155429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -295,11 +295,12 @@ ActiveRecord::Schema.define(version: 20141209172215) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "task_comments", force: true do |t|
-    t.integer  "admin_task_id"
+    t.integer  "kind_id"
     t.integer  "user_id"
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "kind"
   end
 
   create_table "team_applications", force: true do |t|

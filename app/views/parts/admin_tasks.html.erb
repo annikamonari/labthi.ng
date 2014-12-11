@@ -13,5 +13,11 @@
     <%= render partial: 'admin_tasks/form' %><br>
     <%= link_to 'Cancel', 'javascript:void(0);', id: 'cancel' %>
   </div>
-  <%= render 'admin_tasks' %>  
+  <% if @admin_tasks.length > 0 %>
+    <%= render 'admin_tasks' %> 
+  <% else %>
+    <div class='content-bg'>
+      No one has added any tasks yet to improve this part's content.
+    </div> 
+  <% end %>
 </div>

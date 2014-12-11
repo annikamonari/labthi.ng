@@ -2,6 +2,7 @@ $(document).ready(function() {
   $("a.showcomments").click(function() {
     $(this).show();
     $(this).children().toggle();
+    $(this).siblings('button').toggle();
     $(this).parent().siblings('ul').toggle();   
   });
 });

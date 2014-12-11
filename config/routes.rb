@@ -54,8 +54,8 @@ StartIt::Application.routes.draw do
   post '/ideas/:idea_id/parts/:part_id/admin_tasks/:id/update_status', to: 'admin_tasks#update_status', as: 'update_admin_task'
   post '/ideas/:idea_id/parts/:id/admin_tasks/new', to: 'admin_tasks#create', as: 'create_admin_task'
 
-  get '/ideas/:idea_id/parts/:id/admin_comments/new/:admin_task_id', to: 'task_comments#new', as: 'new_task_comment'
-  post '/ideas/:idea_id/parts/:id/admin_comments/new/:admin_task_id', to: 'task_comments#create', as: 'create_task_comment'
+
+  post '/ideas/:idea_id/idea_build/:kind/:kind_id/comments/create', to: 'task_comments#create', as: 'create_task_comment'
 
   get "/ideas/:idea_id/build", to: "idea_builds#overview", as: 'idea_build'
   get "/ideas/:idea_id/overview/news_feed", to: 'idea_builds#news_feed', as: 'idea_build_feed'

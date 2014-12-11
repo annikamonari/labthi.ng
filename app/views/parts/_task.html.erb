@@ -49,11 +49,11 @@
         </div><hr>
           <ul class="media-list comments answer-comments">
             <div class='content-bg commentform' style='display:none;'>
-              <%= render partial: 'task_comments/form', locals: { url: create_task_comment_path(admin_task_id: task.id) } %><br>
+              <%= render partial: 'task_comments/form', locals: { url: create_task_comment_path(kind_id: task.id, kind: 'Task') } %><br>
               <%= link_to 'Cancel', 'javascript:void(0);', class: 'cancel-comment' %>
             </div>
-            <% if task.task_comments.count > 0 %>
-              <div class='content-bg' style='padding:10px;'><%= render task.task_comments.includes(:user) %></div>
+            <% if task.get_comments.count > 0 %>
+              <div class='content-bg' style='padding:10px;'><%= render task.get_comments.includes(:user) %></div>
             <% else %>
               <div class='content-bg no posts' id='noposts'>
                 There are no comments on this task yet.

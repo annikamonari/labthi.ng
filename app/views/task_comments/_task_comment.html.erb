@@ -3,7 +3,7 @@
     <div class="media-item-body">
       <div class='userwrap'>
         <div class='photo'>
-          <%= link_to (image_tag task_comment.user.profile.photo_url, :size => "36x36"), profile_path(task_comment.user.profile)%>
+          <%= link_to (image_tag task_comment.user.profile.photo.thumb, :size => "36x36"), profile_path(task_comment.user.profile)%>
         </div>
         <div class='username'>
           <%= render task_comment.user %><br>

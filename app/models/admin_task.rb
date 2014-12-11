@@ -43,4 +43,8 @@ class AdminTask < ActiveRecord::Base
     [['AdminTask', self.id]]
   end
 
+  def get_comments
+    TaskComment.where(kind: 'Task', kind_id: self.id)
+  end
+
 end

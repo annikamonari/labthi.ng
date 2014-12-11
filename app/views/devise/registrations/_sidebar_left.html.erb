@@ -1,4 +1,5 @@
-<% @profile = current_user.profile %>
+
+  <% @profile = current_user.profile %>
   <div class='row profile-border' style=''>
     <div align='center'>
       <h2 style='font-size:2.2em;'>
@@ -16,10 +17,15 @@
       <br>
       <hr>
       <% if @profile.about %>
-      <p class='doc' style='width:240px !important;margin-left:54px;'>
+      <div align='center' style='width:240px !important;margin-left:54px;'>
+      <% if @profile.about.length < 30 %>
+        <p align='center'>
+        <% else %>
+        <p class='doc'>
+        <% end %>
         <strong>About:</strong>
-        <%= @profile.about %>
-      </p>
+        <%= @profile.about %></p>
+      </div>
       <% end %>
       <hr>
 
@@ -41,4 +47,4 @@
       <%= time_ago_in_words(current_user.created_at) %> ago
     </p>
     <br>
-    </div><br>
+  </div><br>

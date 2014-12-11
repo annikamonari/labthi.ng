@@ -9,10 +9,15 @@
       <br>
       <hr>
       <% if @profile.about %>
-      <p class='doc' style='width:210px !important;margin-left:22px;'>
+      <div align='center' style='width:210px !important;margin-left:22px;'>
+        <% if @profile.about.length < 30 %>
+        <p>
+        <% else %>
+        <p class='doc'>
+        <% end %>
         <strong>About:</strong>
-        <%= @profile.about %>
-      </p>
+        <%= @profile.about %></p>
+      </div>
       <% end %>
       <hr>
 

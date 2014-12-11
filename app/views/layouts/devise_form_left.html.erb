@@ -5,7 +5,7 @@
 <div class="content col-sm-2">
 </div>
 <div class="sidebar sidebar_left col-sm-4">
-  <%= render 'sidebar_left' if content_for :sidebar_left %>
+  <%= render 'sidebar_left' if current_page?(edit_user_registration_path(current_user)) %>
 </div>
 <div class="content col-sm-4">
 	<%= yield %>
