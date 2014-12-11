@@ -1,3 +1,7 @@
-<div class="secondary_nav col-md-12">
+<% if current_page?(controller: 'parts', action: 'help_content') %>
+ <div class="secondary_nav col-md-10" style='margin-left:115px;'>
+<% else %>  
+  <div class="secondary_nav col-md-10" style='margin-left:105px;'>
+<% end %>
   <%= yield :secondary_nav %>
 </div>

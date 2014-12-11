@@ -1,5 +1,6 @@
 class PartsController < ApplicationController
   before_action :set_part
+  before_action :set_idea
   before_action :auth_user!
   before_action :check_user, only: [:edit]
 
@@ -14,7 +15,9 @@ class PartsController < ApplicationController
   end
 
   def admin_tasks
-    @admin_tasks   = AdminTask.get(@part.id)
+    @admin_tasks = AdminTask.get(@part.id)
+    @admin_task  = AdminTask.new
+    @task_comment = TaskComment.new
     render layout: 'sidebar_part'
   end
 
@@ -114,6 +117,10 @@ class PartsController < ApplicationController
 
   def set_part
     @part = Part.find(params[:id])
+  end
+
+  def set_idea
+    @idea = Idea.find(params[:idea_id])
   end
 
   def part_params

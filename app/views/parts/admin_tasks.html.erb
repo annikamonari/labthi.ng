@@ -1,13 +1,17 @@
 <%= render 'secondary_nav' %>
+<br><br>
+<div class='col-md-10' style='margin-left:100px;'>
 <br>
-<div class='col-md-10'>
-  <div class='col-md-10 admintitle'><h4 class='partname'>Tasks Written by Admins to Improve Your Work</h4></div>
+  <div class='col-md-10 admintitle'><h4 class='partname'>Tasks Written by Team Members to Improve Your Work</h4></div>
   <div class='pull-right'>
-    <% if current_user.admin %>
-      <%= button_to 'New Admin Task', new_admin_task_path, class: 'btn btn-info', method: :get %>
-    <% end %>
+    <button href='javascript:void(0);' class='btn btn-info pull-right' style='margin-right:63px;' align='center' id='newpost'>Create Task</button>
+    </div>
   </div>
 </div>
-<div class='col-md-10'> 
+<div class='col-md-10' style='margin-left:115px;width:78%;'> 
+  <div class='content-bg' style='display:none;' id='posts'>
+    <%= render partial: 'admin_tasks/form' %><br>
+    <%= link_to 'Cancel', 'javascript:void(0);', id: 'cancel' %>
+  </div>
   <%= render 'admin_tasks' %>  
 </div>

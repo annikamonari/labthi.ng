@@ -1,11 +1,14 @@
-<li class="<%= task.id %> content-bg">
+<li class="<%= task.id %>">
   <div class="media-body">
-      <div class="media-body">
+      <div class="media-body content-bg">
         <div class="media-item-body">          
-          <h4><strong> <%= task.title %></strong></h4>
-          <div class='row '>
-            <div class='col-md-10 no-gutter'><p class='doc'><%= task.description %></p></div><br><br>
-            <div class='col-md-2 pull-right taskbtn' align='right'>  
+          <div class='row' style='margin-bottom:10px;'>
+            <div class='col-md-10 no-gutter' style=''><h4><strong> <%= task.title %></strong></h4>
+            <i><%= "Status: " %>
+              <h0 class='statustext'>
+                <%= "#{task.status}"%>
+              </h0></i></div>
+            <div class='col-md-2 pull-right no-gutter' align='right' style='margin-top:15px;'>  
             <% if task.disable_button?(current_user) %>
               <%= button_to task.button_status, '', 
               :class => 'btn disabled btn-status', id: "#{task.id}"%>
@@ -14,36 +17,50 @@
               :class => 'btn btn-inverse', id: "#{task.id}"%>
             <% end %>
             </div>
+          </div>
+          <hr class='taskhr' style="color:#fff;background-color:#fff;border-color:#fff;width:98.5%;margin-left:-3px;" />
+          <div class='row'>
+            <div class='col-md-12 no-gutter' style=''><p class='doc'><%= task.description %></p></div>
           </div><br>
           <div class='row'>
-            <div class='col-md-9 no-gutter taskstatus'>
-              <strong><%= "Status: " %></strong>
-              <h0 class='statustext'>
-                <%= "#{task.status}"%>
-              </h0>
+            <div class='pull-right' style='padding-right:15px;'>
+              <div class='photo'>
+                <%= link_to (image_tag User.find_by_id(task.admin_id).profile.photo.thumb, :size => "36x36"), profile_path(User.find_by_id(task.admin_id).profile)%>
+              </div>
+              <div class='username'>
+                <%= render User.find_by_id(task.admin_id) %><br>
+                <small><i> Posted <%= time_ago_in_words(task.created_at) %> ago</i></small>
+              </div>
             </div>
-            <div class='col-md-3 admin' align='right'>
-              <p class='admintask'><%= render User.find_by_id(task.admin_id) %><br>
-              <small><i> Posted <%= time_ago_in_words(task.created_at) %> ago</i></small></p>
-            </div>
-          </div>          
+          </div><br>        
         </div>
+      
+      <hr class='taskhr' style="color:#fff;background-color:#fff;border-color:#fff;padding-right:45px;margin-right:15px;" />
       </div>
-      <hr class='taskhr' style="color:#fff;background-color:#fff;border-color:#fff;" />
-      <% if task.task_comments.count > 0 %>
-        <a href='javascript:void(0);' id='hidecomments'>Hide Task Comments (<%= task.task_comments.count %>) <br></a>
-        <a href='javascript:void(0);' id='showcomments' style='display:none;'>Show Task Comments (<%= task.task_comments.count %>) </a>
-        <br>
-      <% end %>
-      <div class="media-body taskcomments" id='taskcomments'>
-        <ul class="media-list comments answer-comments">
-          <% if task.task_comments.count > 0 %>
-            <%= render task.task_comments.includes(:user) %>
-          <% end %>
-        </ul>
-          <p>
-            <%= link_to 'Add Comment', new_task_comment_path(admin_task_id: task.id), id: "task-#{task.id}", remote: true %>
-          </p>
+      <div class="media-body taskcomments taskcomm" style='width:87%;float:right;'>
+        <div class='welcome-block clearfix' style='margin-bottom:-7px;margin-top:10px;'>
+          <a href='javascript:void(0);' class='showcomments' style='color:#333333;'>
+          <h4 class='pull-left' style='display:none;' class='showcomm'>Show Comments:</h4>
+          <h4 class='pull-left' class='hidecomm'>Hide Comments:</h4>
+          </a>
+            <button href='javascript:void(0);' class='btn btn-info pull-right comment' style='margin-right:22px;' align='center'>
+              Add Comment
+            </button>
+        </div><hr>
+          <ul class="media-list comments answer-comments">
+            <div class='content-bg commentform' style='display:none;'>
+              <%= render partial: 'task_comments/form', locals: { url: create_task_comment_path(admin_task_id: task.id) } %><br>
+              <%= link_to 'Cancel', 'javascript:void(0);', class: 'cancel-comment' %>
+            </div>
+            <% if task.task_comments.count > 0 %>
+              <div class='content-bg' style='padding:10px;'><%= render task.task_comments.includes(:user) %></div>
+            <% else %>
+              <div class='content-bg no posts' id='noposts'>
+                There are no comments on this task yet.
+              </div>
+            <% end %>
+          </ul><br>         
       </div>
     </div>
 </li>
+<br>

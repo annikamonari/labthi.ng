@@ -1,3 +1,5 @@
-<% (@admin_tasks.sort_by {|t| t.created_at}).each do |task| %>
-<%= render 'task', task: task %>
-<% end %>
+<ul class='tasks media-list'>  
+  <% (@admin_tasks.sort_by {|t| t.created_at}).reverse.each do |task| %>
+    <%= render 'task', task: task %>
+  <% end %>
+</ul>

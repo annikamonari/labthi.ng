@@ -1,15 +1,16 @@
 $(document).ready(function() {
-    $( "#hidecomments" ).click(function() {
-    $( "#taskcomments" ).hide();
-    $("#showcomments").show();
-    $("#hidecomments").hide();
-  });
+    $("a.hidecomments").click(function() {
+        $(this).next().next().next().hide();
+        $(this).hide();
+        $(this).next().show();
+    });
 });
 
 $(document).ready(function() {
-    $( "#showcomments" ).click(function() {
-    $( "#taskcomments" ).show();
-    $("#hidecomments").show();
-    $("#showcomments").hide();
-  });
+    $("a.showcomments").click(function() {
+        console.log($(this).prev());
+        $(this).next().next().show();
+        $(this).hide();
+        $(this).prev().show();
+    });
 });

@@ -1,7 +1,7 @@
 <%= render 'secondary_nav' %>
-<br>
-<h4 class='partname'>Find Help About How to Build this Content</h4>
-<div class='col-md-10 helpcontentbg'>
+<br><br>
+<div class='col-md-10'><br><h4 style='margin-left:100px;'>Find Help About How to Build this Content</h4></div>
+<div class='col-md-10 helpcontentbg' style='margin-left:115px;width:78%;'>
   <%= render "parts/help_content/#{@part.name.downcase.gsub(' ', '_')}" %>
 </div>
 <br>

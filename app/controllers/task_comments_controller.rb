@@ -17,10 +17,9 @@ class TaskCommentsController < ApplicationController
 
     respond_to do |format|
       if @task_comment.save
-        format.html { redirect_to part_admin_tasks_path, notice: 'Admin task was successfully created.' }
-        format.js {render template: 'task_comments/create'}
+        format.html { redirect_to part_admin_tasks_path, notice: 'Comment successfully created.' }
       else
-        format.html { redirect_to :back, notice: 'Saving admin task failed' }
+        format.html { redirect_to :back, notice: 'There has been an error creating your comment. Please try again.' }
       end
     end
   end

@@ -1,3 +1,4 @@
+
 <% content_for :page_title do %>
   <div class="clearfix">
     <div class="col-sm-12">
@@ -34,7 +35,7 @@
       class: 'btn btn-default ' + active_when(:controller => 'parts', :action => 'edit')
     %>
     <% if @part.status == 'In Review' or current_user.admin %>
-      <%= link_to "Admin Tasks", {
+      <%= link_to "Tasks", {
         controller: "parts",
         action: "admin_tasks" },
         class: 'btn btn-default ' + active_when(:controller => 'parts', :action => 'admin_tasks')
@@ -48,5 +49,10 @@
     <br>Can't manage? Unhappy?
     <%= button_to "Unstart", unstart_part_path, class: 'btn btn-danger', method: 'PUT' %>
   <% end %><br>
-  <%= link_to 'Back to Idea Build', idea_build_path(@part.idea) %>
+  <% if current_page?(controller: 'parts', action: 'admin_tasks') %>
+    <p style='margin-left:235px;'>
+  <% else %>
+    <p style='margin-left:105px;'>
+  <% end %>
+  <%= link_to 'Back to Idea Build', idea_build_path(@part.idea) %></p>
 <% end %>
