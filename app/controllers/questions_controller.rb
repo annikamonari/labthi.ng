@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   include ActionView::Helpers::DateHelper
   before_action :set_question, only: [:show, :destroy]
   before_action :set_vote_value, only: [:vote]
-  before_action :correct_user, only: [:edit]
+  before_action :correct_user, only: [:update]
 
   # GET /questions/1
   # GET /questions/1.json
@@ -19,11 +19,6 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new
     @idea = Idea.find(params[:id])
-  end
-
-  # GET /questions/1/edit
-  def edit
-    render layout: 'form_left'
   end
 
   # POST /questions

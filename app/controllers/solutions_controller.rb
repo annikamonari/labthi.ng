@@ -15,11 +15,6 @@ class SolutionsController < ApplicationController
     render layout: "form_left"
   end
 
-  # GET /solutions/1/edit
-  def edit
-    render layout: "form_left"
-  end
-
   # POST /solutions
   # POST /solutions.json
   def create
@@ -39,21 +34,6 @@ class SolutionsController < ApplicationController
         end
       else
         format.html { render action: 'new' }
-        format.json { render json: @solution.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /solutions/1
-  # PATCH/PUT /solutions/1.json
-  def update
-    respond_to do |format|
-      if @solution.update(solution_params)
-        @solution.create_activity :update, owner: (current_user || current_admin)
-        format.html { redirect_to @solution, notice: 'Solution was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
         format.json { render json: @solution.errors, status: :unprocessable_entity }
       end
     end

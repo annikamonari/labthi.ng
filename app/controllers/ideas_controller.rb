@@ -31,8 +31,11 @@ class IdeasController < ApplicationController
   end
 
   def edit_question
-    @question = Question.find(params[:question_id])
-    render layout: 'sidebar_left'
+    if current_user == @question.user
+      @question = Question.find(params[:question_id])
+      render layout: 'sidebar_left'
+    else
+      redirect :back, notice: 'You do not have permission to edit this question.'
   end
 
   # GET /ideas/1/edit

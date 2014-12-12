@@ -30,7 +30,7 @@ StartIt::Application.routes.draw do
   resources :aspects, except: [:index] do
     resources :solutions
   end
-  resources :solutions, except: [:index] do
+  resources :solutions, except: [:index, :edit, :update] do
     resources :comments
   end
 

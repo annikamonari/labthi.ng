@@ -1,5 +1,7 @@
 class TaskCommentsController < ApplicationController
-
+  before_action :set_idea
+  before_action :team_member
+  
   def create
     @task_comment         = TaskComment.new(task_comment_params)
     @task_comment.kind_id = params[:kind_id]
@@ -16,6 +18,10 @@ class TaskCommentsController < ApplicationController
   end
 
   private
+
+    def set_idea
+      @idea = Idea.find(params[:idea_id])
+    end
 
     def task_comment_params
       params.require(:task_comment).permit(:comment)

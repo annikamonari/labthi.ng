@@ -66,11 +66,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def destroy
-    @post.destroy
-    redirect_to idea_build_feed_path(@idea)
-  end
-
   private
 
     def set_idea
