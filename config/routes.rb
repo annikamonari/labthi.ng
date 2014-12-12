@@ -106,6 +106,7 @@ StartIt::Application.routes.draw do
 
   get 'create', to: 'explore#create'
   get 'build', to: 'explore#build'
+  get 'build_needs_team', to: 'explore#needs_team'
   get 'buy', to: 'explore#buy'
   get 'documentation', to: 'home#documentation'
 

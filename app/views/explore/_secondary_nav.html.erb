@@ -1,0 +1,9 @@
+
+  <div class="secondary-nav">
+    <%= link_to "All", build_path,
+        class: 'btn btn-default ' + active_when(:controller => 'explore', :action => 'build')
+    %>
+    <%= link_to "Needs Team Members", build_needs_team_path,
+        class: 'btn btn-default ' + active_when(:controller => 'explore', :action => 'needs_team')
+    %>
+  </div>

@@ -1,4 +1,4 @@
-<% ### explore#build ### %>
+<% ### explore#build_needsteam ### %>
 
 <% content_for :sidebar_left_small do %>
   <div>
@@ -20,10 +20,10 @@
     </div>
   </div>
   <hr>
-  <p><%= link_to 'All Categories', build_path %></p>
+  <p><%= link_to 'All Categories', build_needs_team_path %></p>
   <% @categories.each do |category| %>
   <p>
-    <%= link_to category, { controller: 'explore', action: 'build', category: category }, class: 'category-tag' %>
+    <%= link_to category, { controller: 'explore', action: 'needs_team', category: category }, class: 'category-tag' %>
   </p>
   <% end %>
 <% end %>

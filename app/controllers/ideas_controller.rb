@@ -36,6 +36,7 @@ class IdeasController < ApplicationController
       render layout: 'sidebar_left'
     else
       redirect :back, notice: 'You do not have permission to edit this question.'
+    end
   end
 
   # GET /ideas/1/edit
