@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :skills]
   before_action :get_user, only: [:show, :edit, :update, :skills]
+  before_action :correct_user, only: [:edit, :update]
 
   def show
     render layout: 'sidebar_left_small'
@@ -40,10 +41,18 @@ class ProfilesController < ApplicationController
         @profile = current_user.profile
       end
 	  end
+
 	  def get_user
 	  	@user = User.find(@profile.user_id)
 	  end
+
 	  def profile_params
       params.require(:profile).permit(:profession, :about, :age, :country, :website, :photo)
+    end
+
+    def correct_user
+      unless current_user == @profile.user then
+        redirect_to @profile, notice: "You do not have permission to edit this profile."
+      end
     end
 end

@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   	protect_from_forgery with: :exception
 
   	before_filter :configure_permitted_parameters, if: :devise_controller?
+    before_action :auth_user!, except: [:passwords, :registrations, :sessions, :home]
   	protect_from_forgery with: :exception
 
     layout :layout_by_resource
@@ -17,7 +18,7 @@ class ApplicationController < ActionController::Base
     end
   	
     def auth_user!(opts = {})
-        authenticate_user!
+      authenticate_user!
     end
     def layout_by_resource
       if devise_controller?
@@ -40,6 +41,12 @@ class ApplicationController < ActionController::Base
 
   def enough_votes?(object_id, idea_build_id)
     (Vote.where(kind_id: object_id).length.to_f / TeamMembership.where(idea_build_id: idea_build_id).length) > 0.5
+  end
+
+  def team_member
+    unless current_user.team_member?(@idea)
+      redirect_to idea_build_feed_path(@idea), notice: 'You are not part of the team and therefore cannot view this content.'
+    end
   end
 
 end

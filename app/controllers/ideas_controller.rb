@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
   before_action :set_idea, except: [:create, :new, :index, :vote]
+  before_action :is_owner, only: [:edit, :update, :increase_create_length]
   before_action :set_questions, only: [:show]
-  before_action :auth_user!, only: [:new, :create, :edit, :update]
   before_action :set_tags, except: [:index, :vote]
   before_action :set_vote_value, only: [:vote]
   before_action :promote, except: [:create, :new, :index, :vote]
@@ -30,13 +30,14 @@ class IdeasController < ApplicationController
     render layout: 'sidebar_left'
   end
 
+  def edit_question
+    @question = Question.find(params[:question_id])
+    render layout: 'sidebar_left'
+  end
+
   # GET /ideas/1/edit
   def edit
-    if @idea.user == current_user
-      render layout: 'form_left'
-    else
-      redirect_to @idea, notice: "You do not have permission to edit this idea."
-    end
+    render layout: 'form_left'
   end
 
   # POST /ideas
@@ -94,12 +95,14 @@ class IdeasController < ApplicationController
   end
 
   def increase_create_length
-    if @idea.user == current_user and @idea.phase == 1
+    if @idea.phase == 1
       if @idea.increase_create_days
         redirect_to @idea, notice: "You have increased the idea's create phase length by 1 day."
       else
         redirect_to :back, notice: "There has been an error processing your request. Please try again."
       end
+    else
+      redirect_to :back, notice: "This action cannot be completed when the idea isn't in phase 1."
     end
   end
 
@@ -155,6 +158,12 @@ class IdeasController < ApplicationController
     def promote
       if (Date.today >= @idea.create_days) and @idea.phase == 1
         @idea.promote!
+      end
+    end
+
+    def is_owner
+      unless current_user == @idea.user
+        redirect_to @idea, notice: 'You do not have permission to complete this action.'
       end
     end
 end

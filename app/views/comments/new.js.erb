@@ -2,20 +2,24 @@
 var selector = ".<%= j @commentable.class.to_s.downcase + '-' + @commentable.id.to_s + ' .media-body ' %>"
 selector = selector + " ul.media-list.comments.<%= j @commentable.class.to_s.downcase %>-comments"
 var y = $("a:contains('Cancel')").not("#<%= j @commentable.id.to_s %>")
-if ($(y).closest(" .media.comment.comment").length > 0) {
-	$(y).text("Reply to comment")
-}
-else if ($(y).attr('id') == 'newanswer' ) {
-	$(y).text("Add answer")
-	$("div.no.answers").show()
-}
-else if ($(y).attr('id') == 'newsolution' ) {
-	$(y).text("Add solution")
-	$("p.no.solution").show()
-}
-else {
-	$(y).text("Add comment")
-	$("div.no.comments").show()
+if ($(y).attr('id') != 'cancelanswerform') {
+	console.log($(y).attr('id'))
+	if ($(y).closest(" .media.comment.comment").length > 0) {
+		$(y).text("Reply to comment")
+	}
+	else if ($(y).attr('id') == 'newanswer' ) {
+		$(y).text("Add answer")
+		$("div.no.answers").show()
+	}
+	else if ($(y).attr('id') == 'newsolution' ) {
+		$(y).text("Add solution")
+		$("p.no.solution").show()
+	}
+	else {
+		console.log($(y))
+		$(y).not('a#cancelanswerform').text("Add comment")
+		$("div.no.comments").show()
+	}
 }
 
 

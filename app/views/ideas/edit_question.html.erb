@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'secondary_nav' %>
+<%= render 'sidebar' %>
+
+<div class="welcome-block clearfix">
+<h4 class="pull-left">Editing Question</h4>
+</div>
+<div class="content-bg">
+  <%= render template: 'questions/edit' %>
+</div>
+
+<%= link_to 'Back', @idea %>

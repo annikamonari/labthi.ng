@@ -39,34 +39,36 @@
       </div>
     </p>
   </div><!-- .show-question-wrapper -->
-
-  <% if @question.comments.count > 0 %>
-    <a href='javascript:void(0);' id='hidecomments'>Hide Question Comments (<%= @question.comments.count %>) </a>
-    <a href='javascript:void(0);' id='showcomments' style='display:none;'>Show Question Comments (<%= @question.comments.count %>) </a>
-    <br><br>
-  <% end %>
-  <div class="media-body" id='questioncomments'>
-    <ul class="media-list comments question-comments">
-      <% if @question.comments.count > 0 %>
-        <%= render vote_order(@question.comments.includes(:user)) %>
-      <% else %>
-        <div class='no comments'>
-          No comments
-        </div>
-      <% end %>
-      </ul>
-    <% if @question.idea.is_phase_1? %>
-      <p>
-        <%= link_to "Add comment", new_question_comment_path(@question), id: "question-#{@question.id}", remote: true %>
-      </p>
-    <% else %>
-      <p class="link-dis"> Add comment </p>
+  <div style='width:85%;padding-right:0px;margin-left:110px;'>
+    <% if @question.comments.count > 0 %>
+    <div align='right' style='margin-bottom:10px;margin-top:15px;'>
+      <a href='javascript:void(0);' id='hidecomments'>Hide Question Comments (<%= @question.comments.count %>) </a>
+      <a href='javascript:void(0);' id='showcomments' style='display:none;'>Show Question Comments (<%= @question.comments.count %>) </a>
+    </div>
+      <hr style='margin-top:-1px;'/>
     <% end %>
+    <div class="media-body" id='questioncomments'>
+      <ul class="media-list comments question-comments">
+        <% if @question.comments.count > 0 %>
+          <%= render vote_order(@question.comments.includes(:user)) %>
+        <% else %>
+          <div class='no comments'>
+            <div class='content-bg'>No comments</div>
+          </div>
+        <% end %>
+        </ul>
+      <% if @question.idea.is_phase_1? %>
+        <p>
+          <%= link_to "Add comment", new_question_comment_path(@question), id: "question-#{@question.id}", remote: true %>
+        </p>
+      <% else %>
+        <p class="link-dis"> Add comment </p>
+      <% end %>
+    </div>
   </div>
-</div><!-- .question -->
-
-<div>
-  <div style='display:inline-block;'><h4> Answers: </h4></div>
+</div>
+<br><br>
+<div class='welcome-block clearfix' style='margin-bottom:-5px;'>
   <div style='float:left; margin-right:5px; display:none;' id='helpans'>
     <a id="popans" 
         href="#" 
@@ -78,10 +80,21 @@
       </span>
     </a>      
   </div>
-</div>
-
+  <a href='javascript:void(0);' id='showanswers' style='color:#333333;'><h4 class='pull-left'>Answers:</h4></a>
+  <% if @question.idea.is_phase_1? %>
+  <button href='javascript:void(0);' class='btn btn-info pull-right' align='center' id='newanswer'>
+  <% else %>
+  <button href='javascript:void(0);' class='btn btn-info disabled pull-right' align='center'>
+  <% end %>
+    Add Answer
+  </button>
+</div><hr>
 <div id='answers'>
   <ul class="answers media-list">
+    <div class='content-bg' style='display:none;' id='answerform'>
+      <%= render partial: 'answers/form' %><br>
+      <%= link_to 'Cancel', 'javascript:void(0);', id: 'cancelanswerform' %>
+    </div>
     <% if @answers.count > 0 %>
       <%= render vote_order(@answers) %>
     <% else %>
@@ -93,17 +106,6 @@
 </div>
 
 <% if @question.idea.is_phase_1? %>
-  <p>
-    <%= link_to "Add answer", new_answer_path(question_id: @question.id), id: 'newanswer', remote:true %>
-  </p>
-<% else %>
-  <p class="link-dis"> Add answer </p>
-<% end %>
-
-
-
-
-<% if @question.idea.is_phase_1? %>
-  <%= link_to 'Edit Question', edit_question_path(@question) %> |
+  <%= link_to 'Edit Question', idea_edit_question_path(question_id: @question.id, id: @question.idea.id) %> |
 <% end %>
 <%= link_to 'Back', @question.idea %>

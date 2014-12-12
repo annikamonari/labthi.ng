@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
-  #before_filter :authenticate_user!
+  before_action :auth_user!, except: [:index]
+  
   def index
     render layout: 'sidebar_signup'
   end

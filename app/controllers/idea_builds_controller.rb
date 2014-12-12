@@ -1,5 +1,6 @@
 class IdeaBuildsController < ApplicationController
   before_action :set_idea
+  before_action :team_member, only: [:discussion, :overview, :components]
   before_action :set_idea_build
   before_action :summary_of_business, only: [:news_feed, :team_build]
 

@@ -1,5 +1,5 @@
 class IdeaRelationshipsController < ApplicationController
-  before_action :auth_user!
+
   def create
     @idea = Idea.find(params[:idea_relationship][:followed_id])
     current_user.follow_idea!(@idea)

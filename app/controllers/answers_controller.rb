@@ -1,7 +1,6 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
   before_action :set_question, only: [:new]
-  before_action :auth_user!
   before_action :set_vote_value, only: [:vote]
 
   # GET /answers/1
@@ -31,7 +30,7 @@ class AnswersController < ApplicationController
         @answer.create_activity :create, owner: (current_user)
         format.html { redirect_to @answer.question, notice: 'Answer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @answer }
-        format.js {render template: 'answers/create'}
+        #format.js {render template: 'answers/create'}
         if not current_user.following_idea?(@answer.question.idea)
           current_user.follow_idea!(@answer.question.idea)
         end

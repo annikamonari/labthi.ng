@@ -1,7 +1,7 @@
 class PartsController < ApplicationController
   before_action :set_part
   before_action :set_idea
-  before_action :auth_user!
+  before_action :team_member
   before_action :check_user, only: [:edit]
 
   def edit
@@ -115,21 +115,22 @@ class PartsController < ApplicationController
     redirect_to idea_build_path(@part.idea), notice: 'You successfully unstarted the part.'
   end
 
-  def set_part
-    @part = Part.find(params[:id])
-  end
-
-  def set_idea
-    @idea = Idea.find(params[:idea_id])
-  end
-
-  def part_params
-    params.require(:part).permit(:value, :email, :user, :bootsy_image_gallery_id, part_upload_attributes: [:image])
-  end
-
-  def check_user
-    if not (@part.user == current_user or current_user.admin)
-      redirect_to :back, notice: 'You are not allowed to view that page'
+  private 
+    def set_part
+      @part = Part.find(params[:id])
     end
-  end
+
+    def set_idea
+      @idea = Idea.find(params[:idea_id])
+    end
+
+    def part_params
+      params.require(:part).permit(:value, :email, :user, :bootsy_image_gallery_id, part_upload_attributes: [:image])
+    end
+
+    def check_user
+      if not (@part.user == current_user or current_user.admin)
+        redirect_to :back, notice: 'You are not allowed to view that page'
+      end
+    end
 end

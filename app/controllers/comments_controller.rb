@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :load_commentable
-  before_action :auth_user!
   before_action :set_vote_value, only: [:vote]
 
   # GET /comments/1

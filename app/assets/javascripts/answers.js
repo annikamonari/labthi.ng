@@ -11,3 +11,23 @@ $(document).ready(function() {
         }
   });
 });
+
+$(document).ready(function() {
+  $("#newanswer" ).click(function() {
+    $('#answerform').show();
+    $(this).hide();
+  });  
+});
+
+$(document).ready(function() {
+  $("#cancelanswerform" ).click(function() {
+    $('#answerform').hide();
+    $("#newanswer" ).show();
+  });
+});
+
+$(document).ready(function() {
+  $("#showanswers" ).click(function() {
+    $('#answers').toggle();
+  });  
+});

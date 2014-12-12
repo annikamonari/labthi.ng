@@ -1,16 +1,17 @@
 class QuestionsController < ApplicationController
   include ActionView::Helpers::DateHelper
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_action :auth_user!, except: [:show]
+  before_action :set_question, only: [:show, :destroy]
   before_action :set_vote_value, only: [:vote]
   before_action :correct_user, only: [:edit]
 
   # GET /questions/1
   # GET /questions/1.json
   def show
-    @idea = @question.idea
+    @idea    = @question.idea
     @answers = @question.answers.includes(:user)
-    @time = time_ago_in_words(@question.created_at)
+    @time    = time_ago_in_words(@question.created_at)
+    @answer  = Answer.new
+    
     render layout: 'sidebar_left'
   end
 
@@ -50,6 +51,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
+    @question = Question.find(params[:question_id])
     respond_to do |format|
       if @question.update(question_params)
         @question.create_activity :update, owner: (current_user)

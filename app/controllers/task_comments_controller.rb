@@ -1,5 +1,4 @@
 class TaskCommentsController < ApplicationController
-  before_action :auth_user!
 
   def create
     @task_comment         = TaskComment.new(task_comment_params)

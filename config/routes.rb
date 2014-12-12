@@ -19,8 +19,9 @@ StartIt::Application.routes.draw do
     resources :comments
   end
   get '/ideas/:id/questions/new', to: 'ideas#new_question', as: 'idea_new_question'
+  get '/ideas/:id/questions/:question_id', to: 'ideas#edit_question', as: 'idea_edit_question'
   post '/ideas/:id/questions/', to: 'questions#create', as: 'create_question'
-  patch '/questions/:id', to: 'questions#update', as: 'update_question'
+  patch '/ideas/:id/questions/:question_id', to: 'questions#update', as: 'update_question'
   resources :answers, except: [:index] do                     
     resources :comments
   end

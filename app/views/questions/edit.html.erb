@@ -1,5 +1,2 @@
-<h1>Editing question</h1>
+<%= render partial: 'questions/form', locals: { url: update_question_path } %>
 
-<%= render partial: 'form', locals: { url: update_question_path } %>
-
-<%= link_to 'Back', question_path %>
