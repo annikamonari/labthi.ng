@@ -1,70 +1,82 @@
-<% if team_application.accepted?(@idea.idea_build) %>
-  <li class="media team_application team_application-<%= team_application.id %> content-bg" style='background-color:#e0fde0'>
-<% else %>
-  <li class="media team_application team_application-<%= team_application.id %> content-bg">
-<% end %>
+<li class="media team_application team_application-<%= team_application.id %>">
+  <div class="media-body">
     <div class="media-body">
-      <div class="media-body">
-        <div class="media-item-body">
-            <div class='userwrap'>
-              <div class='pull-left'>
-                <div class='photo'>
-                <%= link_to (image_tag team_application.user.profile.photo.thumb, :size => "36x36"), profile_path(team_application.user.profile)%>
-                </div>
-                <div class='username'>
-                <%= render team_application.user %><br>
-                <small><i> Posted <%= time_ago_in_words(team_application.created_at) %> ago</i></small>
-                </div>
-              </div>
-            
-              <% if current_user.team_member?(@idea) and not team_application.accepted?(@idea.idea_build) %>
-                <div class='pull-right'>
-                  <%= button_to 'Accept as Team Member', create_team_member_path(idea_build_id: @idea.idea_build.id, team_application_id: team_application.id), class: 'btn btn-success' %>
-                  <% unless get_team_votes(team_application).empty? %>
-                    <%= render partial: 'votes/votes', locals: { object: team_application } %>
-                  <% end %>
-                </div><br><br>
-              <% else %>
-                <div class='pull-right btn btn-xs disabled btn-success core-team' style='margin-top:3px;'><b>Accepted</b></div><br>
-              <% end %>
+    <% if team_application.accepted?(@idea.idea_build) %>
+      <div class="media-item-body content-bg" style='background-color:#e0fde0'>
+    <% else %>
+      <div class="media-item-body content-bg">
+    <% end %>
+        <div class='userwrap'>
+          <div class='pull-left'>
+            <div class='photo'>
+              <%= link_to (image_tag team_application.user.profile.photo.thumb, :size => "36x36"), profile_path(team_application.user.profile)%>
             </div>
-          <br>
-          <p class='doc'><%= team_application.pitch %></p>
-          <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
-        </div>
-      </div>
-      <span class="link-dis"> Add comment  |  </span>
-      <a data-toggle="modal" data-target=".bs-example-modal-sm<%=team_application.id%>" class='applstats'>Show User Statistics</a>
-
-
-      <div class="modal bs-example-modal-sm<%=team_application.id%>" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-          <div class='modal-header'>
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title" align='center' style='width:75%;margin-left:70px;'><b><%=team_application.user.name%>'s Contributions to <i><%= @idea.title %></i> (Local Reputation: <%= team_application.user.get_local_rep(@idea) %>)</b></h4>
-          </div>
-            <div class="modal-body">
-              <%= render partial: 'users/contribution_stats', locals: { user: team_application.user, idea: @idea } %><hr>
-              <h4 class='modal-title' align='center'><b><%=team_application.user.name%>'s Overall Skills</b></h4><hr>
-              <div style='padding-left:65px;'><%= render partial: 'profiles/skills', locals: { user: team_application.user } %></div>
+            <div class='username'>
+              <%= render team_application.user %><br>
+              <small><i> Posted <%= time_ago_in_words(team_application.created_at) %> ago</i></small>
             </div>
-          </div>
+          </div>  
+        <% if current_user.team_member?(@idea) and not team_application.accepted?(@idea.idea_build) %>
+          <div class='pull-right'>
+            <%= button_to 'Accept as Team Member', create_team_member_path(idea_build_id: @idea.idea_build.id, team_application_id: team_application.id), class: 'btn btn-success' %>
+            <% unless get_team_votes(team_application).empty? %>
+              <%= render partial: 'votes/votes', locals: { object: team_application } %>
+            <% end %>
+          </div><br><br>
+        <% else %>
+          <div class='pull-right btn btn-xs disabled btn-success core-team' style='margin-top:3px;'><b>Accepted</b></div><br>
+        <% end %>
         </div>
-      </div>
-
-      <% if team_application.nil? %>
-        <a href='javascript:void(0);' class='showanscomments'>Hide team_application Comments</a>
-        <br><br>
-      <% end %>
-      <div class="media-body postcomments">
-        <ul class="media-list comments answer-comments">
-          <% if team_application.nil? %>
-            <%= render team_application.comments.includes(:user) %>
-          <% end %>
-        </ul>
+        <br>
+        <p class='doc'><%= team_application.pitch %></p>
+        <hr style="color:#fff;background-color:#fff;border-color:#fff;" />        
+        <a data-toggle="modal" data-target=".bs-example-modal-sm<%=team_application.id%>" class='applstats'>
+          Show User Statistics
+        </a>
+        <a href='javascript:void(0);' class='pull-right comment' style='margin-left:10px;' align='center'>Add Comment</a> 
+        <span class='link-dis pull-right' style='margin-left:9px;'> | </span>
+        <a href='javascript:void(0);' class='pull-right showcomments'>Hide Comments</a>
+        <br>       
       </div>
     </div>
+  </div>
+  <div class="taskcomments taskcomm" style='width:87%;float:right;'>
+    <hr/>
+    <ul class="media-list comments answer-comments">
+      <div class='content-bg commentform' style='display:none;'>
+        <%= render partial: 'task_comments/form', 
+            locals: { url: create_task_comment_path(kind_id: team_application.id, kind: 'Application') } %><br>
+        <%= link_to 'Cancel', 'javascript:void(0);', class: 'cancel-comment' %>
+      </div>
+      <% if team_application.get_comments.count > 0 %>
+        <ul class="media-list comments answer-comments"><div class='content-bg' style='padding:10px;'><%= render team_application.get_comments.includes(:user) %></div></ul>
+      <% else %>
+        <div class='content-bg'>
+          There are no comments on this post yet.
+        </div>
+      <% end %>
+    </ul>
+    <br>         
+  </div>
+  <!-- vv modal div-->
+  <div class="modal bs-example-modal-sm<%=team_application.id%>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+      <div class='modal-header'>
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" align='center' style='width:75%;margin-left:70px;'>
+          <b><%=team_application.user.name%>'Contributions to <i><%= @idea.title %></i> (Local Reputation: <%= team_application.user.get_local_rep(@idea) %></b>
+        </h4>
+      </div>
+        <div class="modal-body">
+          <%= render partial: 'users/contribution_stats', locals: { user: team_application.user, idea: @idea } %><hr>
+          <h4 class='modal-title' align='center'><b><%=team_application.user.name%>'s Overall Skills</b></h4><hr>
+          <div style='padding-left:65px;'><%= render partial: 'profiles/skills', locals: { user: team_application.user } %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ^^ modal div-->
 </li>
 
 
