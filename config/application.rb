@@ -1,4 +1,6 @@
+require 'faye'  
 require File.expand_path('../boot', __FILE__)
+require File.expand_path('../csrf_protection', __FILE__)
 
 require 'rails/all'
 
@@ -21,6 +23,7 @@ module StartIt
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     #config.i18n.enforce_available_locales = true
+
     #I18n.config.enforce_available_locales = true
     
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**/}')]
@@ -37,5 +40,8 @@ module StartIt
                        :request_specs => true
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
+    
+    config.middleware.delete Rack::Lock
+    config.middleware.use FayeRails::Middleware, extensions: [CsrfProtection.new], mount: '/faye', :timeout => 25
   end
 end

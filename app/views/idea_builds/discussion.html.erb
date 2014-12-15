@@ -1,1 +1,3 @@
 <%= render 'secondary_nav' %>
+
+<%= link_to 'Discussion', new_chat_path(idea_id: @idea.id, kind: 'idea_build', kind_id: @idea_build.id) %>

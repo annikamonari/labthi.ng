@@ -1,0 +1,21 @@
+<%= form_for @chat, url: create_chat_path, id: '#chatmessage', remote: true do |f| %>
+  <% if @chat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chat.errors.count, "error") %> prohibited this chat from being saved:</h2>
+
+      <ul>
+      <% @chat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" style='display:block;'>
+    <%= f.label 'Message' %><br>
+    <%= f.text_area :body, class: 'chatform form-control', required: true %>
+  </div><br>
+  <div class="actions" style='display:none;'>
+    <%= f.submit %>
+  </div>
+<% end %>

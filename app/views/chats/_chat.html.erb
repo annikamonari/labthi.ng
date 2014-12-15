@@ -1,0 +1,8 @@
+<li class="media chat" data-id="<%= chat.id %>">
+  <%= link_to (image_tag chat.user.profile.photo.thumb, size: '50x50', class: 'media-object'), profile_path(chat.user.profile), class: 'pull-left' %>
+  <div class="media-body">
+    <h4 class="media-heading"><%= render chat.user %> says
+      <small class="text-muted">[at <%= chat.created_at.strftime('%-d %B %Y, %H:%M:%S') %>]</small></h4>
+    <p><%= simple_format chat.body %></p>
+  </div>
+</li>

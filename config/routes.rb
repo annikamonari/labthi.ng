@@ -67,6 +67,9 @@ StartIt::Application.routes.draw do
   post "/ideas/:idea_id/overview/team_build/:post_id/close_proposal", to: 'posts#close_proposal', as: 'close_proposal'
   post "/ideas/:idea_id/overview/team_build/:post_id/apply", to: 'team_applications#create', as: 'create_team_application'
   get "/ideas/:idea_id/overview/team_build/proposals/:post_id/", to: 'posts#show', as: 'post'
+  get '/ideas/:idea_id/:kind/:kind_id/new_chat', to: 'chats#new', as: 'new_chat'
+  post '/ideas/:idea_id/:kind/:kind_id/create_chat', to: 'chats#create', as: 'create_chat'
+  get '/ideas/:idea_id/:kind/:kind_id/chats', to: 'chats#index', as: 'chats'
 
   get "/ideas/:idea_id/build/components", to: "idea_builds#components", as: 'idea_build_components'
   get '/ideas/:id/define', to: 'ideas#define'

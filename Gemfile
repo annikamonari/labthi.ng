@@ -118,6 +118,9 @@ end
   gem 'bcrypt-ruby', '~> 3.0.0'
 
   gem 'bootstrap-slider-rails'
+
+#instant chat
+gem 'faye-rails', '~> 2.0'
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -29,7 +29,8 @@ class User < ActiveRecord::Base
   has_many :team_memberships
   has_many :team_applications
   has_many :votes
-  
+  has_many :chats
+
   after_create :create_user_profile
 
   def name

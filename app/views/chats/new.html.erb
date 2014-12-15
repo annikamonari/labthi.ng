@@ -1,0 +1,13 @@
+<h1>New Chat</h1>
+
+
+<div class='chat-dialog-window' id='chatdialogwindow'>
+  <div id="chats" data-query='<%=@url%>'>
+    <div>
+      <ul class="media-list">
+        <%= render @chats %>
+      </ul>
+    </div>
+  </div>
+  <div class='chat-footer'><%= render 'form' %></div>
+</div>

@@ -10,10 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootsy
+//= require faye
+//= require chats
 //= require turbolinks
 //= require twitter/bootstrap
 //= require_tree .
@@ -22,6 +25,7 @@
 //= require solutions
 //= require questions
 //= require answers
+
 
 
 $(document).on('page:fetch', function(){
@@ -78,4 +82,22 @@ $(document).ready(function () {
         'container': "body",
     html: true
   });
+});
+
+
+$(document).ready(function () { 
+  $(' .chatform.form-control').keypress( function( e ) {
+    if( e.keyCode == 13 && !e.shiftKey) { 
+      $(this).closest('form').trigger('submit'); 
+      $(this).val().replace("\n", "<br />", "g")
+      return false;
+    }
+    else if (e.keyCode == 13 && e.shiftKey) {
+      $(this).val( $(this).val() + "\n" );
+    }
+  });
+});
+
+$(window).load(function() {
+  $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 10);
 });
