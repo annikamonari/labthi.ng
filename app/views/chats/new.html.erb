@@ -5,7 +5,7 @@
   <div class='row no-gutter' style='padding-right:30px;margin-left:10px;'>
     <h3 style='margin-top:-1px;'><%= get_chat_title(@chats) %></h3>
       <i>Tag team members in messages in the following format: 
-      <% @users.each do |user| %>
+      <% get_team_members(@idea_build).each do |user| %>
         <%= render partial: 'users/mention', locals: { user: user } %></i>
       <% end %>
     <br><br>
@@ -25,10 +25,10 @@
 <% else %>
   <%= render 'parts/secondary_nav' %><br><br>
 
-  <div class='col-md-10'><br><h4 class='partname' style='margin-left:100px;'>Discussion</h4></div>
+  <div class='col-md-10'><br><h4 class='partname' style='margin-left:100px;'><%= get_chat_title(@chats) %></h4></div>
   <div class='col-md-10 partname' style='margin-left:100px;width:78%;'>
         <i>Tag team members in messages in the following format: 
-        <% @users.each do |user| %>
+        <% get_team_members(@idea_build).each do |user| %>
           <%= render partial: 'users/mention', locals: { user: user } %></i>
         <% end %>
       <br><br>
@@ -44,3 +44,8 @@
       </div>
   </div>
 <% end %>
+
+<script> 
+  data = <%= raw @users.to_json %>; 
+  $(' .chatform.form-control').atwho({at:"@", 'data':data}); 
+</script>

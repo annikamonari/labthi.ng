@@ -11,7 +11,7 @@ class ChatsController < ApplicationController
     @url = request.fullpath.sub('discussion', 'chats')
     @chat = Chat.new
     @chats = Chat.where(kind: params[:kind], kind_id: params[:kind_id]).order('created_at DESC').includes(:user).last(100).reverse
-    @users = TeamMembership.where(idea_build_id: @idea_build.id).map { |tm| tm.user }
+    @users = TeamMembership.where(idea_build_id: @idea_build.id).includes(:user).map { |tm| [tm.user.mention_name.sub('@', '')] }
 
     if params[:kind] == 'part'
       @part = Part.find(params[:kind_id])

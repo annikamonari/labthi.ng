@@ -121,6 +121,8 @@ end
 
 #instant chat
 gem 'faye-rails', '~> 2.0'
+gem 'jquery-atwho-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

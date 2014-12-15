@@ -200,7 +200,7 @@ class User < ActiveRecord::Base
   end
 
   def mention_name
-    '@' + self.name.gsub(' ', '').downcase
+    '@' + self.name.gsub(' ', '_').downcase
   end
 
   # Phase 3 ===================================================================

@@ -74,6 +74,24 @@ module ApplicationHelper
   def get_chat_kind(chats)
     chats.first.kind
   end
+
+  def get_team_members(idea_build)
+    TeamMembership.where(idea_build_id: idea_build.id).includes(:user).map { |tm| tm.user }
+  end
+
+  def mentions_to_link(message_body)
+    mentions = Array.new
+    message_body.scan(/@\S+\b/) { |user| mentions << user }
+    mentions.each do |m|
+      message_body.sub!(m, "<a href='/profiles/#{split_mention(m)}'>#{m}</a>")
+    end
+    message_body
+  end
+
+  def split_mention(mention)
+    username = mention.sub('@', '').split('_')
+    User.find_by(first_name: username[0].capitalize, last_name: username[1].capitalize).id
+  end
 end
 
 

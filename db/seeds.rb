@@ -107,7 +107,7 @@ admin_user_data = [
   { 
 		email: "alan.vey@gmail.com",
 		first_name: "Alan",
-		last_name: "vey",
+		last_name: "Vey",
 		password: "1234567890",
 		password_confirmation: "1234567890",
 		admin: true
