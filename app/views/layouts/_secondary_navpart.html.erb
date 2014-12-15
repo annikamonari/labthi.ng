@@ -1,4 +1,4 @@
-<% if current_page?(controller: 'parts', action: 'help_content') %>
+<% if current_page?(part_help_content_path(idea_id: @idea.id, id: @part.id)) %>
  <div class="secondary_nav col-md-10" style='margin-left:115px;'>
 <% else %>  
   <div class="secondary_nav col-md-10" style='margin-left:105px;'>

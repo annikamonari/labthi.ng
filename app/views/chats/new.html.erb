@@ -1,24 +1,46 @@
-<% if get_chat_kind(@chats) == 'idea_build' %>
+<% if params[:kind] == 'idea_build' %>
   <div class='col-md-12 no-gutter'>
     <%= render 'idea_builds/secondary_nav' %>
   </div>
-<% end %>
-<div class='row no-gutter' style='padding-right:30px;margin-left:10px;'>
-  <h3 style='margin-top:-1px;'>Idea Build General Discussion</h3>
-    <i>Tag team members in messages in the following format: 
-    <% @users.each do |user| %>
-      <%= render partial: 'users/mention', locals: { user: user } %></i>
-    <% end %>
-  <br><br>
-  <div class='chat-dialog-window profile-border' id='chatdialogwindow'>
-    <div id="chats" data-query='<%= @url %>'>
-      <div>
-        <ul class="media-list">
-          <%= render @chats %>
-        </ul>
-      </div>
-    </div><hr style='height:2px;border-width:2px;'>
-    <div class='chat-footer'><%= render 'form' %></div>
+  <div class='row no-gutter' style='padding-right:30px;margin-left:10px;'>
+    <h3 style='margin-top:-1px;'><%= get_chat_title(@chats) %></h3>
+      <i>Tag team members in messages in the following format: 
+      <% @users.each do |user| %>
+        <%= render partial: 'users/mention', locals: { user: user } %></i>
+      <% end %>
+    <br><br>
+    <div class='chat-dialog-window profile-border' id='chatdialogwindow'>
+      <div id="chats" data-query='<%= @url %>'>
+        <div>
+          <ul class="media-list">
+            <%= render @chats %>
+          </ul>
+        </div>
+      </div><hr style='height:2px;border-width:2px;'>
+      <div class='chat-footer'><%= render 'form' %></div>
+    </div>
+    <br><br>
   </div>
-  <br><br>
-</div>
+
+<% else %>
+  <%= render 'parts/secondary_nav' %><br><br>
+
+  <div class='col-md-10'><br><h4 class='partname' style='margin-left:100px;'>Discussion</h4></div>
+  <div class='col-md-10 partname' style='margin-left:100px;width:78%;'>
+        <i>Tag team members in messages in the following format: 
+        <% @users.each do |user| %>
+          <%= render partial: 'users/mention', locals: { user: user } %></i>
+        <% end %>
+      <br><br>
+      <div class='chat-dialog-window profile-border' id='chatdialogwindow'>
+        <div id="chats" data-query='<%= @url %>'>
+          <div>
+            <ul class="media-list">
+              <%= render @chats %>
+            </ul>
+          </div>
+        </div><hr style='height:2px;border-width:2px;'>
+        <div class='chat-footer'><%= render 'form' %></div>
+      </div>
+  </div>
+<% end %>

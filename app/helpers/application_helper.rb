@@ -63,10 +63,10 @@ module ApplicationHelper
   end
 
   def get_chat_title(chats)
-    if get_chat_kind(chats) == 'idea_build'
+    if params[:kind] == 'idea_build'
       'General Idea Build Discussion'
     else
-      part_name = Part.find(chats.first.kind_id).name 
+      part_name = Part.find(params[:kind_id]).name 
       "#{part_name} Discussion"
     end
   end

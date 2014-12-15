@@ -13,7 +13,8 @@ class ChatsController < ApplicationController
     @chats = Chat.where(kind: params[:kind], kind_id: params[:kind_id]).order('created_at DESC').includes(:user).last(100).reverse
     @users = TeamMembership.where(idea_build_id: @idea_build.id).map { |tm| tm.user }
 
-    if get_chats_kind(@chats) == 'part'
+    if params[:kind] == 'part'
+      @part = Part.find(params[:kind_id])
       render layout: 'sidebar_part'
     end
   end

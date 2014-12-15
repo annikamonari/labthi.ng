@@ -10,7 +10,7 @@
 <% end %>
 
 <% content_for :secondary_nav do %>
-  <% if current_page?(controller: 'parts', action: 'help_content') %>
+    <% if current_page?(part_help_content_path(idea_id: @idea.id, id: @part.id)) %>
       <div style='float:left; height:40px; margin-right:5px; display:none;' id='navhelp'>
         <a id="pop" 
             href="#" 
@@ -24,23 +24,20 @@
       </div>
     <% end %>
   <div class="secondary-nav">
-    <%= link_to "Help Content", {
-      controller: "parts",
-      action: "help_content" },
-      class: 'btn btn-default ' + active_when(:controller => 'parts', :action => 'help_content')
+    <%= link_to "Help Content", part_help_content_path(idea_id: @idea.id, id: @part.id), 
+      class: 'btn btn-default ' + active_when(part_help_content_path(idea_id: @idea.id, id: @part.id))
     %>
-    <%= link_to "Edit", {
-      controller: "parts",
-      action: "edit" },
-      class: 'btn btn-default ' + active_when(:controller => 'parts', :action => 'edit')
+    <%= link_to "Edit", edit_part_path(idea_id: @idea.id, id: @part.id), 
+      class: 'btn btn-default ' + active_when(edit_part_path(idea_id: @idea.id, id: @part.id))
     %>
     <% if @part.status == 'In Review' or current_user.admin %>
-      <%= link_to "Tasks", {
-        controller: "parts",
-        action: "admin_tasks" },
-        class: 'btn btn-default ' + active_when(:controller => 'parts', :action => 'admin_tasks')
+      <%= link_to "Tasks", part_admin_tasks_path(idea_id: @idea.id, id: @part.id), 
+      class: 'btn btn-default ' + active_when(part_admin_tasks_path(idea_id: @idea.id, id: @part.id))
       %>
     <% end %>
+    <%= link_to "Discussion", new_chat_path(idea_id: @idea.id, kind: 'part', kind_id: @part.id), 
+      class: 'btn btn-default text ' + active_when(new_chat_path(idea_id: @idea.id, kind: 'part', kind_id: @part.id))
+    %>
   </div>
 <% end %>
 
@@ -49,7 +46,7 @@
     <br>Can't manage? Unhappy?
     <%= button_to "Unstart", unstart_part_path, class: 'btn btn-danger', method: 'PUT' %>
   <% end %><br>
-  <% if current_page?(controller: 'parts', action: 'admin_tasks') %>
+  <% if current_page?(part_admin_tasks_path(idea_id: @idea.id, id: @part.id)) %>
     <p style='margin-left:225px;'>
   <% else %>
     <p style='margin-left:105px;'>
