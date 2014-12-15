@@ -98,6 +98,6 @@ $(document).ready(function () {
   });
 });
 
-$(window).load(function() {
+$(document).ready(function() {
   $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 10);
 });

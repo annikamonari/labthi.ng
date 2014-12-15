@@ -15,10 +15,8 @@
       action: "overview" },
       class: 'btn btn-default text ' + active_when(:controller => 'idea_builds', :action => 'overview')
     %>
-    <%= link_to "Discussion", {
-      controller: "idea_builds",
-      action: "discussion" },
-      class: 'btn btn-default text ' + active_when(:controller => 'idea_builds', :action => 'discussion')
+    <%= link_to "Discussion", new_chat_path(idea_id: @idea.id, kind: 'idea_build', kind_id: @idea_build.id), 
+      class: 'btn btn-default text ' + active_when(new_chat_path(idea_id: @idea.id, kind: 'idea_build', kind_id: @idea_build.id))
     %>
   </div>
 </div>

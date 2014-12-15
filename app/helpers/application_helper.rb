@@ -61,6 +61,19 @@ module ApplicationHelper
   def get_team_votes(object)
     Vote.where(kind: object.class.name, kind_id: object.id).includes(:user).map { |vote| vote.user }
   end
+
+  def get_chat_title(chats)
+    if get_chat_kind(chats) == 'idea_build'
+      'General Idea Build Discussion'
+    else
+      part_name = Part.find(chats.first.kind_id).name 
+      "#{part_name} Discussion"
+    end
+  end
+
+  def get_chat_kind(chats)
+    chats.first.kind
+  end
 end
 
 

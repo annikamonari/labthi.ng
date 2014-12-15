@@ -1,13 +1,21 @@
 class ChatsController < ApplicationController
+  before_action :set_idea
+  before_action :set_idea_build
+  #TODO: add security for only team members
 
   def index
     @chats = Chat.where(kind: params[:kind], kind_id: params[:kind_id]).where('id > ?', params[:after_id].to_i).order('created_at DESC').includes(:user).reverse
   end
 
   def new
-    @url = request.fullpath.sub('new_chat', 'chats')
+    @url = request.fullpath.sub('discussion', 'chats')
     @chat = Chat.new
-    @chats = Chat.where(kind: params[:kind], kind_id: params[:kind_id]).order('created_at DESC').includes(:user).reverse
+    @chats = Chat.where(kind: params[:kind], kind_id: params[:kind_id]).order('created_at DESC').includes(:user).last(100).reverse
+    @users = TeamMembership.where(idea_build_id: @idea_build.id).map { |tm| tm.user }
+
+    if get_chats_kind(@chats) == 'part'
+      render layout: 'sidebar_part'
+    end
   end
 
   def create
@@ -31,6 +39,18 @@ class ChatsController < ApplicationController
 
     def chat_params
       params.require(:chat).permit(:body)
+    end
+
+    def set_idea
+      @idea = Idea.find(params[:idea_id])
+    end
+
+    def set_idea_build
+      @idea_build = @idea.idea_build
+    end
+
+    def get_chats_kind(chats)
+      chats.first.kind
     end
 end
 

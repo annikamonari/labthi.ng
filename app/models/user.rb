@@ -199,6 +199,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def mention_name
+    '@' + self.name.gsub(' ', '').downcase
+  end
+
   # Phase 3 ===================================================================
   def buy_phase_vote?(idea)
     BuyPhaseVote.where(idea_id: idea.id, user_id: self.id).count == 1

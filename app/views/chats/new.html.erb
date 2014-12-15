@@ -1,13 +1,24 @@
-<h1>New Chat</h1>
-
-
-<div class='chat-dialog-window' id='chatdialogwindow'>
-  <div id="chats" data-query='<%=@url%>'>
-    <div>
-      <ul class="media-list">
-        <%= render @chats %>
-      </ul>
-    </div>
+<% if get_chat_kind(@chats) == 'idea_build' %>
+  <div class='col-md-12 no-gutter'>
+    <%= render 'idea_builds/secondary_nav' %>
   </div>
-  <div class='chat-footer'><%= render 'form' %></div>
+<% end %>
+<div class='row no-gutter' style='padding-right:30px;margin-left:10px;'>
+  <h3 style='margin-top:-1px;'>Idea Build General Discussion</h3>
+    <i>Tag team members in messages in the following format: 
+    <% @users.each do |user| %>
+      <%= render partial: 'users/mention', locals: { user: user } %></i>
+    <% end %>
+  <br><br>
+  <div class='chat-dialog-window profile-border' id='chatdialogwindow'>
+    <div id="chats" data-query='<%= @url %>'>
+      <div>
+        <ul class="media-list">
+          <%= render @chats %>
+        </ul>
+      </div>
+    </div><hr style='height:2px;border-width:2px;'>
+    <div class='chat-footer'><%= render 'form' %></div>
+  </div>
+  <br><br>
 </div>
