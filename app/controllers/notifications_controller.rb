@@ -21,7 +21,7 @@ class NotificationsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to request.referrer, notice: 'Notification has been deleted.' }
-      format.js { render template: 'notifications/delete' }
+      format.js { }
     end
   end
 

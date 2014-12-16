@@ -23,11 +23,15 @@
         <% if comment.comments.count > 0 %>
     	  	<%= render vote_order(comment.comments.includes(:user)) %>
         <% end %>
+        <div class='white-bg comment-form' style='display:none;'>
+          <%= render partial: 'comments/form', locals: { url: create_comment_path(commentable_id: comment.id, commentable_type: 'Comment', idea_id: @idea.id) } %><br>
+          <%= link_to 'Cancel', 'javascript:void(0);', class: 'cancel-comment-comment' %>
+        </div>
       </ul>           
         <% if (@idea and @idea.phase != 1) %>
           <p class="link-dis"> Reply to comment </p>
         <% else %>
-          <%= link_to "Reply to comment", new_comment_comment_path(comment), id: "comment-#{comment.id}", remote: true %>
+          <%= link_to "Reply to comment", 'javascript:void(0);', class: "reply-comment" %>
         <% end %>
     <% end %>
   </div>

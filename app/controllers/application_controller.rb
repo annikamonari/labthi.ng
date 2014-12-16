@@ -49,4 +49,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def load_commentable
+    resource, id = request.path.split('/')[1, 2]
+    @commentable = resource.singularize.classify.constantize.find_by_id(id)
+    @commentable = commentable_from_params unless @commentable
+  end
+
+  def commentable_from_params
+    commentable_type = params[:commentable_type]
+    id = params[:commentable_id]
+    @commentable = commentable_type.singularize.classify.constantize.find_by_id(id) unless commentable_type == nil
+  end
+
 end

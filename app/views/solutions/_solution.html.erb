@@ -29,15 +29,19 @@
     <div class="media-body solutioncomments">
       <ul class="media-list comments solution-comments">
         <% if solution.comments.count > 0 %>
-            <%= render vote_order(solution.comments.includes(:user)) %>
-        <% end%>
+          <%= render vote_order(solution.comments.includes(:user)) %>
+        <% end %>
+        <div class='content-bg comment-form' style='display:none;'>
+          <%= render partial: 'comments/form', locals: { url: create_comment_path(commentable_id: solution.id, commentable_type: 'Solution', idea_id: solution.idea.id) } %><br>
+          <%= link_to 'Cancel', 'javascript:void(0);', class: 'cancel-answer-comment' %>
+        </div>
       </ul>
     
       <% if (@idea and @idea.phase != 1) %>
         <p class="link-dis"> Add comment </p>
       <% else %>
         <p>
-          <%= link_to "Add comment", new_solution_comment_path(solution), id: "solution-#{solution.id}", remote: true %>
+          <%= link_to "Add comment", 'javascript:void(0);', class: "add-answer-comment" %>
         </p>    
       <% end %>
     </div>

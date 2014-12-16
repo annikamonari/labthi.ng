@@ -21,6 +21,7 @@ class Comment < ActiveRecord::Base
   private
     def create_notification
       parent = self.commentable_type.singularize.classify.constantize.find(self.commentable_id)
-      Notification.create(parent, self.id, a.commentable_type.downcase + '_comment')
+      Notification.create(parent, self.id, self.commentable_type.downcase + '_comment')
     end
 end
+

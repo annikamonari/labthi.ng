@@ -13,28 +13,22 @@ StartIt::Application.routes.draw do
   
   get "evaluations/show"
   #resources :evaluations
-  resources :comments, except: [:index] do
-    resources :comments
-  end
-  resources :questions, except: [:index, :create, :update] do
-    resources :comments
-  end
+
+  resources :questions, except: [:index, :create, :update]
+
   get '/ideas/:id/questions/new', to: 'ideas#new_question', as: 'idea_new_question'
   get '/ideas/:id/questions/:question_id', to: 'ideas#edit_question', as: 'idea_edit_question'
   post '/ideas/:id/questions/', to: 'questions#create', as: 'create_question'
   patch '/ideas/:id/questions/:question_id', to: 'questions#update', as: 'update_question'
   post '/ideas/:id/questions/:question_id', to: 'answers#create', as: 'create_answer'
-  resources :answers, except: [:index, :create] do                     
-    resources :comments
-  end
+  post "/ideas/:idea_id/:commentable_type/:commentable_id", to: 'comments#create', as: 'create_comment'
+  resources :answers, except: [:index, :create]
 
   get '/ideas/:idea_id/aspects/:id', to: 'aspects#show', as: 'idea_aspect'
   resources :aspects, except: [:index] do
     resources :solutions
   end
-  resources :solutions, except: [:index, :edit, :update] do
-    resources :comments
-  end
+  resources :solutions, except: [:index, :edit, :update]
 
 
   get '/profiles/:id/skills', to: 'profiles#skills'

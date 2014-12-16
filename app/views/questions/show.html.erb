@@ -53,13 +53,17 @@
           <%= render vote_order(@question.comments.includes(:user)) %>
         <% else %>
           <div class='no comments'>
-            <div class='content-bg'>No comments</div>
+            <div class='content-bg'>There are no comments yet. Be the first to add one!</div>
           </div>
         <% end %>
+        <div class='content-bg comment-form' style='display:none;'>
+          <%= render partial: 'comments/form', locals: { url: create_comment_path(commentable_id: @question.id, commentable_type: 'Question', idea_id: @question.idea.id) } %><br>
+          <%= link_to 'Cancel', 'javascript:void(0);', class: 'cancel-question-comment' %>
+        </div>
         </ul>
       <% if @question.idea.is_phase_1? %>
         <p>
-          <%= link_to "Add comment", new_question_comment_path(@question), id: "question-#{@question.id}", remote: true %>
+          <%= link_to "Add comment", 'javascript:void(0);', class: "add-question-comment" %>
         </p>
       <% else %>
         <p class="link-dis"> Add comment </p>

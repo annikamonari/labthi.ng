@@ -60,3 +60,17 @@ $(document).ready(function () {
     });
     
 });
+
+$(document).ready(function() {
+  $("a.add-question-comment").click(function() {
+    $(this).parent().siblings('ul').children('div.content-bg.comment-form').show();
+    $(this).hide();
+  });
+});
+
+$(document).ready(function() {
+  $("a.cancel-question-comment").click(function() {
+    $(this).parent().hide();
+    $(this).parent().parent().siblings('p').children($(' .add-question-comment')).show();
+  });
+});

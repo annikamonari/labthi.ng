@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   include ActionView::Helpers::DateHelper
+  before_action :load_commentable
   before_action :set_question, only: [:show, :destroy]
   before_action :set_vote_value, only: [:vote]
   before_action :correct_user, only: [:update]
@@ -11,6 +12,7 @@ class QuestionsController < ApplicationController
     @answers = @question.answers.includes(:user)
     @time    = time_ago_in_words(@question.created_at)
     @answer  = Answer.new
+    @comment = @commentable.comments.new
     
     render layout: 'sidebar_left'
   end

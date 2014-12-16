@@ -31,3 +31,17 @@ $(document).ready(function() {
     $('#answers').toggle();
   });  
 });
+
+$(document).ready(function() {
+  $("a.add-answer-comment").click(function() {
+    $(this).parent().siblings('ul').children('div.content-bg.comment-form').show();
+    $(this).hide();
+  });
+});
+
+$(document).ready(function() {
+  $("a.cancel-answer-comment").click(function() {
+    $(this).parent().hide();
+    $(this).parent().parent().siblings('p').children($(' .add-answer-comment')).show();
+  });
+});
