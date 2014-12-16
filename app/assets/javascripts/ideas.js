@@ -113,7 +113,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () { 
-  $('[data-toggle="popover"]').popover(options);
+  $('selector').popover(options);
 });
 
 var options = {

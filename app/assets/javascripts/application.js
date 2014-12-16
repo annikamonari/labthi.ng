@@ -68,11 +68,20 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () { 
-  $('[data-toggle="popover"]').popover({
+  $('selector').popover({
     trigger: 'hover',
         'placement': 'bottom',
         'container': "body",
     html: true
+  });
+});
+
+$(document).ready(function () { 
+  $(".glyphicon.glyphicon-flag.notifications").popover({ 
+    trigger: 'click',
+      'container': "body",
+      'placement': "bottom",
+    html: true}).on("show.bs.popover", function(){ $(this).data("bs.popover").tip().css("max-width", "300px"); 
   });
 });
 
@@ -96,6 +105,18 @@ $(document).ready(function () {
     else if (e.keyCode == 13 && e.shiftKey) {
       $(this).val( $(this).val() + "\n" );
     }
+  });
+});
+
+$(document).ready(function () { 
+  $('body').on('click', function (e) {
+      $('[data-toggle="popover"]').each(function () {
+          //the 'is' for buttons that trigger popups
+          //the 'has' for icons within a button that triggers a popup
+          if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+              $(this).popover('hide');
+          }
+      });
   });
 });
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214182429) do
+ActiveRecord::Schema.define(version: 20141215191411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -194,6 +194,16 @@ ActiveRecord::Schema.define(version: 20141214182429) do
   add_index "lab_evaluations", ["content_creator_id"], name: "index_lab_evaluations_on_content_creator_id", using: :btree
   add_index "lab_evaluations", ["content_id", "content_type"], name: "index_lab_evaluations_on_content_id_and_content_type", using: :btree
   add_index "lab_evaluations", ["evaluator_id"], name: "index_lab_evaluations_on_evaluator_id", using: :btree
+
+  create_table "notifications", force: true do |t|
+    t.string   "kind"
+    t.integer  "kind_id"
+    t.integer  "user_id"
+    t.boolean  "read"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "kind_2_id"
+  end
 
   create_table "part_uploads", force: true do |t|
     t.integer  "part_id"

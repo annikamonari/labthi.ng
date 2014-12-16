@@ -1,4 +1,4 @@
-<%= form_for(@answer) do |f| %>
+<%= form_for @answer, url: url do |f| %>
   <% if @answer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
@@ -14,10 +14,6 @@
   <div class="field form-group">
     <%= f.label :brief %><br>
     <%= f.text_area :brief, class: "form-control" %>
-
-    <% if user_signed_in? %>
-    <%= hidden_field_tag :question_id, params[:question_id] %>
-    <% end %>
   </div>
   <div class="actions">
     <%= f.submit 'Create Answer', :class => "btn btn-primary" %>

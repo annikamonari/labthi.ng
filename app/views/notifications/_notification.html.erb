@@ -1,0 +1,9 @@
+<li class='notification' id='notification-<%= notification.id %>'>
+  <% child_kind  = notification.child_kind %>
+  <% parent_kind = notification.parent_kind %>
+  <p>
+  <%= link_to "", notification_path(notification.id), method: :delete, class: "glyphicon glyphicon-remove black", remote: true %> 
+  <%= render notification.get_child_user(child_kind) %> <%= notification.get_child_action(child_kind) %> <%= link_to child_kind, eval(get_child_path(notification, child_kind, parent_kind)) %> <%= notification.get_parent_action(child_kind, parent_kind) %>
+  </p>
+  <hr>
+</li>

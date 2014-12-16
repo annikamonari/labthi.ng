@@ -18,4 +18,17 @@ class Post < ActiveRecord::Base
   def get_comments
     TaskComment.where(kind: 'Post', kind_id: self.id)
   end
+
+  private
+    def create_notification
+      notification_kind = nil
+      if self.kind == 'news'
+        notification_kind = 'ideabuild_post'
+      else
+        notification_kind = 'ideabuild_proposal'
+      end
+      TeamMembership.where(idea_build_id: self.idea_build_id).pluck(:user_id).each do |user_id|
+        Notification.create(IdeaBuild.find(self.idea_build_id), self.id, notification_kind, user_id)
+      end
+    end
 end

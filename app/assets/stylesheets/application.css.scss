@@ -54,6 +54,8 @@ $navbar-default-link-active-color: black;
 
 .settings {
   float:right;
+  margin-right:10px;
+  margin-left:10px;
 }
 
 /* Badge */
@@ -354,4 +356,8 @@ li.followed-idea .idea-render{
 .popover {
   max-width:none;
   width:400px;
+}
+
+.black  {
+  color: #333333;
 }

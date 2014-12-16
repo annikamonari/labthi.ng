@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
   has_many :team_applications
   has_many :votes
   has_many :chats
+  has_many :notifications
 
   after_create :create_user_profile
 

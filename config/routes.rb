@@ -1,6 +1,7 @@
 StartIt::Application.routes.draw do
 
   resources :votes
+  resources :notifications, only: [:index, :destroy]
 
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   #match "/evaluations/vote", via:[:post], as: "vote"
@@ -22,7 +23,8 @@ StartIt::Application.routes.draw do
   get '/ideas/:id/questions/:question_id', to: 'ideas#edit_question', as: 'idea_edit_question'
   post '/ideas/:id/questions/', to: 'questions#create', as: 'create_question'
   patch '/ideas/:id/questions/:question_id', to: 'questions#update', as: 'update_question'
-  resources :answers, except: [:index] do                     
+  post '/ideas/:id/questions/:question_id', to: 'answers#create', as: 'create_answer'
+  resources :answers, except: [:index, :create] do                     
     resources :comments
   end
 

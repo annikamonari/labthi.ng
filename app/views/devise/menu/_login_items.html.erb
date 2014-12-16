@@ -16,10 +16,14 @@
     <% end %>
   </li>
   <li>
-    <%= link_to '', edit_user_registration_path(current_user), title: 'Edit your account settings.', rel: 'tooltip', id: 'tooltip', class: ' glyphicon glyphicon-wrench settings' %>
+    <%= link_to '', edit_user_registration_path(current_user), title: 'Edit your account settings', rel: 'tooltip', id: 'tooltip', class: ' glyphicon glyphicon-wrench settings' %>
     </a>
+  </li>
+  <li><%= link_to current_user.notifications.where(read: false).count.to_s, notifications_path, :class => "glyphicon glyphicon-flag notifications", :title => 'Notifications', "data-content" => "#{render partial: 'notifications/notifications', locals: { notifications: current_user.notifications } }" , rel: 'popover', 'data-toggle'=>"popover", id: 'notifications', remote: true %>
   </li>
   <li>
     <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
   </li>
+
 <% end %>
+
