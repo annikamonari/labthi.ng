@@ -16,12 +16,13 @@ class NotificationsController < ApplicationController
 
   def destroy
     @notification = Notification.find(params[:id])
-    @notification.destroy!
+    @notification.destroy
+    @notification.save
+    
     @notifications = current_user.notifications
-
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Notification has been deleted.' }
-      format.js { }
+      #format.html { redirect_to request.referrer, notice: 'Notification has been deleted.' }
+      format.js { render template: "notifications/destroy", :layout => false }
     end
   end
 

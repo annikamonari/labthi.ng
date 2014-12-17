@@ -1,1 +1,2 @@
+$('div#notifications-list').html($("<%= j render partial: 'notifications/notifications', locals: { notifications: @notifications } %>"))
 $('#notifications').text('<%= j @unread_count.to_s %>');

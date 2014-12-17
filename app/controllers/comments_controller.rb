@@ -2,6 +2,11 @@ class CommentsController < ApplicationController
   before_action :load_commentable
   before_action :set_vote_value, only: [:vote]
 
+  def show
+    @comment = Comment.find(params[:id])
+    redirect_to get_redirect_path(@comment)
+  end
+
   def create
     @commentable = eval(params[:commentable_type]).find(params[:commentable_id])
     @comment = @commentable.comments.new(comment_params)

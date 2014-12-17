@@ -14,6 +14,7 @@ StartIt::Application.routes.draw do
   get "evaluations/show"
   #resources :evaluations
 
+  resources :comments, only: [:show]
   resources :questions, except: [:index, :create, :update]
 
   get '/ideas/:id/questions/new', to: 'ideas#new_question', as: 'idea_new_question'

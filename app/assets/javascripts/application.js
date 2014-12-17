@@ -77,15 +77,6 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () { 
-  $(".glyphicon.glyphicon-flag.notifications").popover({ 
-    trigger: 'click',
-      'container': "body",
-      'placement': "bottom",
-    html: true}).on("show.bs.popover", function(){ $(this).data("bs.popover").tip().css("max-width", "300px"); 
-  });
-});
-
-$(document).ready(function () { 
   $('#tooltip').tooltip({
     trigger: 'hover',
         'placement': 'bottom',
@@ -122,4 +113,13 @@ $(document).ready(function () {
 
 $(document).ready(function() {
   $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 10);
+});
+
+$(document).ready(function() {
+  $("a#notifications").popover({ 
+    trigger: 'click',
+      'container': "body",
+      'placement': "bottom",
+    html: true}).on("show.bs.popover", function(){ $(this).data("bs.popover").tip().css("max-width", "300px"); 
+  });
 });

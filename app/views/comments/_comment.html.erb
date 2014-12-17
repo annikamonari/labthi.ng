@@ -5,10 +5,15 @@
 	
   <div class="media-body">
     <div class="media-item-body">
-      <strong>
-        <%= render comment.user %>
-      </strong>     
-      <br />
+      <div class='userwrap'>
+        <div class='photo'>
+          <%= link_to (image_tag comment.user.profile.photo.thumb, :size => "36x36"), profile_path(comment.user.profile)%>
+        </div>
+        <div class='username'>
+          <%= render comment.user %><br>
+          <small><i> Posted <%= time_ago_in_words(comment.created_at) %> ago</i></small>
+        </div>
+      </div><br>
       <%= comment.brief %>
       <br>
       <div class='pull-right'>(<small><%= time_ago_in_words(comment.created_at) %> ago</small>)</div><br>

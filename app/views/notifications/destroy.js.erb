@@ -1,5 +1,1 @@
-$('li#notification-<%= j @notification.id.to_s %>').remove();
-if ($('ul.notifications.media-list').children().length == 0) {
-  $('ul.notifications.media-list').append($("<li id='nonotifications'><i>You have no new notifications.</i></li"));
-}
-window.location.reload()
+$('div#notifications-list').html($("<%= j render partial: 'notifications/notifications', locals: { notifications: @notifications } %>"))
