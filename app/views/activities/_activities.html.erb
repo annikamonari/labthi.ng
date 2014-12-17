@@ -3,7 +3,7 @@
     <li class="white-bg">
       <div class="media">
         <%= link_to activity.owner.profile, class: "pull-left" do %>
-          <%= image_tag(activity.owner.profile.photo.thumb, size: '40x40', class:'media-object') %>
+          <%= image_tag(activity.owner.profile.photo.thumb, size: '40x40', class:'media-object img-rounded') %>
         <% end %>
         <div class="pull-left">
           <%= render 'users/user', user: activity.owner %><br>
@@ -11,7 +11,7 @@
         </div>
       </div>
       <% unless activities.index(activity) == (activities.length - 1) %>
-        <hr style='height:2px;border-width:2px;'>
+        <hr style='height:2px;border-width:2px;margin-bottom:-10px;'>
         <% end %>
     </li>
   <% end %>

@@ -85,7 +85,11 @@ class Notification < ActiveRecord::Base
   end
 
   def child_kind
-    self.kind[/_\S+/].sub('_', '')
+    if self.kind == 'idea_build_chat'
+      'chat'
+    else
+      self.kind[/_\S+/].sub('_', '')
+    end
   end
 
   def parent_kind

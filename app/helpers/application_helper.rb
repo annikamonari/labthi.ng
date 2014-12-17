@@ -96,8 +96,8 @@ module ApplicationHelper
   def get_child_path(notification, child_kind, parent_kind)
     case child_kind
     when 'comment'
-      parent = Comment.find(notification.kind_id)
       if parent_kind == 'comment'
+        parent = Comment.find(notification.kind_id)
         if parent.commentable_type == 'Solution'
           "#{aspect_path(Solution.find(parent.commentable_id).aspect)}"
         elsif parent.commentable_type == 'Answer'

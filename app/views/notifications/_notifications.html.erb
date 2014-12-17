@@ -1,10 +1,12 @@
-<div id='notifications-list'>  
-  <% if notifications.blank? %>
-    <p class='blanknotifications'><i>You have no new notifications.</i></p>
-  <% else %>
-    <br>
-    <ul class='notifications media-list'>
-      <%= render partial: "notifications/notification", collection: notifications %> 
-    </ul>
-  <% end %>
+<div class='notifications-window'>
+  <div id='notifications-list'>  
+    <% if notifications.blank? %>
+      <p class='blanknotifications'><i>You have no new notifications.</i></p>
+    <% else %>
+      <br>
+      <ul class='notifications media-list'>
+        <%= render partial: "notifications/notification", collection: notifications %> 
+      </ul>
+    <% end %>
+  </div>
 </div>
