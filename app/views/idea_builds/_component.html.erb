@@ -18,7 +18,7 @@
           <a id="popimg" 
               href="#" 
               data-toggle="popover" 
-              data-content="The prototype component is the only component that requires a specific skill: programming. Since this part's content submission is purely code, if you do not know how to programme you should not start it.<br><br>When you click <b>start</b> you are added to a private BitBucket repository on our Labthi.ng account. Using Git as your version control, you should continually push your content to this repository. If you would like to work with others on the code, you can enter their emails on the <b>prototype edit page</b> and they will be automatically added to the repository. If for whatever reason you no longer want them to contribute, you can also remove them from this page.">
+              data-content="The prototype component is the only component that requires a specific skill: programming. Since this part's content submission is purely code, if you do not know how to program you should not start it.<br><br>When you click <b>start</b> you are added to a private BitBucket repository on our Labthi.ng account. Using Git as your version control, you should continually push your content to this repository. If you would like to work with others on the code, you can enter their emails on the <b>prototype edit page</b> and they will be automatically added to the repository. If for whatever reason you no longer want them to contribute, you can also remove them from this page.">
             <%= image_tag 'labthinghelp.png', size: '36x36', id: 'helpbuy' %>
             <span id='closebuy' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
               <b>x</b>
@@ -29,10 +29,6 @@
       <div style='float:left;'>
         <% if part.display_link?(current_user)%>
           <%= link_to part.name, part_help_content_path(id: part) %>
-        <% else %>
-          <h0 class='link-dis'>
-            <%= part.name %>
-          </h0>
         <% end %>
 
         <br>   
@@ -43,6 +39,7 @@
       </div>
       <br>
     </div>
+
     <div class='col-md-4'>
       <div class='partstyle pull-right'>
         <div class='left'>
