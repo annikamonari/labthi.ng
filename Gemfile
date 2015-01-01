@@ -131,3 +131,4 @@ gem 'jquery-atwho-rails'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
