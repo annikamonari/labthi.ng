@@ -7,7 +7,7 @@ ActiveAdmin.setup do |config|
   #
   config.site_title = "Start It"
 
-  config.allow_comments = false
+  config.comments = false
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
