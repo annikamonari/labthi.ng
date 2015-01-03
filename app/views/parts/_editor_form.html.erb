@@ -14,10 +14,10 @@
 
     <div class="field">
       <%= f.bootsy_area :value, class: "form-control", :rows => 20, 
-          readonly: @part.restrict_access_to_editor?(current_user)%>
+          readonly: @part.restrict_edit_privilege?(current_user)%>
     </div><br>
     
-    <%if not @part.restrict_access_to_editor?(current_user)%>
+    <%unless @part.restrict_edit_privilege?(current_user)%>
       <div class="actions">
         <%= f.submit 'Save part', :class => "btn btn-primary"%>
       </div>

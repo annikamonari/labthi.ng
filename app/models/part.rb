@@ -49,24 +49,19 @@ class Part < ActiveRecord::Base
 
   # Used for idea_build overview views
   def display_link?(user)
-    show_link?(user) or restrict_access_to_editor?(user) or 
-    restrict_access_to_design?(user) or users_work_is_reviewd?(user)
+    TeamMembership.where(idea_build_id: self.idea_build.id).any? {|tm| tm.user_id == user.id}
   end
 
-  def restrict_access_to_editor?(user)
-    restricted_access_to_plan?(user) or restricted_access_to_business_plan?(user)
-  end
-
-  def restrict_access_to_design?(user)
-    restricted_access_to_mockups?(user) or restricted_access_to_protype?(user)
+  def restrict_edit_privilege?(user)
+    not user_is_owner?(user)
   end
 
   def locked_or_disabled?(user)
-    locked? or disabled?(user)
+    disabled?(user) or locked? 
   end
 
   def display_button?(user)
-    self.status != 'Accepted' and (self.status == 'Unstarted' or show_link?(user))
+    self.status != 'Accepted' and (self.status == 'Unstarted' or user_is_owner?(user))
   end
 
   def disabled_status
@@ -112,71 +107,17 @@ class Part < ActiveRecord::Base
 
   private
 
-    def restricted_access_to_mockups?(user)
-      if is_design?
-        mockup = idea_build.design_component.parts.find_by(name: 'Mockups')
-        user == mockup.user and mockup.status == 'Started' and 
-        self.name != 'Mockups' and self.status == 'Accepted'
-      end
-    end
-
-    def restricted_access_to_protype?(user)
-      if is_prototype? or is_design?
-        prototype = idea_build.prototype_component.parts.find_by(name: 'Prototype')
-        user == prototype.user and prototype.status == 'Started' and 
-        self.name != 'Prototype' and self.status == 'Accepted'
-      end
-    end
-
-    def restricted_access_to_plan?(user)
-      is_plan? and !(self.status == 'Started' and self.user == user) and
-      (idea_build.business_plan_component.parts.any? { |p| p.user == user } or 
-       idea_build.prototype_component.parts.any?     { |p| p.user == user } or
-       idea_build.design_component.parts.any?        { |p| p.user == user } )
-    end
-
-    def restricted_access_to_business_plan?(user)
-      if is_business_plan?
-        exec_sum = idea_build.business_plan_component.parts.find_by(name: 'Executive Summary')
-        user == exec_sum.user and exec_sum.status == 'Started' and self.name != 'Executive Summary'
-      end
-    end
-
-    def plan_done?
-      idea_build.plan_component.parts[0].status != 'Accepted' and (not is_plan?)
-    end
-
-    def business_plan_parts_done?
-      self.name == 'Executive Summary' and 
-      (idea_build.business_plan_component.parts.any? do |p| 
-        p.name != 'Executive Summary' and p.status != 'Accepted' 
-      end)
-    end
-
-    def schema_done?
-      self.name == 'Prototype' and 
-      idea_build.prototype_component.parts.find_by(name: 'Flowchart and Schema').status != 'Accepted'
-    end
-
-    def wireframes_done?
-      self.name == 'Mockups' and 
-      idea_build.design_component.parts.find_by(name: 'Wireframes').status != 'Accepted'
-    end
-
     def locked?
-      plan_done? or schema_done? or wireframes_done? or business_plan_parts_done?
+      self.status == 'Finished'
+      # Set up part depandancies here
     end
 
     def disabled?(user)
-      (!(['Unstarted', 'Accepted'].include?(self.status)) and !show_link?(user)) or working_on_another_part?(user)
+      (!(['Unstarted', 'Accepted'].include?(self.status)) and !user_is_owner?(user)) or working_on_another_part?(user)
     end
 
-    def show_link?(user)
-      (is_started? and self.user == user) or user.admin
-    end
-
-    def users_work_is_reviewd?(user)
-      user == self.user and self.status == 'In Review'
+    def user_is_owner?(user)
+      self.user == user
     end
 
     def working_on_another_part?(user)
@@ -185,27 +126,11 @@ class Part < ActiveRecord::Base
       part += idea_build.prototype_component.parts.where(user_id: user.id)
       part += idea_build.design_component.parts.where(user_id: user.id) 
 
-      if part.nil?
-        false
-      else
+      unless part.nil?
         part.any? { |p| p.status == 'Started' } and self.status != 'Started' 
       end
-    end
 
-    def create_example_task
-      AdminTask.create(title: 'This is an Example Administrator Task', description: "Here is an example of what a task we 
-                                                                              leave you will look like. It will have a 
-                                                                              title explaining what it is about, and a 
-                                                                              description that will tell you what lines 
-                                                                              need fixing or what paragraphs can be improved.
-                                                                              After you finish the part, we will start leaving tasks. When we 
-                                                                              change the part's status to In Review, you can start attempting the tasks. 
-                                                                              Press the start button when you begin your edits for this task. 
-                                                                              Press the finish button when your edit is complete, and we will 
-                                                                              review it. Obviously, this task is just to show tasks will look like, 
-                                                                              so there is no work for you to do.", 
-                                                                              part_id: self.id, admin_id: User.where(email: 'annikamonari@gmail.com').first.id,
-                                                                              status: 'Unstarted')
+      false
     end
 
     def default_brief
