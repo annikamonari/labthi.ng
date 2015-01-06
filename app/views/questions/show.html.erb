@@ -7,19 +7,20 @@
   <div class="show-question-wrapper clearfix">
     
     <%= render partial: "evaluations/vote_wrapper", locals: {voteable: @question} %>
-
     <p>
-      <div style='float:left; height:120px; margin-right:5px;'>
-        <a id="popquest" 
+    <% if @idea.phase == 1 %>
+      <div style='float:left; height:120px; margin-right:5px;' id='1-div'>
+        <a id="1-pop-link" 
             href="#" 
             data-toggle="popover" 
             data-content="Vote the question up or down depending on if you think it is a good addition to the discussion. Comment on it if there is something you would like to clarify, or if you have additional thoughts to add to the question.">
-          <%= image_tag 'labthinghelp.png', size: '36x36', id: 'questhelp' %>
-          <span id='closequest' class='pull-left' style='display:none; position:absolute; top:20px; margin-left:-5px; color:#34495E;'>
+          <%= image_tag 'labthinghelp.png', size: '36x36', id: '1-img' %>
+          <span id='1-close' class='pull-left' style='display:none; position:absolute; top:20px; margin-left:-5px; color:#34495E;'>
             <b>x</b>
           </span>
         </a>      
       </div>
+    <% end %>
       <h4><strong>
         <%= @question.title %>
       </strong></h4>
@@ -73,17 +74,19 @@
 </div>
 <br><br>
 <div class='welcome-block clearfix' style='margin-bottom:-5px;'>
-  <div style='float:left; margin-right:5px; display:none;' id='helpans'>
-    <a id="popans" 
+<% if @idea.phase == 1 %>
+  <div style='float:left; margin-right:5px; display:none;' id='2-div'>
+    <a id="2-pop-link" 
         href="#" 
         data-toggle="popover" 
         data-content="To add an answer, scroll to the bottom of the page and click <b>Add Answer</b>. Try to be as descriptive as possible and answer the question with the objective of developing and improving the idea conceptually. You can comment on others' answers for clarification purposes or if you have a contribution to it. You can also up and downvote answers based on how helpful they are. For more information, visit the <b>Documentation</b> page.">
-      <%= image_tag 'labthinghelp.png', size: '36x36', id: 'anshelp' %>
-      <span id='closeans' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
+      <%= image_tag 'labthinghelp.png', size: '36x36', id: '2-img' %>
+      <span id='2-close' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
         <b>x</b>
       </span>
     </a>      
   </div>
+<% end %>
   <a href='javascript:void(0);' id='showanswers' style='color:#333333;'><h4 class='pull-left'>Answers:</h4></a>
   <% if @question.idea.is_phase_1? %>
   <button href='javascript:void(0);' class='btn btn-info pull-right' align='center' id='newanswer'>

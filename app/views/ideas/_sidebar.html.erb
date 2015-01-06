@@ -8,13 +8,13 @@
   <div style="float:left;  width:150px; height: 120px;">&nbsp;</div>
   <div class='ideainfo'>
     <% if @idea.phase == 1 and current_page?("/ideas/#{@idea.id}") %>
-      <div style='height:40px; display:none;' id='archivehelp'>
-        <a id="popimg" 
+      <div style='height:40px; display:none;' id='3-div'>
+        <a id="3-pop-link" 
             href="#" 
             data-toggle="popover" 
             data-content="Think you have a better idea for an image that best describes the idea than what is displayed here? Click on the image and upload one of your choice, along with an explanation as to why that image is the best representation of the idea. <br><br>Also, if you like the idea and you want to encourage others to contribute, vote it up! If you think the idea is spam or of low quality, vote it down. Ideas on the <b>create</b>, <b>build</b> and <b>buy</b> pages will be listed by number of votes.">
-          <%= image_tag 'labthinghelp.png', size: '36x36', id: 'helparchive' %>
-          <span id='closearchive' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
+          <%= image_tag 'labthinghelp.png', size: '36x36', id: '3-img' %>
+          <span id='3-close' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
             <b>x</b>
           </span>
         </a>      

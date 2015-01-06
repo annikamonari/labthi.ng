@@ -26,7 +26,7 @@ StartIt::Application.routes.draw do
   resources :answers, except: [:index, :create]
 
   get '/ideas/:idea_id/aspects/:id', to: 'aspects#show', as: 'idea_aspect'
-  resources :aspects, except: [:index] do
+  resources :aspects, except: [:index, :show, :create, :new] do
     resources :solutions, except: [:index, :edit, :update, :create]
   end
   get '/ideas/:idea_id/aspects/:id/solution/create', to: 'solutions#create', as: 'create_solution'
