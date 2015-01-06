@@ -106,7 +106,7 @@ module ApplicationHelper
           "#{question_path(Question.find(parent.commentable_id))}"
         end
       elsif parent_kind == 'solution'
-        "#{aspect_path(Solution.find(notification.kind_id).aspect)}"
+        "#{idea_aspect_path(id: Solution.find(notification.kind_id).aspect, idea_id: Solution.find(notification.kind_id).idea_id)}"
       elsif parent_kind == 'answer'
         "#{question_path(Answer.find(notification.kind_id).question)}"
       else

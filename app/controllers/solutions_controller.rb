@@ -27,14 +27,11 @@ class SolutionsController < ApplicationController
       if @solution.save
         @solution.create_activity :create, owner: (current_user || current_admin)
         format.html { redirect_to redirect_path, notice: 'Solution was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @solution }
-        format.js {render template: 'solutions/create'}
         if not current_user.following_idea?(@solution.idea)
           current_user.follow_idea!(@solution.idea)
         end
       else
         format.html { render action: 'new' }
-        format.json { render json: @solution.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,6 +66,6 @@ class SolutionsController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def solution_params
-      params.require(:solution).permit(:brief, :aspect_id, :idea_id, :user_id)
+      params.require(:solution).permit(:brief)
     end
 end

@@ -43,5 +43,9 @@
 <% if @idea.phase != 1 %>
   <p class="link-dis"> Add solution </p>
 <% else %>
-  <%= link_to "Add solution", new_aspect_solution_path(aspect_id: @aspect.id, idea_id: @idea.id), id: 'newsolution', remote:true %>
+  <div class='content-bg solution-form' style='display:none;'>
+    <%= render partial: 'solutions/form' %><br>
+    <%= link_to 'Cancel', 'javascript:void(0);', id: 'cancel-solution' %>
+  </div>
+  <%= link_to "Add solution", 'javascript:void(0);', id: 'newsolution' %>
 <% end %>

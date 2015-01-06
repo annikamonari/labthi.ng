@@ -1,9 +1,0 @@
-$(".js-inline-form").replaceWith("<%= j render @solution %>");
-idea_id = "<%= escape_javascript(@solution.idea.id.to_s) %>";
-$(".idea-follow-form-" + idea_id).replaceWith("<%= escape_javascript(render('ideas/unfollow', idea: @solution.idea)) %>");
-$("#newsolution").text("Add solution")
-if($("p.no.solution").length > 0) {
-	$("p.no.solution").remove()
-}
-
-
