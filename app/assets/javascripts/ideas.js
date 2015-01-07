@@ -1,5 +1,3 @@
-var arraystring = ['#1', '#2', '#3', '#4', '#5', '#6', '#7']
-
 $(document).ready(function () { 
   helpcontent('#1', '#2-div');
   $('#1-pop-link').popover(options);
