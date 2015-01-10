@@ -2,25 +2,37 @@
   <div class='row content-bg'>   
     <div class='col-md-8'>
       <% if part.name == 'Idea Description' %>
-        <div style='float:left; height:40px; margin-right:5px; margin-left:-15px; display:none;' id='navhelp'>
-          <a id="popimg" 
+        <div style='float:left; height:40px; margin-right:5px; margin-left:-15px; display:none;' id='3-div'>
+          <a id="3-pop-link" 
               href="#" 
               data-toggle="popover" 
-              data-content="Each row is a part of a component. If a part's status is <b>unstarted</b> you may start it and submit the required content in exchange for <b>equity</b> in the idea and reputation points proportional to this equity. Each part carries a unique equity value, present on rightmost side of the row in green. You do not need to have experience writing business plans or building prototypes; each part's edit page containers help content that tells you exactly what should be included in your contribution, including a structure you can follow. You can also find this information in the documentation section.<br><br>After the <b>build</b> phase is complete, the top 5 reputation earners in the idea are offered the opportunity to be the team behind the idea. This team will turn the product into a start-up and launch it. Thus, if you would like to be part of this team, start and finish as many parts as possible! <i>But remember, you can only start one part at once.</i><br><br>Visit the <b>Documentation</b> section to read more about how the <build> phase works, what each part is, and what type of content is required for each part.">
-            <%= image_tag 'labthinghelp.png', size: '36x36', id: 'helpnav' %>
-            <span id='closenav' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
+              data-content="Each row is a part of a component. If a part's status is <b>unstarted</b> you may start it and submit the required content in exchange for <b>equity</b> in the idea and reputation points proportional to this equity. Each part carries a unique equity value, present on rightmost side of the row in green. Equity gaining is not a competition between team members; it is merely a way of quantifying team members' activity in the idea and making sure that all of you are contributing.<br><br>You do not need to have experience writing business plans or building prototypes; each part's edit page containers help content that tells you exactly what should be included in your contribution, including a structure you can follow. You can also find this information in the documentation section.<br><br>Once you finish the part, your team members will be able to review your content and leave you revision tasks to improve your work to gain more attention from investors!">
+            <%= image_tag 'labthinghelp.png', size: '36x36', id: '3-img' %>
+            <span id='3-close' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
               <b>x</b>
             </span>
           </a>      
         </div>
       <% elsif part.name == 'Prototype' %>
-        <div style='float:left; height:40px; margin-right:5px; margin-left:-15px; display:none;' id='buyhelp'>
-          <a id="popimg" 
+        <div style='float:left; height:40px; margin-right:5px; margin-left:-15px; display:none;' id='6-div'>
+          <a id="6-pop-link" 
               href="#" 
               data-toggle="popover" 
-              data-content="The prototype component is the only component that requires a specific skill: programming. Since this part's content submission is purely code, if you do not know how to program you should not start it.<br><br>When you click <b>start</b> you are added to a private BitBucket repository on our Labthi.ng account. Using Git as your version control, you should continually push your content to this repository. If you would like to work with others on the code, you can enter their emails on the <b>prototype edit page</b> and they will be automatically added to the repository. If for whatever reason you no longer want them to contribute, you can also remove them from this page.">
-            <%= image_tag 'labthinghelp.png', size: '36x36', id: 'helpbuy' %>
-            <span id='closebuy' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
+              data-content="The prototype component is the only one which varies according to the type of idea you submit. If the product is a physical good, you will need to build a CAD before the actual prototype itself. If the product is software-based, you will need to design the schema and write a flowchart instead of a CAD. For the prototype itself, in the former scenario you must build it out of wood/cardboard/other lightweight materials and record a video explaining its different features and how to use it. For the latter, the prototype will be purely code; your team will be added to the idea's <b>Bitbucket</b> account and you can begin pushing your code to that repository.<br><br>Although we encourage all members of Labthi.ng to try building every component and part regardless of their prior experience, the prototype component is one where prior experience and knowledge is recommended to ensure a high quality standard of product.">
+            <%= image_tag 'labthinghelp.png', size: '36x36', id: '6-img' %>
+            <span id='6-close' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
+              <b>x</b>
+            </span>
+          </a>      
+        </div>
+      <% elsif part.name == 'Market Analysis' %>
+        <div style='float:left; height:40px; margin-right:5px; margin-left:-15px; display:none;' id='5-div'>
+          <a id="5-pop-link" 
+              href="#" 
+              data-toggle="popover" 
+              data-content="If there is a part that as a team you feel uncomfortable completing, may it be due to a lack of time, knowledge or experience, you can always write another proposal in the <b>overview - team build</b> section, detailing the exact expertise you seek, and hire another team member to complete this part.">
+            <%= image_tag 'labthinghelp.png', size: '36x36', id: '5-img' %>
+            <span id='5-close' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
               <b>x</b>
             </span>
           </a>      
@@ -44,15 +56,15 @@
       <div class='partstyle pull-right'>
         <div class='left'>
           <% if (part.name == 'Executive Summary' or 'Idea Description') and part.status != 'Accepted' %>
-          <div style='float:left; margin-left:20px; height:35px; margin-top:6px;margin-right:4px;display:none;' id='archivehelp'>
-            <a id="pop" 
+          <div style='float:left; margin-left:20px; height:35px; margin-top:6px;margin-right:4px;display:none;' id='4-div'>
+            <a id="4-pop-link" 
                 href="#" 
                 data-toggle="popover" 
-                data-content="The button I'm standing next to indicates whether or not you can take action, and what sort of action you can take. In general, blue buttons mean you can click on them and take action; grey buttons mean you cannot take action. If the button is blue and says <b>start</b>, it means you can start the part. After you do this, you will be the only user that can see click on the part and edit it. When you are finished, you can click the blue <b>finish</b> button. The button will then become grey and will say <b>finished</b>; now, you cannot click on the part to edit it because administrators are reviewing your work and adding tasks for you to complete to improve it. When the button's text changes to <b>In Review</b> but stays grey, you can edit the part and complete the administrators' tasks to improve your work. The administrators will <b>accept</b> your part once they think the quality is of appropriate standard. <br><br>
+                data-content="The button I'm standing next to indicates whether or not you can take action, and what sort of action you can take. In general, blue buttons mean you can click on them and take action; grey buttons mean you cannot take action. If the button is blue and says <b>start</b>, it means you can start the part. After you do this, you will be the only user that can see click on the part and edit it. When you are finished, you can click the blue <b>finish</b> button. The button will then become grey and will say <b>finished</b>; now, you cannot click on the part to edit it because administrators and your team are reviewing your work and adding tasks for you to complete to improve it. When the button's text changes to <b>In Review</b> but stays grey, you can edit the part and complete the tasks to improve your work. Your team will vote to <b>accept</b> your part once they think the quality is of appropriate standard. <br><br>
 
                 If the button is grey and says <b>locked</b> it means other parts must be completed before this part can be started (e.g. the <b>Executive Summary</b> part can only be started once all of the other business plan parts are completed). If it is grey and says <b>Unstarted</b>, you have already started a part and hence cannot start any others because you can only be in control of 1 part at once. Read more about how this works in the <b>documentation</b> section.">
-              <%= image_tag 'labthinghelp.png', size: '36x36', id: 'helparchive' %>
-              <span id='closearchive' class='pull-left' style='display:none; position:absolute; top:5px; margin-left:-5px; color:#34495E;'>
+              <%= image_tag 'labthinghelp.png', size: '36x36', id: '4-img' %>
+              <span id='4-close' class='pull-left' style='display:none; position:absolute; top:5px; margin-left:-5px; color:#34495E;'>
                 <b>x</b>
               </span>
             </a>      

@@ -25,7 +25,8 @@
       </div>
     <br><br>
     <p class='pull-right'>
-    <div style='float:left; height:40px; margin-top:-15px;' id='1-div'>
+    <% if current_page?("/ideas/#{@idea.id}/build") %>
+      <div style='float:left; height:40px; margin-top:-15px;' id='1-div'>
         <a id="1-pop-link" 
             href="#" 
             data-toggle="popover" 
@@ -36,6 +37,7 @@
           </span>
         </a>      
       </div>
+    <% end %>
     <div style='float:right;'><%= link_to "Phase 1 Archive", @idea %></div>
     </p>
   </div>
