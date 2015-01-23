@@ -105,6 +105,10 @@ class Part < ActiveRecord::Base
     [['Part', self.id]]
   end
 
+  def value_changed?
+    Part.find(self.id).value == self.value
+  end
+
   private
 
     def locked?
