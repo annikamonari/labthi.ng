@@ -122,6 +122,7 @@ gem 'jquery-atwho-rails'
 # Use unicorn as the app server
 gem 'unicorn'
 gem 'rack-timeout'
+gem 'thin'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
