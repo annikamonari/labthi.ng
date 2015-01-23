@@ -55,9 +55,6 @@ gem 'immigrant'
 # Used for testing associations
 gem "foreigner-matcher", "~> 0.2.0", :require => nil
 
-# server for fast development
-gem 'thin'
-
 # tagging functionality
 gem 'acts-as-taggable-on'
 
@@ -108,8 +105,7 @@ group :test, :development do
   gem 'guard-rspec'
   gem 'foreman'
   gem 'rspec-activemodel-mocks'
-  #gem 'warden', '>= 1.2.2'
-  #
+
   require 'rbconfig'
   gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
 end
@@ -124,7 +120,8 @@ gem 'faye-rails', '~> 2.0'
 gem 'jquery-atwho-rails'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
+gem 'rack-timeout'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
