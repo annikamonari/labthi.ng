@@ -33,14 +33,14 @@
 
 <% content_for :secondary_nav do %>	
 	<% if current_page?("/ideas/#{@idea.id}") and @idea.phase == 1 %>
-		<div style='float:left; height:40px; display:none;' id='navhelp'>
-			<a id="popnav" 
+		<div style='float:left; height:40px; display:none;' id='2-div'>
+			<a id="2-pop-link" 
 			     href="#" 
 			     data-toggle="popover"
 			     data-html="true" 
 			     data-content="Click <b>Define</b> to discuss the idea's business model; fill out aspects, such as 'revenue streams' or 'unique value proposition' of the <b>lean start-up business canvas</b> for the idea. Click on <b>Reputation</b> to view the top reputation earners of the idea.">
-			  <%= image_tag 'labthinghelp.png', size: '36x36', id: 'helpnav' %>
-			  <span id='closenav' class='pull-left' style='display:none; position:absolute; top:0; margin-left:-5px; color:#34495E;'>
+			  <%= image_tag 'labthinghelp.png', size: '36x36', id: '2-img' %>
+			  <span id='2-close' class='pull-left' style='display:none; position:absolute; top:0; margin-left:-5px; color:#34495E;'>
 			   <b>x</b>
 			  </span>
 			</a>	    

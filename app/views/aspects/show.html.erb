@@ -7,14 +7,14 @@
 <p>
   <h1><%= @aspect.title %></h1>
   <% unless @aspect.title == 'Image' %>
-    <div style='float:right;' id='helpcontent'>
-      <a id="pop" 
+    <div style='float:right;' id='1-div'>
+      <a id="1-pop-link" 
           href="#" 
           data-html='true'
           data-toggle="popover" 
           data-content="For more information about what these aspects mean and what they are for, visit the <b>Documentation</b> page.<br><br>Once you understand the aspects and how the business canvas works, you can submit a solution for one of the aspects of the idea's business model in as many as 1250 characters using the guide above. Do not be afraid to have a differing opinion from others in your solution; a discussion with differing viewpoints causes the idea to pivot and its business model to flesh out more effectively.">
-        <%= image_tag 'labthinghelp.png', size: '36x36', id: 'help' %>
-        <span id='close' class='pull-left' style='display:none; color:#34495E;'>
+        <%= image_tag 'labthinghelp.png', size: '36x36', id: '1-img' %>
+        <span id='1-close' class='pull-left' style='display:none; color:#34495E;'>
           <b>x</b>
         </span>
       </a>      
@@ -43,5 +43,9 @@
 <% if @idea.phase != 1 %>
   <p class="link-dis"> Add solution </p>
 <% else %>
-  <%= link_to "Add solution", new_aspect_solution_path(aspect_id: @aspect.id, idea_id: @idea.id), id: 'newsolution', remote:true %>
+  <div class='content-bg solution-form' style='display:none;'>
+    <%= render partial: 'solutions/form' %><br>
+    <%= link_to 'Cancel', 'javascript:void(0);', id: 'cancel-solution' %>
+  </div>
+  <%= link_to "Add solution", 'javascript:void(0);', id: 'newsolution' %>
 <% end %>

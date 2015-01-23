@@ -1,5 +1,16 @@
 
   <div class="secondary-nav">
+    <div style='float:right;display:none;' id='2-div'>
+      <a id="2-pop-link" 
+          href="#" 
+          data-toggle="popover" 
+          data-content="Click on <b>Needs Team Members</b> if you would like to find an idea in which you can submit an application to become a team member and earn equity in the idea. Look carefully at the idea brief to see whether you find the idea intriguing enough to work on it long term. Then, look at the proposal to see if the current team could benefit from your professional traits and/or skillset. Visit the <b>Documentation</b> section to learn more about applying to teams and how to pitch yourself.">
+        <%= image_tag 'labthinghelp.png', size: '36x36', id: '2-img' %>
+        <span id='2-close' class='pull-left' style='display:none; position:absolute; top:0; margin-left:-5px; color:#34495E;'>
+          <b>x</b>
+        </span>
+      </a>
+    </div>
     <%= link_to "All", build_path,
         class: 'btn btn-default ' + active_when(:controller => 'explore', :action => 'build')
     %>

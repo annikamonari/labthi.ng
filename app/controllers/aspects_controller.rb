@@ -1,15 +1,16 @@
 class AspectsController < ApplicationController
-  before_action :load_commentable
+  before_action :load_commentable, only: [:show]
   before_action :set_aspect, only: [:show]
   #before_action :authenticate_admin_user!, except: [:show]
 
   # GET /aspects/1
   # GET /aspects/1.json
   def show
+    @solution = Solution.new
     @commentable = Solution.first
     @idea = Idea.find(params[:idea_id])
     @solutions = Solution.includes(:user, :aspect, :idea).where(idea_id: @idea.id, aspect_id:@aspect.id)
-    @comment = @commentable.comments.new
+    @comment = @commentable.nil? ? Comment.new : @commentable.comments.new
     render layout: 'sidebar_left'
   end
 
