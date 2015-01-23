@@ -1,6 +1,5 @@
 StartIt::Application.routes.draw do
 
-  resources :votes
   resources :notifications, only: [:index, :destroy]
 
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
@@ -122,7 +121,4 @@ StartIt::Application.routes.draw do
     root :to => 'home#dashboard', as: :dashboard
   end
   root to: 'home#index'
-  
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
 end
