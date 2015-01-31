@@ -23,10 +23,6 @@
           <%= points %>
         </span>
       </div>
-      <div style='color:#1ABC9C; float:right;'>
-      <% if @idea and @idea.phase != 1 %>
-        <b>equity:</b> <span class='badge-rep' style='background-color:#1ABC9C;'><%= user.get_equity(@idea.idea_build) %></span>
-      <% end %>
     </div>
   </div>
 </li>
