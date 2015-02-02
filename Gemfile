@@ -73,7 +73,7 @@ gem 'unf'
 # Used for WYSIWYG editor (Phase 2)
 gem 'bootsy', '~> 2.0.10'
 
-# Used for creating bitbucket account for prototype in the phase 2
+# Used for API calls
 gem "curb"
 
 group :doc do
