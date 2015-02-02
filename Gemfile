@@ -75,6 +75,7 @@ gem 'bootsy', '~> 2.0.10'
 
 # Used for API calls
 gem "curb"
+gem "github_api"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
