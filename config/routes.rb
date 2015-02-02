@@ -98,10 +98,7 @@ StartIt::Application.routes.draw do
   
   get "profile", :to => "profiles#show" # We want this to be: get "profile", :to => "profiles#show"
 
-
-  #Rails Admin interface
-  #mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-  
+  post '/strike/:user_id/:idea_build_id/:voter_id', to: 'strike#create', as: 'strike'  
 
   get 'create', to: 'explore#create'
   get 'build', to: 'explore#build'
