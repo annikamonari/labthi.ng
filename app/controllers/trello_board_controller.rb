@@ -1,0 +1,2 @@
+class TrelloBoardController < ApplicationController
+end
