@@ -4,6 +4,8 @@ class Chat < ActiveRecord::Base
   validates_presence_of :body
   after_create :create_notification
 
+  mount_uploader :attachment, AttachmentUploader
+
   private
     def create_notification
       parent = nil

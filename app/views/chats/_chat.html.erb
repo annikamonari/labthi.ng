@@ -4,5 +4,8 @@
     <h4 class="media-heading" style='font-size:1.25em;'><%= render chat.user %> says
       <span style='margin-top:-5px;'><small class="text-muted">(at <%= chat.created_at.strftime('%-d %B %Y, %H:%M') %>)</small></span></h4>
     <p><%= simple_format mentions_to_link(chat.body) %></p>
+    <% unless chat.attachment.url.nil? %>
+      <p>Attachment = <%= chat.attachment.url %></p>
+    <% end %>
   </div>
 </li>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123162134) do
+ActiveRecord::Schema.define(version: 20150206183038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 20150123162134) do
     t.string   "kind"
     t.integer  "kind_id"
     t.text     "read_at",    default: [], array: true
+    t.string   "attachment"
   end
 
   create_table "comments", force: true do |t|
@@ -278,6 +279,15 @@ ActiveRecord::Schema.define(version: 20150123162134) do
   add_index "solutions", ["aspect_id"], name: "index_solutions_on_aspect_id", using: :btree
   add_index "solutions", ["idea_id"], name: "index_solutions_on_idea_id", using: :btree
   add_index "solutions", ["user_id"], name: "index_solutions_on_user_id", using: :btree
+
+  create_table "strikes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "idea_build_id"
+    t.integer  "strike_number"
+    t.integer  "voter_ids"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
