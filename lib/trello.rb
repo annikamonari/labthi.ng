@@ -7,6 +7,7 @@ class Trello
     request  = Curl.post(BOARD_URI, {name: title, key: KEY, token: TOKEN})
     response = JSON.parse(request.body)
 
+    # NOTE: This needs to be saved in the generated model
     { success: request.response_code == 200, 
       board_id: response['id'] , url: response['url'] }
   end
