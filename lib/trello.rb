@@ -1,4 +1,5 @@
 require 'curb'
+require 'json'
 
 class Trello
 
@@ -13,7 +14,6 @@ class Trello
   def Trello.set_up_management_board(board_id)
     url = BOARD_URI + "/#{board_id}/lists" 
 
-    # TODO: Not working
     Trello.add_management_lists(board_id, url) and
     Trello.add_management_cards(url)
   end
@@ -53,9 +53,9 @@ class Trello
     end
 
     def Trello.add_card(list_id, name)
-      request = Curl.post(CARD_URI, {name: name, idBoard: board_id,
+      request = Curl.post(CARD_URI, {name: name, idList: list_id,
                                      due: 'null', urlSource: 'null',  
-                                     key: KEY, token: TOKEN, idList: list_id})
+                                     key: KEY, token: TOKEN})
 
       request.response_code == 200
     end
@@ -75,7 +75,7 @@ class Trello
       Trello.add_list(board_id, 'Completed')
     end
 
-    def Trello.add_management_cards(board_id, url)
+    def Trello.add_management_cards(url)
       request = Curl.get(url + Trello.access.sub('&', '?'))
       lists   = JSON.parse(request.body)
 
@@ -91,10 +91,10 @@ class Trello
     end
 
     def Trello.change_list_name(list_id, name)
-      url  = LIST_URI + "/#{list_id}/name"
-      name = "?value=#{name}"
+      url  = LIST_URI + "/#{list_id}"
+      name = "?name=#{name}"
 
-      request = Curl.put(url + name + Trello.access)
+      request = Curl.put(url + name.gsub(' ', '%20') + Trello.access)
 
       request.response_code == 200
     end
