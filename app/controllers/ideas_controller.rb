@@ -47,21 +47,18 @@ class IdeasController < ApplicationController
   # POST /ideas
   # POST /ideas.json
   def create
-    @idea = Idea.new(idea_params)
-    @idea.phase = 1
-    @idea.active = 'true'
-    @idea.user = current_user
+    @idea             = Idea.new(idea_params)
+    @idea.phase       = 1
+    @idea.active      = 'true'
+    @idea.user_id     = current_user.id
     @idea.create_days = Date.today + params[:idea][:create_days].to_i.days
-    respond_to do |format|
-      if @idea.save
-        @idea.create_activity :create, owner: (current_user)
-        format.html { redirect_to @idea }
-        format.json { render action: 'show', status: :created, location: @idea }
-        current_user.follow_idea!(@idea)
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @idea.errors, status: :unprocessable_entity }
-      end
+
+    if @idea.save
+      @idea.create_activity :create, owner: (current_user)
+      redirect_to @idea
+      current_user.follow_idea!(@idea)
+    else
+      redirect_to :back, notice: 'An error occured.'
     end
   end
 
@@ -152,9 +149,8 @@ class IdeasController < ApplicationController
         :image,
         :active,
         :user_id,
-        :type,
-        :category_list => [],
-        :component_list => [],
+        :kind,
+        :category,
         :aspects_attributes => [:id, :brief, :title]
         )
     end

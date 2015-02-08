@@ -7,10 +7,7 @@ class Idea < ActiveRecord::Base
   validates :phase, presence: true
   validates :title, presence: true, length: { maximum: 50 }
   validates :brief, presence: true, length: { maximum: 1000 }
-  validate :instance_validations
-  validates_presence_of :category_list
-  validates_presence_of :component_list
-  validates_presence_of :create_days
+  validates_presence_of :create_days, :category, :kind
   belongs_to :user, -> { includes :profile }, inverse_of: :ideas
   has_many :questions, inverse_of: :idea, :dependent => :destroy
   has_many :solutions, inverse_of: :idea, :dependent => :destroy
@@ -28,7 +25,6 @@ class Idea < ActiveRecord::Base
                                       :prototype_component => :parts ) }
   has_many :buy_phase_votes
 
-  acts_as_taggable_on :categories, :component
   mount_uploader :image, ImageUploader
 
   NO_CREATE_DAYS = [1, 5, 10, 15, 20, 25, 30]
@@ -56,21 +52,17 @@ class Idea < ActiveRecord::Base
     top_image(nil)
   end
 
-  def instance_validations
-  	validates_with MaxCategories
-  end
-
   def self.categories
     [
-      "Advertising & Media",
-      "Arts & Entertainment",
-      "Business & Finance",
+      "Advertising and Media",
+      "Arts and Entertainment",
+      "Business and Finance",
       "Education",
-      "Energy & Utilities",
-      "Food & Health",
-      "Science & Technology",
+      "Energy and Utilities",
+      "Food and Health",
+      "Science and Technology",
       "Social",
-      "Travel & Leisure",
+      "Travel and Leisure",
       "Retail",
       "Other"
     ]
@@ -78,9 +70,8 @@ class Idea < ActiveRecord::Base
 
   def self.components
     [
-      "Website",
-      "Mobile App",
-      "Software",
+      "Software Product",
+      "Physical Product"
     ]
   end
 
@@ -95,7 +86,6 @@ class Idea < ActiveRecord::Base
       idea_build.idea_id = self.id
       idea_build.save
       TeamMembership.create(self.user.id, idea_build.id)
-      Bitbucket.new(self.title, self.id).create
     end
   end
 

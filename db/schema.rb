@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206192717) do
+ActiveRecord::Schema.define(version: 20150208205920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -165,6 +165,8 @@ ActiveRecord::Schema.define(version: 20150206192717) do
     t.integer  "user_id"
     t.string   "title"
     t.date     "create_days"
+    t.string   "kind"
+    t.string   "category"
   end
 
   create_table "lab_evaluations", force: true do |t|
@@ -289,19 +291,6 @@ ActiveRecord::Schema.define(version: 20150206192717) do
     t.datetime "updated_at"
   end
 
-  create_table "taggings", force: true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context",       limit: 128
-    t.datetime "created_at"
-  end
-
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
-
   create_table "tags", force: true do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
@@ -360,6 +349,7 @@ ActiveRecord::Schema.define(version: 20150206192717) do
     t.integer  "level",                  default: 0
     t.integer  "points",                 default: 0
     t.boolean  "admin"
+    t.string   "university"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -384,7 +374,5 @@ ActiveRecord::Schema.define(version: 20150206192717) do
 
   add_foreign_key "questions", "ideas", name: "questions_idea_id_fk"
   add_foreign_key "questions", "users", name: "questions_user_id_fk"
-
-  add_foreign_key "taggings", "tags", name: "taggings_tag_id_fk"
 
 end

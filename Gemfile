@@ -55,9 +55,6 @@ gem 'immigrant'
 # Used for testing associations
 gem "foreigner-matcher", "~> 0.2.0", :require => nil
 
-# tagging functionality
-gem 'acts-as-taggable-on'
-
 # file upload management
 gem 'carrierwave', '>= 0.10.0'
 

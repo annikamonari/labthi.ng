@@ -38,5 +38,4 @@ class IdeaBuildsController < ApplicationController
       @idea_build.posts.where(kind: kind)
     end
 
-    #TODO: figure out how to remove the html from the @brief. Its ugly
 end

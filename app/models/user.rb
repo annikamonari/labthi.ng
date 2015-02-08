@@ -10,8 +10,12 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true, length: { maximum: 20 }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  UNIVERSITIES = ['Imperial College London', 'London School of Economics', 'University College London',
+                  'University of Cambridge', 'University of Oxford', 'Other']
+
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :admin, presence: true, :allow_nil => true, allow_blank: true
+  validates :university, presence: true
 
   has_many :ideas, -> { includes :idea_build }, inverse_of: :user
   has_many :questions, inverse_of: :user
@@ -36,6 +40,10 @@ class User < ActiveRecord::Base
 
   def name
     first_name.to_s + " " + last_name.to_s
+  end
+
+  def User.UNIVERSITIES
+    UNIVERSITIES
   end
 
   def update_lab_rep_points
@@ -93,7 +101,9 @@ class User < ActiveRecord::Base
   end
 
   def follow_idea!(idea)
-    idea_relationships.create!(followed_id: idea.id)
+    unless IdeaRelationship.find_by(follower_id: self.id, followed_id: idea.id)
+      idea_relationships.create!(followed_id: idea.id)
+    end
   end
 
   def unfollow_idea!(idea)

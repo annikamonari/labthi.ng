@@ -102,6 +102,7 @@ admin_user_data = [
 		last_name: "Monari",
 		password: "1234567890",
 		password_confirmation: "1234567890",
+		university: 'Imperial College London',
 		admin: true
 	},
   { 
@@ -110,6 +111,7 @@ admin_user_data = [
 		last_name: "Vey",
 		password: "1234567890",
 		password_confirmation: "1234567890",
+		university: 'Imperial College London',
 		admin: true
 	},
 	{ 
@@ -117,25 +119,20 @@ admin_user_data = [
 		first_name: "Elon",
 		last_name: "Musk",
 		password: "1234567890",
+		university: 'Imperial College London',
 		password_confirmation: "1234567890",
 	}
 ]
 
 admin_user_data.each do |d|
 	User.create(d)
-
-	d.delete(:first_name)
-	d.delete(:last_name)
-	d.delete(:admin)
-
-	AdminUser.create(d)
 end
 
 (0..brief_data.length-1).each do |b|
 	(0..title_data.length-1).each do |t|
 		User.all.each do |u|
 			Idea.create!(title: title_data[t], brief: brief_data[b], create_days: Date.today + 7.days, user_id: u.id, phase: 1,
-									category_list: 'Education', component_list: 'Website')
+									category: 'Education', kind: 'Software Product')
 		end
 	end
 end
