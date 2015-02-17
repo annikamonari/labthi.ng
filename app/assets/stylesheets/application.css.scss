@@ -16,6 +16,17 @@
  *= require_tree .
  */
 
+
+@font-face {
+  font-family: "Montserrat";
+  src: font-url('Montserrat-Hairline.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: font-url('Montserrat-Light.otf') format('opentype');
+}
+
 /************************************/
 /*********** Color Palette **********/
 /************************************/
@@ -28,6 +39,15 @@ $lab-turquoise: #1ABC9C;
 /******** Bootstrap Overrides *******/
 /************************************/
 
+
+.p, p, .h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5, .h6, h6, .h0, h0, a, div, .div, span, .span {
+  font-family: "Montserrat";
+}
+
+.h4, h4 {
+  font-family: "Montserrat" !important;
+}
+
 .alert {
     background-color: #d8ecf9;
     border-color: #2980B9;
@@ -37,7 +57,7 @@ $lab-turquoise: #1ABC9C;
 
 /* Typography */
 
-$font-family-sans-serif: arial, sans-serif;
+$font-family: "Montserrat" !important;
 $font-size-base: 13px;
 
 
@@ -100,6 +120,7 @@ $badge-bg: $lab-med-grey;
 
 .secondary-nav .text {
   font-size:1.1em;
+  font-family: "Montserrat" !important;
 }
 @import "twitter/bootstrap";
 
