@@ -55,12 +55,6 @@ gem 'immigrant'
 # Used for testing associations
 gem "foreigner-matcher", "~> 0.2.0", :require => nil
 
-# server for fast development
-gem 'thin'
-
-# tagging functionality
-gem 'acts-as-taggable-on'
-
 # file upload management
 gem 'carrierwave', '>= 0.10.0'
 
@@ -76,8 +70,9 @@ gem 'unf'
 # Used for WYSIWYG editor (Phase 2)
 gem 'bootsy', '~> 2.0.10'
 
-# Used for creating bitbucket account for prototype in the phase 2
+# Used for API calls
 gem "curb"
+gem "github_api"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -108,8 +103,7 @@ group :test, :development do
   gem 'guard-rspec'
   gem 'foreman'
   gem 'rspec-activemodel-mocks'
-  #gem 'warden', '>= 1.2.2'
-  #
+
   require 'rbconfig'
   gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
 end
@@ -124,7 +118,10 @@ gem 'faye-rails', '~> 2.0'
 gem 'jquery-atwho-rails'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
+gem 'rack-timeout'
+gem 'unicorn-rails'
+gem 'thin'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

@@ -20,11 +20,11 @@ class ChatsController < ApplicationController
   end
 
   def create
-    @chat = Chat.new(chat_params)
-    @url = request.fullpath.sub('create_chat', 'chats')
-    @chat.kind = params[:kind]
+    @chat         = Chat.new(chat_params)
+    @url          = request.fullpath.sub('create_chat', 'chats')
+    @chat.kind    = params[:kind]
     @chat.kind_id = params[:kind_id]
-    @chat.user = current_user
+    @chat.user    = current_user
     respond_to do |format|
       if @chat.save
         format.html { redirect_to :back, notice: 'Comment successfully created.'}
@@ -39,7 +39,7 @@ class ChatsController < ApplicationController
   private
 
     def chat_params
-      params.require(:chat).permit(:body)
+      params.require(:chat).permit(:body, :attachment)
     end
 
     def set_idea

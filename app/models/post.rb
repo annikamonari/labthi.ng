@@ -7,6 +7,8 @@ class Post < ActiveRecord::Base
   has_many :task_comments
   validates_presence_of :content
 
+  mount_uploader :image, ImageUploader
+
   def open?
     self.status == 'open'
   end

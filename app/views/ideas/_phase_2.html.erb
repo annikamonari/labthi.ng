@@ -12,7 +12,7 @@
       </strong> |
       <i>Promoted <%= time_ago_in_words(@idea.create_days) %> ago</i> |
       <%= link_to "#{@idea.followers.count} Follower(s)", followers_idea_path(@idea) %> |
-      <%= print_categories %>
+      <%= @idea.category %>
     </div>
   </div>
   <div class='col-xs-2 archive'>

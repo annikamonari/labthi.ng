@@ -3,9 +3,7 @@ class NotificationsController < ApplicationController
   def index
     @notifications = current_user.notifications
     
-    @notifications.each do |notification|
-      notification.update_attribute(:read, true)
-    end
+    @notifications.update_all(:read, true)
 
     @unread_count = @notifications.where(read: false).count
 
@@ -17,19 +15,12 @@ class NotificationsController < ApplicationController
   def destroy
     @notification = Notification.find(params[:id])
     @notification.destroy
-    @notification.save
-    
+
     @notifications = current_user.notifications
     respond_to do |format|
-      #format.html { redirect_to request.referrer, notice: 'Notification has been deleted.' }
       format.js { render template: "notifications/destroy", :layout => false }
     end
   end
 
-  private
-
-    def notification_params
-      params.require(:notification).permit(:kind, :kind_id, :user_id, :read)
-    end
 end
 

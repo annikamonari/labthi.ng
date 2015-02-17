@@ -7,16 +7,19 @@ class IdeaBuild < ActiveRecord::Base
   has_many :team_memberships, -> { includes(:user) }
   has_many :posts, -> { includes(:user) }
 
-  before_create :create_required_components
+  after_create :create_required_components
 
   def create_required_components
-
-    create_plan_component
-
-    create_business_plan_component
-
-    create_prototype_component
-
-    create_design_component
+    create_component(PlanComponent)
+    create_component(BusinessPlanComponent)
+    create_component(DesignComponent)
+    create_component(PrototypeComponent)
   end
+
+  private
+    def create_component(component) 
+      c               = component.new
+      c.idea_build_id = self.id
+      c.save
+    end
 end
