@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208205920) do
+ActiveRecord::Schema.define(version: 20150218185222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -183,6 +183,14 @@ ActiveRecord::Schema.define(version: 20150208205920) do
   add_index "lab_evaluations", ["content_id", "content_type"], name: "index_lab_evaluations_on_content_id_and_content_type", using: :btree
   add_index "lab_evaluations", ["evaluator_id"], name: "index_lab_evaluations_on_evaluator_id", using: :btree
 
+  create_table "likes", force: true do |t|
+    t.string   "model_name"
+    t.integer  "model_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "notifications", force: true do |t|
     t.string   "kind"
     t.integer  "kind_id"
@@ -234,6 +242,7 @@ ActiveRecord::Schema.define(version: 20150208205920) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo"
+    t.string   "github"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree

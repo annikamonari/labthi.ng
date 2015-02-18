@@ -97,6 +97,8 @@ StartIt::Application.routes.draw do
     get "register", :to => "devise/registrations#new"
     get "login", :to => "devise/sessions#new"
   end
+
+  post 'like/:model_name/:model_id/:user_id', to: 'likes#like', as: 'like'
   
   get "profile", :to => "profiles#show" # We want this to be: get "profile", :to => "profiles#show"
 

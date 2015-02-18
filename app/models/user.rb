@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :chats
   has_many :notifications
+  has_many :likes
 
   after_create :create_user_profile
 
