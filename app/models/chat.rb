@@ -17,7 +17,7 @@ class Chat < ActiveRecord::Base
 
       idea_build_id = self.kind == 'part' ? Part.find(kind_id).idea_build.id : IdeaBuild.find(kind_id).id
       TeamMembership.where(idea_build_id: idea_build_id).pluck(:user_id).each do |user_id|
-        Notification.create(parent, self.id, self.kind + '_chat')
+        Notification.create(parent, self.id, self.kind + '_chat', user_id)
       end
     end
 end

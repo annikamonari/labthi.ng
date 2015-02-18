@@ -24,8 +24,17 @@
 	<% end %>
 <% end %>
 
-<% if @ideas then %>
-	<% @ideas.each do |idea| %>
-		<%= render 'print_idea_for_create', :idea => idea %>
-	<% end %>
+<% content_for :background do %>
+	<div class='bg'>
+		<h1 align='center'>Create</h1>
+	</div>
 <% end %>
+
+
+<div class="content col-sm-12">
+	<% if @ideas then %>
+		<% @ideas.each do |idea| %>
+			<%= render 'print_idea_for_create', :idea => idea %>
+		<% end %>
+	<% end %>
+</div>

@@ -12,7 +12,7 @@
         <a id="3-pop-link" 
             href="#" 
             data-toggle="popover" 
-            data-content="Think you have a better idea for an image that best describes the idea than what is displayed here? Click on the image and upload one of your choice, along with an explanation as to why that image is the best representation of the idea. <br><br>Also, if you like the idea and you want to encourage others to contribute, vote it up! If you think the idea is spam or of low quality, vote it down. Ideas on the <b>create</b>, <b>build</b> and <b>buy</b> pages will be listed by number of votes.">
+            data-content="Vote the idea up or down depending on whether you think it can be successful or whether you think it lacks quality. Voting on the idea is important because it indicates how successful it could be to the creator and the Labthi.ng community. The <b>number of days left</b> below indicates how much time is left for the idea to be brainstormed in the create phase. Take advantage of the time remaining; any contributions you make here will be visible on your team member application to the idea if you decide you want a part of the core team in the next phase. ">
           <%= image_tag 'labthinghelp.png', size: '36x36', id: '3-img' %>
           <span id='3-close' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
             <b>x</b>
@@ -60,7 +60,21 @@
   <hr>
    
   <% if @idea.is_phase_1? %>
-    <%= button_to 'Increase Number of Days in Create Phase by 1', increase_create_length_path, class: 'btn btn-danger' %> <br><br>   
+    <% if @idea.user == current_user %>
+      <div style='height:40px; float:left; margin-top:10px; display:none;' id='4-div'>
+        <a id="4-pop-link" 
+            href="#" 
+            data-toggle="popover" 
+            data-content="If you think the idea needs more brainstorming before you progress to building a team and building it into a start-up, increase the number of days in the create phase for it to be fleshed out and brainstormed by the labthi.ng community. Increasing it is only beneficial since it invites more users to take an interest in the idea and a larger variety of viewpoints on the business model and its creative features.<br><br>If you think the image you originally uploaded for the idea ism't descriptive or alluring enough, feel free to change it below. Branding is a large part of garnering interest from customers, investors and even potential partners, so place high importance on the image!">
+          <%= image_tag 'labthinghelp.png', size: '36x36', id: '4-img' %>
+          <span id='4-close' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
+            <b>x</b>
+          </span>
+        </a>      
+      </div><br>
+      <%= button_to 'Increase Number of Days in Create Phase by 1', increase_create_length_path, class: 'btn btn-danger' %>
+    <% end %>
+     <br><br>   
   <% else %>
     <%= button_to 'Visit Idea Build Page', idea_build_path(@idea), class: 'btn btn-primary', method: :get %><br><br>
   <% end %>

@@ -2,7 +2,7 @@ class ExploreController < ApplicationController
   include ActionView::Helpers::DateHelper
   before_action :set_categories
   
-  layout 'sidebar_left_small'
+  layout 'create'
 
   def create
     get_ideas(1)

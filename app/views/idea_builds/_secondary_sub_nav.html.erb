@@ -1,4 +1,29 @@
 <div class='col-md-12 no-gutter' style='margin-top:30px;'>
+  <% if current_page?("/ideas/#{@idea.id}/overview/news_feed") %>
+     <div style='float:left; height:40px; margin-right:5px; margin-left:-15px; display:none;' id='2-div'>
+       <a id="2-pop-link" 
+           href="#" 
+           data-toggle="popover" 
+           data-content="The news feed below resembles a Facebook/Twitter feed or blog consisting of posts made by the team detailing their progress through phase 2, information about the product or business, opportunities for the community to help them with promotional aspects or feedback, and general thoughts, opinions and news. Feel free to <b>comment</b> and <b>like</b> any of the content.<br><br>Click on the <b>team build</b> link to learn about how teams make proposals to obtain team members.">
+         <%= image_tag 'labthinghelp.png', size: '36x36', id: '2-img' %>
+         <span id='2-close' class='pull-left' style='display:none; color:#34495E;'>
+           <b>x</b>
+         </span>
+       </a>      
+     </div>
+  <% elsif current_page?("/ideas/#{@idea.id}/overview/team_build") %>
+     <div style='float:left; height:40px; margin-right:5px; margin-left:-15px;' id='1-div'>
+       <a id="1-pop-link" 
+           href="#" 
+           data-toggle="popover" 
+           data-content="This section consists of proposals made by different team members to the community regarding an open spot on the idea's team. Here, the team will post information about the current state of progress of the idea, a problem area or an area where more help is needed for the start-up to be built, and the qualities and skills of the team member the current team is looking to see in the applications. If you are interested in the idea and feel as though you could make a good contribution, submit an application to the proposal and explain why you would be a good team member. Your idea building skills (e.g. business plan, idea planning, prototyping and designing) displayed on your profile, along with a summary of your contributions (if any) in phase 1 to the idea's brainstorm will be listed along with your application. Try and pitch yourself to the team in a similar way to how they pitched the idea. To read more about this process, visit the <b>documentation</b> section.">
+         <%= image_tag 'labthinghelp.png', size: '36x36', id: '1-img' %>
+         <span id='1-close' class='pull-left' style='display:none; color:#34495E;'>
+           <b>x</b>
+         </span>
+       </a>      
+     </div>
+  <% end %>
   <div class="secondary_nav">
     <div class="secondary-nav">
       <%= link_to "News Feed", {

@@ -15,7 +15,7 @@
         <a id="pop" 
             href="#" 
             data-toggle="popover" 
-            data-content="Click on <b>Edit</b> to submit content for your part. You can come back and edit your content as much as you want before pressing the <b>finish</b> button. When you finish the part, administrators will review it and leave you tasks to help you improve areas of weakness under the <b>Admin Tasks</b> tab.">
+            data-content="Click on <b>Edit</b> to submit content for your part. You can come back and edit your content as much as you want before pressing the <b>finish</b> button. When you finish the part, your team and the administrators will review it and leave you tasks to help you improve areas of weakness under the <b>Tasks</b> tab.">
           <%= image_tag 'labthinghelp.png', size: '36x36', id: 'helpnav' %>
           <span id='closenav' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
             <b>x</b>
@@ -43,8 +43,8 @@
 
 <% content_for :links do %>
   <% if @part.is_started? or @part.is_in_review? %>
-    <br>Can't manage? Unhappy?
-    <%= button_to "Unstart", unstart_part_path, class: 'btn btn-danger', method: 'PUT' %>
+    <br><div style='margin-left:105px;'>Can't manage? Unhappy?
+    <%= button_to "Unstart", unstart_part_path(id: @part.id, idea_id: @idea.id), class: 'btn btn-danger', method: 'PUT' %></div>
   <% end %><br>
   <% if current_page?(part_admin_tasks_path(idea_id: @idea.id, id: @part.id)) %>
     <p style='margin-left:225px;'>

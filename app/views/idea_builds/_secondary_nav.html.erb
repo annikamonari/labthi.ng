@@ -4,6 +4,31 @@
 </div>
 
 <div class="secondary_nav">
+  <% if current_page?("/ideas/#{@idea.id}/build") %>
+     <div style='float:left; height:40px; margin-right:5px; margin-left:-15px; display:none;' id='2-div'>
+       <a id="2-pop-link" 
+           href="#" 
+           data-toggle="popover" 
+           data-content="Visit the <b>overview</b> page to see information about your phase 2 progress, your brief and your current team members. The  <b>discussion</b> tab is a general live chat with your team; the chat is not limited to a specific component or even the idea itself. In the <b>news feed</b> tab of the overview, you can post updates about your progress as a team, market your idea, speak to your followers and more. Treat it almost like a Twitter or Facebook feed for your idea! In the <b>team build</b> tab, you can write proposals for obtaining new team members and read users' applications to your proposals.">
+         <%= image_tag 'labthinghelp.png', size: '36x36', id: '2-img' %>
+         <span id='2-close' class='pull-left' style='display:none; color:#34495E;'>
+           <b>x</b>
+         </span>
+       </a>      
+     </div>
+    <% elsif current_page?("/ideas/#{@idea.id}/overview/news_feed") %>
+     <div style='float:left; height:40px; margin-right:5px; margin-left:-15px;' id='1-div'>
+       <a id="1-pop-link" 
+           href="#" 
+           data-toggle="popover" 
+           data-content="The overview page of an idea in phase 2 is the content the labthi.ng community (non team members) will see. Here, you will find a brief pitch of the idea, detailing the problem the business solves, the different features of the product and business model and its goals and future direction. You will also find information about its phase 2 progress with respect to how many parts have been completed in each component. This will give investors and the community an idea about how diligent the team is, how quickly the idea is being built and can be ready for launch, and any problem areas that members of the community could help solve. Finally, you will find a list of the current team members building the idea, along with their equity and reputation stakes and a brief summary about themselves.<br><br>Scroll down to the second navbar to learn about the <b>news feed</b> section also present on this page.">
+         <%= image_tag 'labthinghelp.png', size: '36x36', id: '1-img' %>
+         <span id='1-close' class='pull-left' style='display:none; color:#34495E;'>
+           <b>x</b>
+         </span>
+       </a>      
+     </div>    
+   <% end %>
   <div class="secondary-nav">
     <%= link_to "Overview", {
       controller: "idea_builds",
