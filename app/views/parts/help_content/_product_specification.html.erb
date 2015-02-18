@@ -1,0 +1,39 @@
+<div class='doc'>  
+  
+  <% if @idea.kind == 'Software Product' %>
+    This part details the main features of the design and functionality of the prototype you will put together in the build phase. It is very important to discuss the writing of this part with the entire team, as you will need to decide what the main features of your product are and prioritise which need to be built and designed for the product’s first iteration (e.g. the build phase prototype). 
+
+    Start by outlining how the product works and what a user will be able to do and gain from using the product. Then, go into detail about the core features of the product that must be built for the prototype - e.g. if your idea is “a platform where investment portfolios are built by crowdsourcing”, your core features will include the tools and interface for building a portfolio, the functionality of many users being able to build the portfolio together, and perhaps some manner of testing how well the portfolio works by integrating the site with a virtual marketplace. You then need to break down the core features into smaller tasks which will either correspond to functionality or design implementation. This is important because it gives the designers and developers a clear cut vision of what will need to be built by the end of phase 2.
+
+    You should end up with a document detailing the product and the design/functionality it should have, along with a detailed list of tasks/smaller features that need to be implemented and designed for your team vision to be realised.
+  <% else %>
+    A product design specification is a planning document that states all goals and objectives you hope to achieve with the product.
+     
+    A goal is something your product aims to be, described in words.
+
+    An objective is a target that helps you measure whether that goal has been achieved, described in numbers.
+     
+    The product design specification lies at the very heart of every design project. It encapsulates all user-needs that your product must achieve and gives your project direction during design and development. It helps you benchmark all future design activities and provides initial conditions. This will help you evaluate and select between the different concepts your produce for your product.
+
+    The aim of the product design specification is to ‘quantify wherever possible’. There are three basic steps to completing a PDS:
+ 
+    <ol>
+      <li>Decide which functions of your concept are relevant aspects.</li>
+      <li>Describe the aspects with specific objectives.</li>
+      <li>Quantify objectives by setting criteria.</li>
+      <li>Set targets or test conditions.</li>
+    </ol>
+
+    Download our Product Design Specification template and example Product Design Specification (microsoft excel) from below fill it in and then upload it again when complete:
+
+    <%= link_to 'Download', download_path, target: '_blank' %>
+
+    The Pugh design specification below illustrates some critical features that should be considered and included in the product design specification:
+
+    <br><%= image_tag 'phys_hc4.png' %><br>
+
+    You can find some very useful resources for this section <%= link_to 'here', 'http://homepages.cae.wisc.edu/~me349/lecture_notes/product_design_spec.pdf', target: '_blank'%>.
+
+  <% end %>
+</div>
+<hr> 

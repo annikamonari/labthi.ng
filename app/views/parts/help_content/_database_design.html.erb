@@ -1,0 +1,27 @@
+<div class='doc'>
+
+  Database design is the process of producing a detailed data model of a database. It can be thought of as the logical design of the base data structures used to store the data in the system. You will need to choose the type of database you would like to use. We strongly suggest using a relational database unless you have a very good reason not to.
+   
+  The design process for a relational database typically follows these steps:
+
+  <ol>
+    <li><strong>Determine the purpose of the database</strong> - This helps prepare for the remaining steps.</li>
+    <li><strong>Find and organize the information required</strong> - Gather all of the types of information to record in the database, such as product name and order number.</li>
+    <li><strong>Divide the information into tables</strong> - Divide information items into major entities or subjects, such as Products or Orders. Each subject then becomes a table.</li>
+    <li><strong>Turn information items into columns</strong> - Decide what information needs to be stored in each table. Each item becomes a field, and is displayed as a column in the table. For example, an Employees table might include fields such as Last Name and Hire Date.</li>
+    <li><strong>Specify primary keys</strong> - Choose each table’s primary key. The primary key is a column, or a set of columns, that is used to uniquely identify each row. An example might be Product ID or Order ID.</li>
+    <li><strong>Set up the table relationships</strong> - Look at each table and decide how the data in one table is related to the data in other tables. Add fields to tables or create new tables to clarify the relationships, as necessary.</li>
+    <li><strong>Refine the design</strong> - Analyze the design for errors. Create tables and add a few records of sample data. Check if results come from the tables as expected. Make adjustments to the design, as needed.</li>
+  </ol>
+  Below is a YouTube video that shows you how to create entity-relationship diagrams:
+
+  <iframe width="560" height="349" src="https://www.youtube.com/embed/c0_9Y8QAstg"></iframe><br>
+
+  Please upload images (.jpeg, .bmp or .png) of your design. You may use any application you deem fit or even hand sketches. Try to make it as detailed as possible, and provide explanations where necessary.
+   
+  This <%= link_to 'Microsoft', 'https://support.office.microsoft.com/en-us/article/Database-design-basics-1eade2bf-e3a0-41b5-aee6-d2331f158280?CorrelationId=afcca4ae-d307-46c2-8c16-7f322b52c518&ui=en-US&rs=en-US&ad=US', target: '_blank'%> page gives a good description of the whole process of relational database design. If you have chosen a NoSQL database we suggest reading more on this <%= link_to 'Wikipedia', 'http://en.wikipedia.org/wiki/NoSQL', target: '_blank'%> page and this <%= link_to 'ITBusinessEdge', 'http://www.itbusinessedge.com/slideshows/top-five-nosql-databases-and-when-to-use-them.html', target: '_blank'%> article.
+   
+  The database design will be used when creating the prototype. A good design will greatly aid the performance of the system.
+
+</div>
+<hr> 

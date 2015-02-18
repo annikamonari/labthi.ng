@@ -5,7 +5,7 @@ class PrototypeComponent < Component
       names = [["Design Prototype and User Testing", "10%"], 
                ['Functional Prototype and Test Suite', '10%']]
     else
-      names = [['A', '10%'], ['B', '10%']]
+      names = [['Initial Models', '10%'], ['Final Prototype and Product Testing', '10%']]
     end
 
     names.each do |name, equity|

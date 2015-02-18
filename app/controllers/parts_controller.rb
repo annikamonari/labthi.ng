@@ -1,7 +1,7 @@
 class PartsController < ApplicationController
-  before_action :set_part
-  before_action :set_idea
-  before_action :team_member
+  before_action :set_part, except: :download
+  before_action :set_idea, except: :download
+  before_action :team_member, except: :download
   before_action :check_user, only: [:edit]
 
   def edit
@@ -12,6 +12,13 @@ class PartsController < ApplicationController
 
   def help_content
     render layout: 'sidebar_part'
+  end
+
+  def download
+    send_file(
+      "#{Rails.root}/public/PDS_Template.xlsx",
+      filename: "Product Design Specification Template.xlsx",
+      type: "application/xlsx")
   end
 
   def admin_tasks
