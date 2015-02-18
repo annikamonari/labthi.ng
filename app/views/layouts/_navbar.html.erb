@@ -17,10 +17,12 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
       <!-- #nav_link is a custom method defined in application_helper.rb -->
-      <%= nav_link 'Documentation', '/documentation' %>
-      <%= nav_link 'Create', '/create' %>
-      <%= nav_link 'Build', '/build' %>
-      <%= nav_link 'Buy', '/buy' %>
+      <% unless current_user.nil? %>
+        <%= nav_link 'Documentation', '/documentation' %>
+        <%= nav_link 'Create', '/create' %>
+        <%= nav_link 'Build', '/build' %>
+        <%= nav_link 'Buy', '/buy' %>
+      <% end %>
     </ul>
     <!-- Search bar!
     <form class="navbar-form navbar-left" role="search">
