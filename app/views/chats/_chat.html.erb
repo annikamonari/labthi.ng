@@ -5,7 +5,27 @@
       <span style='margin-top:-5px;'><small class="text-muted">(at <%= chat.created_at.strftime('%-d %B %Y, %H:%M') %>)</small></span></h4>
     <p><%= simple_format mentions_to_link(chat.body) %></p>
     <% unless chat.attachment.url.nil? %>
-      <p>Attachment = <%= chat.attachment.url %></p>
+      <br>
+      <a data-toggle="modal" data-target=".bs-example-modal-sm<%=chat.id%>">
+          <%= image_tag chat.attachment, size: '80x80', class: 'img-rounded media-object' %>
+        </a>
     <% end %>
   </div>
+
+  <!-- vv modal div-->
+  <div class="modal bs-example-modal-sm<%=chat.id%>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+      <div class='modal-header'>
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      </div>
+        <div class="modal-body">
+          <%= image_tag chat.attachment, style: 'max-height:100%;max-width:100%;' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ^^ modal div-->
+
 </li>
+

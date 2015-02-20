@@ -3,7 +3,7 @@ class NotificationsController < ApplicationController
   def index
     @notifications = current_user.notifications
     
-    @notifications.update_all(:read, true)
+    @notifications.update_all(read: true)
 
     @unread_count = @notifications.where(read: false).count
 
