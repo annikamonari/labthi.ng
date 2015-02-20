@@ -4,7 +4,8 @@ publisher = client.publish('<%= j @url %>', {
 
 publisher.callback(function() {
   $('#chat_body').val('');
-  $('#new_chat').find("input[type='submit']").val('Submit').prop('disabled', false)
+  $('#chat_attachment').val('');
+  //$('#new_chat').find("input[type='submit']").val('Submit').prop('disabled', false)
 });
  
 publisher.errback(function() {
