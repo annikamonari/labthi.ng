@@ -43,7 +43,12 @@
 
 <% content_for :links do %>
   <% if @part.is_started? or @part.is_in_review? %>
-    <br><div style='margin-left:105px;'>Can't manage? Unhappy?
+    <% if current_page?(part_admin_tasks_path(idea_id: @idea.id, id: @part.id)) %>
+    <br><div style='margin-left:225px;'>
+    <% else %>
+    <br><div style='margin-left:105px;'>
+    <% end %>
+    Can't manage? Unhappy?
     <%= button_to "Unstart", unstart_part_path(id: @part.id, idea_id: @idea.id), class: 'btn btn-danger', method: 'PUT' %></div>
   <% end %><br>
   <% if current_page?(part_admin_tasks_path(idea_id: @idea.id, id: @part.id)) %>
