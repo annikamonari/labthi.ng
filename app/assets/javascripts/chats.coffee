@@ -14,5 +14,5 @@ jQuery ->
     console?.log "Can't unsubscribe." # print a message only if console is defined
     
   client.subscribe $('#chats').data("query"), (payload) ->
-    $('#chats').find('.media-list').append(payload.message) if payload.message
+    $('#chats').find('.media-list').append(payload.message) 
     $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
