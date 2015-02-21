@@ -25,7 +25,14 @@
             </div>
           <br>
           <p class='doc'><%= post.content %></p>
-          <p><%= image_tag post.image.url, :size => "300x300"%></p>
+          <% unless post.image_nil? %>
+            <br>
+            <p>
+              <a data-toggle="modal" data-target=".bs-example-modal-sm<%=post.id%>">
+                <%= image_tag post.image_url, size: '300x300', class: 'img-rounded media-object' %>
+              </a>
+            </p>
+          <% end %>
           <hr style="color:#fff;background-color:#fff;border-color:#fff;" />       
         <% if post.kind == 'team' %>
           <span><%= link_to 'View Proposal', post_path(post_id: post.id, idea_id: @idea.id) %></span>
@@ -68,5 +75,20 @@
             <% end %>
           </ul><br>         
     </div>
+
+    <!-- vv modal div-->
+    <div class="modal bs-example-modal-sm<%=post.id%>" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+        <div class='modal-header'>
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><br>
+        </div>
+          <div class="modal-body">
+            <%= image_tag post.image_url, style: 'max-height:100%;max-width:100%;' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ^^ modal div-->
 </li>
 

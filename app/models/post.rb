@@ -21,6 +21,10 @@ class Post < ActiveRecord::Base
     TaskComment.where(kind: 'Post', kind_id: self.id)
   end
 
+  def image_nil?
+    self.image.url =~ /default.png/
+  end
+
   private
     def create_notification
       notification_kind = nil
