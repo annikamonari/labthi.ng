@@ -53,7 +53,7 @@ $(document).ready(function() {
 $(document).ready(function() {
   $("a.pull-right.comment" ).click(function() {
     if ($("a.pull-right.showcomments").text() == 'Hide CommentsHide Comments' || 'Hide Comments') {
-      $(this).parent().parent().parent().siblings().children('ul').children( '.commentform').show();
+      $(this).parent().parent().parent().parent().siblings().children('ul').children( '.commentform').show();
       $(this).hide();
       $(this).siblings(' .link-dis.pull-right').hide();
     }
@@ -63,7 +63,7 @@ $(document).ready(function() {
 $(document).ready(function() {
   $("a.cancel-comment" ).click(function() {
     $(this).parent().hide();
-    $(this).parent().parent().parent().siblings().children().children().children().show();
+    $(this).parent().parent().parent().siblings().children().children().children().children().show();
   });
 });
 

@@ -34,14 +34,14 @@
             <span style='margin-left:10px;'><%= link_to 'Apply to be a Team Member', post_path(post_id: post.id, idea_id: @idea.id) %></span>
           <% end %>
         <% end %>
-        <% if post.kind == 'news' %>
-          <%= link_to 'Like', like_path(model_name: post.class, model_id: post.id, user_id: current_user.id), method: :post, class: 'pull-right' %>
-          <span class='link-dis pull-right' style='margin-left:9px;margin-right:9px;'> | </span>
-        <% end %>
+        <span class='add-comments'>
           <a href='javascript:void(0);' class='pull-right comment' style='margin-left:10px;' align='center'>Add Comment</a> 
           <span class='link-dis pull-right' style='margin-left:9px;'> | </span>
+        </span>
           <a href='javascript:void(0);' class='pull-right showcomments'>Hide Comments</a>
           <% if post.kind == 'news' %>
+            <span class='like link-dis pull-right' style='margin-left:9px;margin-right:9px;'> | </span>
+            <%= link_to 'Like', like_path(model_name: post.class, model_id: post.id, user_id: current_user.id), method: :post, class: 'pull-right' %>
             <span class='link-dis'>
               <span class='glyphicon glyphicon-thumbs-up' style='margin-right:5px;'></span>
               <% likes = Like.where(model_name: post.class, model_id: post.id).count %>
