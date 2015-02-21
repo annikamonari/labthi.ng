@@ -2,7 +2,7 @@
 <li class="white-bg">
   <div class="media">
     <%= link_to profile, class: "pull-left" do %>
-      <%= image_tag(profile.photo.thumb, class:'media-object') %>
+      <%= image_tag(profile.photo.thumb, size: '60x60', class:'media-object') %>
     <% end %>
     <div class="pull-left">
       <%= render 'users/user', user: user %>

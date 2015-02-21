@@ -38,12 +38,15 @@ $(document).ready(function () {
 $(document).ready(function() {
   $("a.pull-right.showcomments").click(function() {
     if ($(this).text() == 'Hide Comments') {
-      console.log($(this).parent().parent().parent().siblings().children())
+      $(this).siblings('.add-comments').children().hide();
       $(this).siblings().show();
       $(this).parent().parent().parent().siblings().children('ul.media-list.comments.answer-comments').hide();
       $(this).text('Show Comments');
     }
     else {
+      if ($(this).parent().parent().parent().siblings().children('ul').children( '.commentform').css('display') == 'none') {
+        $(this).siblings('.add-comments').children().show();
+      }
       $(this).parent().parent().parent().siblings().children('ul.media-list.comments.answer-comments').show();
       $(this).text('Hide Comments');
     }
@@ -52,7 +55,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $("a.pull-right.comment" ).click(function() {
-    if ($("a.pull-right.showcomments").text() == 'Hide CommentsHide Comments' || 'Hide Comments') {
+    if ($("a.pull-right.showcomments").text() == 'Hide CommentsHide Comments' ) {
       $(this).parent().parent().parent().parent().siblings().children('ul').children( '.commentform').show();
       $(this).hide();
       $(this).siblings(' .link-dis.pull-right').hide();
@@ -63,9 +66,6 @@ $(document).ready(function() {
 $(document).ready(function() {
   $("a.cancel-comment" ).click(function() {
     $(this).parent().hide();
-    $(this).parent().parent().parent().siblings().children().children().children().children().show();
+    $(this).parent().parent().parent().siblings().children().children().children().children().not('span.link-dis.comment').show();
   });
 });
-
-
-
