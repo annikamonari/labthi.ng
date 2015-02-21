@@ -136,6 +136,15 @@ module ApplicationHelper
       end
     end
   end
+
+  def get_likes_display(likes)
+    if likes.to_i == 1
+      return 'person likes'
+    else
+      return 'people like'
+    end
+  end
+
 end
 
 
