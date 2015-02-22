@@ -99,6 +99,7 @@ StartIt::Application.routes.draw do
   end
 
   post 'like/:model_name/:model_id/:user_id', to: 'likes#like', as: 'like'
+  delete 'like/:model_name/:model_id/:user_id', to: 'likes#unlike', as: 'unlike'
   
   get "profile", :to => "profiles#show" # We want this to be: get "profile", :to => "profiles#show"
 

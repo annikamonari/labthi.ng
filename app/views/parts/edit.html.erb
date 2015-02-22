@@ -2,11 +2,11 @@
 
 <div class='col-md-10'><br><h4 class='partname' style='margin-left:100px;'>Submit Content Here</h4></div>
 <div class='col-md-10 helpcontentbg partname' style='margin-left:115px;width:78%;'>
-  <% if @part.is_design? %>   
+  <% if @part.is_upload? %>   
     <%=  render 'upload_form' %>
-  <% elsif @part.is_prototype? %>
-    <%=  render 'prototype_form' %>
+  <% elsif @part.is_editor? %>
+    <%=  render 'editor_form' %>
   <% else %>
-    <%= render 'editor_form' %>
+    <strong>This part still needs to be implemented in parts/edit.html.erb</strong>
   <% end %>
 </div>

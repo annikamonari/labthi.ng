@@ -13,4 +13,16 @@ class LikesController < ApplicationController
     end
   end
 
+  def unlike
+    like = Like.find_by(model_name: params[:model_name], 
+                        model_id: params[:model_id], 
+                        user_id: params[:user_id])
+    if like.nil?
+      redirect_to :back, notice: 'You cannot unlike something you havnt like first..'
+    else
+      like.delete
+      redirect_to :back, notice: 'You unliked it!'
+    end
+  end
+
 end
