@@ -50,7 +50,7 @@
             <span class='like link-dis pull-right' style='margin-left:9px;margin-right:9px;'> | </span>
             <%= link_to 'Like', like_path(model_name: post.class, model_id: post.id, user_id: current_user.id), method: :post, class: 'pull-right' %>
             <span class='link-dis'>
-              <span class='glyphicon glyphicon-thumbs-up' style='margin-right:5px;'></span>
+              <span class='glyphicon glyphicon-thumbs-up'></span>
               <% likes = Like.where(model_name: post.class, model_id: post.id).count %>
               <%= likes %> <%= get_likes_display(likes) %> this.
             </span>

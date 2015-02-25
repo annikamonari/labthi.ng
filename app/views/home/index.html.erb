@@ -1,9 +1,13 @@
 
-<h1 class='heading' style='font-size:5em; color:#fff;'><strong> Big Ideas. Come Play.</strong></h1><br>
-<h2 class='subheading' style='line-height: 1.1; letter-spacing: -1px; color: #fff;'>
-  Labthi.ng is a collaborative space for innovators and hackers to change the world. Earn equity in a startup by writing a business plan or coding a prototype.<br><br>
-  <p style='margin-top:-10px;'><%= link_to "How it works", documentation_path %></p>
-</h2>
+<h1 class='heading' style="font-size:5em; color:#fff;font-family:'Montserrat"><strong> Big Ideas. Come Play.</strong></h1><br>
+<br>
+<div class='col-md-2 no-gutter'>
+<img src='images/lightbulb.png' alt='LabthingGuy' class='create-icon chart-icon pull-left' style='height:130px;margin-top:10px;float:left;'>
+</div>
+<div class='col-md-10'><h2 class='subheading' style='line-height: 1.1; letter-spacing: -1px; color: #fff;'>
+  <p class='doc'>Collaborate with university students from all over the world to turn your big idea into a profitable business. We help you build your start-up, obtain funding, and create success.</p>
+</h2></div>
+
 
 <% content_for :sidebar_signup do %>
   <div id='register' >
@@ -13,5 +17,5 @@
   <div id='login' style='display:none; margin-top:-5px;'>
    <%= render template: 'devise/sessions/new' %>
   </div>
-    <a href='javascript:void(0);' id='deviseform'>Sign in</a>
+    <a href='javascript:void(0);' id='deviseform'><b>Sign in</b></a>
 <% end %>
