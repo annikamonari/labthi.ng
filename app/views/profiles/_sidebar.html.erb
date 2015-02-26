@@ -10,11 +10,7 @@
       <hr>
       <% if @profile.about %>
       <div align='center' style='width:210px !important;margin-left:22px;'>
-        <% if @profile.about.length < 30 %>
         <p>
-        <% else %>
-        <p class='doc'>
-        <% end %>
         <strong>About:</strong>
         <%= @profile.about %></p>
       </div>
