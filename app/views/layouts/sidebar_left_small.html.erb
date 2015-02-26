@@ -1,14 +1,14 @@
 <%= render 'layouts/header' %>
 
 <%= yield :page_title %>
-
-<div class="sidebar sidebar_left col-sm-3">
+<br>
+<div class="sidebar sidebar_left col-sm-4">
 	<%= yield :sidebar_left_small %>
 </div>
 
 
 <%= render 'layouts/secondary_nav' if content_for :secondary_nav %>
-<div class="col content col-sm-9">
+<div class="col content col-sm-8">
 	<%= yield %>
 </div>
 

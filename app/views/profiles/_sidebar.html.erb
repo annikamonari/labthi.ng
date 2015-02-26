@@ -1,15 +1,15 @@
 <% if controller.controller_name == 'profiles' and (controller.action_name == 'show' or controller.action_name == 'skills') %>
   <% content_for :sidebar_left_small do %>
   <br>
-    <div class='row profile-border' style=''>
+    <div class='row profile-border' style='margin-top:-15px;'>
       <div class='' align='center'>
-        <br>
-        <span align='center'><%= image_tag @profile.photo.display, class: 'img-rounded', size: '180x180' %></span>
+        <br><br><br>
+        <span align='center'><%= image_tag @profile.photo.display, class: 'img-rounded', size: '200x200' %></span>
       </div>
-      <br>
+      <br><br>
       <hr>
 
-      <div align='center' style='width:210px !important;margin-left:22px;'>
+      <div align='center' style='width:310px !important;margin-left:22px;'>
         <p>
         <strong>University:</strong>
         <%= @user.university %></p>
@@ -17,7 +17,7 @@
       <hr>
 
       <% unless @profile.about.blank? %>
-        <div align='center' style='width:210px !important;margin-left:22px;'>
+        <div align='center' style='width:310px !important;margin-left:22px;'>
           <p>
           <strong>About:</strong>
           <%= @profile.about %></p>
@@ -26,7 +26,7 @@
       <% end %>
 
       <% unless @profile.skills.blank? %>
-        <div align='center' style='width:210px !important;margin-left:22px;'>
+        <div align='center' style='width:310px !important;margin-left:22px;'>
           <p>
           <strong>Skills:</strong>
           <%= @profile.skills %></p>
@@ -58,7 +58,7 @@
       <% end %>
 
       <% unless @profile.linkedin.blank? %>
-        <div align='center' style='width:210px !important;margin-left:22px;'>
+        <div align='center' style='width:310px !important;margin-left:22px;'>
           <p align='center'>
             <strong>Linkedin:</strong>
             <a href='<%=@profile.linkedin%>' target='_blank'>Visit <%= @user.name %></a>
@@ -78,7 +78,7 @@
 <% else %>
   <% content_for :sidebar_left_small do %>
     <% if @profile.photo.nil? %>
-      <div style='padding-right:50px;'><hr></div>
+      <div style=''><hr></div>
     <% else %>
       <br>
     <% end %>

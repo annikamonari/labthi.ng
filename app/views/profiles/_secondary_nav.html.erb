@@ -2,16 +2,16 @@
   <div class="clearfix">
     <div class="col-sm-6">
       <% if current_page?("/profiles/#{@profile.id}/edit")%>
-       <h2>
+       <h1 style="font-family:'Montserrat-Bold'">
         Editing Profile
-        </h2>
+        </h1>
       <% else %>
-        <h2>
+        <h1 style="font-family:'Montserrat-Bold'">
         <%= @user.name %>
         <span class="rep-points badge-rep">
           <%= @user.lab_rep_points %>
         </span>
-        </h2>
+        </h1>
       <% end %>
     </div>
   </div>
