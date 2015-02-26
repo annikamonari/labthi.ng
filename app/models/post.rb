@@ -25,6 +25,10 @@ class Post < ActiveRecord::Base
     self.image.url =~ /default.png/
   end
 
+  def like(user)
+    Like.find_by(model_name: self.class, model_id: self.id, user_id: user.id)
+  end
+
   private
     def create_notification
       notification_kind = nil

@@ -39,6 +39,14 @@ class Part < ActiveRecord::Base
     self.component.instance_of?(BusinessPlanComponent)
   end
 
+  def is_upload?
+    [].include?(self.name)
+  end
+
+  def is_editor?
+    [].include?(self.name)
+  end
+
   def is_started?
     self.status == 'Started'
   end
