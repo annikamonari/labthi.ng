@@ -1,10 +1,10 @@
 <% content_for :page_title do %>
 	<div class="clearfix">
-		<div class="col-sm-8">
+		<div class="col-sm-9">
 			<%= render partial: "evaluations/vote_wrapper", locals: {voteable: @idea} %>
-			<div style='float:left;'><h2>
+			<div style='float:left;'><h1 style="font-family:'Montserrat-Bold';">
 			  <%= @idea.title %>
-			</h2></div>
+			</h1=1></div>
 			<% if @idea.phase == 3 and current_page?("/ideas/#{@idea.id}") %>
 				<div style='float:left; margin-left:20px; height:40px; margin-top:10px; display:none;' id='buyhelp'>
 	        <a id="pop" 
@@ -16,10 +16,10 @@
 	            <b>x</b>
 	          </span>
 	        </a>      
-	      </div>
+	      </div><br><br>
 	    <% end %>
 		</div><!-- .pull-left -->
-	  <div class="col-sm-4 pull-right">
+	  <div class="col-sm-3 pull-right" style='margin-top:15px;'>
 	  	<div class="pull-right" id="follow_idea_form">
 		  	<% if current_user != nil && current_user.following_idea?(@idea) %>
 		  		<%= render 'ideas/unfollow', idea: @idea %>

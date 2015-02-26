@@ -2,17 +2,13 @@
 <li class="white-bg">
   <div class="media">
     <%= link_to profile, class: "pull-left top" do %>
-      <%= image_tag(profile.photo.thumb, size: '65x65', class: 'img-rounded') %>
+      <%= image_tag(profile.photo.thumb, size: '60x60', class: 'img-rounded') %>
     <% end %>
-    <div>
-      <%= render 'users/user', user: user %>
-      <br>
-      <% if profile.about %>
-        <%= truncate(profile.about, length: 70) %>
-      <% else %>
-        <%= user.name %> does not have an <i>about</i> section on his profile yet.
-      <% end %>
-      <br>
+    <div style='margin-top:2px;'>
+      <span><%= render 'users/user', user: user %></span><br>
+      <div style='height:3px;'></div>
+      <span><%= user.university %></span><br>
+      <div style='height:3px;'></div>
       <div style='margin-left:70px;'>
         <div style='color:#5cb85c;float:left;margin-right:10px;'>
           <b>local reputation:</b> 
@@ -22,5 +18,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div><hr>
 </li>

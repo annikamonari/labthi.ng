@@ -1,11 +1,11 @@
-<div class='col-md-12 content-bg'>
-  <h2>Progress</h2>
-  <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
+<div class='col-md-12 profile-border'>
+  <h3 class='set-font-bold'>Progress</h2>
+  <hr>
   <%= render 'idea_builds/progress' %>
-</div>
-<div class='col-md-12 content-bg'>
-  <h2>The Team</h2>
-  <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
+</div><br>
+<div class='col-md-12 profile-border'>
+  <h3 class='set-font-bold'>The Team</h3>
+ <hr>
   <div class="idea-followers">
     <% @users_points.each do |user, points| %>
       <%= render 'users/team_member', user: user, points: points %>
