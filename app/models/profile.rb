@@ -5,8 +5,9 @@ class Profile < ActiveRecord::Base
 
 	validates :website, :allow_blank => true,
                         :allow_nil => true, length: { maximum: 30 }
-    validates :country, presence: true, length: { maximum: 55 }, :allow_blank => true, :allow_nil => true
-    validates :about, presence: true, length: { maximum: 1000 }, :allow_blank => true, :allow_nil => true
+  validates :country, presence: true, length: { maximum: 55 }, :allow_blank => true, :allow_nil => true
+  validates :about, presence: true, length: { maximum: 1000 }, :allow_blank => true, :allow_nil => true
+  validates :github, :allow_blank => false, presence: false
 
-    mount_uploader :photo, PhotoUploader
+  mount_uploader :photo, PhotoUploader
 end

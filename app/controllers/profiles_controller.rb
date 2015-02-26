@@ -47,7 +47,7 @@ class ProfilesController < ApplicationController
 	  end
 
 	  def profile_params
-      params.require(:profile).permit(:profession, :about, :age, :country, :website, :photo)
+      params.require(:profile).permit(:about, :country, :website, :photo, :linkedin, :github, :skills, )
     end
 
     def correct_user

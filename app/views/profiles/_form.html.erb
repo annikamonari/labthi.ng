@@ -29,23 +29,27 @@
       </div>
       <div class="form-group">
         <%= f.label :about %>
-        <%= f.text_area :about, class:"form-control" %>
+        <%= f.text_area :about, placeholder: "Tell the community about yourself..your interests, your experience." , class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :skills %>
+        <%= f.text_field :skills, placeholder: "List your skills, e.g. programming in Java, UI design", class:"form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :country %>
-        <%= f.text_field :country, class:"form-control" %>
+        <%= f.text_field :country, placeholder: 'e.g. the UK', class:"form-control" %>
       </div>
       <div class="form-group">
         <%= f.label 'Twitter' %>
-        <%= f.text_field :website, class:"form-control" %>
+        <%= f.text_field :website, placeholder: "e.g. @labthing", class:"form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label 'Github User Name' %>
-        <%= f.text_field :github, class:"form-control" %>
+        <%= f.label 'Github Username' %>
+        <%= f.text_field :github, placeholder: "e.g. @labthing", class:"form-control" %>
       </div>
       <div class="form-group">
         <%= f.label 'Linkedin URL' %>
-        <%= f.text_field :linkedin, class:"form-control" %>
+        <%= f.text_field :linkedin, placeholder: "e.g. https://www.linkedin.com/in/annikamonari", class:"form-control" %>
       </div>
     </div>
     <div class="actions" style='margin-left:20px;'>

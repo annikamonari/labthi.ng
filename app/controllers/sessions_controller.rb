@@ -5,4 +5,8 @@ class SessionsController < Devise::SessionsController
     notice: 'Please sign in correctly or sign up to browse Labthi.ng!'
   end
 
+  def edit
+    super
+  end
+
 end

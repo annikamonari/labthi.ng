@@ -1,40 +1,78 @@
 <% if controller.controller_name == 'profiles' and (controller.action_name == 'show' or controller.action_name == 'skills') %>
   <% content_for :sidebar_left_small do %>
   <br>
-  <div class='row profile-border' style=''>
+    <div class='row profile-border' style=''>
       <div class='' align='center'>
-      <br>
+        <br>
         <span align='center'><%= image_tag @profile.photo.display, class: 'img-rounded', size: '180x180' %></span>
       </div>
       <br>
       <hr>
-      <% if @profile.about %>
+
       <div align='center' style='width:210px !important;margin-left:22px;'>
         <p>
-        <strong>About:</strong>
-        <%= @profile.about %></p>
+        <strong>University:</strong>
+        <%= @user.university %></p>
       </div>
-      <% end %>
       <hr>
 
-      <% if @profile.country %>
+      <% unless @profile.about.blank? %>
+        <div align='center' style='width:210px !important;margin-left:22px;'>
+          <p>
+          <strong>About:</strong>
+          <%= @profile.about %></p>
+        </div>
+        <hr>
+      <% end %>
+
+      <% unless @profile.skills.blank? %>
+        <div align='center' style='width:210px !important;margin-left:22px;'>
+          <p>
+          <strong>Skills:</strong>
+          <%= @profile.skills %></p>
+        </div>
+        <hr>
+      <% end %>
+      
+      <% unless @profile.country.blank? %>
         <p align='center'>
         <strong>Country:</strong>
         <%= @profile.country %></p>
+        <hr>
       <% end %>
-      <hr>
-      <% if @profile.website %>
+
+      <% unless @profile.website.blank? %>
         <p align='center'>
-        <strong>Twitter:</strong>
-        <a href='http://twitter.com/<%=@profile.website%>' target='_blank'>@<%= @profile.website %></a>
+          <strong>Twitter:</strong>
+          <a href="http://twitter.com/<%=@profile.website.sub('@','') %>" target='_blank'><%= @profile.website %></a>
         </p>
+        <hr>
       <% end %>
-      <hr>
-    <p align='center'>
-      <strong>Member Since:</strong>
-      <%= time_ago_in_words(@profile.user.created_at) %> ago
-    </p>
-    </div><br>
+
+      <% unless @profile.github.blank? %>
+        <p align='center'>
+          <strong>Github:</strong>
+          <a href="http://github.com/<%=@profile.website.sub('@','') %>" target='_blank'><%= @profile.github %></a>
+        </p>
+        <hr>
+      <% end %>
+
+      <% unless @profile.linkedin.blank? %>
+        <div align='center' style='width:210px !important;margin-left:22px;'>
+          <p align='center'>
+            <strong>Linkedin:</strong>
+            <a href='<%=@profile.linkedin%>' target='_blank'>Visit <%= @user.name %></a>
+          </p>
+        </div>
+        <hr>
+      <% end %>
+      
+      <p align='center'>
+        <strong>Member Since:</strong>
+        <%= time_ago_in_words(@profile.user.created_at) %> ago
+      </p>
+    </div>
+    <br>
     <p align='center'><%= link_to "Edit Profile", edit_profile_path(@profile) if current_user == @user %></p>
   <% end %>
 <% else %>
