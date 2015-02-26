@@ -23,3 +23,24 @@
     max-height:140px;
   }
 }
+
+.create-bg {
+  background: image-url('create_pic.png') center center; 
+  background-size: 100%; 
+  margin-top:-18px;
+  background-size:cover;
+}
+
+.build-bg {
+  background: image-url('build_pic.png') center center;  
+  background-size: 100%; 
+  margin-top:-18px;
+  background-size:cover;
+}
+
+.buy-bg {
+  background: image-url('buy_pic.png') center center;  
+  background-size: 100%; 
+  margin-top:-18px;
+  background-size:cover;
+}

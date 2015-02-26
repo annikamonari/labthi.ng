@@ -1,34 +1,29 @@
-<% ### explore#build ### %>
-
-<% content_for :sidebar_left_small do %>
-  <div>
-    <%= link_to "Submit Idea", '/ideas/new', class: 'btn btn-primary' %>
-    <div style='float:right;'>
-      <a id="pop" 
-          href="#" 
-          data-toggle="popover" 
-          data-content="When the <b>build phase</b> is completed, the top 5 reputation earners are asked to continue as a team and leave Labthi.ng to launch the product themselves. If the majority of these 5 decline the offer, the idea joins the <b>buy phase</b> and is showcased to potential customers. <br><br>The content users develop in the <b>build phase</b> will not be on display to the general public; only once a customer has shown sufficient interest in purchasing the idea will they gain the ability to view the minimum viable product and the business plan behind it.<br><br> There are two possible actions in this phase (apart from buying the product). On the idea's <b>create</b> page, pressing:
-          <ul type='circle'>
-          <li><b>I'd use it</b> to show that you'd be a user of the product once its launched;</li>
-          <li><b>I'd buy it</b> on its create pageto show that you are interested in buying the idea and launching it yourself.</li></ul><i>Note:</i> you are not committing to any transactions by pressing these buttons; you are merely providing us and potential customers with useful data about idea's popularity.">
-        <%= image_tag 'labthinghelp.png', size: '36x36', id: 'help' %>
-        <span id='close' class='pull-left' style='display:none; position:absolute; top:0; margin-left:-5px; color:#34495E;'>
-          <b>x</b>
-        </span>
-      </a>
+<% content_for :background do %>
+  <div class='buy-bg' style='height:1000px;'>
+  <br><br><br><br><br><br><br><br>
+    <div class='row'>
+      <div class='col-md-4'></div>
+      <div class='col-md-3'>
+        <h1 style="color:#fff;font-family:'Montserrat-Bold';font-size:4.2em;float:right;margin-left:30px;">Sell</h1>
+        <img src='images/buy.png' alt='Create an Idea' style='height:100px;' class='pull-right'>
+      </div>
+      <div class='col-md-5'></div>
+    </div><br><br><br><br>
+    <div class='row'>
+      <div class='col-md-2'></div>
+      <div class='col-md-8'>
+        <h1 style="color:#fff;font-family:'Montserrat';font-size:2.0em;line-height: 50px;" align='center'>
+          Click on an idea to learn more about it. You can read the team's news feed or watch their video pitch. Interested in investing? Be the first and <a class='email-footer' href="mailto:labthingco@gmail.com?Subject=Hi%20Labthi.ng!" target="_top" style='color:#fff !important;'><b>Contact us!</b></a>
+        </h1><br><br><br>
+      </div>
+      <div class='col-md-2'></div>
+      <br><br><br>
+    </div><hr style="color:#fff;background-color:#fff;border-color:#fff;margin-left:250px;margin-right:250px;" />
+    <div class='row'>
+      <div class='col-md-12'>
+      <br><br>
+        <h1 style="color:#fff;font-family:'Montserrat-Bold';font-size:6.2em;" align='center'>COMING SOON</h1>
+      </div>
     </div>
   </div>
-  <hr>
-  <p><%= link_to 'All Categories', buy_path %></p>
-  <% @categories.each do |category| %>
-  <p>
-    <%= link_to category, { controller: 'explore', action: 'buy', category: category }, class: 'category-tag' %>
-  </p>
-  <% end %>
-<% end %>
-
-<% if @ideas then %>
-  <% @ideas.each do |idea| %>
-    <%= render 'print_idea_for_buy', :idea => idea %>
-  <% end %>
 <% end %>
