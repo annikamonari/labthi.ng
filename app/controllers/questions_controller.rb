@@ -92,7 +92,8 @@ class QuestionsController < ApplicationController
     end
 
     def correct_user
-      unless current_user == @question.user then
+      @question = Question.find(params[:question_id])
+      unless current_user == @question.user
         redirect_to @question, notice: "You do not have permission to edit this question."
       end
     end
