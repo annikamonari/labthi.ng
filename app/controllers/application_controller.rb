@@ -61,4 +61,10 @@ class ApplicationController < ActionController::Base
       @commentable = commentable_type.singularize.classify.constantize.find_by_id(id) unless commentable_type == nil
     end
 
+    private
+
+    def after_sign_up_path_for(resource_or_scope)
+      edit_profile_path(resource.profile.id)
+    end
+
 end
