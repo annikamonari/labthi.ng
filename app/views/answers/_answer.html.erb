@@ -22,27 +22,29 @@
           <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
         </div>
       </div>
-      <% if answer.comments.count > 0 %>
-        <a href='javascript:void(0);' class='showanscomments'>Hide Answer Comments</a>
-        <br><br>
-      <% end %>
-      <div class="media-body answercomments">
+      <div class='pull-right'>
+        <% if answer.question.idea.is_phase_1? %>
+          <%= link_to "Add comment", 'javascript:void(0);', class: "add-answer-comment" %>
+        <% else %>
+          <span class="link-dis"> Add comment </span>
+        <% end %>
+        <span class="add-comment-bar link-dis"> | </span>
+        <% if answer.comments.count > 0 %>
+          <a href='javascript:void(0);' class='hideanscomments' style='display:none;'>Hide Answer Comments (<%= answer.comments.count %>)</a>
+          <a href='javascript:void(0);' class='showanscomments'>Show Answer Comments (<%= answer.comments.count %>)</a>
+        <% end %>
+      </div>
+      <br>
+      <div class="media-body answercomments" style='display:none;'>
         <ul class="media-list comments answer-comments">
-          <% if answer.comments.count > 0 %>
-            <%= render vote_order(answer.comments.includes(:user)) %>
-          <% end %>
-          <div class='content-bg comment-form' style='display:none;'>
+          <div class='white-bg comment-form' style='display:none;'>
             <%= render partial: 'comments/form', locals: { url: create_comment_path(commentable_id: answer.id, commentable_type: 'Answer', idea_id: answer.question.idea.id) } %><br>
             <%= link_to 'Cancel', 'javascript:void(0);', class: 'cancel-answer-comment' %>
           </div>
+          <% if answer.comments.count > 0 %>
+            <%= render vote_order(answer.comments.includes(:user)) %>
+          <% end %>
         </ul>
-        <% if answer.question.idea.is_phase_1? %>
-          <p>
-            <%= link_to "Add comment", 'javascript:void(0);', class: "add-answer-comment" %>
-          </p>
-        <% else %>
-          <p class="link-dis"> Add comment </p>
-        <% end %>
       </div>
     </div>
 </li>
