@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+=begin
 
 brief_data = ["CC uses the definition of free cultural works at Freedom Defined to 
 							categorize the CC licenses. (Freedom Defined is an open organization 
@@ -138,7 +139,7 @@ end
 end
 
 Idea.first.promote!
-
+=end
 
 
 

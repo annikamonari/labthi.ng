@@ -5,8 +5,10 @@ class ExploreController < ApplicationController
   layout 'create'
 
   def create
-    sign_out current_user
-    return redirect_to '/', notice: 'Please give us a moment to set up some nice ideas for you :)'
+    unless ['sidd.fares@gmail.com', 'alan.vey@gmail.com', 'annikamonari@gmail.com'].include?(current_user.email) 
+      sign_out current_user
+      return redirect_to '/', notice: 'Please give us a moment to set up some nice ideas for you :)'
+    end
 
     get_ideas(1)
   end
