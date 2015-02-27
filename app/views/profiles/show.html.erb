@@ -2,5 +2,11 @@
 <%= render 'sidebar' %>
 <h4>Idea Contributions</h4>
 
+<% if @user.followed_ideas.blank? %>
+  <div class='content-bg'>
+    <p><%= @user.name %> has not contributed to any ideas yet!</p>
+  </div>
+<% else %>
 <%= render 'users/labs', user: @user %>
 
+<% end %>
