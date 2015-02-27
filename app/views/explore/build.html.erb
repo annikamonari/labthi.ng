@@ -1,43 +1,6 @@
-<% ### explore#build ### %>
-
-<% content_for :sidebar_left_small do %>
-  <div>
-    <%= link_to "Submit Idea", '/ideas/new', class: 'btn btn-primary' %>
-    <div style='float:right;' id='1-div'>
-      <a id="1-pop-link" 
-          href="#" 
-          data-toggle="popover" 
-          data-content="The build phase involves the idea’s prototype and business plan engineering. Here, we invite you to help develop the idea into a minimum viable product (the core features of the product allowing it to be deployed, and no more). Users can write the idea’s description (its business model and specification for the prototype construction), write part of the business plan, design the frontend, or code the prototype. Your contributions are rewarded with equity in the idea and an increase in your reputation points. 
-          <br><br>
-          If you do not have prior experience writing business plans or building prototypes, it does not matter; for each part, we explain what its for, what is required, and how to structure it. We thus help you develop your skills in each of these 4 areas, and give you experience directly applying them to building up and coming technology-related start-ups. 
-          <br><br>
-          Click on an idea to be directed to its build page, and click <b>start</b> on a part if you would like to start contributing!">
-        <%= image_tag 'labthinghelp.png', size: '36x36', id: '1-img' %>
-        <span id='1-close' class='pull-left' style='display:none; position:absolute; top:0; margin-left:-5px; color:#34495E;'>
-          <b>x</b>
-        </span>
-      </a>
-    </div>
-  </div>
-  <hr>
-  <p><%= link_to 'All Categories', build_path %></p>
-  <% @categories.each do |category| %>
-  <p>
-    <%= link_to category, { controller: 'explore', action: 'build', category: category }, class: 'category-tag' %>
-  </p>
-  <% end %>
-<% end %>
-
-<div align='center'><%= render 'secondary_nav' %></div><hr style='width:96.5%;margin-top:20px;'/>
-<% if @ideas then %>
-  <% @ideas.each do |idea| %>
-    <%= render 'print_idea_for_build', :idea => idea %>
-  <% end %>
-<% end %>
-
 <% content_for :background do %>
-  <div class='build-bg' style='height:500px;'>
-  <br><br><br><br><br>
+  <div class='build-bg' style='height:1000px;'>
+  <br><br><br><br><br><br><br><br>
     <div class='row'>
       <div class='col-md-4'></div>
       <div class='col-md-3'>
@@ -45,16 +8,22 @@
         <img src='images/build.png' alt='Create an Idea' style='height:100px;' class='pull-right'>
       </div>
       <div class='col-md-5'></div>
-    </div><br><br>
+    </div><br><br><br><br>
     <div class='row'>
       <div class='col-md-2'></div>
       <div class='col-md-8'>
         <h1 style="color:#fff;font-family:'Montserrat';font-size:2.0em;line-height: 50px;" align='center'>
           Select an idea to check out its pitch or read its team's updates about their progress through phase 2. Alternitavely, click on <i>Needs Team Members</i> to find an idea looking for team members and apply if you think you're a fit!
-        </h1>
+        </h1><br><br><br>
       </div>
       <div class='col-md-2'></div>
+      <br><br><br>
+    </div><hr style="color:#fff;background-color:#fff;border-color:#fff;margin-left:250px;margin-right:250px;" />
+    <div class='row'>
+      <div class='col-md-12'>
       <br><br>
+        <h1 style="color:#fff;font-family:'Montserrat-Bold';font-size:6.2em;" align='center'>COMING SOON</h1>
+      </div>
     </div>
   </div>
 <% end %>
