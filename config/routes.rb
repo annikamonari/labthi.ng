@@ -1,9 +1,32 @@
 StartIt::Application.routes.draw do
 
-  resources :notifications, only: [:index, :destroy]
+# =============================================================================
+# Application Wide ============================================================
+# =============================================================================
 
-  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
-  #match "/evaluations/vote", via:[:post], as: "vote"
+  root to: 'home#index'
+
+  # User ======================================================================
+  authenticated :user do
+    root :to => 'home#dashboard', as: :dashboard
+  end
+
+  devise_for :users, controllers: { registrations: 'registrations', passwords: 'passwords', sessions: 'sessions' }
+  devise_scope :user do
+    get "users/sign_in", :to => "devise/sessions#new"
+    get "register", :to => "devise/registrations#new"
+    get "login", :to => "devise/sessions#new"
+  end
+
+  # Nav bar ===================================================================
+  get 'create', to: 'explore#create'
+  get 'build', to: 'explore#build'
+  get 'buy', to: 'explore#buy'
+
+# =============================================================================
+# Phase 1 =====================================================================
+# =============================================================================
+
   match "/comments/vote", via:[:post], as: "comment_vote"
   match "/questions/vote", via:[:post], as: "question_vote"
   match "/answers/vote", via:[:post], as: "answer_vote"
@@ -11,10 +34,27 @@ StartIt::Application.routes.draw do
   match "/solutions/vote", via:[:post], as: "solution_vote"
   
   get "evaluations/show"
-  #resources :evaluations
 
+  resources :notifications, only: [:index, :destroy]
+  resources :profiles, except: [:index, :new, :create]
+  resources :idea_relationships, only: [:create, :destroy]
   resources :comments, only: [:show]
   resources :questions, except: [:index, :create, :update]
+  resources :answers, except: [:index, :create]
+  resources :aspects, except: [:index, :show, :create, :new] do
+    resources :solutions, except: [:index, :edit, :update, :create, :show]
+  end
+
+  resources :ideas do
+    member do
+      post :vote 
+      get :followers
+    end
+    resources :idea_build, only: [:edit, :clear, :update] # This is phase 2
+  end
+
+  get '/solutions/:id', to: 'solutions#show', as: 'solution'
+  get '/ideas/:idea_id/aspects/:id/solution/create', to: 'solutions#create', as: 'create_solution'
 
   get '/ideas/:id/questions/new', to: 'ideas#new_question', as: 'idea_new_question'
   get '/ideas/:id/questions/:question_id', to: 'ideas#edit_question', as: 'idea_edit_question'
@@ -22,20 +62,29 @@ StartIt::Application.routes.draw do
   patch '/ideas/:id/questions/:question_id', to: 'questions#update', as: 'update_question'
   post '/ideas/:id/questions/:question_id', to: 'answers#create', as: 'create_answer'
   post "/ideas/:idea_id/:commentable_type/:commentable_id", to: 'comments#create', as: 'create_comment'
-  resources :answers, except: [:index, :create]
 
   get '/ideas/:idea_id/aspects/:id', to: 'aspects#show', as: 'idea_aspect'
-  resources :aspects, except: [:index, :show, :create, :new] do
-    resources :solutions, except: [:index, :edit, :update, :create, :show]
-  end
-  get '/solutions/:id', to: 'solutions#show', as: 'solution'
-  get '/ideas/:idea_id/aspects/:id/solution/create', to: 'solutions#create', as: 'create_solution'
 
+  get '/ideas/:id/define', to: 'ideas#define'
+  get '/ideas/:id/reputation', to: 'ideas#reputation'
+  get '/ideas/:id/activity', to: 'ideas#activity'
 
   get '/profiles/:id/skills', to: 'profiles#skills'
-  resources :profiles, except: [:index, :new, :create]
+  get "profile", :to => "profiles#show"
+  
+  get "activities/index"
+  get "/followed_ideas", to: 'home#followed_ideas', as: 'followed_ideas'
 
-  # TODO: Nest under idea
+  post 'ideas/:id/increase_create_length', to: 'ideas#increase_create_length', as: 'increase_create_length'
+
+# =============================================================================
+# Phase 2 =====================================================================
+# =============================================================================
+
+=begin
+  get 'build_needs_team', to: 'explore#needs_team'
+  get 'documentation', to: 'home#documentation'
+
   get "/ideas/:idea_id/parts/:id/edit", to: "parts#edit", as: "edit_part"
   get "/ideas/:idea_id/parts/:id/help_content", to: "parts#help_content", as: "part_help_content"
   get '/download', to: 'parts#download', as: 'download'
@@ -53,7 +102,6 @@ StartIt::Application.routes.draw do
   post '/ideas/:idea_id/parts/:part_id/admin_tasks/:id/update_status', to: 'admin_tasks#update_status', as: 'update_admin_task'
   post '/ideas/:idea_id/parts/:id/admin_tasks/new', to: 'admin_tasks#create', as: 'create_admin_task'
 
-
   post '/ideas/:idea_id/idea_build/:kind/:kind_id/comments/create', to: 'task_comments#create', as: 'create_task_comment'
 
   get "/ideas/:idea_id/build", to: "idea_builds#overview", as: 'idea_build'
@@ -70,57 +118,22 @@ StartIt::Application.routes.draw do
   get '/ideas/:idea_id/:kind/:kind_id/chats', to: 'chats#index', as: 'chats'
 
   get "/ideas/:idea_id/build/components", to: "idea_builds#components", as: 'idea_build_components'
-  get '/ideas/:id/define', to: 'ideas#define'
-  get '/ideas/:id/reputation', to: 'ideas#reputation'
-  get '/ideas/:id/activity', to: 'ideas#activity'
-  get '/ideas/:id/build', to: 'ideas#build'
-  post '/ideas/:idea_build_id/team_applications/:team_application_id', to: 'team_memberships#create', as: 'create_team_member'
 
-  post 'ideas/:id/increase_create_length', to: 'ideas#increase_create_length', as: 'increase_create_length'
-  resources :ideas do
-    member do
-      post :vote 
-      get :followers
-
-    end
-    resources :idea_build, only: [:edit, :clear, :update]
-  end
-
-  resources :idea_relationships, only: [:create, :destroy]
-
-  # Users and Admins
-  devise_for :users, controllers: { registrations: 'registrations', 
-                                    passwords: 'passwords', 
-                                    sessions: 'sessions' }
-  devise_scope :user do
-    get "users/sign_in", :to => "devise/sessions#new"
-    get "register", :to => "devise/registrations#new"
-    get "login", :to => "devise/sessions#new"
-  end
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
 
   post 'like/:model_name/:model_id/:user_id', to: 'likes#like', as: 'like'
   delete 'like/:model_name/:model_id/:user_id', to: 'likes#unlike', as: 'unlike'
-  
-  get "profile", :to => "profiles#show" # We want this to be: get "profile", :to => "profiles#show"
 
   post '/strike/:user_id/:idea_build_id/:voter_id', to: 'strike#create', as: 'strike'  
 
-  get 'create', to: 'explore#create'
-  get 'build', to: 'explore#build'
-  get 'build_needs_team', to: 'explore#needs_team'
-  get 'buy', to: 'explore#buy'
-  get 'documentation', to: 'home#documentation'
+  post '/ideas/:idea_build_id/team_applications/:team_application_id', to: 'team_memberships#create', as: 'create_team_member'
+
+# =============================================================================
+# Phase 3 =====================================================================
+# =============================================================================
 
   post '/buy/:id/buy', to: 'buy_phase_vote#buy_vote', as: 'buy_vote'
   post '/buy/:id/use', to: 'buy_phase_vote#use_vote', as: 'use_vote'
+=end
 
-  #get "home/dashboard"
-  get "activities/index"
-  get "home/index"
-  get "/followed_ideas", to: 'home#followed_ideas', as: 'followed_ideas'
-
-  authenticated :user do
-    root :to => 'home#dashboard', as: :dashboard
-  end
-  root to: 'home#index'
 end
