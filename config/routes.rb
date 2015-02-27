@@ -6,7 +6,8 @@ StartIt::Application.routes.draw do
   root to: 'home#index'
 
   # User ======================================================================
-  devise_for :users, controllers: { registrations: 'registrations', passwords: 'passwords', sessions: 'sessions' }
+  devise_for :users, controllers: { registrations: 'registrations', passwords: 'passwords', 
+                                    sessions: 'sessions', confirmations: 'confirmations' }
   devise_scope :user do
     get "users/sign_in", :to => "devise/sessions#new"
     get "register", :to => "devise/registrations#new"

@@ -2,7 +2,7 @@ class SessionsController < Devise::SessionsController
   
   def new
     redirect_to '/', 
-    notice: 'Please sign in correctly or sign up to browse Labthi.ng!'
+    notice: 'Please sign in or sign up to browse Labthi.ng!'
   end
 
 end
