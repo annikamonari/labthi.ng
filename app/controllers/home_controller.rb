@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   skip_before_filter :auth_user!, only: [:index, :terms, :privacy]
   
   def index
-    return redirect_to dashboard_path unless current_user.nil?
+    return redirect_to create_path unless current_user.nil?
 
     render layout: 'sidebar_signup'
   end

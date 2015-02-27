@@ -34,7 +34,7 @@ StartIt::Application.routes.draw do
   
   get "evaluations/show"
 
-  get "/dashboard", to: 'home#dashboard', as: 'dashboard'
+  #get "/dashboard", to: 'home#dashboard', as: 'dashboard'
 
   resources :notifications, only: [:index, :destroy]
   resources :profiles, except: [:index, :new, :create]
