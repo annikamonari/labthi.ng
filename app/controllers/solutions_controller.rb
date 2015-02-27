@@ -19,7 +19,7 @@ class SolutionsController < ApplicationController
   # POST /solutions.json
   def create
     @solution = Solution.new(solution_params)
-    @solution.aspect = Aspect.find(params[:aspect_id])
+    @solution.aspect = Aspect.find(params[:id])
     @solution.idea = Idea.find(params[:idea_id])
     @solution.user = current_user
 
