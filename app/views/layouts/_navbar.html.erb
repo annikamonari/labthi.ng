@@ -17,8 +17,9 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
       <!-- #nav_link is a custom method defined in application_helper.rb -->
-      <% unless current_user.nil? %>
-        <%= nav_link 'Documentation', '/documentation' %>
+      <% if current_user.nil? %>
+        <a href='javascript:void(0);' id='deviseform'><b>Sign in</b></a>
+      <% else %>
         <%= nav_link 'Create', '/create' %>
         <%= nav_link 'Build', '/build' %>
         <%= nav_link 'Sell', '/buy' %>

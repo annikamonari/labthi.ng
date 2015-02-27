@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
-  before_action :auth_user!, except: [:index]
+  skip_before_filter :auth_user!, only: :index
   
   def index
+    return redirect_to dashboard_path unless current_user.nil?
+
     render layout: 'sidebar_signup'
   end
 
@@ -21,4 +23,5 @@ class HomeController < ApplicationController
   
   def documentation
   end
+
 end
