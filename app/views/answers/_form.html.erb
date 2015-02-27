@@ -13,7 +13,7 @@
 
   <div class="field form-group">
     <%= f.label 'Answer' %><br>
-    <%= f.text_area :brief, class: "form-control" %>
+    <%= f.text_area :brief, placeholder: 'READ THIS BEFORE TYPING IF THIS IS THE FIRST ANSWER YOU ARE SUBMITTING. Be as detailed as possible and try to back up your points with articles, multimedia, or other sources. Be friendly when making your points, but do not be afraid to disagree with other users; multiple viewpoints enhance discussion and accelerate development. Finally, keep in mind that the best answers are written with proper grammar and full sentences.', rows: 5, class: "form-control" %>
   </div>
   <div class="actions">
     <%= f.submit 'Create Answer', :class => "btn btn-primary" %>

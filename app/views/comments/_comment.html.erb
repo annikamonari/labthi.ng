@@ -17,15 +17,18 @@
       <%= comment.brief %>
       <br>
     </div>
-    <% if comment.commentable_type == 'Comment' or comment.commentable_type == 'Answer' or comment.commentable_type == 'Solution' %>
-      <hr>
-    <% else %>
+    <% if comment.commentable_type == 'Question' %>
       <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
+    <% elsif comment.commentable_type == 'Comment' %>
+      <br>
+    <% else %>
+      <hr>
     <% end %>
     <% unless comment.commentable_type == 'Comment' then %>
       <ul class="media-list comments comment-comments">
         <% if comment.comments.count > 0 %>
     	  	<%= render vote_order(comment.comments.includes(:user)) %>
+          <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
         <% end %>
         <div class='white-bg comment-form' style='display:none;'>
           <%= render partial: 'comments/form', locals: { url: create_comment_path(commentable_id: comment.id, commentable_type: 'Comment', idea_id: @idea.id) } %><br>

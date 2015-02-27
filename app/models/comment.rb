@@ -18,6 +18,11 @@ class Comment < ActiveRecord::Base
     [['Comment', self.id]]
   end
 
+  def get_parent_comm_type
+    parent = Comment.find(self.commentable_id)
+    parent.commentable_type
+  end
+
   private
     def create_notification
       parent = self.commentable_type.singularize.classify.constantize.find(self.commentable_id)
