@@ -1,49 +1,49 @@
-<% # This template is called from Idea#show %>
 <li class="media solution solution-<%= solution.id %> content-bg">
 
-  <%= render partial: "evaluations/vote_wrapper", locals: {voteable: solution} %>
+    <%= render partial: "evaluations/vote_wrapper", locals: {voteable: solution} %>
 
-  <div class="media-body">
+
     <div class="media-body">
-      <div class="media-item-body">
-        <div class='userwrap'>
-          <div class='photo'>
-            <%= link_to (image_tag solution.user.profile.photo.thumb, :size => "36x36", class: 'img-rounded'), profile_path(solution.user.profile)%>
-          </div>
-          <div class='username'>
-            <%= render solution.user %><br>
-            <small><i> Posted <%= time_ago_in_words(solution.created_at) %> ago</i></small>
-          </div>
+      <div class="media-body">
+        <div class="media-item-body">
+            <div class='userwrap'>
+              <div class='photo'>
+              <%= link_to (image_tag solution.user.profile.photo.thumb, :size => "36x36", class: 'img-rounded'), profile_path(solution.user.profile)%>
+              </div>
+              <div class='username'>
+              <%= render solution.user %><br>
+              <small><i> Posted <%= time_ago_in_words(solution.created_at) %> ago</i></small>
+              </div>
+            </div>
+          <br>
+          <p><%= solution.brief %></p>
+          <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
         </div>
-        <br>
-        <p><%= solution.brief %></p>
-        <hr style="color:#fff;background-color:#fff;border-color:#fff;" />
+      </div>
+      <div class='pull-right'>
+        <% if @idea.is_phase_1? %>
+          <%= link_to "Add Comment", 'javascript:void(0);', class: "add-answer-comment" %>
+        <% else %>
+          <span class="link-dis"> Add Comment </span>
+        <% end %>
+        <% if solution.comments.count > 0 %>
+          <span class="add-comment-bar link-dis"> | </span>
+          <a href='javascript:void(0);' class='hideanscomments' style='display:none;'>Hide Solution Comments (<%= solution.comments.count %>)</a>
+          <a href='javascript:void(0);' class='showanscomments'>Show Solution Comments (<%= solution.comments.count %>)</a>
+        <% end %>
+      </div>
+      <br>
+      <div class="media-body answercomments" style='display:none;'>
+        <ul class="media-list comments answer-comments">
+          <div class='white-bg comment-form' style='display:none;'>
+            <%= render partial: 'comments/form', locals: { url: create_comment_path(commentable_id: solution.id, commentable_type: 'Solution', idea_id: @idea.id) } %><br>
+            <%= link_to 'Cancel', 'javascript:void(0);', class: 'cancel-answer-comment' %>
+          </div>
+          <% if solution.comments.count > 0 %>
+            <%= render vote_order(solution.comments.includes(:user)) %>
+          <% end %>
+        </ul>
       </div>
     </div>
-
-  <% if solution.comments.count > 0 %>
-    <a href='javascript:void(0);' class='showsolcomments'>Hide Solution Comments</a>
-    <br><br>
-  <% end %>
-
-    <div class="media-body solutioncomments">
-      <ul class="media-list comments solution-comments">
-        <% if solution.comments.count > 0 %>
-          <%= render vote_order(solution.comments.includes(:user)) %>
-        <% end %>
-        <div class='content-bg comment-form' style='display:none;'>
-          <%= render partial: 'comments/form', locals: { url: create_comment_path(commentable_id: solution.id, commentable_type: 'Solution', idea_id: solution.idea.id) } %><br>
-          <%= link_to 'Cancel', 'javascript:void(0);', class: 'cancel-answer-comment' %>
-        </div>
-      </ul>
-    
-      <% if (@idea and @idea.phase != 1) %>
-        <p class="link-dis"> Add comment </p>
-      <% else %>
-        <p>
-          <%= link_to "Add comment", 'javascript:void(0);', class: "add-answer-comment" %>
-        </p>    
-      <% end %>
-    </div>
-  </div>
 </li>
+

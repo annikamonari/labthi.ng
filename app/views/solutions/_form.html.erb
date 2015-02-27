@@ -1,4 +1,4 @@
-<%= form_for(@solution, url: create_solution_path) do |f| %>
+<%= form_for(@solution, url: create_solution_path(id: @aspect.id, idea_id: @idea.id)) do |f| %>
   <% if @solution.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@solution.errors.count, "error") %> prohibited this solution from being saved:</h2>
@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :brief %><br>
-    <%= f.text_area :brief, class: "form-control" %><br>
+    <%= f.label 'Solution' %><br>
+    <%= f.text_area :brief, placeholder: 'PLEASE READ THIS BEFORE SUBMITTING A SOLUTION IF THIS IS YOUR FIRST. The best solutions are written with proper grammar and sentence structure, and a fair amount of background research into the aspect you are writing about. Be sure to click on the lean business canvas link to understand the aspect if the description above is not sufficient. Try and do research on the internet before writing and quote your sources. The most effective solutions have points backed up by concrete sources of evidence.', rows: 5, class: "form-control" %><br>
   </div>
 
   <div class="actions">

@@ -14,8 +14,9 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $("#newsolution").click(function() {
-    $(this).siblings(' .solution-form').show();
+    $(' .solution-form').show();
     $(this).hide();
+    $(" .no.solution.content-bg").hide();
   });
 });
 
@@ -23,5 +24,6 @@ $(document).ready(function() {
   $("#cancel-solution").click(function() {
     $(this).parent().hide();
     $("#newsolution").show();
+    $(" .no.solution.content-bg").show();
   });
 });

@@ -28,8 +28,8 @@
         <% else %>
           <span class="link-dis"> Add comment </span>
         <% end %>
-        <span class="add-comment-bar link-dis"> | </span>
         <% if answer.comments.count > 0 %>
+          <span class="add-comment-bar link-dis"> | </span>
           <a href='javascript:void(0);' class='hideanscomments' style='display:none;'>Hide Answer Comments (<%= answer.comments.count %>)</a>
           <a href='javascript:void(0);' class='showanscomments'>Show Answer Comments (<%= answer.comments.count %>)</a>
         <% end %>

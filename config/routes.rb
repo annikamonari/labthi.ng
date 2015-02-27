@@ -40,7 +40,7 @@ StartIt::Application.routes.draw do
   resources :questions, except: [:index, :create, :update]
   resources :answers, except: [:index, :create]
   resources :aspects, except: [:index, :show, :create, :new] do
-    resources :solutions, except: [:index, :edit, :update, :create, :show]
+    resources :solutions, except: [:index, :edit, :update, :create, :show, :new]
   end
 
   resources :ideas do
@@ -52,7 +52,7 @@ StartIt::Application.routes.draw do
   end
 
   get '/solutions/:id', to: 'solutions#show', as: 'solution'
-  get '/ideas/:idea_id/aspects/:id/solution/create', to: 'solutions#create', as: 'create_solution'
+  post '/ideas/:idea_id/aspects/:id/solution/create', to: 'solutions#create', as: 'create_solution'
 
   get '/ideas/:id/questions/new', to: 'ideas#new_question', as: 'idea_new_question'
   get '/ideas/:id/questions/:question_id', to: 'ideas#edit_question', as: 'idea_edit_question'

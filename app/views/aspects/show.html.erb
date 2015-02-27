@@ -1,51 +1,34 @@
-<p id="notice"><%= notice %></p>
-<%= javascript_include_tag 'ajax401' %>
-
 <%= render 'ideas/sidebar' %>
 <%= render 'ideas/secondary_nav', locals: {idea: @idea} %>
-
+<hr>
 <p>
-  <h1><%= @aspect.title %></h1>
-  <% unless @aspect.title == 'Image' %>
-    <div style='float:right;' id='1-div'>
-      <a id="1-pop-link" 
-          href="#" 
-          data-html='true'
-          data-toggle="popover" 
-          data-content="For more information about what these aspects mean and what they are for, visit the <b>Documentation</b> page.<br><br>Once you understand the aspects and how the business canvas works, you can submit a solution for one of the aspects of the idea's business model in as many as 1250 characters using the guide above. Do not be afraid to have a differing opinion from others in your solution; a discussion with differing viewpoints causes the idea to pivot and its business model to flesh out more effectively.">
-        <%= image_tag 'labthinghelp.png', size: '36x36', id: '1-img' %>
-        <span id='1-close' class='pull-left' style='display:none; color:#34495E;'>
-          <b>x</b>
-        </span>
-      </a>      
-    </div>
-  <% end %>
-  <hr>
-  <div><%= @aspect.brief %></div>
+  <h3 class='set-font-bold'><%= @aspect.title %></h3><br>
+  <div><p style='line-height:25px;'><%= @aspect.brief %></p></div>
   <hr>
 </p>
-
-  <% if @solutions.count > 0 %>
-    <h4>Solutions:</h4>
-      <ul class="media-list solutions">
-      <% vote_order(@solutions).each do |solution| %>
-            <%= render solution || "No solutions found" %>
+<div class='row'>
+  <div class='welcome-block clearfix' style='margin-bottom:-5px;'>
+    <a href='javascript:void(0);' style='color:#333333;'><h4 class='pull-left'>Solutions:</h4></a>
+    <% if @idea.is_phase_1? %>
+    <button href='javascript:void(0);' class='btn btn-info pull-right' align='center' id='newsolution'>
+    <% else %>
+    <button href='javascript:void(0);' class='btn btn-info disabled pull-right' align='center'>
     <% end %>
-  </ul><!-- .solutions -->
-<% else %>
-    <p class="no solution">
-    This aspect does not yet have a solution. Why don't you describe one?
-    </p>
-    <ul class="media-list solutions">
-  </ul><!-- .solutions -->
-<% end %>
-
-<% if @idea.phase != 1 %>
-  <p class="link-dis"> Add solution </p>
-<% else %>
+      Add Solution
+    </button>
+  </div><hr>
   <div class='content-bg solution-form' style='display:none;'>
     <%= render partial: 'solutions/form' %><br>
     <%= link_to 'Cancel', 'javascript:void(0);', id: 'cancel-solution' %>
   </div>
-  <%= link_to "Add solution", 'javascript:void(0);', id: 'newsolution' %>
+  <% if @solutions.count > 0 %>
+      <ul class="media-list solutions">
+      <% vote_order(@solutions).each do |solution| %>
+        <%= render solution || "No solutions found" %>
+    <% end %>
+  </ul><!-- .solutions -->
+<% else %>
+    <p class="no solution content-bg">
+    This aspect does not yet have a solution. Why don't you describe one?
+    </p>
 <% end %>
