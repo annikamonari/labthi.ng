@@ -6,14 +6,14 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-  	@user_activities   = PublicActivity::Activity.includes(:owner, :trackable).where(owner: current_user).order("created_at desc")[0..19]
+  	@user_activities   = PublicActivity::Activity.includes(:owner, :trackable).where(owner: current_user).order("created_at desc").take(20)
     @follow_activities = current_user.get_followed_idea_activity
 
     render layout: 'sidebar_right'
   end
 
   def followed_ideas
-    @user_activities   = PublicActivity::Activity.includes(:owner, :trackable).where(owner: current_user).order("created_at desc")[0..19]
+    @user_activities   = PublicActivity::Activity.includes(:owner, :trackable).where(owner: current_user).order("created_at desc").take(20)
     @follow_activities = current_user.get_followed_idea_activity
 
     render layout: 'sidebar_right'
