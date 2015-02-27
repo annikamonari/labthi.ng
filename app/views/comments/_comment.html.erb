@@ -11,12 +11,11 @@
         </div>
         <div class='username'>
           <%= render comment.user %><br>
-          <small><i> Posted <%= time_ago_in_words(comment.created_at) %> ago</i></small>
+          <small><%= time_ago_in_words(comment.created_at) %> ago</small>
         </div>
       </div><br>
       <%= comment.brief %>
       <br>
-      <div class='pull-right'>(<small><%= time_ago_in_words(comment.created_at) %> ago</small>)</div><br>
     </div>
     <% if comment.commentable_type == 'Comment' or comment.commentable_type == 'Answer' or comment.commentable_type == 'Solution' %>
       <hr>

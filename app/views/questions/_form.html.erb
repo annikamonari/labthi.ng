@@ -1,11 +1,11 @@
 <%= form_for @question, url: url do |f| %>
   <div class="field form-group">
     <%= f.label :title, "Title" %><br>
-    <%= f.text_area :title, class:"form-control" %>
+    <%= f.text_area :title, placeholder: "Enter a descriptive question title here. For example, 'when someone opens the app, what actions can he take?'", class:"form-control" %>
   </div>
   <div class="field form-group">
     <%= f.label :brief, "Description" %><br>
-    <%= f.text_area :brief, class:"form-control" %>
+    <%= f.text_area :brief, placeholder: "Further describe the question you wrote here - go into more detail about what the question means and explain why its an important question to resolve before building the product. It may also be useful to describe the kind of answers you expect to receive on your question.", rows: 3, class:"form-control" %>
   </div>
   <% if user_signed_in? %>
     <%= hidden_field_tag :idea_id, params[:idea_id] %>

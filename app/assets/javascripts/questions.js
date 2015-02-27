@@ -15,15 +15,22 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $("a.add-question-comment").click(function() {
-    $(this).parent().siblings('ul').children('div.content-bg.comment-form').show();
+  $("#add-question-comment").click(function() {
+    $("div.no-comments").hide();
+    $('#add-comment-line').hide();
+    $('#questioncomments').show();
+    $('#questioncomments').children('ul').children('div.content-bg.comment-form').show();
+    $("#showcomments").hide();
+    $("#hidecomments").show();
     $(this).hide();
   });
 });
 
 $(document).ready(function() {
   $("a.cancel-question-comment").click(function() {
+    $("div.no-comments").show();
+    $('#add-comment-line').show();
     $(this).parent().hide();
-    $(this).parent().parent().siblings('p').children($(' .add-question-comment')).show();
+    $('#add-question-comment').show();
   });
 });

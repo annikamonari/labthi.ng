@@ -7,10 +7,14 @@
     <div class="pull-left">
       <%= render 'users/user', user: user %>
       <br>
-      <% if profile.website %>
-        <strong>Skills:</strong>
-        <%= profile.website %>
-      <% end %>
+      <%= user.university %>
+      <br>
+      <div style=' color:#5cb85c;'>
+        <b>local reputation:</b> 
+        <span class='badge-rep' style='background-color:#5cb85c;'>
+          <%= points %>
+        </span>
+      </div>
     </div>
   </div>
 </li>

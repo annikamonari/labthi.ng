@@ -22,10 +22,10 @@
     </div>
   </div>
 </div>
-  <div class="content-bg">
+  <div class="profile-border" style='border-width:4px;'>
     <div class="idea-followers">
       <% @users_points.each do |user, points| %>
-          <%= render 'users/user_with_points', user: user, points: points %>
+          <%= render 'users/team_member', user: user, points: points %>
       <% end %>
     </div>
   </div>
