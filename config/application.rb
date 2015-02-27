@@ -1,6 +1,5 @@
-#require 'faye'  
 require File.expand_path('../boot', __FILE__)
-require File.expand_path('../csrf_protection', __FILE__)
+#require File.expand_path('../csrf_protection', __FILE__)
 
 require 'rails/all'
 
@@ -44,6 +43,5 @@ module StartIt
     end
     
     config.middleware.delete Rack::Lock
-    #config.middleware.use FayeRails::Middleware, extensions: [CsrfProtection.new], mount: '/faye', :timeout => 25
   end
 end
