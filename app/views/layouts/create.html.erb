@@ -5,7 +5,7 @@
 <div style='margin-top:-55px;'>
   <%= yield :background %>
 </div>
-<% unless current_page?('/buy') %>
+<% if current_page?('/create') %>
   <br><br><br>
 
 <div class="container container-main">

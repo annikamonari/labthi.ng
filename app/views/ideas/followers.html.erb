@@ -4,17 +4,12 @@
 <%= render 'sidebar' %>
 
 
-<h4>Followers</h4>
+<h4><%= pluralize(@idea.followers.count, "follower") %> of <%=@idea.title %></h4>
 
 <div class="content-bg">
-  <p>
-    <strong>
-      <%= pluralize(@idea.followers.count, "follower") %> of <%=@idea.title %>
-    </strong>
-  </p>
   <div class="idea-followers">
     <% @idea_followers.each do |user| %>
-        <%= render 'users/user_with_image', user: user %>
+        <%= render 'users/user_with_points', user: user %>
     <% end %>
   </div>
 </div>

@@ -2,25 +2,12 @@
 
 <%= render 'ideas/sidebar' %>
 <%= render 'ideas/secondary_nav', locals: {idea: @question.idea } %>
-
+<hr>
 <div class="question question-<%= @question.id %>">
   <div class="show-question-wrapper clearfix">
     
     <%= render partial: "evaluations/vote_wrapper", locals: {voteable: @question} %>
     <p>
-    <% if @idea.phase == 1 %>
-      <div style='float:left; height:120px; margin-right:5px;' id='1-div'>
-        <a id="1-pop-link" 
-            href="#" 
-            data-toggle="popover" 
-            data-content="Vote the question up or down depending on if you think it is a good addition to the discussion. Comment on it if there is something you would like to clarify, or if you have additional thoughts to add to the question.">
-          <%= image_tag 'labthinghelp.png', size: '36x36', id: '1-img' %>
-          <span id='1-close' class='pull-left' style='display:none; position:absolute; top:20px; margin-left:-5px; color:#34495E;'>
-            <b>x</b>
-          </span>
-        </a>      
-      </div>
-    <% end %>
       <h4><strong>
         <%= @question.title %>
       </strong></h4>
@@ -40,76 +27,66 @@
       </div>
     </p>
   </div><!-- .show-question-wrapper -->
-  <div style='width:85%;margin-left:110px;'>
-    <% if @question.comments.count > 0 %>
+  <div style='width:85%;' class='pull-right'>
     <div align='right' style='margin-bottom:10px;margin-top:15px;'>
-      <a href='javascript:void(0);' id='hidecomments'>Hide Question Comments (<%= @question.comments.count %>) </a>
-      <a href='javascript:void(0);' id='showcomments' style='display:none;'>Show Question Comments (<%= @question.comments.count %>) </a>
-    </div>
-      <hr style='margin-top:-1px;'/>
-    <% end %>
-    <div class="media-body" id='questioncomments'>
-      <ul class="media-list comments question-comments">
-        <% if @question.comments.count > 0 %>
-          <%= render vote_order(@question.comments.includes(:user)) %>
+      <% if @question.idea.is_phase_1? %>
+          <span>
+            <%= link_to "Add comment", 'javascript:void(0);', id: "add-question-comment" %>
+          </span>
         <% else %>
-          <div class='no comments'>
-            <div class='content-bg'>There are no comments yet. Be the first to add one!</div>
-          </div>
-        <% end %>
+          <span class="link-dis"> Add comment </span>
+      <% end %> 
+      <% if @question.comments.count > 0 %>
+        <span class='link-dis' id='add-comment-line'>|</span>
+        <a href='javascript:void(0);' id='hidecomments' style='display:none;'>Hide Question Comments (<%= @question.comments.count %>) </a>
+        <a href='javascript:void(0);' id='showcomments'>Show Question Comments (<%= @question.comments.count %>) </a> 
+      <% end %>
+    </div>
+    <hr style='margin-top:-1px;'/>
+    <div class="media-body" id='questioncomments' style='display:none;'>
+      <ul class="media-list comments question-comments">
         <div class='content-bg comment-form' style='display:none;'>
           <%= render partial: 'comments/form', locals: { url: create_comment_path(commentable_id: @question.id, commentable_type: 'Question', idea_id: @question.idea.id) } %><br>
           <%= link_to 'Cancel', 'javascript:void(0);', class: 'cancel-question-comment' %>
         </div>
-        </ul>
-      <% if @question.idea.is_phase_1? %>
-        <p>
-          <%= link_to "Add comment", 'javascript:void(0);', class: "add-question-comment" %>
-        </p>
-      <% else %>
-        <p class="link-dis"> Add comment </p>
-      <% end %>
+        <% if @question.comments.count > 0 %>
+          <%= render vote_order(@question.comments.includes(:user)) %>
+        <% else %>
+          <div class='no-comments'>
+            <div class='content-bg'>There are no comments yet. Be the first to add one!</div>
+          </div>
+        <% end %>
+      </ul> 
     </div>
   </div>
 </div>
-<br><br>
-<div class='welcome-block clearfix' style='margin-bottom:-5px;'>
-<% if @idea.phase == 1 %>
-  <div style='float:left; margin-right:5px; display:none;' id='2-div'>
-    <a id="2-pop-link" 
-        href="#" 
-        data-toggle="popover" 
-        data-content="To add an answer, scroll to the bottom of the page and click <b>Add Answer</b>. Try to be as descriptive as possible and answer the question with the objective of developing and improving the idea conceptually. You can comment on others' answers for clarification purposes or if you have a contribution to it. You can also up and downvote answers based on how helpful they are. For more information, visit the <b>Documentation</b> page.">
-      <%= image_tag 'labthinghelp.png', size: '36x36', id: '2-img' %>
-      <span id='2-close' class='pull-left' style='display:none; position:absolute; top:0px; margin-left:-5px; color:#34495E;'>
-        <b>x</b>
-      </span>
-    </a>      
-  </div>
-<% end %>
-  <a href='javascript:void(0);' id='showanswers' style='color:#333333;'><h4 class='pull-left'>Answers:</h4></a>
-  <% if @question.idea.is_phase_1? %>
-  <button href='javascript:void(0);' class='btn btn-info pull-right' align='center' id='newanswer'>
-  <% else %>
-  <button href='javascript:void(0);' class='btn btn-info disabled pull-right' align='center'>
-  <% end %>
-    Add Answer
-  </button>
-</div><hr>
-<div id='answers'>
-  <ul class="answers media-list">
-    <div class='content-bg' style='display:none;' id='answerform'>
-      <%= render partial: 'answers/form', locals: { url: create_answer_path(question_id: @question.id)} %><br>
-      <%= link_to 'Cancel', 'javascript:void(0);', id: 'cancelanswerform' %>
-    </div>
-    <% if @answers.count > 0 %>
-      <%= render vote_order(@answers) %>
+<div class='row'></div><br><br>
+<div class='row'>
+  <div class='welcome-block clearfix' style='margin-bottom:-5px;'>
+    <a href='javascript:void(0);' id='showanswers' style='color:#333333;'><h4 class='pull-left'>Answers:</h4></a>
+    <% if @question.idea.is_phase_1? %>
+    <button href='javascript:void(0);' class='btn btn-info pull-right' align='center' id='newanswer'>
     <% else %>
-      <div class='no answers' id='noanswer'>
-        No answers yet. Why don't you add one?
-      </div>
+    <button href='javascript:void(0);' class='btn btn-info disabled pull-right' align='center'>
     <% end %>
-  </ul>
+      Add Answer
+    </button>
+  </div><hr>
+  <div id='answers'>
+    <ul class="answers media-list">
+      <div class='content-bg' style='display:none;' id='answerform'>
+        <%= render partial: 'answers/form', locals: { url: create_answer_path(question_id: @question.id)} %><br>
+        <%= link_to 'Cancel', 'javascript:void(0);', id: 'cancelanswerform' %>
+      </div>
+      <% if @answers.count > 0 %>
+        <%= render vote_order(@answers) %>
+      <% else %>
+        <div class='no answers' id='noanswer'>
+          No answers yet. Why don't you add one?
+        </div>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 <% if @question.idea.is_phase_1? %>

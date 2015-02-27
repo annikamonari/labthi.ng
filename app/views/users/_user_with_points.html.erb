@@ -7,16 +7,9 @@
     <div class="pull-left" style='margin-top:5px;'>
       <%= render 'users/user', user: user %>
       <br>
-      <% if profile.website %>
-        <strong>Twitter:</strong>
-        <%= profile.website %><br>
-      <% end %>
-      <% if profile.country %>
-        <strong>Country:</strong>
-        <%= profile.country %><br>
-      <% end %>
-    </div>
-    <div class='pull-right' style='margin-top:5px;'>
+      <%= user.university %>
+      <br>
+    <div style=''>
       <div style=' color:#5cb85c;'>
         <b>local reputation:</b> 
         <span class='badge-rep' style='background-color:#5cb85c;'>
@@ -24,5 +17,7 @@
         </span>
       </div>
     </div>
+    </div>
   </div>
+  <hr class='profile-border' style='border-width:1px;'/>
 </li>
