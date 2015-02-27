@@ -14,7 +14,6 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require jquery.atwho
 //= require bootsy
 //= require chats
 //= require turbolinks
