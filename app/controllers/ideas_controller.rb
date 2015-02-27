@@ -51,14 +51,16 @@ class IdeasController < ApplicationController
     @idea.phase       = 1
     @idea.active      = 'true'
     @idea.user_id     = current_user.id
-    @idea.create_days = Date.today + params[:idea][:create_days].to_i.days
+    unless params[:idea][:create_days].nil? 
+      @idea.create_days = Date.today + params[:idea][:create_days].to_i.days
+    end
 
     if @idea.save
       @idea.create_activity :create, owner: (current_user)
       redirect_to @idea
       current_user.follow_idea!(@idea)
     else
-      redirect_to :back, notice: 'An error occured.'
+      render :new, notice: 'An error occured.'
     end
   end
 
