@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  skip_before_filter :auth_user!, only: :index
+  skip_before_filter :auth_user!, only: [:index, :terms, :privacy]
   
   def index
     return redirect_to dashboard_path unless current_user.nil?
@@ -22,6 +22,12 @@ class HomeController < ApplicationController
   end
   
   def documentation
+  end
+
+  def terms
+  end
+
+  def privacy
   end
 
 end
