@@ -3,11 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .footer {
+  position:absolute;
+  bottom:0;
   background: image-url('footer.png'); 
   width:100%;
   background-position:center;
   background-size:cover;
-  height:60px;
+  height:40px;
 }
 
 .border {
