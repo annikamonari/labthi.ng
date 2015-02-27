@@ -113,7 +113,7 @@ end
   gem 'bootstrap-slider-rails'
 
 #instant chat
-gem 'faye-rails', '~> 2.0'
+#gem 'faye-rails', '~> 2.0'
 gem 'jquery-atwho-rails'
 
 # Use unicorn as the app server

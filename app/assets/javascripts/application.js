@@ -16,7 +16,6 @@
 //= require jquery_ujs
 //= require jquery.atwho
 //= require bootsy
-//= require faye
 //= require chats
 //= require turbolinks
 //= require twitter/bootstrap
