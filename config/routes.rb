@@ -3,14 +3,9 @@ StartIt::Application.routes.draw do
 # =============================================================================
 # Application Wide ============================================================
 # =============================================================================
-
   root to: 'home#index'
 
   # User ======================================================================
-  authenticated :user do
-    root :to => 'home#dashboard', as: :dashboard
-  end
-
   devise_for :users, controllers: { registrations: 'registrations', passwords: 'passwords', sessions: 'sessions' }
   devise_scope :user do
     get "users/sign_in", :to => "devise/sessions#new"
@@ -34,6 +29,8 @@ StartIt::Application.routes.draw do
   match "/solutions/vote", via:[:post], as: "solution_vote"
   
   get "evaluations/show"
+
+  get "/dashboard", to: 'home#dashboard', as: 'dashboard'
 
   resources :notifications, only: [:index, :destroy]
   resources :profiles, except: [:index, :new, :create]
