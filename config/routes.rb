@@ -67,7 +67,7 @@ StartIt::Application.routes.draw do
   get '/ideas/:idea_id/aspects/:id', to: 'aspects#show', as: 'idea_aspect'
 
   get '/ideas/:id/define', to: 'ideas#define'
-  get '/ideas/:id/reputation', to: 'ideas#reputation'
+  get '/ideas/:id/reputation', to: 'ideas#reputation', as: 'reputation_path'
   get '/ideas/:id/activity', to: 'ideas#activity'
 
   get '/profiles/:id/skills', to: 'profiles#skills'

@@ -3,13 +3,13 @@
 <%= render 'secondary_nav' %>
 <%= render 'sidebar' %>
 
-
-<h4><%= pluralize(@idea.followers.count, "follower") %> of <%=@idea.title %></h4>
+<hr>
+<h4><%= pluralize(@idea.followers.count, "follower") %> of <b><%=@idea.title %></b></h4>
 
 <div class="content-bg">
   <div class="idea-followers">
-    <% @idea_followers.each do |user| %>
-        <%= render 'users/user_with_points', user: user %>
+    <% @idea_followers.each do |user, points| %>
+        <%= render 'users/team_member', user: user, points: points %>
     <% end %>
   </div>
 </div>
