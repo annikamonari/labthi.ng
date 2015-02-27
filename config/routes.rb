@@ -19,6 +19,9 @@ StartIt::Application.routes.draw do
   get 'build', to: 'explore#build'
   get 'buy', to: 'explore#buy'
 
+  get 'terms', to: 'home#terms', as: 'terms'
+  get 'privacy', to: 'home#privacy', as: 'privacy'  
+
 # =============================================================================
 # Phase 1 =====================================================================
 # =============================================================================
