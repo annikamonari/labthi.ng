@@ -4,34 +4,6 @@
 <div class="welcome-block clearfix">
 	<h4 class="pull-left">Critique, expand, and improve the product features of this idea!</h4>
 	<div>
-		<div style='float:right;'>
-		<% if @idea.phase == 1 %>
-			<div style='float:left;' id='1-div'>
-				<a id="1-pop-link" 
-		        href="#" 
-		        data-toggle="popover" 
-		        data-content="Ask a question about the idea's creative scope; e.g. 'How will you build the prototype of this idea?', or 'What are the legal implications of using __?' - alternatively, you can click on one of the 
-		        questions below and answer one of these questions to help direct the idea's concept.">
-		    	<%= image_tag 'labthinghelp.png', size: '36x36', id: '1-img' %>
-		    	<span id='1-close' class='pull-left' style='display:none; position:absolute; top:0; margin-left:-5px; color:#34495E;'>
-		    		<b>x</b>
-		    	</span>
-		    </a>	    
-			</div>
-		<% else %>
-			<div style='float:left;' id='1-div'>
-				<a id="1-pop-link" 
-		        href="#" 
-		        data-toggle="popover" 
-		        data-html='true'
-		        data-content="You cannot create a question, comment, answer or solution when the idea has moved into the build and buy phases. Here, you are able to see the <i>archive</i> of the phase 1 discussion, but you will not be able to edit or add to any of it.">
-		    	<%= image_tag 'labthinghelp.png', size: '36x36', id: '1-img' %>
-		    	<span id='1-close' class='pull-left' style='display:none; position:absolute; top:0; margin-left:-5px; color:#34495E;'>
-		    		<b>x</b>
-		    	</span>
-		    </a>	    
-			</div>
-		<% end%>
 		<%= link_to "Create a question", {
 		  controller: "ideas",
 		  action: "new_question",
