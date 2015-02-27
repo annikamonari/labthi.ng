@@ -123,7 +123,7 @@ class IdeasController < ApplicationController
   end
 
   def followers
-    @idea_followers = @idea.followers.includes(:profile)
+    @idea_followers = @idea.followers.includes(:profile).sum_points(@idea.get(:local_reputation))
     render layout: 'sidebar_left'
   end
 

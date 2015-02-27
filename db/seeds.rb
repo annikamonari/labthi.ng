@@ -22,7 +22,7 @@ brief_data = ["CC uses the definition of free cultural works at Freedom Defined 
 							you can use it however you want. This means without restrictions based on the 
 							kind of use."]
 title_data = ["Pizza Machine for Disabled People", "This is an Example Idea", "A Silent Hairdryer"]
-
+=end
 
 aspect_data = [
 	{
@@ -95,7 +95,7 @@ aspect_data.each do |d|
 end
 
 
-
+=begin
 admin_user_data = [
 	{
 		email: "annikamonari@gmail.com",
@@ -139,7 +139,7 @@ end
 end
 
 Idea.first.promote!
-=end
 
+=end
 
 
