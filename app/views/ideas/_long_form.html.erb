@@ -12,11 +12,11 @@
     <% end %>
      <div class="field form-group">
       <%= f.label :title %>
-      <%= f.text_area :title, class:"form-control" %>
+      <%= f.text_area :title, placeholder: "Explain the main point of the idea: this won't be the name of your product, but rather the community's first glimpse at what your idea is about", class:"form-control" %>
     </div>
     <div class="field form-group">
-      <%= f.label :brief %>
-      <%= f.text_area :brief, class:"form-control" %>
+      <%= f.label "Description" %>
+      <%= f.text_area :brief, placeholder: "Explain how you imagine the product working, a problem it solves for a group of consumers, an aspect of the business model you have already thought through (if any), and anything else you think will help people understand and refine your idea.", class:"form-control" %>
     </div>
     <div class="field form-group">
       <%= f.label :kind, 'Type' %><br>
@@ -35,8 +35,10 @@
     </div>
     <div class="field form-group">
       <%= f.label 'Number of Days for Idea to be in Create Phase' %><br>
+      <p><i>This refers to the number of days you would like the idea to be brainstormed by the community in phase 1. The brainstorming is not only helpful for refining your concept, but also for finding future team members to help build it into a start-up in phase 2.</i></p>
       <%= f.collection_select :create_days, Idea::NO_CREATE_DAYS, :to_s, :to_s, include_blank: 'Select' %>
-    </div><br>
+    </div>
+    <br>
     <div class="actions">
       <%= f.submit :class => "btn btn-primary" %>
     </div>

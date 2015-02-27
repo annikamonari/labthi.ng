@@ -27,7 +27,7 @@ class Idea < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  NO_CREATE_DAYS = [1, 5, 10, 15, 20, 25, 30]
+  NO_CREATE_DAYS = [7, 10, 15, 20, 25, 30]
 
   def image_aspect
     Aspect.find_or_create_by(title: "Image")
