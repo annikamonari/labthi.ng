@@ -34,7 +34,7 @@
     <ul class="nav navbar-nav navbar-right">
       <%= render 'devise/menu/registration_items' %>
       <%= render 'devise/menu/login_items' %>
-      <% if current_user.nil? %>
+      <% if current_user.nil? and current_page?('/')%>
       <p style='margin-top:6px;'>
         <a href='javascript:void(0);' id='deviseform' class='btn btn-primary' style='padding-top:2px;'><b>Sign in</b></a>
       </p>
