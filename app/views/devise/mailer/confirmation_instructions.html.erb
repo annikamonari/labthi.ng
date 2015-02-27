@@ -1,5 +1,19 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %></p>
+<div class='content-bg' style='background: #ecf0f1;border-radius: 8px;padding: 11px 13px;margin-bottom: 20px;list-style:none;width:550px;'>
+  <div style='margin-left:35px;'>
+    <a href='http://labthi.ng' target='_blank'><img src="http://imageshack.com/a/img674/5450/yFswbF.jpg"/></a>
+  </div>
+  <div class='white-bg' style='border-radius: 8px;background:#fff;padding:8px;list-style:none;width:500px;margin-left:18px;color:#333333;text-align: justify;text-justify: inter-word;'>
+    <div style='margin-left:10px;'>
+      <h4><b>Welcome <%= @email %>!</b>!</h4>
+      <p>You can confirm your account email through the link below:<br><br>
+      <%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %>
+      <br><br>
+      You are now ready to log in! Thanks for joining us.</p>
+      <p>Sincerely,<br>
+      <b>The Labthi.ng Team</b></p>
+    </div>
+  </div><br>
+  <div style='margin-left:36px;margin-bottom:10px;'>
+  Any Questions? <a href="mailto:contact@labthi.ng?Subject=I%20Have%20Questions!" target="_top">Contact Us</a><br><br>
+  </div>
+</div>
