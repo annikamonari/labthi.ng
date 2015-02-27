@@ -27,11 +27,8 @@ test:
   timeout: 5000
 
 production:
-  adapter: postgresql
-  database: app_production
-  encoding: unicode
+  adapter: mysql2
+  database: rails
+  username: rails
+  password: <%= ENV['LABTHING_DATABASE_PASSWORD'] %>
   host: localhost
-  username: postgres
-  password: banana
-  pool: 5
-  timeout: 5000

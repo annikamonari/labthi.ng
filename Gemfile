@@ -6,7 +6,7 @@ gem 'rails'
 ruby '2.0.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'pg'
+gem 'mysql2', group: :production
 
 gem 'mini_magick', '>= 3.7.0'
 # Suggested for heroku, enables logging
@@ -103,6 +103,7 @@ group :test, :development do
   gem 'guard-rspec'
   gem 'foreman'
   gem 'rspec-activemodel-mocks'
+  gem 'pg'
 
   require 'rbconfig'
   gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i

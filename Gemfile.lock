@@ -330,6 +330,7 @@ GEM
     multi_test (0.1.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    mysql2 (0.3.16)
     nenv (0.1.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -514,6 +515,7 @@ DEPENDENCIES
   jquery-turbolinks
   launchy
   mini_magick (>= 3.7.0)
+  mysql2
   pg
   public_activity!
   rack-timeout
