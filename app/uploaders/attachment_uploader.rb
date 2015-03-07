@@ -5,7 +5,7 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # For testing, upload files to local `tmp` folder.
-  if Rails.env.test? || Rails.env.cucumber?
+  if Rails.env.test? 
     storage :file
     enable_processing false
     root "#{Rails.root}/tmp"

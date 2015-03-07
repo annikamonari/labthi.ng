@@ -7,7 +7,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  if Rails.env.test? || Rails.env.cucumber?
+  if Rails.env.test?
     storage :file
     enable_processing false
     root "#{Rails.root}/tmp"
